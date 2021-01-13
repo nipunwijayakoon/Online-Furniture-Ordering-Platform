@@ -18,6 +18,12 @@
 .env.test.local
 .env.production.local
 
+.vscode
+Project-Backend/.vs
+Project-Backend/Project-Backend/bin/
+Project-Backend/Project-Backend/obj/
+
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
