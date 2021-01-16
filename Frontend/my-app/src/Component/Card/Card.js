@@ -5,47 +5,47 @@ import CardItem from './Cardim';
 function Cards() {
     return (
       <div className='cards'>
-        <h1>Check out these EPIC Destinations!</h1>
+        <h1>You can make orders or buildup own ideas through this!</h1>
         <div className='cards__container'>
           <div className='cards__wrapper'>
             <ul className='cards__items'>
               <CardItem
-                src='images/img-9.jpg'
-                text='Explore the hidden waterfall deep inside the Amazon Jungle'
-                label='Adventure'
+                src='images/img-1.jpg'
+                text='Latest Furniture Design'
+                label='Veiw More'
                 path='/services'
               />
               <CardItem
                 src='images/img-2.jpg'
-                text='Travel through the Islands of Bali in a Private Cruise'
-                label='Luxury'
+                text='Populer Furniture Design'
+                label='Veiw More'
                 path='/services'
               />
             </ul>
             <ul className='cards__items'>
               <CardItem
                 src='images/img-3.jpg'
-                text='Set Sail in the Atlantic Ocean visiting Uncharted Waters'
-                label='Mystery'
+                text='Special master bed room  and bed room furnitures'
+                label='Veiw More'
                 path='/services'
               />
               <CardItem
                 src='images/img-4.jpg'
-                text='Experience Football on Top of the Himilayan Mountains'
-                label='Adventure'
+                text='Specail home and event, party and function funitures'
+                label='Veiw More'
                 path='/products'
               />
               <CardItem
-                src='images/img-8.jpg'
-                text='Ride through the Sahara Desert on a guided camel tour'
-                label='Adrenaline'
+                src='images/img-5.jpg'
+                text='Special wall art, floor art, window art and table and chair art'
+                label='Veiw More'
                 path='/sign-up'
               />
 
                <CardItem
-                src='images/img-8.jpg'
-                text='Ride through the Sahara Desert on a guided camel tour'
-                label='Adrenaline'
+                src='images/img-6.jpg'
+                text='Special chair, table and furnitures and furnitures for guests'
+                label='Veiw More'
                 path='/sign-up'
               />
             </ul>

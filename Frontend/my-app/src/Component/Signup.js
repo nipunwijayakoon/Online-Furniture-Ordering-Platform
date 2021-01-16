@@ -19,12 +19,7 @@ import Container from '@material-ui/core/Container';
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="http://www.eng.ruh.ac.lk/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
+      
     </Typography>
   );
 }
@@ -113,7 +108,7 @@ export default function SignUp() {
           <Grid item xs={12}>
             <FormControlLabel
               control={<Checkbox value="allowExtraEmails" color="primary" />}
-              label="I want to receive inspiration, marketing promotions and updates via email."
+              label="I want to become a member on Lanka Furniture Makers"
             />
           </Grid>
         </Grid>
