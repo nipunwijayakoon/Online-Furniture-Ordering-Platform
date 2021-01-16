@@ -32,8 +32,9 @@ function Navbar() {
         <nav className='navbar'>
           <div className='navbar-container'>
             <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-              FURNITURES
-              <i class='fab fa-typo3' />
+              LANKA FURNITURE MAKERS
+             
+              
             </Link>
             <div className='menu-icon' onClick={handleClick}>
               <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -63,10 +64,10 @@ function Navbar() {
                 </Link>
               </li>
   
-              <li>
+              <li className='nav-item'>
                 <Link
                   to='/sign-in'
-                  className='nav-links-mobile'
+                  className='nav-links'
                   onClick={closeMobileMenu}
                 >
                   Sign In
@@ -84,16 +85,7 @@ function Navbar() {
               </li>
 
 
-              <li>
-                <Link
-                  to='/sign-in'
-                  className='nav-links-mobile'
-                  onClick={closeMobileMenu}
-                >
-                  Sign IN
-                </Link>
-              </li>
-
+            
 
 
 
