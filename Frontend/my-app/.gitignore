@@ -23,6 +23,7 @@ Project-Backend/.vs
 Project-Backend/Project-Backend/bin/
 Project-Backend/Project-Backend/obj/
 
+.eslintcache
 
 npm-debug.log*
 yarn-debug.log*

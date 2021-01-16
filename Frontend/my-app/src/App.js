@@ -7,6 +7,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Homepage from './Component/Home/Homepage';
 import SignUp from './Component/Auth/signup';
+import SignIn from './Component/Auth/signin';
+import PaymentCheckout from './Component/Payment/Confirmation';
+import Reset from './Component/Auth/resetpassword';
 import ViewDesign from './Component/Design/ViewDesign';
 import Navbar from './Component/Nav/Navbar';
 
@@ -18,13 +21,26 @@ import Signup from './Component/Signup';
 const App = () => {
 
   return (
+   
 
+    <Router>
+         
     
-      <Router>
+      
         <Navbar />
         <Fragment>
         <Switch>
         <Route exact path='/signup' component={SignUp} />
+      
+        <Route exact path='/signin' component={SignIn} />
+
+        <Route exact path='/Checkout' component={PaymentCheckout} />
+        <Route exact path='/resetpassword' component={Reset} />
+        
+        
+        
+        
+       
         <Route exact path='/ViewDesign' component={ViewDesign} />
         
         <Route path='/' exact component={Homepage} />
@@ -32,9 +48,13 @@ const App = () => {
           <Route path='/products' component={Products} />
           <Route path='/sign-up' component={Signup} />
       </Switch>
-        </Fragment>
       
+        </Fragment>
+        
     </Router>
+    
+
+    
 
          
         
@@ -42,6 +62,8 @@ const App = () => {
 
 
   );
+
+  
 }
 
 export default App;
