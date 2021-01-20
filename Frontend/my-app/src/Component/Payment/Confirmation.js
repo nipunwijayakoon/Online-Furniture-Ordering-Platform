@@ -94,18 +94,20 @@ export default function PaymentCheckout() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="absolute" color="default" className={classes.appBar}>
+      <AppBar position="absolute" color="default">
         <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
+          <Typography variant="h6" color="inherit" noWrap >
             FURNITURE LANKA (PVT)LTD.
           </Typography>
         </Toolbar>
       </AppBar>
+
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
             CONFIRMATION
           </Typography>
+
           <Stepper activeStep={activeStep} className={classes.stepper}>
             {steps.map((label) => (
               <Step key={label}>
@@ -113,6 +115,7 @@ export default function PaymentCheckout() {
               </Step>
             ))}
           </Stepper>
+
           <React.Fragment>
             {activeStep === steps.length ? (
               <React.Fragment>
