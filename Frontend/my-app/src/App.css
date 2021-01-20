@@ -12,6 +12,8 @@
 .home,
 .services,
 .products,
+.confirmation,
+.viewdesign,
 .sign-up,
 .sign-in {
   display: flex;
@@ -49,6 +51,7 @@
   font-size: 100px;
 }
 
+
 .sign-up {
   background-image: url('./images/img-8.jpg');
   background-position: center;
@@ -57,6 +60,15 @@
   color: #fff;
   font-size: 100px;
 }
+.sign-in {
+  background-image: url('./images/img-8.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 100px;
+}
+
 .background-red {
   background-color: red;
 }

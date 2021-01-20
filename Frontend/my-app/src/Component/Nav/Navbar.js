@@ -47,20 +47,20 @@ function Navbar() {
               </li>
               <li className='nav-item'>
                 <Link
-                  to='/services'
+                  to='/Checkout'
                   className='nav-links'
                   onClick={closeMobileMenu}
                 >
-                  Services
+                  Confirmation
                 </Link>
               </li>
               <li className='nav-item'>
                 <Link
-                  to='/products'
+                  to='/viewdesign'
                   className='nav-links'
                   onClick={closeMobileMenu}
                 >
-                  Products
+                  View Designs
                 </Link>
               </li>
   
@@ -69,8 +69,9 @@ function Navbar() {
                   to='/sign-in'
                   className='nav-links'
                   onClick={closeMobileMenu}
+                  style={{backgroundColor: "#610B0B"}}
                 >
-                  Sign In
+                  SIGN IN
                 </Link>
               </li>
 
@@ -92,7 +93,9 @@ function Navbar() {
 
             </ul>
             
+            
             {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+            
 
             
 
