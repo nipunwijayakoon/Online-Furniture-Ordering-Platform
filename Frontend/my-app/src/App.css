@@ -14,7 +14,8 @@
 .products,
 .confirmation,
 .viewdesign,
-.sign-up {
+.sign-up,
+.sign-in {
   display: flex;
   height: 90vh;
   align-items: center;
@@ -22,14 +23,24 @@
   font-size: 3rem;
 }
 
-.confirmation {
-  background-image: url('./images/img-2.jpg');
+.services {
+  background-image: url('./images/img-10.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   color: rgb(15, 1, 1);
   font-size: 100px;
 }
+
+.products {
+  background-image: url('./images/img-11.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: rgb(3, 0, 0);
+  font-size: 100px;
+}
+
 
 .sign-in {
   background-image: url('./images/img-12.jpg');

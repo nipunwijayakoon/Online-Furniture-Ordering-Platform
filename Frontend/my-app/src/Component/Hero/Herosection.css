@@ -18,6 +18,18 @@ video {
   object-fit: contain;
 }
 
+  .hero-container > h1 {
+    color: rgb(255, 255, 255);
+    font-size: 70px;
+    margin-top: -100px;
+  }
+  
+  .hero-container > p {
+    margin-top: 8px;
+    color: #fff;
+    font-size: 32px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
 
 .hero-container > h1 {
   color: rgb(255, 255, 255);
