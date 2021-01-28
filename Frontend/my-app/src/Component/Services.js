@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
 
-export default function Checkout() {
-  return <h1 className='Checkout'>CONFIRMATION</h1>;
+export default function Services() {
+  return <h1 className='services'></h1>;
 }

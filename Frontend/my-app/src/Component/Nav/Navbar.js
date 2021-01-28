@@ -30,8 +30,9 @@ function Navbar() {
         <nav className='navbar'>
           <div className='navbar-container'>
             <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-              FURNITURES
-              <i class='fab fa-typo3' />
+              LANKA FURNITURE MAKERS
+             
+              
             </Link>
             <div className='menu-icon' onClick={handleClick}>
               <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -53,7 +54,7 @@ function Navbar() {
               </li>
               <li className='nav-item'>
                 <Link
-                  to='/products'
+                  to='/viewdesign'
                   className='nav-links'
                   onClick={closeMobileMenu}
                 >
@@ -63,7 +64,7 @@ function Navbar() {
   
               <li className='nav-item'>
                 <Link
-                  to='/signin'
+                  to='/sign-in'
                   className='nav-links'
                   onClick={closeMobileMenu}
                   style={{backgroundColor: "#610B0B"}}
@@ -82,9 +83,15 @@ function Navbar() {
                 </Link>
               </li>
 
-           </ul>
+
             
 
+
+
+
+            </ul>
+            
+            
             {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
             
 

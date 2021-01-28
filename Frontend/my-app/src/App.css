@@ -12,7 +12,10 @@
 .home,
 .services,
 .products,
-.sign-up {
+.confirmation,
+.viewdesign,
+.sign-up,
+.sign-in {
   display: flex;
   height: 90vh;
   align-items: center;
@@ -20,10 +23,8 @@
   font-size: 3rem;
 }
 
-
-
-.confirmation {
-  background-image: url('./images/img-2.jpg');
+.services {
+  background-image: url('./images/img-10.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -41,13 +42,24 @@
 }
 
 .products {
-  background-image: url('./images/img-2.jpg');
+  background-image: url('./images/img-11.jpg');
   background-position: center;
-  background-size: fill;
+  background-size: cover;
   background-repeat: no-repeat;
   color: rgb(3, 0, 0);
   font-size: 100px;
 }
+
+
+.sign-in {
+  background-image: url('./images/img-12.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: rgb(3, 0, 0);
+  font-size: 100px;
+}
+
 
 .sign-up {
   background-image: url('./images/img-8.jpg');
@@ -57,6 +69,15 @@
   color: #fff;
   font-size: 100px;
 }
+.sign-in {
+  background-image: url('./images/img-8.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 100px;
+}
+
 .background-red {
   background-color: red;
 }

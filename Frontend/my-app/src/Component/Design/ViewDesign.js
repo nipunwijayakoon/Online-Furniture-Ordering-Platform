@@ -68,7 +68,7 @@ export default function Album() {
     <React.Fragment>
       
       <CssBaseline />
-      <AppBar position="relative" style={{ backgroundColor: "#d29179"}}>
+      <AppBar position="relative" style={{ backgroundImage: "url('https://images.pexels.com/photos/301378/pexels-photo-301378.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')",backgroundSize: "cover"}}>
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
             Choose Your Designs Now...
@@ -86,7 +86,7 @@ export default function Album() {
             <Typography variant="h6" align="center" color="error" style={{ backgroundColor: "#f2d0c4" }} paragraph>
               These are the products which are currently available in our store. You can order your products by adding relavent products to the cart. If anything relevant, you can contact our member...
             </Typography>
-            <Typography variant="h6" align="center" color="textSecondary" paragraph>
+            <Typography variant="h6" align="center" color="textPrimary" paragraph>
               Tel: 081-2235643 Mobile: (+94) 71 3452908 / 76 9145689
             </Typography>
 
@@ -99,7 +99,7 @@ export default function Album() {
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button variant="outlined" color="secondary">
+                  <Button variant="contained" color="secondary">
                     Shopping Cart
                     <ShoppingCartIcon className={classes.icon}/>
                   </Button>
@@ -160,7 +160,7 @@ export default function Album() {
                 </CardContent>
               
                 <CardActions>
-                <Button size="small" color="red">
+                <Button size="small" color="primary">
                       View More
                     </Button>
                     <Button size="small" color="secondary">
@@ -458,7 +458,7 @@ export default function Album() {
 
       </main>
       {/* Footer */}
-      <footer className={classes.footer}>
+      <footer className={classes.footer} style={{ backgroundImage: "url('https://images.pexels.com/photos/963486/pexels-photo-963486.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')",backgroundSize: "cover"}}>
         <Typography variant="h6" align="center" color="inherit" gutterBottom >
         Purchase Your Furniture Today
         </Typography>

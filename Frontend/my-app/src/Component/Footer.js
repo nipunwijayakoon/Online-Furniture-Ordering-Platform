@@ -10,20 +10,15 @@ function Footer() {
       <div className='footer-container'>
         <section className='footer-subscription'>
           <p className='footer-subscription-heading'>
-            Join the Adventure newsletter to receive our best vacation deals
+            Join with us !
           </p>
           <p className='footer-subscription-text'>
-            You can unsubscribe at any time.
+          It is very easy to make orders and share your ideas
           </p>
           <div className='input-areas'>
             <form>
-              <input
-                className='footer-input'
-                name='email'
-                type='email'
-                placeholder='Your Email'
-              />
-              <Button buttonStyle='btn--outline'>Subscribe</Button>
+             
+              <Button buttonStyle='btn--outline'>Register now</Button>
             </form>
           </div>
         </section>
@@ -32,25 +27,25 @@ function Footer() {
             <div class='footer-link-items'>
               <h2>About Us</h2>
               <Link to='/sign-up'>How it works</Link>
-              <Link to='/'>Testimonials</Link>
+              <Link to='/'>Special offers</Link>
               <Link to='/'>Careers</Link>
-              <Link to='/'>Investors</Link>
+              <Link to='/'>Profile</Link>
               <Link to='/'>Terms of Service</Link>
             </div>
             <div class='footer-link-items'>
               <h2>Contact Us</h2>
               <Link to='/'>Contact</Link>
               <Link to='/'>Support</Link>
-              <Link to='/'>Destinations</Link>
-              <Link to='/'>Sponsorships</Link>
+              <Link to='/'>Message</Link>
+              <Link to='/'>Payment</Link>
             </div>
           </div>
           <div className='footer-link-wrapper'>
             <div class='footer-link-items'>
-              <h2>Videos</h2>
-              <Link to='/'>Submit Video</Link>
-              <Link to='/'>Ambassadors</Link>
-              <Link to='/'>Agency</Link>
+              <h2>Designs</h2>
+              <Link to='/'>Submit Your designs</Link>
+              <Link to='/'>Veiw designs</Link>
+              <Link to='/'>Submitted designs</Link>
               <Link to='/'>Influencer</Link>
             </div>
             <div class='footer-link-items'>
@@ -66,11 +61,12 @@ function Footer() {
           <div class='social-media-wrap'>
             <div class='footer-logo'>
               <Link to='/' className='social-logo'>
-                TRVL
-                <i class='fab fa-typo3' />
+                LFM
+              
+                
               </Link>
             </div>
-            <small class='website-rights'>TRVL © 2020</small>
+            <small class='website-rights'>LFM © 2020</small>
             <div class='social-icons'>
               <Link
                 class='social-icon-link facebook'

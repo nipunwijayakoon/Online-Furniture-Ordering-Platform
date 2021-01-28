@@ -4,6 +4,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import NoEncryptionTwoToneIcon from '@material-ui/icons/NoEncryptionTwoTone';
+import '../../App.css';
 
 
 const Reset=()=>{
