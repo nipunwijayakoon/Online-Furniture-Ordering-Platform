@@ -20,8 +20,19 @@
   font-size: 3rem;
 }
 
-.services {
+
+
+.confirmation {
   background-image: url('./images/img-2.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: rgb(15, 1, 1);
+  font-size: 100px;
+}
+
+.signin {
+  
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

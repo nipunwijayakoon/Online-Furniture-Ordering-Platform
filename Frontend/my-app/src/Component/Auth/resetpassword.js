@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Paper, TextField} from '@material-ui/core';
+import { CardContent, Grid, Paper, TextField} from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -8,9 +8,9 @@ import NoEncryptionTwoToneIcon from '@material-ui/icons/NoEncryptionTwoTone';
 
 const Reset=()=>{
 
-    const paperStyle={padding :20, height:'80vh',width:350,margin:"20px auto", backgroundColor:'white'}
-    const avatarStyle={backgroundColor:'gray'}
-    const btnstyle={margin:'8px 0'}
+    const paperStyle={padding :20, height:'88vh',width:350,margin:"0px auto", backgroundColor:'white'}
+    const avatarStyle={backgroundColor:'blue'}
+    const btnstyle={margin:'20px 0'}
     
     
     return(
@@ -21,16 +21,26 @@ const Reset=()=>{
             <Grid align='center' >
             <Avatar style={avatarStyle}><NoEncryptionTwoToneIcon/></Avatar>
             <h2>Reset Password</h2> 
-            </Grid>      
+            </Grid> 
+            <CardContent >
+                <Typography align="center">
+                    If you've lost your password or wish to reset it,
+                    enter your email below to get started.
+                </Typography>
+            </CardContent>     
            
             <TextField label='Email' placeholder='Enter Email' fullWidth required/>
-            <Grid></Grid>
-            <Button type='submit' color='#4d2600' variant="contained" position="bottom" style={btnstyle} fullWidth>Send Reset Link</Button>
-            <span>
+            
+            <Button type='submit' color='#4d2600' variant="contained" position="center" style={btnstyle} fullWidth>Send Reset Link</Button>
+            <CardContent >
+                <Typography align="center">
+                   If you did not forget your password you can safely ignore the email and click BACK. 
+                </Typography>
+            </CardContent>
             <Typography >
-                <Button href="/signin" position="bottom" >Back</Button>
+                <Button href="/signin" >BACK</Button>
             </Typography> 
-            </span>    
+              
             </Paper>
             
         </Grid>
