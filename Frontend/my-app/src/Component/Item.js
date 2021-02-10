@@ -6,6 +6,8 @@ import {Link} from 'react-router-dom'
 import './css/Item.css'
 import {DataContext} from './Context'
 
+import Page from '../Page'
+
 
 
 export class Item extends Component {
@@ -43,7 +45,7 @@ export class Item extends Component {
                     </ul>
                     <div className="nav-cart">
                         <span>{cart.length}</span>
-                        <Link to="/cart" Link href="/cart">
+                        <Link to="/cart">
                             <img src={CartIcon} alt="" width="40"/>
                         </Link>
                     </div>

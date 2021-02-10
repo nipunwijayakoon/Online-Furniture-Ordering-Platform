@@ -1,5 +1,6 @@
 import React from 'react';
-import '../../App.css';  
+import '../../App.css';
+
 import HeroSection from '../Hero/Herosection';
 import Card from '../Card/Card';
 import Footer from '../Footer';

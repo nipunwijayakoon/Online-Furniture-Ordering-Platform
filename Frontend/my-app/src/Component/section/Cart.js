@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom'
 import Colors from './Colors'
 import '../css/Details.css'
 import '../css/Cart.css'
+import { Button } from '../Button/Button'
+
 
 export class Cart extends Component {
     static contextType = DataContext;

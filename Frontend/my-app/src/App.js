@@ -19,10 +19,17 @@ import Navbar from './Component/Nav/Navbar';
 import Products from './Component/Products';
 //import Signin from './Component/Signin';
 import Signup from './Component/Signup';
+import FooterDesign from './Component/FooterDesign';
+
+
+
+import UploadNewDesign from './Component/Design/UploadNewDesign';
+
+
+import WoodColor from './Component/Design/WoodColor';
 
 import Viewmore from './Component/viewmore/Viewmore';
 
-import UploadNewDesign from './Component/Design/UploadNewDesign';
 
 
 
@@ -32,11 +39,8 @@ const App = () => {
 
   return (
    
-
     <Router>
          
-    
-      
         <Navbar />
         <Fragment>
         <Switch>
@@ -46,12 +50,21 @@ const App = () => {
 
         <Route exact path='/Checkout' component={PaymentCheckout} />
         <Route exact path='/resetpassword' component={Reset} />
+
+
+
         
-        
-        <Route exact path ='/newdesign' component ={UploadNewDesign}/>
-        
-        
+        <Route exact path='/newdesign' component={UploadNewDesign} />
+        <Route path = '/footerdesign' component={FooterDesign} />
+
+
+        <Route path ='/woodcolor' component={WoodColor} />
+
        
+        
+      
+
+
         <Route exact path='/ViewDesign' component={ViewDesign} />
         
         <Route path='/' exact component={Homepage} />
@@ -69,17 +82,8 @@ const App = () => {
         
     </Router>
     
-
-    
-
-         
-        
-       
-
-
   );
-
-  
+ 
 }
 
 
