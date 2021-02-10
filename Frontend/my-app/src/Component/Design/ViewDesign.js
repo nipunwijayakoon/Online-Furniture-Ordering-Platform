@@ -64,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Album() {
   const classes = useStyles();
 
+
   return (
     <React.Fragment>
       
@@ -94,8 +95,8 @@ export default function Album() {
             
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button variant="contained" color="primary">
-                    Upload a New Design
+                <Button variant="contained" color="primary">
+                    Upload a New Design    
                   </Button>
                 </Grid>
                 <Grid item>
@@ -472,3 +473,4 @@ export default function Album() {
     </React.Fragment>
   );
 }
+

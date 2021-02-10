@@ -1,4 +1,3 @@
-
 import './App.css';
 
 
@@ -8,14 +7,26 @@ import { Link } from 'react-router-dom';
 import Homepage from './Component/Home/Homepage';
 import SignUp from './Component/Auth/signup';
 import Signin from './Component/Auth/signin';
+
 import PaymentCheckout from './Component/Payment/Confirmation';
+
 import Reset from './Component/Auth/resetpassword';
-import ViewDesign from './Component/Design/ViewDesign';
+
+import ViewDesign from './Page';
+
 import Navbar from './Component/Nav/Navbar';
 
 import Products from './Component/Products';
 //import Signin from './Component/Signin';
 import Signup from './Component/Signup';
+import FooterDesign from './Component/FooterDesign';
+
+
+
+import UploadNewDesign from './Component/Design/UploadNewDesign';
+
+
+import WoodColor from './Component/Design/WoodColor';
 
 
 
@@ -24,11 +35,8 @@ const App = () => {
 
   return (
    
-
     <Router>
          
-    
-      
         <Navbar />
         <Fragment>
         <Switch>
@@ -38,11 +46,21 @@ const App = () => {
 
         <Route exact path='/Checkout' component={PaymentCheckout} />
         <Route exact path='/resetpassword' component={Reset} />
+
+
+
         
-        
-        
-        
+        <Route exact path='/newdesign' component={UploadNewDesign} />
+        <Route path = '/footerdesign' component={FooterDesign} />
+
+
+        <Route path ='/woodcolor' component={WoodColor} />
+
        
+        
+      
+
+
         <Route exact path='/ViewDesign' component={ViewDesign} />
         
         <Route path='/' exact component={Homepage} />
@@ -51,23 +69,18 @@ const App = () => {
           <Route path='/sign-in' component={Signin} />
           <Route path='/sign-up' component={Signup} />
           <Route exact path='/signin' component={Signin} />
-      </Switch>
+
+
+
+        </Switch>
       
         </Fragment>
         
     </Router>
     
-
-    
-
-         
-        
-       
-
-
   );
-
-  
+ 
 }
 
 export default App;
+
