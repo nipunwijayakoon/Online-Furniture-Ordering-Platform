@@ -1,0 +1,73 @@
+section .cart{
+    position: relative;
+    border: 4px solid rgb(110, 7, 42);
+    background-image: url(https://ak.picdn.net/shutterstock/videos/1009184375/thumb/12.jpg);
+    size: 80px;
+    box-shadow: 2px 8px 40px rgb(236, 177, 175);
+    
+
+}
+.amount span{
+    color: rgb(83, 8, 58);
+    padding: 0 20px;
+    font-size: 20px;
+    
+}
+.amount .count{
+    width: 40px;
+    height: 30px;
+    border: 2px transparent rgb(26, 25, 25);
+    outline: none;
+    background: solid ;
+    cursor: pointer;
+    background-color: rgba(94, 26, 26, 0.651);
+}
+.delete{
+    position: absolute;
+    top:0;
+    right: 5px;
+    color: rgb(22, 21, 21);
+    cursor: pointer;
+    font-weight: 900;
+    
+}
+.total{
+    width: 80%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.total a{
+    text-decoration: none;
+    background: rgb(39, 8, 8);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px 25px;
+    border-radius: 2px;
+    
+}
+.total h3{
+    margin-right: 50px;
+    color: rgb(128, 8, 42);
+    font-size: 20px;
+    flex-wrap: wrap-reverse;
+}
+.box .row h2{
+    font-style: italic;
+    color: rgb(83, 8, 58);
+}
+.box p{
+    color: rgb(41, 25, 63);
+}
+.box h4{
+    font-size: 20px;
+    font-family: cursive;
+}
+.box .row span{
+    size: 90px;   
+}
+.details_cart img{
+    border: springgreen;  
+}

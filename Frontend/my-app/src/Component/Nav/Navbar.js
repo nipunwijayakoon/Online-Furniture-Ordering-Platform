@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { Button } from '../Button/Button';
 
-
-
 function Navbar() {
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
@@ -74,6 +72,7 @@ function Navbar() {
                   SIGN IN
                 </Link>
               </li>
+              
 
               <li>
                 <Link
@@ -84,6 +83,7 @@ function Navbar() {
                   Sign Up
                 </Link>
               </li>
+             
 
 
             
@@ -94,7 +94,7 @@ function Navbar() {
             </ul>
             
             
-            {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+             {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>} 
             
 
             
