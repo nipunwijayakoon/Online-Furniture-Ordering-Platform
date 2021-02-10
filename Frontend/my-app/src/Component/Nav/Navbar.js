@@ -72,6 +72,7 @@ function Navbar() {
                   SIGN IN
                 </Link>
               </li>
+              
 
               <li>
                 <Link
@@ -82,6 +83,7 @@ function Navbar() {
                   Sign Up
                 </Link>
               </li>
+             
 
 
             
@@ -92,7 +94,7 @@ function Navbar() {
             </ul>
             
             
-            {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+             {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>} 
             
 
             
