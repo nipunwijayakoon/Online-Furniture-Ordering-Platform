@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
-
+//import {BrowserRouter as Router} from 'react-router-dom'
 import Header from './Component/Header'
 import Section from './Component/Section'
 import {DataProvider} from './Component/Context'
@@ -28,19 +28,11 @@ class Page extends React.Component{
             <Item   />
             {/*<Route path="/shopping-cart-react/" component={Section} />*/}
             <Section />
-            
+           
           </Router>
         </div>
       </DataProvider>
-      
     );
   }
 }
-
-
 export default Page;
-
-
-
-
-

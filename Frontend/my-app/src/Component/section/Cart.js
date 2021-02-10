@@ -29,7 +29,7 @@ export class Cart extends Component {
                                     <div className="row">
                                         <h2>{item.title}</h2>
                                         <span>LKR {item.price * item.count}</span>
-                                    </div>
+                        </div>
                                     <Colors colors={item.colors}/>
                                     <h4>{item.description}</h4>
                                     <p>{item.content}</p>
@@ -44,11 +44,8 @@ export class Cart extends Component {
                         ))
                     }
                     <div className="total">
-                        
                         <Link to="/payment">Payment</Link>
-                        
                         <h3>Total: LKR {total}</h3>
-                        
                     </div>
                 </>
                 )

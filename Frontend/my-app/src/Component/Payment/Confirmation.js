@@ -94,13 +94,13 @@ export default function PaymentCheckout() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="absolute" color="default">
+     {/* <AppBar position="absolute" color="default">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap >
             FURNITURE LANKA (PVT)LTD.
           </Typography>
         </Toolbar>
-      </AppBar>
+  </AppBar>*/}
 
       <main className={classes.layout}>
         <Paper className={classes.paper}>
