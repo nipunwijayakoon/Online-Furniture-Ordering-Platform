@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { Button } from '../Button/Button';
 
-
-
 function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
@@ -49,25 +47,24 @@ function Navbar() {
             </li>
             <li className='nav-item'>
               <Link
-                to='/services'
+                to='/checkout'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Services
+                Confirmation
               </Link>
             </li>
             <li className='nav-item'>
               <Link
-                to='/products'
+                to='/viewdesign'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Products
+                View Designs
               </Link>
             </li>
 
 
-      
             <li className='nav-item'>
               <Link
                 to='/sign-in'

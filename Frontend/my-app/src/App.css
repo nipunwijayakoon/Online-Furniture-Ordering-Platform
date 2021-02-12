@@ -1,17 +1,18 @@
 .App {
-   text-align: left;
- 
-  }
+  text-align: left;
+}
 
-*  {box-sizing: border-box;
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'PT Sans', sans-serif;
+  font-family: "PT Sans", sans-serif;
 }
 
 .home,
 .services,
-.products,
+.confirmation,
+.viewdesign,
 .sign-up,
 .sign-in {
   display: flex;
@@ -22,7 +23,15 @@
 }
 
 .services {
-  background-image: url('./images/img-10.jpg');
+  background-image: url("./images/img-10.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: rgb(15, 1, 1);
+  font-size: 100px;
+}
+
+.signin {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -31,7 +40,7 @@
 }
 
 .products {
-  background-image: url('./images/img-11.jpg');
+  background-image: url("./images/img-11.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -39,9 +48,8 @@
   font-size: 100px;
 }
 
-
 .sign-in {
-  background-image: url('./images/img-12.jpg');
+  background-image: url("./images/img-12.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -50,13 +58,22 @@
 }
 
 .sign-up {
-  background-image: url('./images/img-8.jpg');
+  background-image: url("./images/img-8.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
   font-size: 100px;
 }
+.sign-in {
+  background-image: url("./images/img-8.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 100px;
+}
+
 .background-red {
   background-color: red;
 }
@@ -69,4 +86,3 @@
     transform: rotate(360deg);
   }
 }
-

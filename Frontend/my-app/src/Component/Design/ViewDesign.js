@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -13,6 +13,10 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+
+import React, { Component} from 'react'
+
+export const DataContext = React.createContext();
 
 function Copyright() {
   return (
@@ -61,14 +65,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function Album() {
+export default function Album(props) 
+{const {products} = props;
   const classes = useStyles();
+
 
   return (
     <React.Fragment>
       
       <CssBaseline />
-      <AppBar position="relative" style={{ backgroundColor: "#d29179"}}>
+      <AppBar position="relative" style={{ backgroundImage: "url('https://images.pexels.com/photos/301378/pexels-photo-301378.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')",backgroundSize: "cover"}}>
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
             Choose Your Designs Now...
@@ -86,7 +92,7 @@ export default function Album() {
             <Typography variant="h6" align="center" color="error" style={{ backgroundColor: "#f2d0c4" }} paragraph>
               These are the products which are currently available in our store. You can order your products by adding relavent products to the cart. If anything relevant, you can contact our member...
             </Typography>
-            <Typography variant="h6" align="center" color="textSecondary" paragraph>
+            <Typography variant="h6" align="center" color="textPrimary" paragraph>
               Tel: 081-2235643 Mobile: (+94) 71 3452908 / 76 9145689
             </Typography>
 
@@ -94,14 +100,16 @@ export default function Album() {
             
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button variant="contained" color="primary">
-                    Upload a New Design
+                <Button variant="contained" color="primary">
+                    Upload a New Design    
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button variant="outlined" color="secondary">
-                    Shopping Cart
-                    <ShoppingCartIcon className={classes.icon}/>
+                  <Button variant="contained" color="secondary" >
+                    
+                    <Link>Shopping Cart</Link>
+                    
+                    <ShoppingCartIcon className={classes.icon} cursor=" pointer" position=" relative" position=" absolute" top="-12px" right=" -7px" background=" crimson" font-size=" 10px" color=" white"padding=" 3px 5px" border-radius=" 50%" z-index="-1"/>
                   </Button>
                 </Grid>
               </Grid>
@@ -113,17 +121,17 @@ export default function Album() {
         <Container className={classes.cardGrid} maxWidth="md">
           
           <Grid container spacing={4} justify="flex-start">
-            
+           
               <Grid item key={1} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://i.pinimg.com/236x/48/e0/da/48e0dac5444f9b4b4f5f67fc23c04060.jpg"
+                    image="https://images.woodenstreet.de/image/cache/data%2Fwooden-sofa%2Fsereta-wooden-sofa-revised%2Fhoney%2F1st-2%2B1%2B1%2B-880x518.jpg"
                     title="Wall Cupboard AMARZON"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Wall Cupboard AMARZON | TEAK
+                    Sereta Wooden Sofa Set | SHEESHAM
                     </Typography>
                     <Typography>
                       LKR 67,900.00
@@ -132,7 +140,7 @@ export default function Album() {
                 
                   <CardActions>
                     <Button size="small" color="primary">
-                      View More
+                     <Link to href="/viewmore">View more</Link>
                     </Button>
                     <Button size="small" color="secondary">
                       Add To Cart
@@ -147,12 +155,12 @@ export default function Album() {
                 <Card className={classes.card}>
                 <CardMedia
                   className={classes.cardMedia}
-                  image="https://i.pinimg.com/236x/46/4d/ab/464dab78065666c159c046fd322907f5.jpg"
+                  image="https://imageresizer.furnituredealer.net/img/remote/images.furnituredealer.net/img/products%2Fcrown_mark%2Fcolor%2Fsheffield%20-%20-829161581_b1100-1%2B11-b0.jpg?width=878&height=600&scale=both&trim.threshold=80"
                   title="Mirror Table MT018"
                 />
                 <CardContent className={classes.cardContent}>
                   <Typography gutterBottom variant="h5" component="h2">
-                    Mirror Table MT018 | SATINWOOD
+                    Mirror Table MT018 | TEAK
                   </Typography>
                   <Typography>
                     LKR 63,400.00
@@ -160,8 +168,8 @@ export default function Album() {
                 </CardContent>
               
                 <CardActions>
-                <Button size="small" color="red">
-                      View More
+                <Button size="small" color="primary">
+                     <Link to href="/viewmore2" >View More</Link>
                     </Button>
                     <Button size="small" color="secondary">
                       Add To Cart
@@ -175,12 +183,12 @@ export default function Album() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://i.pinimg.com/236x/3d/30/99/3d3099ff22150af240c7b43bb59e5bc9.jpg"
+                    image="https://ii1.pepperfry.com/media/catalog/product/v/e/568x625/vega-coffee-table-with-stools-in-honey-finish-by-trendsbee-vega-coffee-table-with-stools-in-honey-fi-658vmq.jpg"
                     title="Sofa Table ST5002"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Sofa Table ST5002 | HALMILLA
+                      Coffee Table ST5002 | HALMILLA
                     </Typography>
                     <Typography>
                       LKR 27,900.00
@@ -189,9 +197,9 @@ export default function Album() {
                 
                   <CardActions>
                   <Button size="small" color="primary">
-                      View More
+                      <Link to href="/viewmore3">View More</Link>
                     </Button>
-                    <Button size="small" color="secondary">
+                    <Button  size="small" color="secondary">
                       Add To Cart
                     </Button>
                   </CardActions>
@@ -454,11 +462,9 @@ export default function Album() {
         </Grid>
 
         </Container>
-
-
       </main>
       {/* Footer */}
-      <footer className={classes.footer}>
+      <footer className={classes.footer} style={{ backgroundImage: "url('https://images.pexels.com/photos/963486/pexels-photo-963486.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')",backgroundSize: "cover"}}>
         <Typography variant="h6" align="center" color="inherit" gutterBottom >
         Purchase Your Furniture Today
         </Typography>
@@ -472,3 +478,4 @@ export default function Album() {
     </React.Fragment>
   );
 }
+
