@@ -127,7 +127,8 @@
     "web-vitals": "^0.2.4",
     "webfontloader": "^1.6.28",
     "webpack": "^4.41.0",
-    "webpack-bundle-analyzer": "^3.5.1"
+    "webpack-bundle-analyzer": "^3.5.1",
+    "mdbreact": "4.1.0"
   },
   "repository": {
     "type": "git",
