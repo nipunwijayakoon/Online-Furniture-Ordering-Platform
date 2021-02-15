@@ -34,7 +34,7 @@ import FooterDesign from './Component/FooterDesign';
 
 
 import UploadNewDesign from './Component/Design/UploadNewDesign';
-
+import NewDesignDetails from './Component/AdminUpload/NewDesignDetail';
 
 import WoodColor from './Component/Design/WoodColor';
 import DesignStepper from './Component/Design/DesignStepper';
@@ -102,8 +102,7 @@ const App = () => {
           
           <Route exact path='/signin' component={Signin} />
           <Route path='/viewmore' component={Viewmore}/>
-
-
+          <Route path='/NewDesignDetails' component={NewDesignDetails}/>   
 
       </Switch>
       
