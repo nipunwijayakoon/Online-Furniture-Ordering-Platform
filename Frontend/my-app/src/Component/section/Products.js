@@ -4,7 +4,7 @@ import {DataContext} from '../Context'
 import '../css/Products.css'
 
 export class Products extends Component {
-
+    
     static contextType = DataContext;
 
     render() {

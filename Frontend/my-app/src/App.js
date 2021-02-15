@@ -27,6 +27,11 @@ import UploadNewDesign from './Component/Design/UploadNewDesign';
 
 
 import WoodColor from './Component/Design/WoodColor';
+import DesignStepper from './Component/Design/DesignStepper';
+import WoodName from './Component/Design/WoodName';
+import SelectingBranch from './Component/Design/SelectingBranch';
+import Duration from './Component/Design/Duration';
+import PersonDetails from './Component/Design/PersonDetails';
 
 import Viewmore from './Component/viewmore/Viewmore';
 
@@ -59,8 +64,11 @@ const App = () => {
 
 
         <Route path ='/woodcolor' component={WoodColor} />
-
-       
+        <Route path ='/designstepper' component={DesignStepper} />
+        <Route path ='/woodname' component={WoodName} />
+        <Route path ='/selectingbranch' component={SelectingBranch} />
+        <Route path ='/duration' component={Duration} />
+        <Route path ='/persondetails' component={PersonDetails} />
         
       
 
@@ -74,7 +82,8 @@ const App = () => {
           <Route path='/sign-up' component={Signup} />
           <Route exact path='/signin' component={Signin} />
           <Route path='/viewmore' component={Viewmore}/>
-              
+
+
 
       </Switch>
       

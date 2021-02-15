@@ -3,6 +3,7 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    background-color: rgb(255, 255, 255);
     
 }
 .card{
@@ -16,6 +17,7 @@
     box-shadow: 2px 8px 40px rgb(206, 156, 156);
     margin: 10px;
     transition: 0.5s linear;
+    
 }
 .card:hover{
     box-shadow: none;
