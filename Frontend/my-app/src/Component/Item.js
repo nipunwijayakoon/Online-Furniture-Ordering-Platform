@@ -27,7 +27,7 @@ export class Item extends Component {
         const {cart} = this.context;
         return (
             <header>
-                <div className="menu" onClick={this.menuToggle}>
+                <div className="menu" onClick={this.menuToggle} style={{ backgroundColor: "red"}}>
                     <img src={Menu} alt="" width="20"/>
                 </div>
                 <div className="logo">
