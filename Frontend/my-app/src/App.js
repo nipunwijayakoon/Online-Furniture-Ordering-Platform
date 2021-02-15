@@ -23,7 +23,7 @@ import Signup from './Component/Signup';
 import Viewmore from './Component/viewmore/Viewmore';
 
 import UploadNewDesign from './Component/Design/UploadNewDesign';
-
+import NewDesignDetails from './Component/AdminUpload/NewDesignDetail';
 
 
 
@@ -61,7 +61,7 @@ const App = () => {
           <Route path='/sign-up' component={Signup} />
           <Route exact path='/signin' component={Signin} />
           <Route path='/viewmore' component={Viewmore}/>
-              
+          <Route path='/NewDesignDetails' component={NewDesignDetails}/>   
 
       </Switch>
       
