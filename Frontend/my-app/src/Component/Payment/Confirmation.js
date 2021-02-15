@@ -14,7 +14,8 @@ import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
 
-function Copyright() {
+function CCopyright() {
+  
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
@@ -25,7 +26,7 @@ function Copyright() {
     </Typography>
   );
 }
-document.body.style.backgroundColor = "light brown";
+
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -67,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
 const steps = ['Address', 'Payment details', 'Review your order'];
 
 function getStepContent(step) {
+  
   switch (step) {
     case 0:
       return <AddressForm />;
@@ -94,13 +96,6 @@ export default function PaymentCheckout() {
   return (
     <React.Fragment>
       <CssBaseline />
-     {/* <AppBar position="absolute" color="default">
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap >
-            FURNITURE LANKA (PVT)LTD.
-          </Typography>
-        </Toolbar>
-  </AppBar>*/}
 
       <main className={classes.layout}>
         <Paper className={classes.paper}>
@@ -149,7 +144,7 @@ export default function PaymentCheckout() {
             )}
           </React.Fragment>
         </Paper>
-        <Copyright />
+        <CCopyright />
       </main>
     </React.Fragment>
   );

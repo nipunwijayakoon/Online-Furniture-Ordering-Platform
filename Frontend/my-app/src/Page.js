@@ -6,11 +6,23 @@ import Section from './Component/Section'
 import {DataProvider} from './Component/Context'
 import Item from './Component/Item';
 import Footer from './Component/Footer';
+import FooterDesign from './Component/FooterDesign';
+
+
+
+import UploadNewDesign from './Component/Design/UploadNewDesign';
+import SwipeableViews from 'react-swipeable-views';
+import Products from './Component/section/Products';
+
+
 class Page extends React.Component{
   render(){
     return(
+      
       <DataProvider>
+
         <div className="app">
+        
           <Router>
             <Header />
             <Item   />

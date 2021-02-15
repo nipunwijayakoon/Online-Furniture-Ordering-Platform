@@ -3,21 +3,21 @@
     justify-content: space-around;
     flex-wrap: wrap;
     margin: 50px 0;
+    background-color: rgb(255, 255, 255);
 }
 .details img{
     max-width: 500px;
     min-width: 290px;
-    height: 300px;
+    min-height: 300px;
+    max-height: 380px;
     display: block;
     object-fit: cover;
     margin: 25px;
-    
 }
 .details .box{
     max-width: 500px;
     min-width: 290px;
     margin: 25px;
-    height: 300px;
 }
 .box .row{
     display: flex;
@@ -43,7 +43,7 @@
     line-height: 1.5;
     margin: 15px 0;
 }
-.box .cart{
+.box .dcart{
     background: #333;
     color: white;
     text-decoration: none;

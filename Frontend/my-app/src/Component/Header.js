@@ -1,11 +1,6 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -14,7 +9,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 
+//import {Link} from 'react-router-dom'
+
+//import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 //import Confirmation from './Payment/Confirmation'
+import UploadNewDesign from './Design/UploadNewDesign';
 
 import './Header.css';
 
@@ -31,6 +30,10 @@ function Copyright() {
     </Typography>
   );
 }
+
+
+
+
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -74,10 +77,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Album() {
   const classes = useStyles();
+ 
 
 
   return (
+
     <React.Fragment>
+
       
       <CssBaseline />
       <AppBar position="relative" style={{ backgroundImage: "url('https://images.pexels.com/photos/301378/pexels-photo-301378.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')",backgroundSize: "cover"}}>
@@ -107,15 +113,18 @@ export default function Album() {
             
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <div classname="UpNewDesign">
+
+                <div className="UpNewDesign">
                 <Button variant="contained" color="primary">
-                   Upload a New Design
+                    <Link underline="none" href= "newdesign">Upload a New Design</Link>    
                   </Button>
                   </div>
                 </Grid>
                 
               </Grid>
             </div>
+          
+            
           </Container>
         </div>
         {/* End of hero unit */}
@@ -126,4 +135,5 @@ export default function Album() {
 
     </React.Fragment>
   );
-}
+  }
+
