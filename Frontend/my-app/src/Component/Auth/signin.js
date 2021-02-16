@@ -6,57 +6,295 @@ import '../../App.css';
 
 
 
-import React from 'react';
-import {Grid, Paper, TextField} from '@material-ui/core';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import React, { Fragment, useState } from "react";
+import { Redirect } from "react-router-dom";
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { login } from '../../actions/auth';
+
+
+
+
 import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 
 
-const Signin=()=>{
 
-    const paperStyle={padding :10, height:'88vh',width:400, margin:"0px auto" ,backgroundColor:'white'}
-    const avatarStyle={backgroundColor:'#332600'}
-    const btnstyle={margin:'8px 0'}
+
+
+const useStyles = makeStyles((theme) => ({
+    paper: {
+      marginTop: theme.spacing(8),
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+    avatar: {
+      margin: theme.spacing(1),
+      backgroundColor: theme.palette.secondary.main,
+    },
+    form: {
+      width: '100%', // Fix IE 11 issue.
+      marginTop: theme.spacing(1),
+    },
+    submit: {
+      margin: theme.spacing(3, 0, 2),
+    },
+  }));
+
+
+
+
+
+  const SignIn=() =>{
+
+
+    const [formData, setFromData] = useState(
+        {
+          Email: '',
+          Password: '',
     
+        }
+      );
+
+
+      const { Email,Password } = formData;
+
+      const onChange = e => setFromData({ ...formData, [e.target.name]: e.target.value })
     
-    return(
+      const onSubmit = async e => {
+    
+        e.preventDefault();
+        try {
+          console.log("Fname", Email)
+          const res = await login(Email,Password);
+          console.log("suc", res)
+        } catch (error) {
+          console.log(error)
+        }
+    
+      }
+    
 
-    <Grid spacing={0} style={{backgroundImage:"url('https://i.pinimg.com/564x/d4/a0/0e/d4a00ed797b34e916d0d95cdfae332cb.jpg')"}}>
-        
-        
-            <Paper elevation={10} style={paperStyle} >
-            
-            <Grid align='center' >
-            <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
-            <h2>Sign In</h2> 
-            </Grid>
 
-           
-         
-            <TextField label='Username' placeholder='Enter username' fullWidth required/>
-            <TextField label='Email' placeholder='Enter Email' fullWidth required/>
-            <TextField label='Password' placeholder='Enter password' type='password' fullWidth required/>  
+
+    const classes = useStyles();
+  
+    return (
+        <Fragment>
+            <section>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
+          <form className={classes.form} noValidate onSubmit={e => onSubmit(e)}>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              value={Email}
+              onChange={e => onChange(e)}
+
+              autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              value={Password}
+             onChange={e => onChange(e)}
+
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
             <FormControlLabel
-                    control={<Checkbox name="checkedB" color="primary"/> }label="Remember me"/>     
-             <Button type='signin' color='#4d2600' variant="contained" style={btnstyle} fullWidth>Sign in</Button>
-                <Typography >
-                    <Link href="/resetpassword" >Forgot password ?</Link>
-                </Typography>   
-                <Typography > Don't you have an account?
-                    <Link href="sign-up" >Sign Up</Link>
-                </Typography> 
-            </Paper>
-             
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Sign In
+            </Button>
+            <Grid container>
+              <Grid item xs>
+                <Link href="/resetpassword" variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link href="sign-up" variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </Grid>
+            </Grid>
+          </form>
+        </div>
+        <Box mt={8}>
+          
+        </Box>
+      </Container>
+      </section>
+      </Fragment>
+    );
+  }
 
-  </Grid>
- )
-    
-}
 
-export default Signin
+
+
+export default SignIn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

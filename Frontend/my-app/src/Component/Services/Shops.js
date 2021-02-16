@@ -7,8 +7,9 @@ import './Shops.css';
  function Shops() {
     const[SearchTerm,setSearchTerm]=useState('')
   return ( 
+    
       <div className="Shops">
-          <input type="text" placeholder= "Search.." onChange={event => {setSearchTerm(event.target.value)}}/>
+          <input type="text" placeholder= "Search a shop..." onChange={event => {setSearchTerm(event.target.value)}}/>
           {JSONDATA.filter((val)=>{
               if(SearchTerm ==""){
                   return val
@@ -22,7 +23,9 @@ import './Shops.css';
           return (
           <div className="user" key={key}>
               <br></br>
-              <p>{val.Shop_name}</p> 
+              <p>Shop name:{val.Shop_name}</p> 
+              <p>Owner name :{val.Owner_name}</p>
+              <p>Email      :{val.Email}</p>
                </div>
           );
           })}
