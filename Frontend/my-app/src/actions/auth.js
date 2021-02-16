@@ -1,21 +1,30 @@
 import axios from 'axios';
 
 // Register user
-export const register = async ({ firstName,
-lastName,
-email,
-password }) => {
+export const register = async (CustomerEmail,
+    CustomerFirstName,
+    CustomerTellnumber,
+    CustomerPW,
+    ) => {
     const config = {
         headers: { "Content-Type": "application/json"}
     };
 
-    const body = JSON.stringify({ firstName,
-        lastName,
-        email,
-        password });
+    
+
+
+    const RetypeCustomerPW = CustomerPW;
+
+    const body = JSON.stringify({ CustomerEmail,
+        CustomerFirstName,
+        CustomerTellnumber,
+        CustomerPW,
+        RetypeCustomerPW });
+    
+        console.log("Cus", body)
 
     try {
-        const res = await axios.post("/api/signupcontroller/signup", body, config);
+        const res = await axios.post("https://localhost:5001/api/Customers", body, config);
         console.log(res);
 
         

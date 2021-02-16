@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "INHxv6WkIfTsuzIDF3JPMpmoBuh/P7dJlpI9oTUAZ7y3XL/zv7Ngr6Rvb+q8rv5zf8Nv5BS2wc7j9UrlLnKHQw==",
+  "dgSpecHash": "eokR0f/FLsCEU1z1jqtAkMXGsnec63UiH3krayj8FpEzyAVusu7GC3fY0z285EkFb62a+cEzBHl8yj4Z35XaGQ==",
   "success": true,
-  "projectFilePath": "G:\\6sem\\SoftwareProject\\FurnitureShop\\Project_Backend\\ProjectBackend\\ProjectBackend.csproj",
+  "projectFilePath": "G:\\6sem\\SoftwareProject\\FurnitureShop\\FinalProject\\Online-Furniture-Ordering-Platform\\Frontend\\my-app\\ProjectBackend\\ProjectBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Charitha\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Charitha\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

@@ -8829,11 +8829,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\6sem\\SoftwareProject\\FurnitureShop\\Project_Backend\\ProjectBackend\\ProjectBackend.csproj",
+      "projectUniqueName": "G:\\6sem\\SoftwareProject\\FurnitureShop\\FinalProject\\Online-Furniture-Ordering-Platform\\Frontend\\my-app\\ProjectBackend\\ProjectBackend.csproj",
       "projectName": "ProjectBackend",
-      "projectPath": "G:\\6sem\\SoftwareProject\\FurnitureShop\\Project_Backend\\ProjectBackend\\ProjectBackend.csproj",
+      "projectPath": "G:\\6sem\\SoftwareProject\\FurnitureShop\\FinalProject\\Online-Furniture-Ordering-Platform\\Frontend\\my-app\\ProjectBackend\\ProjectBackend.csproj",
       "packagesPath": "C:\\Users\\Charitha\\.nuget\\packages\\",
-      "outputPath": "G:\\6sem\\SoftwareProject\\FurnitureShop\\Project_Backend\\ProjectBackend\\obj\\",
+      "outputPath": "G:\\6sem\\SoftwareProject\\FurnitureShop\\FinalProject\\Online-Furniture-Ordering-Platform\\Frontend\\my-app\\ProjectBackend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Charitha\\AppData\\Roaming\\NuGet\\NuGet.Config",
