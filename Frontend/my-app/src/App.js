@@ -44,6 +44,7 @@ import Duration from './Component/Design/Duration';
 import PersonDetails from './Component/Design/PersonDetails';
 
 import Viewmore from './Component/viewmore/Viewmore';
+import AddDesign from './Component/AdminUpload/AddDesign';
 
 
 
@@ -103,6 +104,7 @@ const App = () => {
           <Route exact path='/signin' component={Signin} />
           <Route path='/viewmore' component={Viewmore}/>
           <Route path='/NewDesignDetails' component={NewDesignDetails}/>   
+          <Route path='/AddDesign' component={AddDesign}/>
 
       </Switch>
       

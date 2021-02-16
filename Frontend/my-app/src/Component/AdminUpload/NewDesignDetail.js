@@ -38,7 +38,7 @@ class NewDesignDetail extends Component {
 	);
 	console.log(this.state.selectedFile);
 	
-	axios.post("api/uploadfile", formData);
+	axios.post("https://localhost:44335/api/Items", formData);
 	};
 
 	fileData = () => {
@@ -80,7 +80,7 @@ class NewDesignDetail extends Component {
 	render() {
        	
 	return (
-
+      
         <div className="a">
             <Grid justify="center">
         <div >
@@ -156,7 +156,7 @@ class NewDesignDetail extends Component {
                 <Grid></Grid>
                 <Grid item>
                   <Button variant="contained" color="inherit" variant="contained" >
-                    Upload Product
+                   Upload Product
                   </Button>
                   
                 </Grid>

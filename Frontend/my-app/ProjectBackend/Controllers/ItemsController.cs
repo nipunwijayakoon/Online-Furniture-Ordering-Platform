@@ -77,12 +77,13 @@ namespace ProjectBackend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Item>> PostItem(Item item)
+        public async Task<ActionResult<Item>> PostItem(Item o)
         {
-            _context.Items.Add(item);
+            Item item = null;
+            _context.Items.Add(o);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetItem", new { id = item.ItemID }, item);
+            return CreatedAtAction("GetItem", new { id = o.ItemID }, o);
         }
 
         // DELETE: api/Items/5
