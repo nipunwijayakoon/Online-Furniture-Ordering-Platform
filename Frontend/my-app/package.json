@@ -109,12 +109,9 @@
     "react-hover-video-player": "^6.7.0",
     "react-is": "^16.13.0",
     "react-number-format": "^4.0.8",
-<<<<<<< HEAD
     "react-player": "^2.8.2",
-    "react-redux": "^7.1.1",
-=======
+    
     "react-redux": "^7.2.2",
->>>>>>> main
     "react-router": "^5.0.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",

@@ -3,7 +3,7 @@ import './Card.css';
 import CardItem from './Cardim';
 import Cardvideo from '../Cardvideo/Cardvideo' ;
 
-// Testong
+// Tes
 
 
 function Cards() {
