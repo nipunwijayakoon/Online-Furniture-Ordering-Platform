@@ -22,9 +22,25 @@ namespace ProjectBackend.Controllers
             _data = data;
         }
 
-        // POST api/<LogSignUpController>
+        // POST api/<UserloginController>
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login(Login login)
+        {
+            var CheckCustomeEmil = _data.Customers.FirstOrDefault(m => m.CustomerEmail.ToLower() == login.Email);
+            var CheckCustomerPW = _data.Customers.FirstOrDefault(m => m.CustomerPW.ToLower() == login.Password);
+
+            if ((CheckCustomeEmil == null) || (CheckCustomerPW == null))
+            {
+                return BadRequest();
+            }
+
+            else
+            {
+                return Ok();
+            }
+
+        }
+
     }
 }

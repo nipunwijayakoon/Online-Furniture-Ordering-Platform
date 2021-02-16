@@ -134,7 +134,7 @@ export default function Album(props)
                     Sereta Wooden Sofa Set | SHEESHAM
                     </Typography>
                     <Typography>
-                      LKR 67,900.00
+                      LKR 68,900.00
                     </Typography>
                   </CardContent>
                 
