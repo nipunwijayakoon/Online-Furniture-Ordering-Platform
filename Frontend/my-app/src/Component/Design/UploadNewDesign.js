@@ -79,7 +79,7 @@ export class NewDesign extends Component {
 
               <div className="BtnNext">
                 <Button variant="outlined" color="primary">
-                    <Link underline="none" href= "woodcolor">Next</Link>    
+                    <Link underline="none" href= "designstepper">Next</Link>    
                 </Button>
               </div>
         </Grid>

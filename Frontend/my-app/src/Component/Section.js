@@ -7,10 +7,13 @@ import Payment from './section/Payment'
 import Confirmation from './Payment/Confirmation'
 import {Link} from 'react-router-dom'
 
+import '../Component/Section.css'
+
 
 class Section extends React.Component{
     render(){
       return(
+          <div className="section">
         <section>
                     <Route path="/product" component={Products} exact  />
                     <Route path="/product/:id" component={Details} exact />
@@ -18,7 +21,7 @@ class Section extends React.Component{
                     <Route path="/payment" component={Confirmation} exact />
 
          </section>
-            
+         </div>   
         )
     
     }

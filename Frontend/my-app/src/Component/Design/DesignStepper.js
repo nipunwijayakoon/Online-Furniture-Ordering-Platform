@@ -10,22 +10,12 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import AddressForm from './AddressForm';
-import PaymentForm from './PaymentForm';
-import Review from './Review';
 
-function CCopyright() {
-  
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="grey">
-        Online Ordering to make Furniture
-      </Link>{' '}
-      
-    </Typography>
-  );
-}
+import WoodColor from './WoodColor';
+import WoodName from './WoodName';
+import SelectingBranch from './SelectingBranch';
+import Duration from './Duration';
+import PersonDetails from './PersonDetails';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   layout: {
     width: 'auto',
+    marginTop: theme.spacing(1),
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
@@ -43,6 +34,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   paper: {
+    
+    width: '700px',
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(3),
     padding: theme.spacing(2),
@@ -54,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
   stepper: {
     padding: theme.spacing(3, 0, 5),
+    height:'20px',
   },
   buttons: {
     display: 'flex',
@@ -65,17 +59,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const steps = ['Address', 'Payment details', 'Review your order'];
+const steps = ['Wood Name', 'Wood Color', 'Branch Name', 'Time Duration', 'Contact Details'];
 
 function getStepContent(step) {
-  
+  document.body.style.backgroundImage = "url('https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')";
   switch (step) {
     case 0:
-      return <AddressForm />;
+      return <WoodName />;
     case 1:
-      return <PaymentForm />;
+      return <WoodColor />;
     case 2:
-      return <Review />;
+      return <SelectingBranch />;
+    case 3:
+      return <Duration />;
+    case 4:
+        return <PersonDetails />;
     default:
       throw new Error('Unknown step');
   }
@@ -95,21 +93,32 @@ export default function PaymentCheckout() {
 
   return (
     <React.Fragment>
+      <Typography variant="h1" color="textPrimary"  paragraph>
+     
+      </Typography>
       <CssBaseline />
+      <div className="page" >
 
       <main className={classes.layout}>
-        <Paper className={classes.paper}>
+        <Paper className={classes.paper}style={{ backgroundColor: "beige"}} >
           <Typography component="h1" variant="h4" align="center">
-            CONFIRMATION
+            Make Your Spaces Extra Comfortable with Your Own Design... Own Fashion... Own Style... 
+          </Typography>
+          <Typography variant="h1" color="textPrimary"  paragraph>
+     
           </Typography>
 
-          <Stepper activeStep={activeStep} className={classes.stepper}>
+          <Stepper activeStep={activeStep} className={classes.stepper} style={{ backgroundColor: "ivory" }}>
             {steps.map((label) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
               </Step>
             ))}
           </Stepper>
+
+          <Typography variant="h1" color="textPrimary"  paragraph>
+              
+          </Typography>
 
           <React.Fragment>
             {activeStep === steps.length ? (
@@ -118,8 +127,7 @@ export default function PaymentCheckout() {
                   Thank you for your order.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your order number is #2004. We have emailed your order confirmation, and will
-                  send you an update when your order has done.You are allowed to do any changes to the order only within 3 days.
+                  Your order is successfully sent to the shop owner of the particular shop. Shop owner will be contacted you for the better awareness.
                 </Typography>
               </React.Fragment>
             ) : (
@@ -137,15 +145,16 @@ export default function PaymentCheckout() {
                     onClick={handleNext}
                     className={classes.button}
                   >
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                    {activeStep === steps.length - 1 ? 'Send this Order to the Manufacturer' : 'Next'}
                   </Button>
                 </div>
               </React.Fragment>
             )}
           </React.Fragment>
         </Paper>
-        <CCopyright />
       </main>
+      </div>
     </React.Fragment>
   );
 }
+

@@ -3,6 +3,7 @@
     justify-content: space-around;
     flex-wrap: wrap;
     margin: 50px 0;
+    background-color: rgb(255, 255, 255);
 }
 .details img{
     max-width: 500px;

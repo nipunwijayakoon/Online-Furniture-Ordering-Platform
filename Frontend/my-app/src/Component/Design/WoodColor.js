@@ -85,16 +85,27 @@ const NaturalRadio = withStyles({
 
 
 export default function RadioButtonsGroup() {
-  const [value, setValue] = React.useState('female');
+  const [value, setValue] = React.useState("7");
 
   const handleChange = (event) => {
     setValue(event.target.value);
   };
 
   return (
-
+    <FormControl>
     <Container maxWidth="sm">
+
+    <Typography variant="h1" color="textPrimary"  paragraph>
+    </Typography>
+
     <div>
+
+    <Typography variant="h1" color="textPrimary"  paragraph>
+    </Typography>
+
+    <Typography variant="h1" color="textPrimary"  paragraph>
+    </Typography>
+
     <FormControl component="fieldset">
       <FormLabel component="legend" color="secondary" >Please Select the Color that Furniture should be Applied...</FormLabel>
       <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
@@ -119,6 +130,6 @@ export default function RadioButtonsGroup() {
 
     </div>
     </Container> 
-
+    </FormControl>
   );
 }
