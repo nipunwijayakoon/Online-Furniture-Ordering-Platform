@@ -39,9 +39,9 @@ export const register = async (CustomerEmail,
 
 
 
-export const login = async ({ Email,
+export const login = async ( Email,
 
-Password }) => {
+Password ) => {
     const config = {
         headers: { "Content-Type": "application/json"}
     };
@@ -54,7 +54,7 @@ Password }) => {
      });
 
     try {
-        const res = await axios.post("/api/signupcontroller/signup", body, config);
+        const res = await axios.post("https://localhost:5001/api/Userlogin/login", body, config);
         console.log(res);
 
         

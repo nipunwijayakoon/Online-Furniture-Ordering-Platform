@@ -111,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
               fullWidth
               id="email"
               label="Email Address"
-              name="email"
+              name="Email"
               value={Email}
               onChange={e => onChange(e)}
 
@@ -123,7 +123,7 @@ const useStyles = makeStyles((theme) => ({
               margin="normal"
               required
               fullWidth
-              name="password"
+              name="Password"
               value={Password}
              onChange={e => onChange(e)}
 
