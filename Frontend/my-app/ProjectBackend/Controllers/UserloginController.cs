@@ -27,20 +27,19 @@ namespace ProjectBackend.Controllers
         [Route("login")]
         public async Task<IActionResult> Login(Login login)
         {
-            var CheckCustomeEmil = _data.Customers.FirstOrDefault(m => m.CustomerEmail.ToLower() == login.Email);
-            var CheckCustomerPW = _data.Customers.FirstOrDefault(m => m.CustomerPW.ToLower() == login.Password);
+           
+                var CheckCustomeEmil = _data.Customers.FirstOrDefault(m => m.CustomerEmail.ToLower() == login.Email);
+                var CheckCustomerPW = _data.Customers.FirstOrDefault(m=> m.CustomerPW.ToLower() == login.Password);
 
-            if ((CheckCustomeEmil == null) || (CheckCustomerPW == null))
-            {
-                return BadRequest();
-            }
-
-            else
-            {
-                return Ok();
-            }
+                if((CheckCustomeEmil == null) || (CheckCustomerPW == null))
+                {
+                    return BadRequest();
+                }
+                else
+                {
+                    return Ok();
+                }
 
         }
-
     }
 }

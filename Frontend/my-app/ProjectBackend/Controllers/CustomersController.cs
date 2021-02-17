@@ -85,7 +85,6 @@ namespace ProjectBackend.Controllers
             {
                 _context.Customers.Add(customer);
                 await _context.SaveChangesAsync();
-                return Ok();
             }
 
             else
@@ -93,6 +92,7 @@ namespace ProjectBackend.Controllers
                 return BadRequest();
             }
 
+            return CreatedAtAction("GetCustomer", new { id = customer.CustomerID }, customer);
 
         }
 
