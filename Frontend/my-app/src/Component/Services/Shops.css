@@ -3,6 +3,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 4rem;
+  background: rgb(255, 255, 255);
 }
 
 .Shops input {
