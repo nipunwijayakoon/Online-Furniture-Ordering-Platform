@@ -12,6 +12,16 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
 
+
+
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
+//import Typography from '@material-ui/core/Typography';
+//import Container from '@material-ui/core/Container';
+import Link from '@material-ui/core/Link';
+
+
 const MahoganiRadio = withStyles({
   root: {
     color: red[900],
@@ -89,16 +99,20 @@ export default function RadioButtonsGroup() {
 
   const handleChange = (event) => {
     setValue(event.target.value);
+
   };
 
   return (
-    <FormControl>
-    <Container maxWidth="sm">
+    <div className="page" style={{ backgroundImage: "url('https://images.pexels.com/photos/3209045/pexels-photo-3209045.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')" ,backgroundSize: "cover"}}>
+				
+
+        <div className="container2">
+        <Container maxWidth="sm">
 
     <Typography variant="h1" color="textPrimary"  paragraph>
     </Typography>
 
-    <div>
+    
 
     <Typography variant="h1" color="textPrimary"  paragraph>
     </Typography>
@@ -107,7 +121,7 @@ export default function RadioButtonsGroup() {
     </Typography>
 
     <FormControl component="fieldset">
-      <FormLabel component="legend" color="secondary" >Please Select the Color that Furniture should be Applied...</FormLabel>
+      <FormLabel component="legend" color="secondary" >Please Select the Color...</FormLabel>
       <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
         <FormControlLabel value="1" control={<NaturalRadio />} label="Natural Oak" />
         <FormControlLabel value="2" control={<AntiqueRadio />} label="Antique Oak" />
@@ -118,18 +132,24 @@ export default function RadioButtonsGroup() {
         <FormControlLabel value="7" control={<MahoganiRadio />} label="Mahogani" />
       </RadioGroup>
     </FormControl>
-
-    <div className="container4">
     
-      
-
+    
+    </Container> 
+        </div>
+       <div>
+          
+				<div className="container4">
+  
          <img src="/images/ExampleWoodColors.jpg"  width="576" height="530" alt=""/>
 
      
      </div>
+  
+			</div>
+       
+      
+      </div>
+ 
 
-    </div>
-    </Container> 
-    </FormControl>
-  );
+		);
 }

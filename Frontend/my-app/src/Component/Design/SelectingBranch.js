@@ -18,7 +18,7 @@ export default function GroupedSelect() {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className="Branch" style={{ backgroundImage: "url('https://images.pexels.com/photos/3555614/pexels-photo-3555614.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')" ,backgroundSize: "cover"}}>
       <FormControl className={classes.formControl}>
         <InputLabel htmlFor="grouped-native-select">Select the Branch</InputLabel>
         <Select native defaultValue="" id="grouped-native-select">
@@ -84,6 +84,7 @@ export default function GroupedSelect() {
             <option value={32}>Yakkala</option>
           </optgroup>
           </Select>
+          <FormHelperText>Select the branch you gives your order... Please keep in mind to choose the nearest branch as it profits you.</FormHelperText>
           </FormControl>
           <FormControl className={classes.formControl}>
         <InputLabel htmlFor="grouped-native-select">Distance</InputLabel>

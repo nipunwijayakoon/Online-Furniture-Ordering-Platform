@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import FormControl from '@material-ui/core/FormControl';
 
+import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
@@ -20,6 +21,8 @@ export default function FormPropsTextFields() {
   const classes = useStyles();
 
   return (
+    <div className="PDetails" style={{ backgroundImage: "url('https://images.pexels.com/photos/1571457/pexels-photo-1571457.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')" ,backgroundSize: "cover"}}>
+    <Container>
     <Grid container spacing={4} justify="center">
     <FormControl>
     <form className={classes.root} noValidate autoComplete="off">
@@ -68,12 +71,14 @@ export default function FormPropsTextFields() {
       </div>
 
 
-      <Typography variant="h7" align="center" color="error"  gutterBottom>
-              Before send your order, please make sure that you have filled all the fiels in all the pages and if it's not so, your      order will be rejected by the manufacturer...  
+      <Typography variant="h6" align="center" color="textPrimary" wrap paragraph>
+              Before send your order, please make sure that you have filled all the fields in all the pages and if it's not so, your      order will be rejected by the manufacturer...  
       </Typography>
 
     </form>
     </FormControl>
     </Grid>
+    </Container>
+    </div>
   );
 }

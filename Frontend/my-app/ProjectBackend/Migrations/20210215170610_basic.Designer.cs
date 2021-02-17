@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectBackEnd.Models;
 
 namespace ProjectBackend.Migrations
 {
     [DbContext(typeof(FurnituresDBContext))]
-    partial class FurnituresDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210215170610_basic")]
+    partial class basic
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -183,36 +185,6 @@ namespace ProjectBackend.Migrations
                     b.HasKey("OrderID");
 
                     b.ToTable("Order");
-                });
-
-            modelBuilder.Entity("ProjectBackend.Models.NewDesign", b =>
-                {
-                    b.Property<int>("ItemID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("BranchName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContactDetails")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Distance")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DurationDate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("WoodColour")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("WoodName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ItemID");
-
-                    b.ToTable("NewDesign_1");
                 });
 #pragma warning restore 612, 618
         }

@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectBackEnd.Models;
 
 namespace ProjectBackend.Migrations
 {
     [DbContext(typeof(FurnituresDBContext))]
-    partial class FurnituresDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210215174022_newdesign controller")]
+    partial class newdesigncontroller
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -198,10 +200,7 @@ namespace ProjectBackend.Migrations
                     b.Property<string>("ContactDetails")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Distance")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DurationDate")
+                    b.Property<string>("TimeDuration")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("WoodColour")

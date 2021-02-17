@@ -23,8 +23,8 @@ namespace ProjectBackend.Controllers
         }
 
         // POST api/<LogSignUpController>
-        [HttpPost]
-        [Route("login")]
-        public async Task<IActionResult> Login(Login login)
+        //[HttpPost]
+        //[Route("login")]
+        //public async Task<IActionResult> Login(Login login)
     }
 }

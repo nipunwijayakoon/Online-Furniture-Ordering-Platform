@@ -74,7 +74,7 @@ export class NewDesign extends Component {
 
         
           
-        <Grid Container justify="flex-end">
+       {/* <Grid Container justify="flex-end">
         <Grid item justify="flex-end">
 
               <div className="BtnNext">
@@ -83,7 +83,7 @@ export class NewDesign extends Component {
                 </Button>
               </div>
         </Grid>
-        </Grid>
+    </Grid> */}
 
         
 				</div>
