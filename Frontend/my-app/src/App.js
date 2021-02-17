@@ -17,7 +17,7 @@ import ViewDesign from './Page';
 import Navbar from './Component/Nav/Navbar';
 
 
-//import Shops from './Component/Services/Shops';
+import Shops from './Component/Services/Shops';
 //import Products from './Component/Products';
 import Card1 from './Component/Table/Table1';
 import Card2 from './Component/Table/Table2';
@@ -72,7 +72,7 @@ const App = () => {
         <Route exact path='/newdesign' component={UploadNewDesign} />
         <Route path = '/footerdesign' component={FooterDesign} />
 
-
+        <Route path ='/shops' component={Shops} />
         <Route path ='/woodcolor' component={WoodColor} />
         <Route path ='/designstepper' component={DesignStepper} />
         <Route path ='/woodname' component={WoodName} />

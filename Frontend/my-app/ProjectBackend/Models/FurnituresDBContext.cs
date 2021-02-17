@@ -21,6 +21,8 @@ namespace ProjectBackEnd.Models
         public DbSet<Item> Items { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Order> NewDesign { get; set; }
+
+        public DbSet<Shops> Shop { get; set; }
         public DbSet<ProjectBackEnd.Models.Login> Login { get; set; }
         public DbSet<ProjectBackend.Models.NewDesign> NewDesign_1 { get; set; }
         //public DbSet<WeatherForecast> WeatherForecasts { get; set; }
