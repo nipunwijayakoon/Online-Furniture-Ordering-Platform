@@ -14,8 +14,9 @@ import Reset from './Component/Auth/resetpassword';
 
 import ViewDesign from './Page';
 
-import Navbar from './Component/Nav/Navbar';
 
+import Navbar from './Component/Nav/Navbar';
+import CDetails from './Get2/Get2';
 
 import Shops from './Component/Services/Shops';
 //import Products from './Component/Products';
@@ -66,7 +67,7 @@ const App = () => {
         <Route exact path='/Checkout' component={PaymentCheckout} />
         <Route exact path='/resetpassword' component={Reset} />
 
-
+        <Route path ='/CDetails' component={CDetails} />
 
         
         <Route exact path='/newdesign' component={UploadNewDesign} />
