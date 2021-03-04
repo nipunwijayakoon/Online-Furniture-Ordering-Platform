@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class initial : Migration
+    public partial class adminrollestarted : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -66,10 +66,12 @@ namespace ProjectBackend.Migrations
                     ItemID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(nullable: true),
+                    Image = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
                     Price = table.Column<string>(nullable: true),
-                    Colour = table.Column<string>(nullable: true)
+                    Colour = table.Column<string>(nullable: true),
+                    Count = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -77,7 +79,42 @@ namespace ProjectBackend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Orders",
+                name: "Login",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Email = table.Column<string>(nullable: false),
+                    Password = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Login", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "NewDesign_1",
+                columns: table => new
+                {
+                    ItemID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    WoodName = table.Column<string>(nullable: true),
+                    WoodColour = table.Column<string>(nullable: true),
+                    BranchName = table.Column<string>(nullable: true),
+                    Distance = table.Column<string>(nullable: true),
+                    PersonName = table.Column<string>(nullable: true),
+                    PersonAddress = table.Column<string>(nullable: true),
+                    PersonEmail = table.Column<string>(nullable: true),
+                    TimeDuration = table.Column<string>(nullable: true),
+                    ContactDetails = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_NewDesign_1", x => x.ItemID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Order",
                 columns: table => new
                 {
                     OrderID = table.Column<int>(nullable: false)
@@ -89,7 +126,23 @@ namespace ProjectBackend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Orders", x => x.OrderID);
+                    table.PrimaryKey("PK_Order", x => x.OrderID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Shop",
+                columns: table => new
+                {
+                    ShopID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ShopName = table.Column<string>(nullable: true),
+                    ShopEmail = table.Column<string>(nullable: true),
+                    ShopOwnerName = table.Column<string>(nullable: true),
+                    ShopTelNumber = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Shop", x => x.ShopID);
                 });
         }
 
@@ -108,7 +161,16 @@ namespace ProjectBackend.Migrations
                 name: "Items");
 
             migrationBuilder.DropTable(
-                name: "Orders");
+                name: "Login");
+
+            migrationBuilder.DropTable(
+                name: "NewDesign_1");
+
+            migrationBuilder.DropTable(
+                name: "Order");
+
+            migrationBuilder.DropTable(
+                name: "Shop");
         }
     }
 }
