@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class newone : Migration
+    public partial class adminrollestarted : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -66,10 +66,12 @@ namespace ProjectBackend.Migrations
                     ItemID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(nullable: true),
+                    Image = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
                     Price = table.Column<string>(nullable: true),
-                    Colour = table.Column<string>(nullable: true)
+                    Colour = table.Column<string>(nullable: true),
+                    Count = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -99,6 +101,10 @@ namespace ProjectBackend.Migrations
                     WoodName = table.Column<string>(nullable: true),
                     WoodColour = table.Column<string>(nullable: true),
                     BranchName = table.Column<string>(nullable: true),
+                    Distance = table.Column<string>(nullable: true),
+                    PersonName = table.Column<string>(nullable: true),
+                    PersonAddress = table.Column<string>(nullable: true),
+                    PersonEmail = table.Column<string>(nullable: true),
                     TimeDuration = table.Column<string>(nullable: true),
                     ContactDetails = table.Column<string>(nullable: true)
                 },
