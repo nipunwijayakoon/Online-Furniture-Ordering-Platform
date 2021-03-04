@@ -19,6 +19,8 @@ function Navbar() {
     }
   };
 
+  
+  
   useEffect(() => {
     showButton();
   }, []);
@@ -56,11 +58,11 @@ function Navbar() {
             </li>
             <li className='nav-item'>
               <Link
-                to='/viewdesign'
+                to='/CDetails'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                View Designs
+                Customer Details
               </Link>
             </li>
 
