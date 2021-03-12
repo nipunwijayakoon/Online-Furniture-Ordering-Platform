@@ -1,5 +1,5 @@
 .Get {
-    text-align: center;
+    text-align: left;
   }
   
   .Get-header {
@@ -21,6 +21,16 @@
     margin: 15px;
     font-size: 18px;
   }
+
+  l {
+    text-align: left;
+    align-items: left;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    font-size: 18px;
+  }
   
   h {
     align-items: center;
@@ -30,4 +40,40 @@
     margin: 15px;
     font-size: 30px;
   }
-  
+
+  .tab1 { 
+    tab-size: 2; 
+} 
+
+.tab2 { 
+    tab-size: 4; 
+} 
+
+.tab4 { 
+    tab-size: 8; 
+} 
+#customers {
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid rgb(219, 15, 15);
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #eba1c3;}
+
+#customers tr:hover {background-color: rgb(248, 12, 12);}
+
+#customers th {
+  align-items: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #df4343;
+  color: rgb(20, 2, 2);
+}
+

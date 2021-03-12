@@ -2,17 +2,27 @@ import React, {Component} from 'react';
 import './Get2.css';
 import axios from 'axios';
 import Userform from "./fetching";
+import { ExportCSV } from './ExportCSV';
 
 
 class Get extends Component {
 
 state ={
 
-    repos:null
-    //Customer :[]
+    //repos:null
+    persons :[]
 
 
 }
+
+
+componentDidMount() {
+    axios.get(`https://localhost:5001/api/Customers`).then(res => { console.log("new",res);
+        this.setState({persons:res.data});
+
+    })
+}
+
 
 
     getUser= (e) => {
@@ -69,36 +79,37 @@ render(){
             <h1 className="Get-title">Customer Details</h1>
 
          </header>   
-         <Userform getUser={this.getUser}/>
-         {this.state.repos ? <ul>
-             <br></br>
-             <br></br>
-             <h>Customer details</h>
-
-             
-
-             <li>
-             <p>Customer First Name    : {this.state.repos1}</p>
-             
-             <p>Customer Last Name   : {this.state.repos2}</p>
-
-
-             <p>Email   : {this.state.repos}</p>
-
-             <p>Town   : {this.state.repos3}</p>
-             <p>Contact Number   : {this.state.repos4}</p>
-             
-             </li>
-         
-         
-         </ul>:
-         <ul>
-         <p>Enter custormer ID</p>
-         
-         
-         </ul>}
-         
+        
+             <table id="customers">
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Tell Number</th>
+                    <th>Home town</th>
+                </tr>
+                {this.state.persons.map(persons =>
+                    <tr>
+                        <td>{persons.customerID}</td>
+                        <td>{persons.customerFirstName}</td>
+                        <td>{persons.customerLastName}</td>
+                        <td>{persons.customerEmail}</td>
+                        <td>{persons.customerTellnumber}</td>
+                        <td>{persons.customerTown}</td>
+                    </tr>
+                    )}
+                
+            </table>
+           
+            <ExportCSV csvData={this.state.persons} fileName={this.state.CustomerDetails} />
+    
+            
         </div>
+        
+        
+        
+        
     );
 
 }

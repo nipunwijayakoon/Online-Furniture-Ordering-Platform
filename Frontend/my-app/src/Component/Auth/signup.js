@@ -46,7 +46,7 @@ const SignUp = () => {
   const [formData, setFromData] = useState(
     {
       CustomerFirstName: '',
-      lastName: '',
+      CustomerlastName: '',
       CustomerTellnumber:'',
       CustomerEmail: '',
       CustomerPW: '',
@@ -54,7 +54,7 @@ const SignUp = () => {
     }
   );
 
-  const { CustomerFirstName, lastName, CustomerEmail, CustomerTellnumber, CustomerPW, RetypeCustomerPW } = formData;
+  const { CustomerFirstName, CustomerlastName, CustomerEmail, CustomerTellnumber, CustomerPW, RetypeCustomerPW } = formData;
 
   const onChange = e => setFromData({ ...formData, [e.target.name]: e.target.value })
 
@@ -63,7 +63,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       console.log("Fname", CustomerFirstName)
-      const res = await register(CustomerEmail, CustomerFirstName, CustomerTellnumber, CustomerPW,RetypeCustomerPW);
+      const res = await register(CustomerEmail, CustomerFirstName,CustomerlastName, CustomerTellnumber, CustomerPW,RetypeCustomerPW);
       console.log("suc", res)
     } catch (error) {
       console.log(error)
@@ -107,12 +107,12 @@ const SignUp = () => {
                     variant="outlined"
                     required
                     fullWidth
-                    id="lastName"
+                    id="CustomerlastName"
                     label="Last Name"
-                    name="lastName"
-                    value={lastName}
+                    name="CustomerlastName"
+                    value={CustomerlastName}
                     onChange={e => onChange(e)}
-                    autoComplete="lname"
+                    autoComplete="CustomerlastName"
                   />
                 </Grid>
                 <Grid item xs={12}>

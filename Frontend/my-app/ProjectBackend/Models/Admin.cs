@@ -28,5 +28,8 @@ namespace ProjectBackEnd.Models
         [Required]
         [EmailAddress(ErrorMessage = "Invalid Email")]
         public string AdEmail { get; set; }
+
+        public string UserRole = "Admin";
+        internal int adminId;
     }
 }

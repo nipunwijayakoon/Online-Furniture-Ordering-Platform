@@ -3,6 +3,7 @@ import axios from 'axios';
 // Register user
 export const register = async (CustomerEmail,
     CustomerFirstName,
+    CustomerlastName,
     CustomerTellnumber,
     CustomerPW,
     ) => {
@@ -17,6 +18,7 @@ export const register = async (CustomerEmail,
 
     const body = JSON.stringify({ CustomerEmail,
         CustomerFirstName,
+        CustomerlastName,
         CustomerTellnumber,
         CustomerPW,
         RetypeCustomerPW });

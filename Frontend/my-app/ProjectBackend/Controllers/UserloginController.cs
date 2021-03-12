@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using ProjectBackend.Services.JWTService;
 using ProjectBackEnd.Models;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,13 @@ namespace ProjectBackend.Controllers
     {
         public readonly FurnituresDBContext _data;
         private readonly IConfiguration _config;
+        private IJWTService _jwtService;
 
-        public UserloginController(IConfiguration config, FurnituresDBContext data)
+        public UserloginController(IConfiguration config,IJWTService jwtservice, FurnituresDBContext data)
         {
             _config = config;
             _data = data;
+            _jwtService = jwtservice;
         }
 
         // POST api/<UserloginController>
@@ -37,7 +40,8 @@ namespace ProjectBackend.Controllers
                 }
                 else
                 {
-                    return Ok();
+                //var tokenString = _jwtService.GenerateJWTtoken(login);
+                return Ok();
                 }
 
         }
