@@ -8,7 +8,7 @@ import Homepage from './Component/Home/Homepage';
 import SignUp from './Component/Auth/signup';
 import Signin from './Component/Button3/Button3';
 import CustomerSignin from './Component/Auth/signin';
-
+import Admin from './Component/Button4/Button4';
 import PaymentCheckout from './Component/Payment/Confirmation';
 
 import Reset from './Component/Auth/resetpassword';
@@ -74,8 +74,8 @@ const App = () => {
         
         <Route exact path='/newdesign' component={UploadNewDesign} />
         <Route path = '/footerdesign' component={FooterDesign} />
-
         <Route path ='/shops' component={Shops} />
+        <Route path ='/admin' component={Admin} />
         <Route path ='/woodcolor' component={WoodColor} />
         <Route path ='/designstepper' component={DesignStepper} />
         <Route path ='/woodname' component={WoodName} />

@@ -1,22 +1,22 @@
 import React from 'react'
-import './Button3.css';
+import './Button4.css';
 import { Link } from 'react-router-dom';
 
 export default function Button3() {
     return (
         <div  className="Datas">
 
-<Link to='/admin'>
-<button>ADMIN SIGNIN</button>
+<Link to='/admin-note'>
+<button>CREATE NOTES</button>
 </Link>
 
 
-<button>FURNITRUE MAKER SIGNIN</button>
+{/*<button>FURNITRUE MAKER SIGNIN</button>*/}
 
 
-<Link to='/customer-sign-in'>
+<Link to='/CDetails'>
      <button >
-     CUSTOMER SIGNIN
+     CUSTOMER DETAILS
      </button>
  </Link>
             
