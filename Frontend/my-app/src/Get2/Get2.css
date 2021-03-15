@@ -1,33 +1,32 @@
 .Get {
-    text-align: center;
-  }
-  
-  .Get-header {
-    background-color: rgb(202, 4, 4);
-    height: 70px;
-    padding: 20px;
-    color: white;
-  }
-  
-  .Get-title {
-    font-size: 1.5em;
-  }
-  
-  p {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    margin: 15px;
-    font-size: 18px;
-  }
-  
-  h {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    margin: 15px;
-    font-size: 30px;
-  }
-  
+  text-align: center;
+}
+
+.Get-header {
+  background-color: rgb(202, 4, 4);
+  height: 70px;
+  padding: 20px;
+  color: white;
+}
+
+.Get-title {
+  font-size: 1.5em;
+}
+
+p {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  font-size: 18px;
+}
+
+h {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  font-size: 30px;
+}

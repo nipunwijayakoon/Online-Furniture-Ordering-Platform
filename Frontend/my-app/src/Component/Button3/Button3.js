@@ -11,7 +11,7 @@ export default function Button3() {
 </Link>
 
 
-<button>FURNITRUE MAKER SIGNIN</button>
+{/*<button>FURNITRUE MAKER SIGNIN</button>*/}
 
 
 <Link to='/customer-sign-in'>
