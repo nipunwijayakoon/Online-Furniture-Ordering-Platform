@@ -133,10 +133,10 @@ namespace ProjectBackend.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
+                    b.Property<string>("Price")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Price")
+                    b.Property<string>("Src")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")

@@ -14,8 +14,11 @@ import UploadNewDesign from './Component/Design/UploadNewDesign';
 import SwipeableViews from 'react-swipeable-views';
 import Products from './Component/section/Products';
 
+import axios from 'axios';
+
 
 class Page extends React.Component{
+ 
   render(){
     return(
       

@@ -48,12 +48,12 @@ import PersonDetails from './Component/Design/PersonDetails';
 import Viewmore from './Component/viewmore/Viewmore';
 import Adminnote from './Component/Admin/note';
 
+import Cart from './Component/section/Cart';
 
 
 
 
 const App = () => {
-  
 
   return (
    
@@ -106,8 +106,13 @@ const App = () => {
           
           <Route exact path='/signin' component={Signin} />
           <Route path='/viewmore' component={Viewmore}/>
-          <Route path='/NewDesignDetails' component={NewDesignDetails}/>   
+          <Route path='/NewDesignDetails' component={NewDesignDetails}/> 
+          <Route exact path='/cart' component={Cart} />
+          
 
+            
+          
+          
       </Switch>
       
         </Fragment>
