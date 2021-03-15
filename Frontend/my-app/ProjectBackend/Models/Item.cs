@@ -12,12 +12,14 @@ namespace ProjectBackEnd.Models
         public int ItemID { get; set; }
 
         public string Title { get; set; }
+        public string Src { get; set; }
 
         public string Description { get; set; }
 
         public string Content { get; set; }
         public string Price { get; set; }
         public string Colour { get; set; }
+        public int Count { get; set; }
         
     }
 }

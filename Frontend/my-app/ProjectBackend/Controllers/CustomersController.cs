@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MimeKit;
+//using ProjectBackend.Services.MailService;
 using ProjectBackEnd.Models;
 
 namespace ProjectBackend.Controllers
@@ -14,7 +17,7 @@ namespace ProjectBackend.Controllers
     public class CustomersController : ControllerBase
     {
         private readonly FurnituresDBContext _context;
-
+        //private IMailService _mailService;
         public CustomersController(FurnituresDBContext context)
         {
             _context = context;
@@ -85,6 +88,28 @@ namespace ProjectBackend.Controllers
             {
                 _context.Customers.Add(customer);
                 await _context.SaveChangesAsync();
+
+
+                /*await _mailService.SendEmailAsync(customer.CustomerEmail, "Confirm your email", $"<h1>Thank You for registering in Lanka Furnitures</h1>" +
+                   $"<p>Please confirm your email by <a>Clicking here</a></p>");*/
+                var message = new MimeMessage();
+                message.From.Add(new MailboxAddress("Registration Success", "lankafurniture123@gmail.com"));
+                message.To.Add(new MailboxAddress(customer.CustomerFirstName, customer.CustomerEmail));
+                message.Subject = "(Lanka Furniture)this is a test mail";
+                message.Body = new TextPart("plain")
+                {
+                    Text = "Thank you for register in our company"
+                };
+                using (var client = new SmtpClient())
+                {
+                    client.Connect("smtp.gmail.com", 587, false);
+                    client.Authenticate("lankafurniture123@gmail.com", "Lanka@123");
+
+                    client.Send(message);
+
+                    client.Disconnect(true);
+                }
+
             }
 
             else

@@ -127,10 +127,16 @@ namespace ProjectBackend.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Price")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Src")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
@@ -139,6 +145,26 @@ namespace ProjectBackend.Migrations
                     b.HasKey("ItemID");
 
                     b.ToTable("Items");
+                });
+
+            modelBuilder.Entity("ProjectBackEnd.Models.Login", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Login");
                 });
 
             modelBuilder.Entity("ProjectBackEnd.Models.Order", b =>
@@ -163,6 +189,69 @@ namespace ProjectBackend.Migrations
                     b.HasKey("OrderID");
 
                     b.ToTable("Order");
+                });
+
+            modelBuilder.Entity("ProjectBackend.Models.NewDesign", b =>
+                {
+                    b.Property<int>("ItemID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BranchName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContactDetails")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Distance")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PersonAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PersonEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PersonName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TimeDuration")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WoodColour")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WoodName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ItemID");
+
+                    b.ToTable("NewDesign_1");
+                });
+
+            modelBuilder.Entity("ProjectBackend.Models.Shops", b =>
+                {
+                    b.Property<int>("ShopID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ShopEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShopName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShopOwnerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShopTelNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ShopID");
+
+                    b.ToTable("Shop");
                 });
 #pragma warning restore 612, 618
         }
