@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectBackEnd.Models;
 
 namespace ProjectBackend.Migrations
 {
     [DbContext(typeof(FurnituresDBContext))]
-    partial class FurnituresDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210313022646_shoplistmodel")]
+    partial class shoplistmodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -268,21 +270,6 @@ namespace ProjectBackend.Migrations
                     b.HasKey("ShopID");
 
                     b.ToTable("Shop");
-                });
-
-            modelBuilder.Entity("ProjectBackend.Models.Testone", b =>
-                {
-                    b.Property<int>("TestID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("TestName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("TestID");
-
-                    b.ToTable("Testone");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,102 +1,100 @@
-import React, {Component} from 'react';
+
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+import axios from "axios";
 import './Get.css';
-import axios from 'axios';
-import Userform from "./Component/Services/FetchDataInput";
 
 
-class Get extends Component {
 
-state ={
-
-    repos:null
-
-
-}
+function App() {
+  const [Shops, setShops] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
+  const [filteredShops, setFilteredShops] = useState([]);
 
 
-    getUser= (e) => {
-
-        e.preventDefault();
-        const word= e.target.elements.shopname.value;
-       
-        if(word){
-
-            axios.get(`https://localhost:5001/api/Shops/${word}`)
-            .then((res) => {
-    
-                const repos = res.data.shopName;
-                this.setState({repos});
-    
-    
-                const repos1 = res.data.shopEmail;
-                this.setState({repos1});
-
-                const repos2 = res.data.shopOwnerName;
-                this.setState({repos2});
 
 
-                const repos3 = res.data.shopTelNumber;
-                this.setState({repos3});
-    
-                
-    
-            })
-
-        }else return;
-
-    }
-
-   
-render(){
 
 
-    return(
-
-        <div className="Get">
-
-        <header className="Get-header">
-
-            <h1 className="Get-title">About Shops</h1>
-
-         </header>   
-         <Userform getUser={this.getUser}/>
-         {this.state.repos ? <ul>
-             <br></br>
-             <br></br>
-             <h>Shop details</h>
-
-             
-
-             <li>
-             <p>Shop Name    : {this.state.repos}</p>
-             
-             <p>Shop Owner Name   : {this.state.repos2}</p>
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get("https://localhost:5001/api/Shops")
+      .then((res) => {
+        setShops(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
 
-             <p>Shop Email   : {this.state.repos1}</p>
-
-             
-             <p>Contact Number   : {this.state.repos3}</p>
-             
-             </li>
-         
-         
-         </ul>:
-         <ul>
-         <p>Enter known shop ID</p>
-         
-         
-         </ul>}
-         
-        </div>
+  
+  useEffect(() => {
+    setFilteredShops(
+      Shops.filter((Shop) =>
+        Shop.shopName.toLowerCase().includes(search.toLowerCase())
+      )
     );
+  }, [search, Shops]);
 
+
+
+
+
+
+  if (loading) {
+    return <p>Loading Shops...</p>;
+  }
+
+  return (
+    <div className="App">
+      <h1>Shops List</h1>
+      
+      <form className="data">
+      <input
+        type="text"
+        placeholder="Search a Furniture Shop..."
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      </form>
+
+
+
+
+
+      {filteredShops.map((Shop, idx) => (
+        <ShopDetail key={idx} {...Shop} />
+      ))}
+
+
+
+    </div>
+  );
 }
 
-}
 
 
+const ShopDetail = (props) => {
+  const { shopName, shopEmail,shopTelNumber} = props;
+
+  return (
+    <>
+      
+      <p>----------- {shopName} -----------</p>
+      <p>Email : {shopEmail}</p>
+      <p>Tel :{shopTelNumber}</p>
+      <br></br>
+      <br></br>
+    </>
+  );
+};
+
+const rootElement = document.getElementById("root");
+
+ReactDOM.render(<App />, rootElement);
 
 
-
-export default Get
+export default App

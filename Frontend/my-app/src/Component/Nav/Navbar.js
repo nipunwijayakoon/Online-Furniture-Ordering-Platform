@@ -56,6 +56,7 @@ function Navbar() {
                 HELP
               </Link>
             </li>
+            
             <li className='nav-item'>
               <Link
                 to='/viewdesign'

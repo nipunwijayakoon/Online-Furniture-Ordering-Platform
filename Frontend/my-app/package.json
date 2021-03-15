@@ -107,6 +107,7 @@
     "react-ga": "^2.7.0",
     "react-helmet": "6.1.0",
     "react-hover-video-player": "^6.7.0",
+    "react-icons": "^4.2.0",
     "react-is": "^16.13.0",
     "react-number-format": "^4.0.8",
     "react-player": "^2.8.2",
