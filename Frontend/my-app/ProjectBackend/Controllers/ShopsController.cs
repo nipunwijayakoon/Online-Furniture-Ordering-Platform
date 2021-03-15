@@ -42,6 +42,26 @@ namespace ProjectBackend.Controllers
             return shops;
         }
 
+
+        [Route("name/{name}")]
+        [HttpGet()]
+        public List<Shops> GetShopList(string name)
+        {
+
+            try { return _context.Shop.Where(Shops => Shops.ShopName == name).ToList(); }
+            catch (Exception error) { throw error; }
+        
+           
+        }
+
+
+       
+            
+
+
+
+
+
         // PUT: api/Shops/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.

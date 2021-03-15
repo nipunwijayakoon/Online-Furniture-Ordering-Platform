@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class item : Migration
+    public partial class products : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -66,7 +66,7 @@ namespace ProjectBackend.Migrations
                     ItemID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(nullable: true),
-                    Image = table.Column<string>(nullable: true),
+                    Src = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
                     Price = table.Column<string>(nullable: true),
@@ -144,6 +144,32 @@ namespace ProjectBackend.Migrations
                 {
                     table.PrimaryKey("PK_Shop", x => x.ShopID);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Shoplist",
+                columns: table => new
+                {
+                    Area = table.Column<string>(nullable: false),
+                    ShoplistID = table.Column<int>(nullable: false),
+                    Shopname1 = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Shoplist", x => x.Area);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Testone",
+                columns: table => new
+                {
+                    TestID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TestName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Testone", x => x.TestID);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -171,6 +197,12 @@ namespace ProjectBackend.Migrations
 
             migrationBuilder.DropTable(
                 name: "Shop");
+
+            migrationBuilder.DropTable(
+                name: "Shoplist");
+
+            migrationBuilder.DropTable(
+                name: "Testone");
         }
     }
 }

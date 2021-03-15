@@ -33,6 +33,9 @@ namespace ProjectBackEnd.Models
         [Compare("CustomerPW", ErrorMessage ="Both Password are not match")]
         [DataType(DataType.Password)]
         public string RetypeCustomerPW { get; set; }
+
+        public string UserRole = "Customer";
+        internal int CustomerId;
     }
 }
 
