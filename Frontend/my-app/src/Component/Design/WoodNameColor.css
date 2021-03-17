@@ -24,3 +24,24 @@
     
     
 }
+.peo{
+    height: 130px;
+    width: 400px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgb(248, 221, 184);
+}
+.Success{
+    height: 100vh;
+    display:flow-root;
+    align-items:center;
+    justify-content: center;
+}
+
+.page01{
+    height: 30vh;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+  
+  }

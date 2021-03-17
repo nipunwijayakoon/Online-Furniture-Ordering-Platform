@@ -2,29 +2,31 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class signin : Migration
+    public partial class Products_Model_Testing : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Login",
+                name: "Products",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    ProductID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Email = table.Column<string>(nullable: false),
-                    Password = table.Column<string>(nullable: false)
+                    ProductName = table.Column<string>(nullable: true),
+                    Price = table.Column<string>(nullable: true),
+                    ImageName = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Login", x => x.ID);
+                    table.PrimaryKey("PK_Products", x => x.ProductID);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Login");
+                name: "Products");
         }
     }
 }

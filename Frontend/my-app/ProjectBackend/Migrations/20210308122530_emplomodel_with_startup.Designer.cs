@@ -9,8 +9,8 @@ using ProjectBackEnd.Models;
 namespace ProjectBackend.Migrations
 {
     [DbContext(typeof(FurnituresDBContext))]
-    [Migration("20210216155010_signin")]
-    partial class signin
+    [Migration("20210308122530_emplomodel_with_startup")]
+    partial class emplomodel_with_startup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -129,7 +129,13 @@ namespace ProjectBackend.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Price")
@@ -185,6 +191,90 @@ namespace ProjectBackend.Migrations
                     b.HasKey("OrderID");
 
                     b.ToTable("Order");
+                });
+
+            modelBuilder.Entity("ProjectBackend.Models.EmploModel", b =>
+                {
+                    b.Property<int>("EmploID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("EmploName")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("ImageName01")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Occupation01")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("EmploID");
+
+                    b.ToTable("Emplos");
+                });
+
+            modelBuilder.Entity("ProjectBackend.Models.NewDesign", b =>
+                {
+                    b.Property<int>("ItemID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BranchName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContactDetails")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Distance")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PersonAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PersonEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PersonName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TimeDuration")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WoodColour")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WoodName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ItemID");
+
+                    b.ToTable("NewDesign_1");
+                });
+
+            modelBuilder.Entity("ProjectBackend.Models.Shops", b =>
+                {
+                    b.Property<int>("ShopID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ShopEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShopName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShopOwnerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShopTelNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ShopID");
+
+                    b.ToTable("Shop");
                 });
 #pragma warning restore 612, 618
         }

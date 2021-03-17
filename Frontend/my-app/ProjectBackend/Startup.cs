@@ -12,6 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.CodeAnalysis.Options;
 
 namespace ProjectBackend
 {
@@ -29,6 +32,7 @@ namespace ProjectBackend
         {
             services.AddDbContext<FurnituresDBContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("FurnituresDBContext")));
             services.AddControllers();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +47,13 @@ namespace ProjectBackend
             Options.WithOrigins("http://localhost:3000")
             .AllowAnyMethod()
             .AllowAnyHeader());
+
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "Images")),
+                RequestPath = "/Images"
+            });
 
             app.UseHttpsRedirection();
 
