@@ -11,6 +11,7 @@ namespace ProjectBackend.Models
         [Key]
         public int ItemID { get; set; }
 
+        public string NewDesignCode { get; set; }
         public string WoodName { get; set; }
         public string WoodColour { get; set; }
         public string BranchName { get; set; }

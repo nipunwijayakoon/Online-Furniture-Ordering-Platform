@@ -9,8 +9,8 @@ using ProjectBackEnd.Models;
 namespace ProjectBackend.Migrations
 {
     [DbContext(typeof(FurnituresDBContext))]
-    [Migration("20210315154242_products")]
-    partial class products
+    [Migration("20210317150500_upload_design_update")]
+    partial class upload_design_update
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -193,6 +193,45 @@ namespace ProjectBackend.Migrations
                     b.ToTable("Order");
                 });
 
+            modelBuilder.Entity("ProjectBackend.Models.EMP", b =>
+                {
+                    b.Property<int>("EmpID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("EmpName")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("ImageName")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Occupation")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("EmpID");
+
+                    b.ToTable("EMPModel");
+                });
+
+            modelBuilder.Entity("ProjectBackend.Models.EmploModel", b =>
+                {
+                    b.Property<int>("EmploID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImageName_")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("NewDesignCode")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("EmploID");
+
+                    b.ToTable("Emplos");
+                });
+
             modelBuilder.Entity("ProjectBackend.Models.NewDesign", b =>
                 {
                     b.Property<int>("ItemID")
@@ -207,6 +246,9 @@ namespace ProjectBackend.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Distance")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NewDesignCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PersonAddress")
@@ -230,6 +272,30 @@ namespace ProjectBackend.Migrations
                     b.HasKey("ItemID");
 
                     b.ToTable("NewDesign_1");
+                });
+
+            modelBuilder.Entity("ProjectBackend.Models.ProductModel", b =>
+                {
+                    b.Property<int>("ProductID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Price")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProductID");
+
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("ProjectBackend.Models.Shoplist", b =>

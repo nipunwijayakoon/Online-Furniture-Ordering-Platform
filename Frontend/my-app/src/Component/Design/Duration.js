@@ -5,6 +5,9 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
+import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
+
 const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
@@ -14,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: '220px',
+    width: '300px',
   },
 }));
 
@@ -22,6 +25,8 @@ export default function DateAndTimePickers() {
   const classes = useStyles();
 
   return (
+    <div className="Duration" style={{ backgroundColor: "blanchedalmond" }}>
+    <Container>
     <form className={classes.container} noValidate>
       <TextField
         id="datetime-local"
@@ -32,7 +37,14 @@ export default function DateAndTimePickers() {
           shrink: true,
         }}
       />
+    
       <FormHelperText>Please enter the due date which you will expect to get this product in..</FormHelperText>
+     
     </form>
+    </Container>
+
+
+
+    </div>
   );
 }

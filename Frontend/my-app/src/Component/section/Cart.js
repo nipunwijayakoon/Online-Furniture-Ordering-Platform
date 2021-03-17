@@ -7,8 +7,6 @@ import '../css/Cart.css'
 import { Button } from '../Button/Button'
 import StripeCheckout from 'react-stripe-checkout'
 import axios from 'axios';
-import {toast} from 'react-toastify';
-import GooglePayButton from '@google-pay/button-react';
 import { IconButton } from '@material-ui/core'
 
 

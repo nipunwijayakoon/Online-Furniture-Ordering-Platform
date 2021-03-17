@@ -23,10 +23,14 @@ namespace ProjectBackEnd.Models
         public DbSet<Order> NewDesign { get; set; }
 
         public DbSet<Shops> Shop { get; set; }
-        public DbSet<Testone> Testone { get; set; }
         public DbSet<ProjectBackEnd.Models.Login> Login { get; set; }
         public DbSet<ProjectBackend.Models.NewDesign> NewDesign_1 { get; set; }
         //public DbSet<WeatherForecast> WeatherForecasts { get; set; }
+        public DbSet<EmploModel> Emplos { get; set; } 
+        public DbSet<EMP> EMPModel { get; set; }
+        public DbSet<ProductModel> Products { get; set; }
+        public DbSet<Testone> Testone { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
