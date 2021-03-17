@@ -6,18 +6,20 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Homepage from './Component/Home/Homepage';
 import SignUp from './Component/Auth/signup';
-import Signin from './Component/Auth/signin';
-
+import Signin from './Component/Button3/Button3';
+import CustomerSignin from './Component/Auth/signin';
+import Admin from './Component/Button4/Button4';
 import PaymentCheckout from './Component/Payment/Confirmation';
 
 import Reset from './Component/Auth/resetpassword';
 
 import ViewDesign from './Page';
 
+
 import Navbar from './Component/Nav/Navbar';
+import CDetails from './Get2/Get2';
 
-
-import Shops from './Component/Services/Shops';
+import Shops from './Get';
 //import Products from './Component/Products';
 import Card1 from './Component/Table/Table1';
 import Card2 from './Component/Table/Table2';
@@ -44,16 +46,19 @@ import Duration from './Component/Design/Duration';
 import PersonDetails from './Component/Design/PersonDetails';
 
 import Viewmore from './Component/viewmore/Viewmore';
+import Adminnote from './Component/Admin/note';
 
 import EmployeeList from './Component/Trial2/EmployeeList';
 import RandomNu from './Component/Trial2/RandomNu';
 import ProductList from './Component/Trial2/ProductList';
 import UploadDesignImage from './Component/Design/UploadDesignImageList';
 import { UserForm } from './Component/Trial/UserForm';
+import Cart from './Component/section/Cart';
+
+
 
 
 const App = () => {
-  
 
   return (
    
@@ -69,13 +74,13 @@ const App = () => {
         <Route exact path='/Checkout' component={PaymentCheckout} />
         <Route exact path='/resetpassword' component={Reset} />
 
-
+        <Route path ='/CDetails' component={CDetails} />
 
         
         <Route exact path='/newdesign' component={UploadNewDesign} />
         <Route path = '/footerdesign' component={FooterDesign} />
-
         <Route path ='/shops' component={Shops} />
+        <Route path ='/admin' component={Admin} />
         <Route path ='/woodcolor' component={WoodColor} />
         <Route path ='/designstepper' component={DesignStepper} />
         <Route path ='/woodnamecolor' component={WoodNameColor} />
@@ -91,7 +96,7 @@ const App = () => {
         <Route path='/' exact component={Homepage} />
         
           
-          
+        <Route path='/admin-note' component={Adminnote} />
           <Route path='/sign-up' component={SignUp} />
           <Route path='/card1' component={Card1} />
           <Route path='/card2' component={Card2} />
@@ -102,10 +107,13 @@ const App = () => {
           
           
           <Route path='/sign-in' component={Signin} />
+          <Route path='/customer-sign-in' component={CustomerSignin } />
           
           <Route exact path='/signin' component={Signin} />
           <Route path='/viewmore' component={Viewmore}/>
-          <Route path='/NewDesignDetails' component={NewDesignDetails}/>   
+          <Route path='/NewDesignDetails' component={NewDesignDetails}/> 
+          <Route exact path='/cart' component={Cart} />
+          
 
           <Route path= '/UserForm' component={UserForm} />
           <Route path='/employeelist' component={EmployeeList} />
@@ -113,6 +121,9 @@ const App = () => {
           <Route path='/productlist' component={ProductList} />
           <Route path='/designimagelist' component={UploadDesignImage} />
 
+            
+          
+          
       </Switch>
       
         </Fragment>

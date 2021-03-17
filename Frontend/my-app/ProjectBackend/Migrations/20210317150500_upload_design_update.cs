@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class For_New_Design : Migration
+    public partial class upload_design_update : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -43,6 +43,20 @@ namespace ProjectBackend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Emplos",
+                columns: table => new
+                {
+                    EmploID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NewDesignCode = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    ImageName_ = table.Column<string>(type: "nvarchar(100)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Emplos", x => x.EmploID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Employees",
                 columns: table => new
                 {
@@ -60,13 +74,28 @@ namespace ProjectBackend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "EMPModel",
+                columns: table => new
+                {
+                    EmpID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EmpName = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    Occupation = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    ImageName = table.Column<string>(type: "nvarchar(100)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EMPModel", x => x.EmpID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Items",
                 columns: table => new
                 {
                     ItemID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(nullable: true),
-                    Image = table.Column<string>(nullable: true),
+                    Src = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
                     Price = table.Column<string>(nullable: true),
@@ -98,6 +127,7 @@ namespace ProjectBackend.Migrations
                 {
                     ItemID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    NewDesignCode = table.Column<string>(nullable: true),
                     WoodName = table.Column<string>(nullable: true),
                     WoodColour = table.Column<string>(nullable: true),
                     BranchName = table.Column<string>(nullable: true),
@@ -130,6 +160,22 @@ namespace ProjectBackend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    ProductID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductName = table.Column<string>(nullable: true),
+                    Price = table.Column<string>(nullable: true),
+                    ImageName = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Products", x => x.ProductID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Shop",
                 columns: table => new
                 {
@@ -144,6 +190,32 @@ namespace ProjectBackend.Migrations
                 {
                     table.PrimaryKey("PK_Shop", x => x.ShopID);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Shoplist",
+                columns: table => new
+                {
+                    Area = table.Column<string>(nullable: false),
+                    ShoplistID = table.Column<int>(nullable: false),
+                    Shopname1 = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Shoplist", x => x.Area);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Testone",
+                columns: table => new
+                {
+                    TestID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TestName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Testone", x => x.TestID);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -155,7 +227,13 @@ namespace ProjectBackend.Migrations
                 name: "Customers");
 
             migrationBuilder.DropTable(
+                name: "Emplos");
+
+            migrationBuilder.DropTable(
                 name: "Employees");
+
+            migrationBuilder.DropTable(
+                name: "EMPModel");
 
             migrationBuilder.DropTable(
                 name: "Items");
@@ -170,7 +248,16 @@ namespace ProjectBackend.Migrations
                 name: "Order");
 
             migrationBuilder.DropTable(
+                name: "Products");
+
+            migrationBuilder.DropTable(
                 name: "Shop");
+
+            migrationBuilder.DropTable(
+                name: "Shoplist");
+
+            migrationBuilder.DropTable(
+                name: "Testone");
         }
     }
 }

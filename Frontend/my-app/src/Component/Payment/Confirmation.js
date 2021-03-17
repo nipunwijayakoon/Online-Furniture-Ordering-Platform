@@ -8,11 +8,13 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
+//import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
+import {Link} from 'react-router-dom'
+
 
 function CCopyright() {
   
@@ -114,20 +116,22 @@ export default function PaymentCheckout() {
           <React.Fragment>
             {activeStep === steps.length ? (
               <React.Fragment>
-                <Typography variant="h5" gutterBottom>
-                  Thank you for your order.
-                </Typography>
-                <Typography variant="subtitle1">
-                  Your order number is #2004. We have emailed your order confirmation, and will
-                  send you an update when your order has done.You are allowed to do any changes to the order only within 3 days.
-                </Typography>
+                
+                <Typography variant="h5">Thank you for your purchase!</Typography>
+               
+       
+        <Typography variant="subtitle2">Order ref:</Typography>
+
+        <Button component={Link} to='/viewdesign' className={classes.button} variant="outlined"  color="secondary">
+                      Back to Designs
+                    </Button>
               </React.Fragment>
             ) : (
               <React.Fragment>
                 {getStepContent(activeStep)}
                 <div className={classes.buttons}>
                   {activeStep !== 0 && (
-                    <Button onClick={handleBack} className={classes.button}>
+                    <Button  onClick={handleBack} className={classes.button}>
                       Back
                     </Button>
                   )}
@@ -137,7 +141,7 @@ export default function PaymentCheckout() {
                     onClick={handleNext}
                     className={classes.button}
                   >
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                   </Button>
                 </div>
               </React.Fragment>

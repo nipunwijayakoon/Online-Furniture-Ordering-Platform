@@ -17,13 +17,13 @@ function Cards() {
               <CardItem
                 src='images/img-1.jpg'
 
-                text='Latest Furniture Design'
+                text='- MAIN STEPS FOR MAKING ORDERS'
                 label='Veiw More'
                 path='/card1'
               />
               <CardItem
                 src='images/img-2.jpg'
-                text='Populer Furniture Design'
+                text='- ABOUT UPLOAD NEW DESIGN FEATURE'
                 label='Veiw More'
                 path='/card2'
               />

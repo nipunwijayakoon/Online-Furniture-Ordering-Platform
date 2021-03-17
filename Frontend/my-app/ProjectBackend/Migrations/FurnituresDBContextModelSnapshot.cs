@@ -133,10 +133,10 @@ namespace ProjectBackend.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
+                    b.Property<string>("Price")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Price")
+                    b.Property<string>("Src")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
@@ -296,6 +296,22 @@ namespace ProjectBackend.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("ProjectBackend.Models.Shoplist", b =>
+                {
+                    b.Property<string>("Area")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ShoplistID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Shopname1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Area");
+
+                    b.ToTable("Shoplist");
+                });
+
             modelBuilder.Entity("ProjectBackend.Models.Shops", b =>
                 {
                     b.Property<int>("ShopID")
@@ -318,6 +334,21 @@ namespace ProjectBackend.Migrations
                     b.HasKey("ShopID");
 
                     b.ToTable("Shop");
+                });
+
+            modelBuilder.Entity("ProjectBackend.Models.Testone", b =>
+                {
+                    b.Property<int>("TestID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("TestName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TestID");
+
+                    b.ToTable("Testone");
                 });
 #pragma warning restore 612, 618
         }

@@ -10,6 +10,7 @@ import {Link} from 'react-router-dom'
 import '../Component/Section.css'
 
 
+
 class Section extends React.Component{
     render(){
       return(
@@ -18,7 +19,7 @@ class Section extends React.Component{
                     <Route path="/product" component={Products} exact  />
                     <Route path="/product/:id" component={Details} exact />
                     <Route path="/cart" component={Cart}  exact/>
-                    <Route path="/payment" component={Confirmation} exact />
+                    <Route path="/checkout" component={Confirmation} exact />
 
          </section>
          </div>   
