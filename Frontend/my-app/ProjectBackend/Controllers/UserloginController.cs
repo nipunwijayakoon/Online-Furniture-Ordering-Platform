@@ -18,7 +18,7 @@ namespace ProjectBackend.Controllers
         private readonly IConfiguration _config;
         private IJWTService _jwtService;
 
-        public UserloginController(IConfiguration config,IJWTService jwtservice, FurnituresDBContext data)
+        public UserloginController(IConfiguration config, IJWTService jwtservice, FurnituresDBContext data)
         {
             _config = config;
             _data = data;
@@ -40,8 +40,11 @@ namespace ProjectBackend.Controllers
                 }
                 else
                 {
-                //var tokenString = _jwtService.GenerateJWTtoken(login);
-                return Ok();
+                var tokenString = _jwtService.GenerateJWTtoken(login);
+                return Ok(new
+                {
+                    token = tokenString
+                });
                 }
 
         }

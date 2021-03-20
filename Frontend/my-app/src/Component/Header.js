@@ -9,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 
+
 //import {Link} from 'react-router-dom'
 
 //import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -30,7 +31,6 @@ function Copyright() {
     </Typography>
   );
 }
-
 
 
 
@@ -116,7 +116,7 @@ export default function Album() {
 
                 <div className="UpNewDesign">
                 <Button variant="contained" color="primary">
-                    <Link underline="none" href= "newdesign">Upload a New Design</Link>    
+                    <Link underline="none" href= "designstepper">Upload a New Design</Link>    
                   </Button>
                   </div>
                 </Grid>

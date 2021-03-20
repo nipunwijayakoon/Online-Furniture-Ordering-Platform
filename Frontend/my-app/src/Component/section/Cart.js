@@ -1,21 +1,29 @@
 import React, { Component } from 'react'
 import {DataContext} from '../Context'
-import {Link} from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 import Colors from './Colors'
 import '../css/Details.css'
 import '../css/Cart.css'
 import { Button } from '../Button/Button'
+import StripeCheckout from 'react-stripe-checkout'
+import axios from 'axios';
+import { IconButton } from '@material-ui/core'
 
 
 export class Cart extends Component {
-    static contextType = DataContext;
-
+   
+      static contextType = DataContext;
     componentDidMount(){
         this.context.getTotal();
+       
     }
+ 
+    
     
     render() {
         const {cart,increase,reduction,removeProduct,total} = this.context;
+        
+   
         if(cart.length === 0){
             return <h2 style={{textAlign:"center"}}>Your Cart is Empty</h2>
         }else{
@@ -23,8 +31,8 @@ export class Cart extends Component {
                 <>
                     {
                         cart.map(item =>(
-                            <div className="details cart" key={item._id}>
-                                <img src={item.src} width="400" alt=""/>
+                            <div className="details cart" key={`https://localhost:5001/${item.itemID}`}>
+                                <img src={`https://localhost:5001/${item.src}`} width="400" alt=""/>
                                 <div className="box">
                                     <div className="row">
                                         <h2>{item.title}</h2>
@@ -34,18 +42,25 @@ export class Cart extends Component {
                                     <h4>{item.description}</h4>
                                     <p>{item.content}</p>
                                     <div className="amount">
-                                        <button className="count" onClick={() => reduction(item._id)}> - </button>
+                                        <button className="count" onClick={() => reduction(item.itemID)}> - </button>
                                         <span>{item.count}</span>
-                                        <button className="count" onClick={() => increase(item._id)}> + </button>
+                                        <button className="count" onClick={() => increase(item.itemID)}> + </button>
                                     </div>
                                 </div>
-                                <div className="delete" onClick={() => removeProduct(item._id)}>X</div>
+                                <div className="delete" onClick={() => removeProduct(item.itemID)}>X</div>
+                               
                             </div>
+                            
                         ))
-                    }
+                        }
+                    
+                    
                     <div className="total">
-                        <Link to="/payment">Payment</Link>
-                        <h3>Total: LKR {total}</h3>
+                        <Link to="/checkout">Payment</Link>                
+                          
+                           
+                        
+                        <h3>Total: LKR {total}</h3> 
                     </div>
                 </>
                 )

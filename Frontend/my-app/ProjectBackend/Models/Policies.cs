@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using ProjectBackEnd.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +29,5 @@ namespace ProjectBackend.Models
         {
             return new AuthorizationPolicyBuilder().RequireAuthenticatedUser().RequireRole(Employee).Build();
         }
-
-
     }
 }

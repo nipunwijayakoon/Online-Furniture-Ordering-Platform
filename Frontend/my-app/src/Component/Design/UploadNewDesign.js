@@ -11,9 +11,19 @@ import Link from '@material-ui/core/Link';
 
 import './UploadNewDesign.css';
 export class NewDesign extends Component {
+  continue = e => {
+    e.preventDefault();
+    this.props.nextStep();
+  };
+
+  back = e => {
+    e.preventDefault();
+    this.props.prevStep();
+  };
   state={
     profileImg:'https://st4.depositphotos.com/18664664/22483/v/1600/depositphotos_224836750-stock-illustration-kitchen-table-icon-trendy-kitchen.jpg'
   }
+ 
   imageHandler = (e) => {
     const reader = new FileReader();
     reader.onload = () =>{
@@ -25,10 +35,11 @@ export class NewDesign extends Component {
   };
 	render() {
     const { profileImg} = this.state
+
 		return (
 			<div className="page" style={{ backgroundImage: "url('https://images.pexels.com/photos/2988860/pexels-photo-2988860.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')" ,backgroundSize: "cover"}}>
 				
-
+  
         <div className="container2">
         <Container maxWidth="sm">
             
@@ -55,7 +66,7 @@ export class NewDesign extends Component {
 						<img src={profileImg} alt="" id="img" className="img" />
 					</div>
 
-					<input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
+					<input type="file" accept="image/*" name="image-upload" id="input"  onChange={this.imageHandler}/>
 
 					<div className="label">
           <label className="image-upload" htmlFor="input">
@@ -73,18 +84,15 @@ export class NewDesign extends Component {
                 </Grid>
 
         
-          
-        <Grid Container justify="flex-end">
-        <Grid item justify="flex-end">
+       
+            <br />
 
-              <div className="BtnNext">
-                <Button variant="outlined" color="primary">
-                    <Link underline="none" href= "designstepper">Next</Link>    
-                </Button>
-              </div>
-        </Grid>
-        </Grid>
-
+            <Button
+              color="primary"
+              variant="contained"
+              style={{marginLeft:200,}}
+              onClick={this.continue}
+            >Continue</Button>
         
 				</div>
        

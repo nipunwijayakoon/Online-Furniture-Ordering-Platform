@@ -5,20 +5,14 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
+import getTotal from '../Context';
 
 const products = [
-  { name: 'Sofa Table ST5002 | HALMILLA',  price: 'Rs.27,900' },
-  { name: 'Dinning Set | TAMARIND', price: 'Rs.116,700' },
-  { name: 'Chair CR891 | NEDUN', desc: '2 Chairs',price: 'Rs.8,200' },
-  { name: 'Alumirah AH0816 | MAHOGANI',  price: 'Rs.98,700' },
-  { name: 'Service Charge', desc: 'per km charge', price: 'Rs.1,000' },
+ 
 ];
-const addresses = ['No.7/2', 'Railway station road', 'Avissawella'];
+const addresses = [];
 const payments = [
-  { name: 'Card type', detail: 'Visa' },
-  { name: 'Card holder', detail: 'Mr R.G.S.Rajapaksha' },
-  { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-  { name: 'Expiry date', detail: '04/2024' },
+  
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -35,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Review() {
   const classes = useStyles();
+  
 
   return (
     <React.Fragment>
@@ -44,15 +39,13 @@ export default function Review() {
       <List disablePadding>
         {products.map((product) => (
           <ListItem className={classes.listItem} key={product.name}>
-            <ListItemText primary={product.name} secondary={product.desc} />
+            <ListItemText primary={product.name} secondary={product.dec} />
             <Typography variant="body2">{product.price}</Typography>
           </ListItem>
         ))}
         <ListItem className={classes.listItem}>
           <ListItemText primary="Total" />
-          <Typography variant="subtitle1" className={classes.total}>
-           Rs.252,500
-          </Typography>
+          
         </ListItem>
       </List>
       <Grid container spacing={2}>
@@ -60,7 +53,7 @@ export default function Review() {
           <Typography variant="h6" gutterBottom className={classes.title}>
             Address
           </Typography>
-          <Typography gutterBottom>R.G.S.Rajapaksha</Typography>
+          <Typography gutterBottom></Typography>
           <Typography gutterBottom>{addresses.join(', ')}</Typography>
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>
