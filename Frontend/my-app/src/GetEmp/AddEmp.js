@@ -1,5 +1,5 @@
 
-import '../../App.css';
+import '../App.css';
 import React, { Fragment, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -20,7 +20,7 @@ import Container from '@material-ui/core/Container';
 import { first } from 'lodash';
 
 
-import { register } from '../../actions/auth';
+import { empregistor } from '../actions/auth';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -42,19 +42,18 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-const SignUp = () => {
+const EMPSignUp = () => {
   const [formData, setFromData] = useState(
     {
-      CustomerFirstName: '',
-      CustomerlastName: '',
-      CustomerTellnumber:'',
-      CustomerEmail: '',
-      CustomerPW: '',
-      RetypeCustomerPW:'',
+        employeeFirstName: '',
+        employeeLastName: '',
+        employeeTellnumber:'',
+        employeeEmail: '',
+        employeeTown: '',
     }
   );
 
-  const { CustomerFirstName, CustomerlastName, CustomerEmail, CustomerTellnumber, CustomerPW, RetypeCustomerPW } = formData;
+  const { employeeFirstName, employeeLastName, employeeEmail, employeeTellnumber, employeeTown} = formData;
 
   const onChange = e => setFromData({ ...formData, [e.target.name]: e.target.value })
 
@@ -62,8 +61,8 @@ const SignUp = () => {
 
     e.preventDefault();
     try {
-      console.log("Fname", CustomerFirstName)
-      const res = await register(CustomerEmail, CustomerFirstName,CustomerlastName, CustomerTellnumber, CustomerPW,RetypeCustomerPW);
+      console.log("Fname", employeeFirstName)
+      const res = await empregistor(employeeEmail, employeeFirstName,employeeLastName, employeeTown, employeeTellnumber);
       console.log("suc", res)
     } catch (error) {
       console.log(error)
@@ -83,21 +82,21 @@ const SignUp = () => {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign up
+              Employee Registration
       </Typography>
             <form className={classes.form} noValidate onSubmit={e => onSubmit(e)}>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
-                    autoComplete="fname"
-                    name="CustomerFirstName"
-                    value={CustomerFirstName}
+                    autoComplete="employeeFirstName"
+                    name="employeeFirstName"
+                    value={employeeFirstName}
                     onChange={e => onChange(e)}
 
                     variant="outlined"
                     required
                     fullWidth
-                    id="CustomerFirstName"
+                    id="employeeFirstName"
                     label="First Name"
                     autoFocus
                   />
@@ -107,12 +106,12 @@ const SignUp = () => {
                     variant="outlined"
                     required
                     fullWidth
-                    id="CustomerlastName"
+                    id="employeeLastName"
                     label="Last Name"
-                    name="CustomerlastName"
-                    value={CustomerlastName}
+                    name="employeeLastName"
+                    value={employeeLastName}
                     onChange={e => onChange(e)}
-                    autoComplete="CustomerlastName"
+                    autoComplete="employeeLastName"
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -120,13 +119,13 @@ const SignUp = () => {
                     variant="outlined"
                     required
                     fullWidth
-                    id="CustomerEmail"
+                    id="employeeEmail"
                     label="Email Address"
-                    name="CustomerEmail"
-                    value={CustomerEmail}
+                    name="employeeEmail"
+                    value={employeeEmail}
                     onChange={e => onChange(e)}
 
-                    autoComplete="CustomerEmail"
+                    autoComplete="employeeEmail"
                   />
                 </Grid>
 
@@ -135,13 +134,13 @@ const SignUp = () => {
                     variant="outlined"
                     required
                     fullWidth
-                    id="CustomerTellnumber"
-                    label="CustomerTellnumber"
-                    name="CustomerTellnumber"
-                    value={CustomerTellnumber}
+                    id="employeeTellnumber"
+                    label="employeeTellnumber"
+                    name="employeeTellnumber"
+                    value={employeeTellnumber}
                     onChange={e => onChange(e)}
 
-                    autoComplete="CustomerTellnumber"
+                    autoComplete="employeeTellnumber"
                   />
                 </Grid>
                 
@@ -150,35 +149,21 @@ const SignUp = () => {
                     variant="outlined"
                     required
                     fullWidth
-                    name="CustomerPW"
-                    value={CustomerPW}
+                    name="employeeTown"
+                    value={employeeTown}
                     onChange={e => onChange(e)}
-                    label="CustomerPW"
-                    type="CustomerPW"
-                    id="CustomerPW"
-                    autoComplete="current-CustomerPW"
+                    label="employeeTown"
+                    type="employeeTown"
+                    id="employeeTown"
+                    autoComplete="employeeTown"
                   />
                 </Grid>
 
-                <Grid item xs={12}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    name="RetypeCustomerPW"
-                    value={CustomerPW}
-                    onChange={e => onChange(e)}
-                    label="RetypeCustomerPW"
-                    type="RetypeCustomerPW"
-                    id="RetypeCustomerPW"
-                    //autoComplete="current-CustomerPW"
-                  />
-                </Grid>
 
                 <Grid item xs={12}>
                   <FormControlLabel
                     control={<Checkbox value="allowExtraEmails" color="primary" />}
-                    label="I want to become a member on Lanka Furniture Makers"
+                    label="**********************************************************"
                   />
                 </Grid>
               </Grid>
@@ -189,12 +174,12 @@ const SignUp = () => {
                 color="primary"
                 className={classes.submit}
               >
-                Sign Up
+                Registor
         </Button>
               <Grid container justify="flex-end">
                 <Grid item>
-                  <Link href="#" variant="body2">
-                    Already have an account? Sign in
+                  <Link to='/Empdetails' variant="body2">
+                    Back to details
             </Link>
                 </Grid>
               </Grid>
@@ -209,4 +194,4 @@ const SignUp = () => {
   );
 }
 
-export default SignUp
+export default EMPSignUp

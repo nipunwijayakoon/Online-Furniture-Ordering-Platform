@@ -22,6 +22,8 @@
     padding-left: 10px;
   }
   
+
+  
   p {
     align-items: center;
     justify-content: center;
@@ -61,23 +63,23 @@
 .tab4 { 
     tab-size: 8; 
 } 
-#customers {
+#employee {
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
 
-#customers td, #customers th {
+#employee td, #employee th {
   border: 1px solid rgb(219, 15, 15);
   padding: 8px;
 }
 
-#customers tr:nth-child(even){background-color: #eba1c3;}
+#employee tr:nth-child(even){background-color: #eba1c3;}
 
-#customers tr:hover {background-color: rgb(248, 12, 12);}
+#employee tr:hover {background-color: rgb(248, 12, 12);}
 
-#customers th {
+#employee th {
   align-items: center;
   padding-top: 12px;
   padding-bottom: 12px;
@@ -85,4 +87,6 @@
   background-color: #df4343;
   color: rgb(20, 2, 2);
 }
+
+
 

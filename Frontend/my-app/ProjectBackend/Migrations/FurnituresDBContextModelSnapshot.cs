@@ -94,6 +94,9 @@ namespace ProjectBackend.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("EmployeeAge")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("EmployeeEmail")
                         .HasColumnType("nvarchar(max)");
 
@@ -103,10 +106,19 @@ namespace ProjectBackend.Migrations
                     b.Property<string>("EmployeeLastName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("EmployeeRole")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("EmployeeTellnumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EmployeeTown")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WorkExp")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("EmployeeID");
@@ -189,6 +201,42 @@ namespace ProjectBackend.Migrations
                     b.HasKey("OrderID");
 
                     b.ToTable("Order");
+                });
+
+            modelBuilder.Entity("ProjectBackend.Models.Cartitems", b =>
+                {
+                    b.Property<int>("ProductID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Colour")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Count")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Price")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Src")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Total")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProductID");
+
+                    b.ToTable("Cartitems");
                 });
 
             modelBuilder.Entity("ProjectBackend.Models.EMP", b =>

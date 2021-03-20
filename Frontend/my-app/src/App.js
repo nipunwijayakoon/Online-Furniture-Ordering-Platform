@@ -18,6 +18,8 @@ import ViewDesign from './Page';
 
 import Navbar from './Component/Nav/Navbar';
 import CDetails from './Get2/Get2';
+import Empdetails from './GetEmp/EmployeeDetails';
+import AddEmployee from './GetEmp/AddEmp';
 
 import Shops from './Get';
 //import Products from './Component/Products';
@@ -75,6 +77,8 @@ const App = () => {
         <Route exact path='/resetpassword' component={Reset} />
 
         <Route path ='/CDetails' component={CDetails} />
+        <Route path = '/Empdetails' component={Empdetails}/>
+        <Route path = '/AddEmployee' component={AddEmployee}/>
 
         
         <Route exact path='/newdesign' component={UploadNewDesign} />
