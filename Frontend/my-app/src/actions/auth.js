@@ -69,4 +69,46 @@ Password ) => {
         
         
     }
+
+
+
+};
+
+
+
+    /////Registor Employee
+
+    export const empregistor = async(employeeEmail,
+        employeeFirstName,
+        employeeLastName,
+        employeeTown,
+        employeeTellnumber,
+    )=>{
+        const config = {
+            headers:{ "Content-Type": "application/json"}
+        };
+    
+
+    const body = JSON.stringify({employeeEmail,
+        employeeFirstName,
+        employeeLastName,
+        employeeTown,
+        employeeTellnumber});
+
+        console.log("Emp", body)
+
+    try{
+        const res = await axios.post("https://localhost:5001/api/Employees", body, config);
+        console.log(res);
+
+
+    }catch (error){
+        const errors = error.response.data.errors;
+
+        if (errors)
+        console.log(errors);
+
+    }
+
+
 };

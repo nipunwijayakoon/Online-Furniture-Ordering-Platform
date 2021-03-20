@@ -79,7 +79,9 @@ render(){
             <h1 className="Get-title">Customer Details</h1>
 
          </header>   
-        
+
+         <ExportCSV csvData={this.state.persons} fileName={this.state.CustomerDetails} />
+         
              <table id="customers">
                 <tr>
                     <th>ID</th>
@@ -102,7 +104,7 @@ render(){
                 
             </table>
            
-            <ExportCSV csvData={this.state.persons} fileName={this.state.CustomerDetails} />
+           
     
             
         </div>
