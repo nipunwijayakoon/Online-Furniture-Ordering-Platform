@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class itemcontroller : Migration
+    public partial class ced : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -123,7 +123,7 @@ namespace ProjectBackend.Migrations
                     Description = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
                     Price = table.Column<string>(nullable: true),
-                    Colour = table.Column<string>(nullable: true),
+                    Colors = table.Column<string>(nullable: true),
                     Count = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

@@ -1,0 +1,187 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  
+  .invalid-field{
+    border-color: #dc3545;
+    color: #dc3545;
+    background-color: #fff;
+  }
+  
+  table div.card {
+    align-items: center;
+    border: none;
+    transition: transform 0.2s;
+  }
+  table div.card:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #333;
+    z-index: 10;
+  }
+  
+  table div.card:hover button.delete-button {
+    visibility: visible;
+  
+  }
+  
+  table div.card-body {
+    text-align: center;
+  }
+  
+  table div.card img {
+    width: 175px;
+    height: 175px;
+    margin: 30px;
+  }
+  
+  table div.card .delete-button {
+    visibility: hidden;
+  }
+  
+  table tr td:not(:nth-child(3)){
+    border-right: 1px solid #00000020;
+    
+  }
+  
+  table tr:not(:last-child) td{
+    border-bottom: 1px solid #00000020;
+  }
+  .productminicard
+  {
+      min-width: 195px;
+      min-height: 200px;
+      max-height: 355px;
+      max-width: 200px;
+      display: grid;
+   font-family: 'Poppins', sans-serif;
+   text-align: center;
+   border-radius: 20px;
+   border: 10px solid #6d6969;
+      box-shadow: 2px 8px 20px rgba(212, 206, 206, 0.801);
+      
+  }
+  .productminicard img{
+      max-width: 120px;
+      min-height: 120px;
+      max-height: 130px;
+      width: 100%;
+      height: 75%;
+      max-height: 200px;
+      display: block;
+      object-fit: cover;
+  }
+
+  
+.productcard{
+  display: grid;
+  min-width: 50px;
+  min-height: 50px;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 20px;
+  border: 10px solid #3b92c4;
+  margin-top: 80px;
+}
+.productcard button{
+  border: none;
+  outline: none;
+  background: rgb(13, 44, 182);
+  color: rgb(255, 255, 255);
+  width: 100%;
+  height: 30px;
+  display: block;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 15px 0;
+}
+
+.card-img-top{
+  max-width: 120px;
+  min-height: 120px;
+  max-height: 130px;
+  width: 100%;
+  height: 75%;
+  max-height: 200px;
+  display: block;
+  object-fit: cover;
+  align-items: center;
+
+}
+
+.cartcard{
+  max-width: 89px;
+  margin-right: 40px;
+  margin-top: 3px;
+  height: 37px;
+  background: rgb(19, 177, 27);
+  display: block;
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgb(231, 226, 226);
+  cursor: pointer;
+  
+}  
+.cartcard:hover{
+  background-color:   rgb(90, 209, 218);
+  color: white;
+}
+
+.cart-icon{ 
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto; 
+  cursor: pointer;
+    position: relative;
+    size: 40px; 
+}
+
+.cart-icon span{
+  
+    right: -7px;
+  background: rgb(230, 5, 5);
+    border-radius: 50%;
+    color: white;
+    font-size: 15px;
+    padding: 3px 5px;
+    z-index: -1;
+}
+
+.btnloadmore{
+  background: rgb(10, 93, 114);
+    
+    width : 10%;
+    height: 42px;
+    display: ruby;
+    margin-right: 5px;
+    margin-left:1100px;
+    color: rgb(12, 12, 12);
+    font-size: 20px;
+    padding: 2px;
+    cursor: pointer;
+    box-shadow: 2px 8px 30px rgba(40, 1, 211, 0.801);
+    border-radius: 5px;
+}
+.btnloadmore:hover{
+  background-color:   rgb(2, 35, 43);
+  color: rgb(231, 227, 227);
+}
+.card-body{
+  align-items: center;
+  text-align: center;
+}
+.form-group{
+  align-items: center;
+}
+.card-body .form-group input{
+  text-align: center;
+
+}

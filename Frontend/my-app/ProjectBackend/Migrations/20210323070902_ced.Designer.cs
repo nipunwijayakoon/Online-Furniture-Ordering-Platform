@@ -9,8 +9,8 @@ using ProjectBackEnd.Models;
 namespace ProjectBackend.Migrations
 {
     [DbContext(typeof(FurnituresDBContext))]
-    [Migration("20210320095938_itemcontroller")]
-    partial class itemcontroller
+    [Migration("20210323070902_ced")]
+    partial class ced
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -135,7 +135,7 @@ namespace ProjectBackend.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Colour")
+                    b.Property<string>("Colors")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Content")

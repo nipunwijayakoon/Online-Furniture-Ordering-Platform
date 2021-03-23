@@ -133,7 +133,7 @@ namespace ProjectBackend.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Colour")
+                    b.Property<string>("Colors")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Content")

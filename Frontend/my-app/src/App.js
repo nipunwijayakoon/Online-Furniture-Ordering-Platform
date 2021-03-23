@@ -52,10 +52,15 @@ import Adminnote from './Component/Admin/note';
 
 import EmployeeList from './Component/Trial2/EmployeeList';
 import RandomNu from './Component/Trial2/RandomNu';
-import ProductList from './Component/Trial2/ProductList';
+//import ProductList from './Component/Trial2/ProductList';
 import UploadDesignImage from './Component/Design/UploadDesignImageList';
 import { UserForm } from './Component/Trial/UserForm';
 import Cart from './Component/section/Cart';
+import Blog from './Component/AboutUs/Blog';
+
+import ManageProduct from './Component/AdminProduct/ManageProduct';
+import ProductList from './Component/AdminProduct/ProductList';
+
 
 
 
@@ -117,8 +122,14 @@ const App = () => {
           <Route path='/viewmore' component={Viewmore}/>
           <Route path='/NewDesignDetails' component={NewDesignDetails}/> 
           <Route exact path='/cart' component={Cart} />
-          
+          <Route exact path='/blog' component={Blog} />
+         
+         
+          <Route path='/ManageProduct' component={ManageProduct} />
+          <Route path='/ProductList' component={ProductList}/>
 
+         
+          
           <Route path= '/UserForm' component={UserForm} />
           <Route path='/employeelist' component={EmployeeList} />
           <Route path='/randomnum' component={RandomNu} />
