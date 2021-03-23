@@ -1,48 +1,53 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Paper from '@material-ui/core/Paper';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
-import Typography from '@material-ui/core/Typography';
 
-import WoodColor from './WoodColor';
-import WoodName from './WoodName';
-import SelectingBranch from './SelectingBranch';
-import Duration from './Duration';
+import UploadDesignImageList from './UploadDesignImageList';
+import UploadDesignImage from './UploadDesignImage';
+import UploadNewDesign from './UploadNewDesign';
+import WoodNameColor from './WoodNameColor';
+import BranchDistanceDuration from './BranchDistanceDuration';
+import DesignConfirm from './DesignConfirm';
 import PersonDetails from './PersonDetails';
+import DoneMessage from './DoneMessage';
+
+
+
 
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {
-    position: 'relative',
+  AppBar: {
+    position: 'relative'
+  
   },
   layout: {
-    width: 'auto',
+    
+    width: '200px',
+    height: '650px',
     marginTop: theme.spacing(1),
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
+    marginBottom: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
-      width: 600,
-      marginLeft: 'auto',
-      marginRight: 'auto',
+      width: 2000,
+      hight: 650,
+      marginLeft: '0px',
+      marginRight: '0px',
+      marginTop: '0px',
+      marginBottom: '100px',
     },
   },
   paper: {
     
-    width: '700px',
+    position: 'default',
+    width: '1349px',
+    height: '712px',
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(3),
     padding: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
       marginTop: theme.spacing(6),
       marginBottom: theme.spacing(6),
-      padding: theme.spacing(3),
+      padding: theme.spacing(0),
     },
   },
   stepper: {
@@ -59,47 +64,153 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const steps = ['Wood Name', 'Wood Color', 'Branch Name', 'Time Duration', 'Contact Details'];
+//const steps = ['New Design', 'Wood Name', 'Wood Color', 'Branch Name', 'Time Duration', 'Contact Details'];
 
-function getStepContent(step) {
-  document.body.style.backgroundImage = "url('https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')";
-  switch (step) {
-    case 0:
-      return <WoodName />;
-    case 1:
-      return <WoodColor />;
-    case 2:
-      return <SelectingBranch />;
-    case 3:
-      return <Duration />;
-    case 4:
-        return <PersonDetails />;
-    default:
-      throw new Error('Unknown step');
+export class DesignStepper extends Component {
+  state = {
+    step: 1,
+    newDesignCode: '',
+    woodName: '',
+    woodColour: '',
+    branchName: '',
+    distance: '',
+    timeDuration: '',
+    personName: '',
+    personAddress: '',
+    contactDetails: '',
+    personEmail: ''
+  };
+
+  // Proceed to next step
+  nextStep = () => {
+    const { step } = this.state;
+    this.setState({
+      step: step + 1
+    });
+  };
+
+  // Go back to prev step
+  prevStep = () => {
+    const { step } = this.state;
+    this.setState({
+      step: step - 1
+    });
+  };
+
+  // Handle fields change
+  handleChange = input => e => {
+    this.setState({ [input]: e.target.value });
+  };
+
+  render() {
+    const { step } = this.state;
+    const { newDesignCode, woodName, woodColour, branchName, distance, timeDuration, personName, personAddress, contactDetails, personEmail } = this.state;
+    const values = { newDesignCode, woodName, woodColour, branchName, distance, timeDuration, personName, personAddress, contactDetails, personEmail };
+
+    switch (step) {
+      case 1:
+        return (
+          
+          <UploadDesignImageList
+            nextStep={this.nextStep}
+            handleChange={this.handleChange}
+            values={values}
+          />
+        );
+      case 2:
+        return (
+          <WoodNameColor
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            handleChange={this.handleChange}
+            values={values}
+          />
+        );
+        case 3:
+          return (
+            <BranchDistanceDuration
+              nextStep={this.nextStep}
+              prevStep={this.prevStep}
+              handleChange={this.handleChange}
+              values={values}
+            />
+          );
+        case 4:
+          return (
+            <PersonDetails
+              nextStep={this.nextStep}
+              prevStep={this.prevStep}
+              handleChange={this.handleChange}
+              values={values}
+            />
+          );
+          case 5:
+          return (
+            <DesignConfirm
+              nextStep={this.nextStep}
+              prevStep={this.prevStep}
+              values={values}
+            />
+          );
+          case 6:
+          return <DoneMessage />;
+      default:
+        (console.log('This is a multi-step form built with React.'))
+    }
   }
 }
 
-export default function PaymentCheckout() {
-  const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(0);
+export default DesignStepper;
 
-  const handleNext = () => {
-    setActiveStep(activeStep + 1);
+
+
+{/*
+
+function getStepContent(step) {
+  document.body.style.color = "beige";
+  switch (step) {
+    case 0:
+      return (<UploadNewDesign />);
+    case 1:
+        return (<WoodName />);
+    case 2:
+      return (<WoodColor />);
+    case 3:
+      return (<SelectingBranch />);
+    case 4:
+      return (<Duration />);
+    case 5:
+        return (<PersonDetails />);
+    default:
+      (console.log('This is a multi-step form built with React.'));
+  }
+}
+
+export class DesignStepper extends Component {
+  continue = e => {
+    e.preventDefault();
+    this.props.nextStep();
   };
 
-  const handleBack = () => {
-    setActiveStep(activeStep - 1);
+  back = e => {
+    e.preventDefault();
+    this.props.prevStep();
   };
+
+  render() {
+    const { values, handleChange } = this.props;
 
   return (
-    <React.Fragment>
+    <
+    React.Fragment>
       <Typography variant="h1" color="textPrimary"  paragraph>
      
       </Typography>
       <CssBaseline />
       <div className="page" >
-
+      
       <main className={classes.layout}>
+        
         <Paper className={classes.paper}style={{ backgroundColor: "beige"}} >
           <Typography component="h1" variant="h4" align="center">
             Make Your Spaces Extra Comfortable with Your Own Design... Own Fashion... Own Style... 
@@ -152,9 +263,14 @@ export default function PaymentCheckout() {
             )}
           </React.Fragment>
         </Paper>
+        
       </main>
+      
       </div>
     </React.Fragment>
   );
 }
+}
 
+export default DesignStepper;
+*/}

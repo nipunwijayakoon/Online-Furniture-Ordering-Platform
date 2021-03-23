@@ -28,6 +28,11 @@ export default function Button3() {
  </Link>
 
  
+ <Link to='/Empdetails'>
+     <button >
+     EMPLOYEE DETAILS
+     </button>
+ </Link>
             
         </div>
     )

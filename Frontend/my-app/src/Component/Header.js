@@ -116,7 +116,7 @@ export default function Album() {
 
                 <div className="UpNewDesign">
                 <Button variant="contained" color="primary">
-                    <Link underline="none" href= "newdesign">Upload a New Design</Link>    
+                    <Link underline="none" href= "designstepper">Upload a New Design</Link>    
                   </Button>
                   </div>
                 </Grid>

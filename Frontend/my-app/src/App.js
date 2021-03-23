@@ -18,6 +18,8 @@ import ViewDesign from './Page';
 
 import Navbar from './Component/Nav/Navbar';
 import CDetails from './Get2/Get2';
+import Empdetails from './GetEmp/EmployeeDetails';
+import AddEmployee from './GetEmp/AddEmp';
 
 import Shops from './Get';
 //import Products from './Component/Products';
@@ -40,14 +42,19 @@ import NewDesignDetails from './Component/AdminUpload/NewDesignDetail';
 
 import WoodColor from './Component/Design/WoodColor';
 import DesignStepper from './Component/Design/DesignStepper';
-import WoodName from './Component/Design/WoodName';
-import SelectingBranch from './Component/Design/SelectingBranch';
+import WoodNameColor from './Component/Design/WoodNameColor';
+import BranchDistanceDuration from './Component/Design/BranchDistanceDuration';
 import Duration from './Component/Design/Duration';
 import PersonDetails from './Component/Design/PersonDetails';
 
 import Viewmore from './Component/viewmore/Viewmore';
 import Adminnote from './Component/Admin/note';
 
+import EmployeeList from './Component/Trial2/EmployeeList';
+import RandomNu from './Component/Trial2/RandomNu';
+//import ProductList from './Component/Trial2/ProductList';
+import UploadDesignImage from './Component/Design/UploadDesignImageList';
+import { UserForm } from './Component/Trial/UserForm';
 import Cart from './Component/section/Cart';
 import Blog from './Component/AboutUs/Blog';
 
@@ -75,6 +82,8 @@ const App = () => {
         <Route exact path='/resetpassword' component={Reset} />
 
         <Route path ='/CDetails' component={CDetails} />
+        <Route path = '/Empdetails' component={Empdetails}/>
+        <Route path = '/AddEmployee' component={AddEmployee}/>
 
         
         <Route exact path='/newdesign' component={UploadNewDesign} />
@@ -83,8 +92,8 @@ const App = () => {
         <Route path ='/admin' component={Admin} />
         <Route path ='/woodcolor' component={WoodColor} />
         <Route path ='/designstepper' component={DesignStepper} />
-        <Route path ='/woodname' component={WoodName} />
-        <Route path ='/selectingbranch' component={SelectingBranch} />
+        <Route path ='/woodnamecolor' component={WoodNameColor} />
+        <Route path ='/branchdistanceduration' component={BranchDistanceDuration} />
         <Route path ='/duration' component={Duration} />
         <Route path ='/persondetails' component={PersonDetails} />
         
@@ -121,6 +130,12 @@ const App = () => {
 
          
           
+          <Route path= '/UserForm' component={UserForm} />
+          <Route path='/employeelist' component={EmployeeList} />
+          <Route path='/randomnum' component={RandomNu} />
+          <Route path='/productlist' component={ProductList} />
+          <Route path='/designimagelist' component={UploadDesignImage} />
+
             
           
           
