@@ -19,6 +19,15 @@ export default function Button3() {
      CUSTOMER DETAILS
      </button>
  </Link>
+
+
+ <Link to='/ManageProduct'>
+     <button >
+     PRODUCT DETAILS
+     </button>
+ </Link>
+
+ 
             
         </div>
     )

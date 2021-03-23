@@ -49,6 +49,11 @@ import Viewmore from './Component/viewmore/Viewmore';
 import Adminnote from './Component/Admin/note';
 
 import Cart from './Component/section/Cart';
+import Blog from './Component/AboutUs/Blog';
+
+import ManageProduct from './Component/AdminProduct/ManageProduct';
+import ProductList from './Component/AdminProduct/ProductList';
+
 
 
 
@@ -108,8 +113,14 @@ const App = () => {
           <Route path='/viewmore' component={Viewmore}/>
           <Route path='/NewDesignDetails' component={NewDesignDetails}/> 
           <Route exact path='/cart' component={Cart} />
-          
+          <Route exact path='/blog' component={Blog} />
+         
+         
+          <Route path='/ManageProduct' component={ManageProduct} />
+          <Route path='/ProductList' component={ProductList}/>
 
+         
+          
             
           
           
