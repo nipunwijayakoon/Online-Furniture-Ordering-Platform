@@ -5,9 +5,9 @@ import '../../App.css';
 
 
 
-
+import { Link, Redirect } from "react-router-dom";
 import React, { Fragment, useState } from "react";
-import { Redirect } from "react-router-dom";
+
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
@@ -21,7 +21,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
+//import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-  const SignIn=() =>{
+  const SignIn=({ login, isAuthenticated, user }) =>{
 
 
     const [formData, setFromData] = useState(
@@ -69,6 +69,9 @@ const useStyles = makeStyles((theme) => ({
       );
 
 
+      const classes = useStyles();
+
+
       const { Email,Password } = formData;
 
       const onChange = e => setFromData({ ...formData, [e.target.name]: e.target.value })
@@ -76,18 +79,26 @@ const useStyles = makeStyles((theme) => ({
       const onSubmit = async e => {
     
         e.preventDefault();
-        try {
-          console.log("Fname", Email)
-          const res = await login(Email,Password);
-          console.log("suc", res)
-        } catch (error) {
-          console.log(error)
-        }
+        
+        login(Email,Password);
     
-      }
+      };
+
+
     
 
-    const classes = useStyles();
+      if (isAuthenticated) {
+        if (user.role === "Customer")
+          return <Redirect to="/aftersignin" />;
+        else if (user.role == "Employee")
+          return <Redirect to="/" />
+        else
+          console.log(user.role);
+      }
+
+
+
+  
   
     return (
         <Fragment>
@@ -170,8 +181,19 @@ const useStyles = makeStyles((theme) => ({
 
 
 
+  SignIn.propTypes = {
+    login: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool.isRequired,
+    user: PropTypes.object.isRequired,
+  };
+  
+  const mapStateToProps = (state) => ({
+    isAuthenticated: state.auth.isAuthenticated,
+    user: state.auth.user,
+  });
 
-export default SignIn
+
+export default connect(mapStateToProps, { login })(SignIn);
 
 
 

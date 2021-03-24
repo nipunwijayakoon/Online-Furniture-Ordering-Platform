@@ -30,11 +30,17 @@ namespace ProjectBackend.Controllers
         [Route("login")]
         public async Task<IActionResult> Login(Login login)
         {
+            try { 
            
                 var CheckCustomeEmil = _data.Customers.FirstOrDefault(m => m.CustomerEmail.ToLower() == login.Email);
                 var CheckCustomerPW = _data.Customers.FirstOrDefault(m=> m.CustomerPW.ToLower() == login.Password);
 
-                if((CheckCustomeEmil == null) || (CheckCustomerPW == null))
+
+                var CheckSellerEmail = _data.Shoplist.FirstOrDefault(m => m.SellerEmail.ToLower() == login.Email);
+                var CheckSellerPW = _data.Shoplist.FirstOrDefault(m => m.SellerPW.ToLower() == login.Password);
+
+
+                if (((CheckCustomeEmil == null) || (CheckCustomerPW == null)) && ((CheckSellerEmail == null) || (CheckSellerPW == null)))
                 {
                     return BadRequest();
                 }
@@ -46,6 +52,12 @@ namespace ProjectBackend.Controllers
                     token = tokenString
                 });
                 }
+
+            }
+
+
+            catch(Exception ex)
+            { throw ex; }
 
         }
     }

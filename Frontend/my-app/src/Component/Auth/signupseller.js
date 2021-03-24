@@ -20,7 +20,7 @@ import Container from '@material-ui/core/Container';
 import { first } from 'lodash';
 
 
-import { register } from '../../actions/auth';
+import { selleregistor } from '../../actions/auth';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -45,16 +45,24 @@ const useStyles = makeStyles((theme) => ({
 const SignUp = () => {
   const [formData, setFromData] = useState(
     {
-      CustomerFirstName: '',
-      CustomerlastName: '',
-      CustomerTellnumber:'',
-      CustomerEmail: '',
-      CustomerPW: '',
-      RetypeCustomerPW:'',
+        SellerEmail:'',
+        SellerFirstName:'',
+        SellerLastName:'',
+        Name:'',
+        TelNumber:'',
+        SellerPW:'',
+        RetypeSellerPW:'',           
     }
   );
 
-  const { CustomerFirstName, CustomerlastName, CustomerEmail, CustomerTellnumber, CustomerPW, RetypeCustomerPW } = formData;
+  const { SellerEmail,
+    SellerFirstName,
+    SellerLastName,
+    Area,
+    Name,
+    TelNumber,
+    SellerPW,
+    RetypeSellerPW } = formData;
 
   const onChange = e => setFromData({ ...formData, [e.target.name]: e.target.value })
 
@@ -62,8 +70,15 @@ const SignUp = () => {
 
     e.preventDefault();
     try {
-      console.log("Fname", CustomerFirstName)
-      const res = await register(CustomerEmail, CustomerFirstName,CustomerlastName, CustomerTellnumber, CustomerPW,RetypeCustomerPW);
+      console.log("Fname", SellerFirstName)
+      const res = await selleregistor(SellerEmail,
+        SellerFirstName,
+        SellerLastName,
+        Area,
+        Name,
+        TelNumber,
+        SellerPW,
+        RetypeSellerPW);
       console.log("suc", res)
     } catch (error) {
       console.log(error)
@@ -90,14 +105,14 @@ const SignUp = () => {
                 <Grid item xs={12} sm={6}>
                   <TextField
                     autoComplete="fname"
-                    name="CustomerFirstName"
-                    value={CustomerFirstName}
+                    name="SellerFirstName"
+                    value={SellerFirstName}
                     onChange={e => onChange(e)}
 
                     variant="outlined"
                     required
                     fullWidth
-                    id="CustomerFirstName"
+                    id="SellerFirstName"
                     label="First Name"
                     autoFocus
                   />
@@ -107,12 +122,12 @@ const SignUp = () => {
                     variant="outlined"
                     required
                     fullWidth
-                    id="CustomerlastName"
+                    id="SellerLastName"
                     label="Last Name"
-                    name="CustomerlastName"
-                    value={CustomerlastName}
+                    name="SellerLastName"
+                    value={SellerLastName}
                     onChange={e => onChange(e)}
-                    autoComplete="CustomerlastName"
+                    autoComplete="SellerLastName"
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -120,13 +135,13 @@ const SignUp = () => {
                     variant="outlined"
                     required
                     fullWidth
-                    id="CustomerEmail"
+                    id="SellerEmail"
                     label="Email Address"
-                    name="CustomerEmail"
-                    value={CustomerEmail}
+                    name="SellerEmail"
+                    value={SellerEmail}
                     onChange={e => onChange(e)}
 
-                    autoComplete="CustomerEmail"
+                    autoComplete="SellerEmail"
                   />
                 </Grid>
 
@@ -135,13 +150,41 @@ const SignUp = () => {
                     variant="outlined"
                     required
                     fullWidth
-                    id="CustomerTellnumber"
-                    label="CustomerTellnumber"
-                    name="CustomerTellnumber"
-                    value={CustomerTellnumber}
+                    id="Name"
+                    label="Name"
+                    name="Name"
+                    value={Name}
+                    onChange={e => onChange(e)}
+                    autoComplete="Name"
+                  />
+                </Grid>
+
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="Area"
+                    label="Area"
+                    name="Area"
+                    value={Area}
+                    onChange={e => onChange(e)}
+                    autoComplete="Area"
+                  />
+                </Grid>
+
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="TelNumber"
+                    label="TelNumber"
+                    name="TelNumber"
+                    value={TelNumber}
                     onChange={e => onChange(e)}
 
-                    autoComplete="CustomerTellnumber"
+                    autoComplete="TelNumber"
                   />
                 </Grid>
                 
@@ -150,13 +193,13 @@ const SignUp = () => {
                     variant="outlined"
                     required
                     fullWidth
-                    name="CustomerPW"
-                    value={CustomerPW}
+                    name="SellerPW"
+                    value={SellerPW}
                     onChange={e => onChange(e)}
-                    label="CustomerPW"
-                    type="CustomerPW"
-                    id="CustomerPW"
-                    autoComplete="current-CustomerPW"
+                    label="SellerPW"
+                    type="SellerPW"
+                    id="SellerPW"
+                    autoComplete="current-SellerPW"
                   />
                 </Grid>
 
@@ -165,12 +208,12 @@ const SignUp = () => {
                     variant="outlined"
                     required
                     fullWidth
-                    name="RetypeCustomerPW"
-                    value={CustomerPW}
+                    name="RetypeSellerPW"
+                    value={SellerPW}
                     onChange={e => onChange(e)}
-                    label="RetypeCustomerPW"
-                    type="RetypeCustomerPW"
-                    id="RetypeCustomerPW"
+                    label="RetypeSellerPW"
+                    type="RetypeSellerPW"
+                    id="RetypeSellerPW"
                     //autoComplete="current-CustomerPW"
                   />
                 </Grid>

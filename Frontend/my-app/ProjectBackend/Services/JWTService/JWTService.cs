@@ -27,16 +27,19 @@ namespace ProjectBackend.Services.JWTService
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             // Find User role
-            var isAdmin = _db.Admins.FirstOrDefault(m => m.AdEmail.ToLower() == user.Email.ToLower());
+            
             var isCustomer = _db.Customers.FirstOrDefault(m => m.CustomerEmail.ToLower() == user.Email.ToLower());
+            var isSeller = _db.Shoplist.FirstOrDefault(m => m.SellerEmail.ToLower() == user.Email.ToLower());
+
+
 
             var currentUserRole = new object();
             var currentUserId = new object();
 
-            if (isAdmin != null)
+            if (isSeller != null)
             {
-                currentUserRole = isAdmin.UserRole;
-                currentUserId = isAdmin.AdminId;
+                currentUserRole = isSeller.UserRole;
+                currentUserId = isSeller.ShopId;
             }
             else
             {

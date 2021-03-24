@@ -1,5 +1,5 @@
 import React from 'react'
-import './Herosection.css';
+import './App2.css';
 import '../../App.css';
 import { Button } from '../Button/Button';
 import { Button2 } from '../Button2/Button2';
@@ -19,13 +19,7 @@ function Herosection() {
       <h1>LANKA FURNITURE MAKERS</h1>
       <p>What are you waiting for?</p>
       <div className='hero-btns' >
-        <Button
-          className='btns'
-          buttonStyle='btn--outline'
-          buttonSize='btn--large'
-        >
-          JOIN NOW
-        </Button>
+        
         <Button2
           className='btns'
           buttonStyle='btn--primary'
@@ -34,6 +28,14 @@ function Herosection() {
         >
           VIEW DESIGNS <i className='far fa-play-circle' />
         </Button2>
+
+        <Button
+          className='btns'
+          buttonStyle='btn--outline'
+          buttonSize='btn--large'
+        >
+          BECOME A SELLER
+        </Button>
         
 
       </div>

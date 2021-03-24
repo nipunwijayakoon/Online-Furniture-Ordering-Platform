@@ -19,6 +19,6 @@ namespace ProjectBackEnd.Models
         public string EmployeeTown { get; set; }
         public string EmployeeTellnumber { get; set; }
 
-        public string UserRole = "Employee";
+        
     }
 }
