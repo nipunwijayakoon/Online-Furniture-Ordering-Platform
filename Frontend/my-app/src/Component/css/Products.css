@@ -27,7 +27,7 @@
 
 .card{
     min-width: 350px;
-    min-height: 500px;
+    min-height: 400px;
     max-width: 350px;
     max-height: 530px;
     border: 1.5px solid rgb(236, 213, 213);
@@ -101,24 +101,25 @@
         font-family: sans-serif;
     }
 
- .cart-icon{
-    cursor: pointer;
-    position: relative;
-    size: 40px;
-}
+.product .cart-icon{
+        cursor: pointer;
+        position: relative;
+        size: 50px;
+        padding: auto;
+        
+     }
 .product .cart-icon span{
-    position: inherit;
-    top:-30px;
-    right: -7px;
-    background: rgb(177, 12, 12);
-    font-size: 15px;
-    color: white;
-    padding: 3px 5px;
-    border-radius: 50%;
-    z-index: -1;
-
-   
-}
+        position: inherit;
+        top:-30px;
+        right: 4px;
+        background: rgb(177, 12, 12);
+        font-size: 15px;
+        color: white;
+        padding: 3px 5px;
+        border-radius: 50%;
+        
+       
+    }
 .btnloadmore{
     background: rgb(10, 93, 114);
     

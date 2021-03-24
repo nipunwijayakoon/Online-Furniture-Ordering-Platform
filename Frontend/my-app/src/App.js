@@ -66,7 +66,6 @@ import ManageNewDesign from './Component/AdminProduct/ManageNewDesign';
 import ManageDesignImage from './Component/AdminProduct/ManageDesignImage';
 
 
-
 const App = () => {
 
   return (

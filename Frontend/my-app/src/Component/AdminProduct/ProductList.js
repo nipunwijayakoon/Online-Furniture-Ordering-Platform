@@ -1,28 +1,34 @@
 import React, { useState, useEffect } from 'react'
-import Product from './ProductForm'
+//import UploadDesignImage from './UploadDesignImage'
 import axios from "axios";
-import './ManageProduct.css';  
-import './ProductForm.css';
+import Product from './ProductForm';
+import './ProductList.css'
 
-export default function ProductList() {
+
+export default function ProductList(props) {
     const [productList, setProductList] = useState([])
     const [recordForEdit, setRecordForEdit] = useState(null)
 
-useEffect(() => {
-        refreshProductList();
-    },
-    {})
+   
+    
 
-const productAPI = (url = 'https://localhost:5001/api/Items') => {
+    useEffect(() => {
+        refreshProductList();
+    }, [])
+
+    const productAPI = (url = 'https://localhost:5001/api/Product/') => {
         return {
             fetchAll: () => axios.get(url),
             create: newRecord => axios.post(url, newRecord),
             update: (id, updatedRecord) => axios.put(url + id, updatedRecord),
             delete: id => axios.delete(url + id)
+         
         }
     }
 
-function refreshProductList() {
+  
+
+    function refreshProductList() {
         productAPI().fetchAll()
             .then(res => {
                 setProductList(res.data)
@@ -30,16 +36,16 @@ function refreshProductList() {
             .catch(err => console.log(err))
     }
 
-const addOrEdit = (formData, onSuccess) => {
-        if (formData.get('itemID') === "0")
-        productAPI().create(formData)
+    const addOrEdit = (formData, onSuccess) => {
+        if (formData.get('ProductID') == "0")
+            productAPI().create(formData)
                 .then(res => {
-                    onSuccess();
+                   onSuccess();
                     refreshProductList();
                 })
                 .catch(err => console.log(err))
         else
-        productAPI().update(formData.get('itemID'), formData)
+            productAPI().update(formData.get('ProductID'), formData)
                 .then(res => {
                     onSuccess();
                     refreshProductList();
@@ -48,29 +54,33 @@ const addOrEdit = (formData, onSuccess) => {
 
     }
 
-const showRecordDetails = data => {
+    const showRecordDetails = data => {
         setRecordForEdit(data)
     }
 
-const onDelete = (e, id) => {
+    const onDelete = (e, id) => {
         e.stopPropagation();
-        if (window.confirm('Are you sure to delete this product?'))
-        productAPI().delete(id)
+        if (window.confirm('Are you sure to delete this record?'))
+            productAPI().delete(id)
                 .then(res => refreshProductList())
                 .catch(err => console.log(err))
     }
 
-const imageCard = data => (
-        <div className="productminicard" style={{ backgroundColor: 'white'  }} onClick={() => { showRecordDetails(data) }}>
-            <img src={`https://localhost:5001/${data.src}`} style={{  margin: '0px 30px' }} className="productcard-img-top thumbnail" alt ="Add_produt_image" />
+    const newimageCard = data => (
+        <div className="newcard" onClick={() => { showRecordDetails(data) }}>
+            <img src={data.imageSrc} className="card-img-top rounded-circle" />
+            <div className="newcard-body">
             <div  >
-                <b><h6>{data.title}</h6></b>
+                <b>{data.productName}</b><br/><br/>
                 <span>{data.description}</span> <br />
-                <span>LKR{data.price}</span> <br />
-                {/* <span>Weight(kg/l) - {data.unitWeight}</span> <br /> */}
-                <button className="btn btn-light delete-button" onClick={e => onDelete(e, parseInt(data.itemID))}>
+                <h3>LKR{data.price}</h3> <br />
+                <button>ADD CART</button>
+                <div className="delete-button">
+                <button  onClick={e => onDelete(e, parseInt(data.productID))}>
                     <i className="far fa-trash-alt"></i>
                 </button>
+                </div>
+            </div>
             </div>
         </div>
     )
@@ -79,35 +89,31 @@ const imageCard = data => (
     return (
         <div className="row">
             
-            <div >
+            <div className="col-md-4">
                 <Product
                     addOrEdit={addOrEdit}
                     recordForEdit={recordForEdit}
+                    
                 />
             </div>
-
-            <div >
+            <br/>
+            <div className="col-md-8">
                 <table>
                     <tbody>
                         {
-                           
-                            [...Array(Math.ceil(productList.length / 6))].map((e, i) =>
+                            //tr > 3 td
+                            [...Array(Math.ceil(productList.length / 3))].map((e, i) =>
                                 <tr key={i}>
-                                    <td>{imageCard(productList[5 * i])}</td>
+                                    <td>{newimageCard(productList[2 * i])}</td>
                                     <td></td>
-                                    <td>{productList[6 * i + 1] ? imageCard(productList[6 * i + 1]) : null}</td>
-                                    <td>{productList[6 * i + 2] ? imageCard(productList[6 * i + 2]) : null}</td>
-                                    <td>{productList[6 * i + 3] ? imageCard(productList[6 * i + 3]) : null}</td>
-                                    <td>{productList[6 * i + 4] ? imageCard(productList[6 * i + 4]) : null}</td>
-                                    <td>{productList[6 * i + 5] ? imageCard(productList[6 * i + 5]) : null}</td>
+                                    <td>{productList[3 * i + 1] ? newimageCard(productList[3 * i + 1]) : null}</td>
+                                    <td>{productList[3 * i + 2] ? newimageCard(productList[3 * i + 2]) : null}</td>
                                     
-                                </tr>
-                            )
+                                   </tr>)
                         }
                     </tbody>
                 </table>
-            </div>
+                    </div>
         </div>
     )
 }
-

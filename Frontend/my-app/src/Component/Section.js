@@ -23,7 +23,7 @@ class Section extends React.Component{
         <section>
                     
                     <Route path="/product" component={Products} exact  />
-                    <Route path="/product/:itemID" component={Details} exact />
+                    <Route path="/product/:productID" component={Details} exact />
                     <Route path="/cart" component={Cart}  exact/>
                     <Route path="/checkout" component={Confirmation} exact />
                    

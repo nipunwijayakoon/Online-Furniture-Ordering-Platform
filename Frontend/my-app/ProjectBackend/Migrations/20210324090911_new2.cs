@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class uploadnew : Migration
+    public partial class new2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -190,9 +190,11 @@ namespace ProjectBackend.Migrations
                     ProductID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductName = table.Column<string>(nullable: true),
-                    Prize = table.Column<string>(nullable: true),
-                    ImageName = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                    Description = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
+                    Price = table.Column<int>(nullable: false),
+                    Count = table.Column<string>(nullable: true),
+                    ImageName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
