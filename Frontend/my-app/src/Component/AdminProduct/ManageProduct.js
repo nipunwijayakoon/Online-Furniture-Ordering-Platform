@@ -4,7 +4,7 @@ import axios from 'axios';
 import './ManageProduct.css';  
 import { Link } from 'react-router-dom';
   
-const apiUrl = 'https://localhost:5001/api/Items/';  
+const apiUrl = 'https://localhost:5001/api/Product/';  
   
 class ManageProduct extends React.Component{  
     constructor(props){  
@@ -31,13 +31,13 @@ componentDidMount(){
     }  
   
       
-DeleteProduct(itemID) {  
+DeleteProduct(productID) {  
       const { products } = this.state;     
-     axios.delete(apiUrl   + itemID).then(result=>{  
+     axios.delete(apiUrl   + productID).then(result=>{  
        alert('Product deleted successfully!!!');   
         this.setState({  
           response:result,  
-          products:products.filter(product=>product.itemID !== itemID)  
+          products:products.filter(product=>product.productID !== productID)  
         });  
       });  
     }  
@@ -74,22 +74,23 @@ DeleteProduct(itemID) {
                       <tr className="raw">  
                         <th>Image</th> 
                         <th>Product Name</th> 
-                        <th>Content</th>
                         <th>Description</th>
+                        <th>Content</th>
                         <th>Price</th> 
                         <th>Delete Product</th>
                       </tr>  
                     
                     <tbody >  
                       {products.map(product => (  
-                        <tr key={product.itemID} style={{   border: '2px solid DimGrey'}}>  
-                          <td><img src ={`https://localhost:5001/${product.src}`} className="imgcard"/></td>  
-                          <td>{product.title}</td>
+                        <tr key={product.productID} style={{   border: '2px solid DimGrey'}}>  
+                          <td><img src ={product.imageSrc} className="poto"/></td>  
+                          <td>{product.productName}</td>
+                          <td>{product.description}</td> 
                           <td>{product.content}</td>
-                          <td>{product.description}</td>  
+                           
                           <td>{product.price}</td>  
                            <td><Button style={{ backgroundColor: 'ligt-green',border: '2px solid',borderRadius: '3px'}}
-                           onClick={() => this.DeleteProduct(product.itemID)}>Delete</Button></td>  
+                           onClick={() => this.DeleteProduct(product.productID)}>Delete</Button></td>  
                         </tr>  
                       ))}  
                     </tbody>  

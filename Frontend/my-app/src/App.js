@@ -64,7 +64,6 @@ import ProductList from './Component/AdminProduct/ProductList';
 
 
 
-
 const App = () => {
 
   return (
@@ -127,6 +126,7 @@ const App = () => {
          
           <Route path='/ManageProduct' component={ManageProduct} />
           <Route path='/ProductList' component={ProductList}/>
+          
 
          
           

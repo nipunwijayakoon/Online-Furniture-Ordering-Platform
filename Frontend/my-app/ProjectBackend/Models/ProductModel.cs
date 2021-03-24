@@ -16,21 +16,27 @@ namespace ProjectBackend.Models
 
         public string ProductName { get; set; }
 
+        [NotMapped]
+        public string ImageSrc { get; set; }
+        public string Description { get; set; }
+        public string Content { get; set; }
 
-        public string Price { get; set; }
+
+        public int Price { get; set; }
+        public string Count { get; set; }
 
 
         public string ImageName { get; set; }
 
 
 
-        public string Description { get; set; }
+        
 
 
         [NotMapped]
         public IFormFile ImageFile { get; set; }
 
-        [NotMapped]
-        public string ImageSrc { get; set; }
+       
+        
     }
 }
