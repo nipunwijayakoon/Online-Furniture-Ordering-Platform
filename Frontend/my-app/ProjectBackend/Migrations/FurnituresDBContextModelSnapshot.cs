@@ -333,7 +333,7 @@ namespace ProjectBackend.Migrations
                     b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Price")
+                    b.Property<string>("Prize")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductName")

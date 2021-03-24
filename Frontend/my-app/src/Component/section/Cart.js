@@ -91,9 +91,7 @@ export default function Cart() {
                                         <h2>{product.title}</h2>
                                         <span>LKR {product.price * product.count}</span>
                         </div> 
-                        {/* <Colors colors={product.colors}/> */}
                         <h4>{product.description}</h4>
-                        
                                     <p>{product.content}</p>
                                     <div className="amount">  
                           <button className="count" onClick={() => reduction(product.itemID)}> - </button>

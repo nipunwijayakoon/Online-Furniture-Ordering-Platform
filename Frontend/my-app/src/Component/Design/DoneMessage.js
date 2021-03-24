@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Typography from '@material-ui/core/Typography';
 import './WoodNameColor.css';
 
 export class Success extends Component {
@@ -16,7 +17,15 @@ export class Success extends Component {
   render() {
     return (
         <div className="Success" style={{ backgroundImage: "url('https://images.pexels.com/photos/3773582/pexels-photo-3773582.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')" ,backgroundSize: "cover"}}>
+          <div>
 
+          <p><Typography component="h1" variant="h1" color="textPrimary" gutterBottom>
+                    ``
+          </Typography></p>
+
+
+            <hr />
+          </div>
          <div> 
             <h1>Thank You For Your Submission</h1>
             </div>  

@@ -17,7 +17,7 @@ namespace ProjectBackend.Models
         public string ProductName { get; set; }
 
 
-        public string Price { get; set; }
+        public string Prize { get; set; }
 
 
         public string ImageName { get; set; }

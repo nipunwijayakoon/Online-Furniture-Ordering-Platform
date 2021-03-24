@@ -55,7 +55,7 @@ DeleteProduct(itemID) {
         else  
         {  
             return(  
-         <div >  
+         <div style={{ backgroundImage: "url('https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')"}}>  
               
                 <div > 
                   <br/> 
@@ -83,7 +83,7 @@ DeleteProduct(itemID) {
                     <tbody >  
                       {products.map(product => (  
                         <tr key={product.itemID} style={{   border: '2px solid DimGrey'}}>  
-                          <td><img src ={`https://localhost:5001/${product.src}`} className="imgcard"/></td>  
+                          <td><img src ={`https://localhost:5001/${product.src}`} className="newcard"/></td>  
                           <td>{product.title}</td>
                           <td>{product.content}</td>
                           <td>{product.description}</td>  

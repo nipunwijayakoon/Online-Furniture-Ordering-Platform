@@ -7,7 +7,7 @@ export class DataProvider extends Component {
         products: [
            
             
-        ],
+         ],
         cart: [],
         total: 0
         

@@ -49,7 +49,7 @@ function Navbar() {
             </li>
             <li className='nav-item'>
               <Link
-                to='/designimagelist'
+                to='/CarouselContainer'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
