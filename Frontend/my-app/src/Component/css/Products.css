@@ -27,7 +27,7 @@
 
 .card{
     min-width: 350px;
-    min-height: 530px;
+    min-height: 500px;
     max-width: 350px;
     max-height: 530px;
     border: 1.5px solid rgb(236, 213, 213);
@@ -97,24 +97,45 @@
     min-height: 60px;
     }
 
-
-.btnloadmore{
-  background: rgb(10, 93, 114);
-  
-  width : 10%;
-  height: 42px;
-  display: ruby;
-  margin-right: 5px;
-  margin-left:1100px;
-  color: rgb(12, 12, 12);
-  font-size: 20px;
-  padding: 2px;
-  cursor: pointer;
-  box-shadow: 2px 8px 30px rgba(40, 1, 211, 0.801);
-  border-radius: 5px;
-}
-
-.btnloadmore:hover{
-    background-color:   rgb(2, 35, 43);
-    color: rgb(231, 227, 227);
+.card .content h4{
+        font-family: sans-serif;
     }
+
+ .cart-icon{
+    cursor: pointer;
+    position: relative;
+    size: 40px;
+}
+.product .cart-icon span{
+    position: inherit;
+    top:-30px;
+    right: -7px;
+    background: rgb(177, 12, 12);
+    font-size: 15px;
+    color: white;
+    padding: 3px 5px;
+    border-radius: 50%;
+    z-index: -1;
+
+   
+}
+.btnloadmore{
+    background: rgb(10, 93, 114);
+    
+    width : 10%;
+    height: 42px;
+    display: ruby;
+    margin-right: 5px;
+    margin-left:1100px;
+    color: rgb(12, 12, 12);
+    font-size: 20px;
+    padding: 2px;
+    cursor: pointer;
+    box-shadow: 2px 8px 30px rgba(40, 1, 211, 0.801);
+    border-radius: 5px;
+  }
+  
+  .btnloadmore:hover{
+      background-color:   rgb(2, 35, 43);
+      color: rgb(231, 227, 227);
+      }

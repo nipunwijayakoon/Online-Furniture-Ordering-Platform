@@ -18,6 +18,8 @@ import ViewDesign from './Page';
 
 import Navbar from './Component/Nav/Navbar';
 import CDetails from './Get2/Get2';
+import Empdetails from './GetEmp/EmployeeDetails';
+import AddEmployee from './GetEmp/AddEmp';
 
 import Shops from './Get';
 //import Products from './Component/Products';
@@ -48,11 +50,14 @@ import PersonDetails from './Component/Design/PersonDetails';
 import Viewmore from './Component/viewmore/Viewmore';
 import Adminnote from './Component/Admin/note';
 
-//import EmployeeList from './Component/Trial2/EmployeeList';
-//import RandomNu from './Component/Trial2/RandomNu';
-//import ProductList from './Component/Trial2/ProductList';
 import UploadDesignImage from './Component/Design/UploadDesignImageList';
-//import { UserForm } from './Component/Trial/UserForm';
+
+
+import Cart from './Component/section/Cart';
+import Blog from './Component/AboutUs/Blog';
+
+import ProductList from './Component/AdminProduct/ProductList';
+
 
 import CarouselContainer from './Component/Help/CarouselContainer';
 import HelpAudio from './Component/Help/HelpAudio';
@@ -79,6 +84,8 @@ const App = () => {
         <Route exact path='/resetpassword' component={Reset} />
 
         <Route path ='/CDetails' component={CDetails} />
+        <Route path = '/Empdetails' component={Empdetails}/>
+        <Route path = '/AddEmployee' component={AddEmployee}/>
 
         
         <Route exact path='/newdesign' component={UploadNewDesign} />
@@ -116,11 +123,17 @@ const App = () => {
           <Route exact path='/signin' component={Signin} />
           <Route path='/viewmore' component={Viewmore}/>
           <Route path='/NewDesignDetails' component={NewDesignDetails}/> 
-          {/* <Route exact path='/cart' component={Cart} />
+          <Route exact path='/cart' component={Cart} />
+          <Route exact path='/blog' component={Blog} />
+         
+         
+          <Route path='/ManageProduct' component={ManageProduct} />
+          <Route path='/ProductList' component={ProductList}/>
           
+          <Route path='/productlist' component={ProductList} />
+          <Route path='/designimagelist' component={UploadDesignImage} />
 
-
-          <Route path='/productlist' component={ProductList} /> */}
+          <Route path='/productlist' component={ProductList} />
           <Route path='/designimagelist' component={UploadDesignImage} />
           <Route path='/CarouselContainer' component={CarouselContainer} />
           <Route path='/HelpAudio' component={HelpAudio} />

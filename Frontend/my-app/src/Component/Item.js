@@ -25,6 +25,7 @@ export class Item extends Component {
     render() {
         const {toggle} = this.state;
         const {cart} = this.context;
+        console.log('car', cart)
         
         return (
             <header>
@@ -39,13 +40,12 @@ export class Item extends Component {
                        
                         <h1 ><li className="catalog" ><Link to="/product">FURNITURE CATALOG</Link></li></h1>
                         
-                        
+{/*                         
                         <li className="close" onClick={this.menuToggle}>
                             <img src={Close} alt="" width="20"/>
-                        </li>
+                        </li> */}
                     </ul>
                    
-                    
                 </nav>
             </header>
         )

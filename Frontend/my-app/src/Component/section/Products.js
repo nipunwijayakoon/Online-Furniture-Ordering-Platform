@@ -1,11 +1,11 @@
 import React, { useState, useEffect, Component } from 'react'
 import axios from "axios";
 import '../css/Products.css';
-import '../css/Item.css';
+
 
 import CartIcon from '../svg/shopping-cart-solid.svg'
 import {Link} from 'react-router-dom'
-import Menu from '../svg/bars-solid.svg'
+
 
 
 
@@ -75,7 +75,8 @@ export default function Search(props) {
                                    <Link to={`/product/${data.itemID}`}>{data.title}</Link>
                                </h3>
                                <span>LKR {data.price}</span>
-                               <h3>{data.description}</h3>
+                                <br/>
+                               <h4>{data.description}</h4>
                 <button  onClick={() => addCart(data.itemID)}>ADD CART</button>
                 
             </div>
@@ -96,35 +97,32 @@ export default function Search(props) {
         <div id="product">
                     
                     
-                    
-                 
-                    
-                    <div className="col-md-2 searchcard">
-                    <input type="search"
-                        className="form-control" placeholder={'Search by Product Name'} onChange={nameFilter}/>
-                    </div>
-                    
-                    <div className="col-md-1 ">
-                    <div className="col-md-2 searchcard">
-                    <input type="search"
-                        className="form-control" placeholder={'Search by Max Price'} onChange={priceFilter}/>
-                    </div>    
-                    </div>
-                
-                     
-                    
-                    <div   className="cart-icon">
-                    npm
-                    <Link to='/cart'> 
-                         
-                    <img src={CartIcon} alt="" width="40" /> 
-                     <span >{cart.length}</span>   
-                     </Link>
-                     </div>
-            
                    
-                
-                
+                    
+                     
+                    <div className="col-md-2 searchcard">
+                    <input type="search"
+                        className="form-control" placeholder={'Filter by Furniture Type'} onChange={nameFilter}/>
+                    </div>
+                    
+                    <div className="col-md-1 ">   
+                    <div className="col-md-2 searchcard">
+                    <input type="search"
+                        className="form-control" placeholder={'Filter by Maximum Price'} onChange={priceFilter}/>
+                    </div>    
+                    </div> 
+
+                    <Link to='/cart'>
+                    <div className="cart-icon ">  
+                        
+                    <img src={CartIcon} alt="" width="40" /> 
+                     <span>{cart.length}</span>   
+                   
+                    </div>
+                    </Link>
+                 
+            
+           
                 <div id="product">
                         {
                            
@@ -159,7 +157,7 @@ export default function Search(props) {
                    
                 </div>
             
-            <button className="container btnloadmore hover " onClick={showmoreProducts}><b>Load More . . . . . </b></button>
+            <button className="btnloadmore" onClick={showmoreProducts}><b>Load more. . . </b></button>
         </div>
     )
 }

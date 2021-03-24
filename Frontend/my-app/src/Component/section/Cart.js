@@ -6,6 +6,8 @@ import {Link, useLocation} from 'react-router-dom'
 import CartIcon from '../svg/shopping-cart-solid.svg'
 import axios from 'axios'; 
 //import { Button } from '../Button/Button'
+import Colors from './Colors'
+
 
 export default function Cart() {
    

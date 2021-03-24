@@ -4,22 +4,19 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ProjectBackEnd.Models
+namespace ProjectBackend.Models
 {
-    public class Item
+    public class Cartitems
     {
         [Key]
-        public int ItemID { get; set; }
-
+        public int ProductID { get; set; }
         public string Title { get; set; }
         public string Src { get; set; }
-
         public string Description { get; set; }
-
         public string Content { get; set; }
         public string Price { get; set; }
-        public string Colors { get; set; }
-        public int Count { get; set; }
-        
+        public string Colour { get; set; }
+        public string Count { get; set; }
+        public string Total { get; set; }
     }
 }
