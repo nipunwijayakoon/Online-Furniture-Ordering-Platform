@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class upload_design_update : Migration
+    public partial class update_products : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

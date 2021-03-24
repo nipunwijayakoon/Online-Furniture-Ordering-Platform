@@ -48,13 +48,17 @@ import PersonDetails from './Component/Design/PersonDetails';
 import Viewmore from './Component/viewmore/Viewmore';
 import Adminnote from './Component/Admin/note';
 
-import EmployeeList from './Component/Trial2/EmployeeList';
-import RandomNu from './Component/Trial2/RandomNu';
-import ProductList from './Component/Trial2/ProductList';
+//import EmployeeList from './Component/Trial2/EmployeeList';
+//import RandomNu from './Component/Trial2/RandomNu';
+//import ProductList from './Component/Trial2/ProductList';
 import UploadDesignImage from './Component/Design/UploadDesignImageList';
-import { UserForm } from './Component/Trial/UserForm';
-import Cart from './Component/section/Cart';
+//import { UserForm } from './Component/Trial/UserForm';
 
+import CarouselContainer from './Component/Help/CarouselContainer';
+import HelpAudio from './Component/Help/HelpAudio';
+import ManageProduct from './Component/AdminProduct/ManageProduct';
+import ManageNewDesign from './Component/AdminProduct/ManageNewDesign';
+import ManageDesignImage from './Component/AdminProduct/ManageDesignImage';
 
 
 
@@ -112,16 +116,17 @@ const App = () => {
           <Route exact path='/signin' component={Signin} />
           <Route path='/viewmore' component={Viewmore}/>
           <Route path='/NewDesignDetails' component={NewDesignDetails}/> 
-          <Route exact path='/cart' component={Cart} />
+          {/* <Route exact path='/cart' component={Cart} />
           
 
-          <Route path= '/UserForm' component={UserForm} />
-          <Route path='/employeelist' component={EmployeeList} />
-          <Route path='/randomnum' component={RandomNu} />
-          <Route path='/productlist' component={ProductList} />
-          <Route path='/designimagelist' component={UploadDesignImage} />
 
-            
+          <Route path='/productlist' component={ProductList} /> */}
+          <Route path='/designimagelist' component={UploadDesignImage} />
+          <Route path='/CarouselContainer' component={CarouselContainer} />
+          <Route path='/HelpAudio' component={HelpAudio} />
+          <Route path='/manageproduct' component={ManageProduct} /> 
+          <Route path='/managenewdesign' component={ManageNewDesign} /> 
+          <Route path='/managedesignimage' component={ManageDesignImage} /> 
           
           
       </Switch>
