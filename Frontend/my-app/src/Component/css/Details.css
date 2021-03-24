@@ -60,3 +60,22 @@
     padding: 10px 25px;
     display: inline-block;
 }
+.cart-icon{
+    cursor: pointer;
+    position: relative;
+    size: 50px;
+    padding: auto;
+    
+ }
+ .cart-icon span{
+    position: inherit;
+    top:-30px;
+    right: 4px;
+    background: rgb(177, 12, 12);
+    font-size: 15px;
+    color: white;
+    padding: 3px 5px;
+    border-radius: 50%;
+    
+   
+}

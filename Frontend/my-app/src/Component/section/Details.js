@@ -4,19 +4,20 @@ import '../css/Details.css'
 import axios from 'axios';
 import { useParams } from 'react-router-dom'
 import CartIcon from '../svg/shopping-cart-solid.svg'
+import '../css/Products.css'
 
 
 
 function Details(props){
     
     const [products, setProducts] = useState([]);
-    const {itemID } = useParams()
+    const {productID} = useParams()
     const [cart, setCart] = useState([])
     const [product, setProductList] = useState([])
     
 useEffect(() => {
         axios.get(
-            `https://localhost:5001/api/Items/${itemID}`
+            `https://localhost:5001/api/Product/${productID}`
           )
           .then(res => {
             setProducts(res.data);
@@ -28,11 +29,11 @@ useEffect(() => {
       
 const addCart = (id) =>{
     const check = cart.every(item =>{
-            return item.itemID !== id
+            return item.productID !== id
         })
         if(check){
             const data = product.filter(product =>{
-                return product.itemID === id
+                return product.productID === id
             })
             setCart([...cart, ...data])
             
@@ -57,7 +58,7 @@ useEffect(() => {
     })
     
     
-const productAPI = (url = 'https://localhost:5001/api/Items/') => {
+const productAPI = (url = 'https://localhost:5001/api/Product/') => {
         return {
             fetchAll: () => axios.get(url),
          
@@ -84,19 +85,19 @@ function refreshProductList() {
                         </div>  
                  
            
-                    <div className="details" key={products.itemID}>
+                    <div className="details" key={products.productID}>
                         
-                           <Link to={`/product/${products.itemID}`}>
-                               <img src={`https://localhost:5001/${products.src}`} alt=""/>
-                           </Link>
+                           
+                        <img src={`https://localhost:5001/Images/${products.imageName} `}width="400" alt=""/> 
+                          
                             <div className="box">
                                 <div className="row">
-                                    <h2> {products.title}</h2>
+                                    <h2> {products.productName}</h2>
                                     <span>LKR {products.price}</span>
                                 </div>
                                 <p>{products.description}</p>
                                 <h3>{products.content}</h3><br/>
-                                <button  onClick={() => addCart(products.itemID)}>ADD CART</button>
+                                <button  onClick={() => addCart(products.productID)}>ADD CART</button>
                             </div>
                     </div>
                      

@@ -16,11 +16,11 @@ export default function Search(props) {
     const [visible, setVisible] = useState(6)
    const addCart = (id) =>{
         const check = cart.every(item =>{
-            return item.itemID !== id
+            return item.productID !== id
         })
         if(check){
             const data = product.filter(product =>{
-                return product.itemID === id
+                return product.productID === id
             })
             setCart([...cart, ...data])
             
@@ -47,7 +47,7 @@ export default function Search(props) {
     
     
 
-    const productAPI = (url = 'https://localhost:5001/api/Items/') => {
+    const productAPI = (url = 'https://localhost:5001/api/Product/') => {
         return {
             fetchAll: () => axios.get(url),
          
@@ -66,18 +66,18 @@ export default function Search(props) {
 
 
     const imageCard = data => (
-        <div className="card" key={data.itemID}>
-          <Link to={`/product/${data.itemID}`}>
-                               <img src={`https://localhost:5001/${data.src}`} alt=""/>
+        <div className="card" key={data.productID}>
+          <Link to={`/product/${data.productID}`}>
+                               <img src={data.imageSrc} alt=""/>
                            </Link>
                            <div className="content">
                            <h3>
-                                   <Link to={`/product/${data.itemID}`}>{data.title}</Link>
+                                   {data.productName}
                                </h3>
                                <span>LKR {data.price}</span>
                                 <br/>
                                <h4>{data.description}</h4>
-                <button  onClick={() => addCart(data.itemID)}>ADD CART</button>
+                <button  onClick={() => addCart(data.productID)}>ADD CART</button>
                 
             </div>
         </div>
@@ -95,9 +95,7 @@ export default function Search(props) {
     
     return (
         <div id="product">
-                    
-                    
-                   
+                                 
                     
                      
                     <div className="col-md-2 searchcard">
@@ -112,14 +110,14 @@ export default function Search(props) {
                     </div>    
                     </div> 
 
-                    <Link to='/cart'>
+                    
                     <div className="cart-icon ">  
-                        
+                    <Link to='/cart'>  
                     <img src={CartIcon} alt="" width="40" /> 
                      <span>{cart.length}</span>   
-                   
+                     </Link>
                     </div>
-                    </Link>
+                   
                  
             
            
@@ -131,7 +129,7 @@ export default function Search(props) {
                                 if (searchName ===  "" && searchPrice === "" )
                                 { return productList}
                              
-                                else if (productList.title.toLocaleLowerCase().includes(searchName)  && searchPrice === "")
+                                else if (productList.productName.toLocaleLowerCase().includes(searchName)  && searchPrice === "")
                                    { return productList}
                                 
                                 else if (searchName === ""  && searchPrice === "")
@@ -139,9 +137,9 @@ export default function Search(props) {
                                 else if (searchName === ""  && productList.price <= (searchPrice))
                                    { return productList}   
 
-                                else if (productList.title.toLocaleLowerCase().includes(searchName) && searchPrice === "")
+                                else if (productList.productName.toLocaleLowerCase().includes(searchName) && searchPrice === "")
                                    { return productList}   
-                                else if (productList.title.toLocaleLowerCase().includes(searchName)  && productList.price <= (searchPrice))
+                                else if (productList.productName.toLocaleLowerCase().includes(searchName)  && productList.price <= (searchPrice))
                                    { return productList} 
                                 else if (searchName === ""  && productList.price <= (searchPrice))
                                    { return productList}  
@@ -157,7 +155,7 @@ export default function Search(props) {
                    
                 </div>
             
-            <button className="btnloadmore" onClick={showmoreProducts}><b>Load more. . . </b></button>
+            <button className="btnloadmore" onClick={showmoreProducts}><b>Load More. . . </b></button>
         </div>
     )
 }

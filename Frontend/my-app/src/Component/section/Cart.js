@@ -17,7 +17,7 @@ export default function Cart() {
     const removeProduct = id => {
         if(window.confirm("Do you want to remove this product?")){
             cart.forEach((item, index) => {
-                if(item.itemID === id){
+                if(item.productID === id){
                     cart.splice(index, 1)
                 }
             })
@@ -29,7 +29,7 @@ export default function Cart() {
 
     const reduction = id => {
         cart.forEach(item =>{
-            if(item.itemID === id){
+            if(item.productID === id){
                 item.count === 1 ? item.count = 1 : item.count -= 1;
             }
         })
@@ -37,7 +37,7 @@ export default function Cart() {
     }
     const increase = id => {
         cart.forEach(item =>{
-            if(item.itemID === id){
+            if(item.productID === id){
                 item.count += 1 ;
             }
         })
@@ -71,7 +71,7 @@ export default function Cart() {
 
 
     if(cart.length === 0){
-        return <h3 style={{textAlign: "center", fontSize: "4rem"}}>Cart is Empty!!!</h3>}
+        return <h3 style={{textAlign: "center", fontSize: "2rem"}}>Your Cart is Empty!!!</h3>}
     else{
         return (
          
@@ -84,22 +84,22 @@ export default function Cart() {
                      
                       {
                       cart.map(product => (  
-                        <div className="details cart" key={product.itemID}>  
-                          <img src={`https://localhost:5001/${product.src}`} width="400" alt=""/>     
+                        <div className="details cart" key={product.productID}>  
+                          <img src={product.imageSrc} width="400" alt=""/>     
                           <div className="box">
                           <div className="row">
-                                        <h2>{product.title}</h2>
+                                        <h2>{product.productName}</h2>
                                         <span>LKR {product.price * product.count}</span>
                         </div> 
                         <h4>{product.description}</h4>
                                     <p>{product.content}</p>
                                     <div className="amount">  
-                          <button className="count" onClick={() => reduction(product.itemID)}> - </button>
+                          <button className="count" onClick={() => reduction(product.productID)}> - </button>
                                <span> {product.count} </span>
-                               <button className="count" onClick={() => increase(product.itemID)}> + </button>  
+                               <button className="count" onClick={() => increase(product.productID)}> + </button>  
                             </div>
                             </div>
-                          <div className="delete" onClick={() => removeProduct(product.itemID)}>
+                          <div className="delete" onClick={() => removeProduct(product.productID)}>
                           X</div> 
                        </div>
                       ))

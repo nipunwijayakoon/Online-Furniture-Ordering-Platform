@@ -1,150 +1,204 @@
 import React, { useState, useEffect } from 'react'
-import './ProductForm.css';  
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
 
-const defaultsrc = ''
+import './ProductForm.css';
+
+const defaultImageSrc_ = '/images/image_default_icon.jpg'
 
 const initialFieldValues = {
-    itemID: 0,
-    title: '',  
-    count: '',  
-    description:null,
-    content:'',
-    price: '',
-    imageName: '',
-    src: defaultsrc,
-    imageFile: null
-}
+    ProductID: 0,
+    ProductName:'',
+    ImageSrc:defaultImageSrc_,
+    Description:'',
+    Content:'',
+    Price:'',
+    Count:1,
+    ImageName:'',
+    ImageFile:null
+    }
 
-export default function Product(props) {
+export default function ProductForm(props) {
 
-    const { addOrEdit, recordForEdit } = props
+    const { addOrEdit, recordForEdit} = props
+
     const [values, setValues] = useState(initialFieldValues)
     const [errors, setErrors] = useState({})
 
 
-useEffect(() => {
+    
+
+    
+        
+       
+
+
+
+
+    useEffect(() => {
         if (recordForEdit != null)
             setValues(recordForEdit);
-    }, 
-    [recordForEdit])
+    }, [recordForEdit])
 
-const handleInputChange = e => {
-    const { name, value } = e.target;
+
+
+
+    const handleInputChange = e => {
+        const { name, value } = e.target;
         setValues({
             ...values,
             [name]: value
         })
     }
 
-const showPreview = e => {
+    const showPreview = e => {
         if (e.target.files && e.target.files[0]) {
-            let imageFile = e.target.files[0];
+            let ImageFile = e.target.files[0];
             const reader = new FileReader();
             reader.onload = x => {
                 setValues({
                     ...values,
-                    imageFile,
-                    src: x.target.result
+                    ImageFile,
+                    ImageSrc: x.target.result,
+                   
                 })
             }
-            reader.readAsDataURL(imageFile)
+            reader.readAsDataURL(ImageFile)
         }
         else {
             setValues({
                 ...values,
-                imageFile: null,
-                src: defaultsrc
+                ImageFile: null,
+                ImageSrc: defaultImageSrc_
             })
         }
     }
 
-const validate = () => {
+    const validate = () => {
         let temp = {}
-        temp.title = values.title === "" ? false : true;
-        temp.src = values.src === defaultsrc ? false : true;
+        //temp.EmploName = values.EmploName == "" ? false : true;
+        temp.ImageSrc = values.ImageSrc == defaultImageSrc_ ? false : true;
         setErrors(temp)
-        return Object.values(temp).every(x => x === true)
+        return Object.values(temp).every(x => x == true)
     }
 
-const resetForm = () => {
+    const resetForm = () => {
         setValues(initialFieldValues)
         document.getElementById('image-uploader').value = null;
         setErrors({})
     }
 
-const handleFormSubmit = e => {
+    const handleFormSubmit = e => {
         e.preventDefault()
         if (validate()) {
             const formData = new FormData()
-            formData.append('itemID', values.itemID)
-            formData.append('title', values.title)
-            formData.append('count', values.count)
-            formData.append('description', values.description)
-            formData.append('content', values.content)
-            formData.append('price', values.price)
-            formData.append('imageName', values.imageName)
-            formData.append('imageFile', values.imageFile)
+            formData.append('ProductID', values.ProductID)
+            formData.append('ProductName', values.ProductName)
+            formData.append('Description', values.Description)
+            formData.append('Content', values.Content)
+            formData.append('Price', values.Price)
+            formData.append('Imagename', values.ImageName)
+            formData.append('ImageFile', values.ImageFile)
             addOrEdit(formData, resetForm)
+            //addOrEdit(formData)
+           
         }
     }
 
-    const applyErrorClass = field => ((field in errors && errors[field] === false) ? ' invalid-field' : '')
+
+    
+    
+
+    const applyErrorClass = field => ((field in errors && errors[field] == false) ? ' invalid-field' : '')
 
     return (
-        <>
-            
-            <form autoComplete="off" noValidate onSubmit={handleFormSubmit}>
-                <div className="productcard">
-                    <img src={values.src} className="card-img-top" alt ="product" />
-                    <div className="card-body">
+        
+        <div className="newpage" style={{ backgroundSize: "cover"}}>
+				
+      
+        
+        
+        
+                <div>
+                  
+                            <h1 className="newheading">Add Furniture Product Here...</h1>
 
-                        <div className="form-group">
-                            <input type="file" accept="image/*" className={"form-control-file" + applyErrorClass('src')}
+
+            
+
+
+
+            <form autoComplete="off" noValidate onSubmit={handleFormSubmit}>
+                <div className="newformcard">
+                    <img src={values.ImageSrc} className="newcard-img-top" />
+                    <div className="newcard-body">
+                        
+                        <div className="newform-group">
+                            <input type="file" accept="image/*" className={"form-control-file" + applyErrorClass('ImageSrc')}
                                 onChange={showPreview} id="image-uploader" />
                         </div>
-
-                        <div className="form-group">
-                        <label>Product Name:</label>
-                            <input className={"form-control" + applyErrorClass('title')} placeholder="Product Name" name="title"
-                                value={values.title}
-                                onChange={handleInputChange} />
-                        </div>
-                     
-                        <div className="form-group">
-                        <label>Description</label>
-                            <input className="form-control" placeholder="Product Description" name="description"
-                                value={values.description}
+                        
+                        <div className="newform-group">
+                            <input className={"form-control" + applyErrorClass('ProductName')} placeholder="Product Name" name="ProductName"
+                                value={values.ProductName}
                                 onChange={handleInputChange} />
                         </div>
 
-                        <div className="form-group">
-                        <label>Content</label>
-                            <input className="form-control" placeholder="Product Content" name="content"
-                                value={values.content}
-                                onChange={handleInputChange} /> 
-                        </div>
-
-                        <div className="form-group">
-                        <label>Quantity</label>
-                            <input className="form-control" placeholder="Quantity" name="count"
-                                value={values.count}
+                        <div className="newform-group">
+                            <textarea type="" className="form-control" placeholder="Description" name="Description"
+                                value={values.Description}
                                 onChange={handleInputChange} />
                         </div>
 
-                        <div className="form-group">
-                        <label>Price</label>
-                            <input className="form-control" placeholder="Unit Price" name="price"
-                                value={values.price}
+                        <div className="newform-group">
+                            <textarea className="form-control" placeholder="Content" name="Content"
+                                value={values.Content}
+                                onChange={handleInputChange} />
+                        </div>
+
+                        <div className="newform-group">
+                            <input className="form-control" placeholder="Price" name="Price"
+                                value={values.Price}
                                 onChange={handleInputChange} />
                         </div>
                         
-                        <div className="form-group text-center">
-                            <button type="submit" onSubmit={e => handleFormSubmit(e)} >Submit</button>
+                        <div className="newform-group">
+                            <input className="form-control" placeholder="ImageSrc" name="ImageSrc"
+                                value={values.ImageSrc}
+                                onChange={handleInputChange} />
+                        </div>
+                        
+                        <div className="newform-group">
+                            <input className="form-control" placeholder="Count" name="Count"
+                                value={values.Count}
+                                onChange={handleInputChange} />
                         </div>
 
+
+                       
+
+                        
+                        <div className="">
+                            <button type="newsubmit" className="newbtn btn-light">UPLOAD NEW PRODUCT</button>
+                        </div>
                     </div>
                 </div>
             </form>
-        </>
+        
+
+        
+            
+
+        </div>
+
+        </div>
+
+            
+
+
+      
+      
     )
 }
