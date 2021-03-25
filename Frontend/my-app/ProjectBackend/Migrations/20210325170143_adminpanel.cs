@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class redirectisstarted : Migration
+    public partial class adminpanel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

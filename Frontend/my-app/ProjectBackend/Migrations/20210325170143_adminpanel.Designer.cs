@@ -9,8 +9,8 @@ using ProjectBackEnd.Models;
 namespace ProjectBackend.Migrations
 {
     [DbContext(typeof(FurnituresDBContext))]
-    [Migration("20210324104339_redirectisstarted")]
-    partial class redirectisstarted
+    [Migration("20210325170143_adminpanel")]
+    partial class adminpanel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
