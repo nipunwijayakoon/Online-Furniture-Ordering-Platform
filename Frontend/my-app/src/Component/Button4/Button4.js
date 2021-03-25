@@ -14,7 +14,7 @@ export default function Button3() {
 {/*<button>FURNITRUE MAKER SIGNIN</button>*/}
 
 
-<Link to='/CDetails'>
+<Link to='/Linecharts'>
      <button >
      CUSTOMER DETAILS
      </button>
@@ -22,9 +22,11 @@ export default function Button3() {
 
  <Link to='/Empdetails'>
      <button >
-     EMPLOYEE DETAILS
+     ADMIN DETAILS
      </button>
  </Link>
+
+ 
             
         </div>
     )

@@ -20,6 +20,7 @@ import Navbar from './Component/Nav/Navbar';
 import CDetails from './Get2/Get2';
 import Empdetails from './GetEmp/EmployeeDetails';
 import AddEmployee from './GetEmp/AddEmp';
+import Linechart, { Linecharts } from './Get2/Linechart';
 
 import Shops from './Get';
 //import Products from './Component/Products';
@@ -79,6 +80,7 @@ const App = () => {
         <Route path ='/CDetails' component={CDetails} />
         <Route path = '/Empdetails' component={Empdetails}/>
         <Route path = '/AddEmployee' component={AddEmployee}/>
+        <Route path = '/Linecharts' component={Linecharts}/>
 
         
         <Route exact path='/newdesign' component={UploadNewDesign} />
