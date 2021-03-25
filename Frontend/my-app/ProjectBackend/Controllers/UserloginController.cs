@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using ProjectBackend.Models;
 using ProjectBackend.Services.JWTService;
 using ProjectBackEnd.Models;
 using System;
@@ -25,6 +26,121 @@ namespace ProjectBackend.Controllers
             _jwtService = jwtservice;
         }
 
+
+
+
+
+
+
+        [HttpGet]
+        public List<Customer> getall()
+        {
+            return _data.Customers.ToList();
+        }
+
+
+
+
+
+
+        [HttpPost("signup/customer")]
+        public async Task<IActionResult> CustomerPost([FromBody] Customer newcustomer)
+        {
+
+            
+
+                var customerWithSameEmail =  _data.Customers.FirstOrDefault(m => m.CustomerEmail.ToLower() == newcustomer.CustomerEmail.ToLower()); //check email already exit or not
+
+
+                if (customerWithSameEmail == null)
+                {
+
+                    _data.Customers.Add(newcustomer);
+                    _data.SaveChanges();
+
+                    Login user = new Login();
+                    user.Email = newcustomer.CustomerEmail;
+                    user.Password = newcustomer.CustomerPW;
+
+                    var tokenString = _jwtService.GenerateJWTtoken(user);
+
+
+
+                    return Ok(new
+                    {
+                        token = tokenString,
+
+                    });
+                }
+
+
+                else
+                {
+
+                    return BadRequest();
+                }
+
+
+
+
+        }
+
+
+
+
+
+
+
+        [HttpPost("signup/seller")]
+        public async Task<IActionResult> SellersPost([FromBody] Shoplist newseller)
+        {
+            // CustomerModelDB.Add(newcustomer);
+            var SellerWithSameEmail = _data.Shoplist.FirstOrDefault(m => m.SellerEmail.ToLower() == newseller.SellerEmail.ToLower()); //check email already exit or not
+
+
+            if (SellerWithSameEmail == null)
+            {
+                
+                _data.Shoplist.Add(newseller);
+                _data.SaveChanges();
+
+                Login user = new Login();
+                user.Email = newseller.SellerEmail;
+                user.Password = newseller.SellerPW;
+
+                var tokenString = _jwtService.GenerateJWTtoken(user);
+
+                
+                return Ok(new
+                {
+                    token = tokenString,
+                });
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // POST api/<UserloginController>
         [HttpPost]
         [Route("login")]
@@ -40,7 +156,16 @@ namespace ProjectBackend.Controllers
                 var CheckSellerPW = _data.Shoplist.FirstOrDefault(m => m.SellerPW.ToLower() == login.Password);
 
 
-                if (((CheckCustomeEmil == null) || (CheckCustomerPW == null)) && ((CheckSellerEmail == null) || (CheckSellerPW == null)))
+                var CheckAdminEmail = _data.Admins.FirstOrDefault(m => m.AdEmail.ToLower() == login.Email);
+                var CheckAdminPW = _data.Admins.FirstOrDefault(m => m.AdminPW.ToLower() == login.Password);
+
+
+                if (((CheckCustomeEmil == null) || (CheckCustomerPW == null)) && ((CheckSellerEmail == null) || (CheckSellerPW == null))
+
+                    && ((CheckAdminEmail == null) || (CheckAdminPW == null))
+
+
+                    )
                 {
                     return BadRequest();
                 }
@@ -60,5 +185,24 @@ namespace ProjectBackend.Controllers
             { throw ex; }
 
         }
+
+
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

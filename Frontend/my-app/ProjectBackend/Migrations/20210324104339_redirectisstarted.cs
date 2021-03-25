@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class updateshops : Migration
+    public partial class redirectisstarted : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,6 +21,26 @@ namespace ProjectBackend.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Admins", x => x.AdminId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Cartitems",
+                columns: table => new
+                {
+                    ProductID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(nullable: true),
+                    Src = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
+                    Price = table.Column<string>(nullable: true),
+                    Colour = table.Column<string>(nullable: true),
+                    Count = table.Column<string>(nullable: true),
+                    Total = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cartitems", x => x.ProductID);
                 });
 
             migrationBuilder.CreateTable(
@@ -66,7 +86,11 @@ namespace ProjectBackend.Migrations
                     EmployeeFirstName = table.Column<string>(nullable: true),
                     EmployeeLastName = table.Column<string>(nullable: true),
                     EmployeeTown = table.Column<string>(nullable: true),
-                    EmployeeTellnumber = table.Column<string>(nullable: true)
+                    EmployeeTellnumber = table.Column<string>(nullable: true),
+                    EmployeeAge = table.Column<string>(nullable: true),
+                    EmployeeRole = table.Column<string>(nullable: true),
+                    WorkExp = table.Column<string>(nullable: true),
+                    Status = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -99,7 +123,7 @@ namespace ProjectBackend.Migrations
                     Description = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
                     Price = table.Column<string>(nullable: true),
-                    Colour = table.Column<string>(nullable: true),
+                    Colors = table.Column<string>(nullable: true),
                     Count = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -166,9 +190,11 @@ namespace ProjectBackend.Migrations
                     ProductID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductName = table.Column<string>(nullable: true),
-                    Price = table.Column<string>(nullable: true),
-                    ImageName = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                    Description = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
+                    Price = table.Column<int>(nullable: false),
+                    Count = table.Column<string>(nullable: true),
+                    ImageName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -230,6 +256,9 @@ namespace ProjectBackend.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Admins");
+
+            migrationBuilder.DropTable(
+                name: "Cartitems");
 
             migrationBuilder.DropTable(
                 name: "Customers");

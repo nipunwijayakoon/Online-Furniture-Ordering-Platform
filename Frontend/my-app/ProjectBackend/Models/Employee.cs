@@ -18,6 +18,11 @@ namespace ProjectBackEnd.Models
         public string EmployeeLastName { get; set; }
         public string EmployeeTown { get; set; }
         public string EmployeeTellnumber { get; set; }
+        public string EmployeeAge { get; set; }
+        public string EmployeeRole { get; set; }
+        public string WorkExp { get; set; }
+        public string Status { get; set; }
+             
 
         
     }

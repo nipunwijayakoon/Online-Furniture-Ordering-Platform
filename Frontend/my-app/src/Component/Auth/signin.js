@@ -5,7 +5,7 @@ import '../../App.css';
 
 
 
-import { Link, Redirect } from "react-router-dom";
+import {  Redirect } from "react-router-dom";
 import React, { Fragment, useState } from "react";
 
 import { connect } from 'react-redux';
@@ -21,7 +21,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-//import Link from '@material-ui/core/Link';
+import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
+      
     },
     avatar: {
       margin: theme.spacing(1),
@@ -89,23 +90,25 @@ const useStyles = makeStyles((theme) => ({
 
       if (isAuthenticated) {
         if (user.role === "Customer")
-          return <Redirect to="/aftersignin" />;
+          return <Redirect to="/" />;
         else if (user.role == "Employee")
-          return <Redirect to="/" />
+          return <Redirect to="/aftersignin" />
+        else if (user.role == "Admin")
+          return <Redirect to="/admin" />
         else
           console.log(user.role);
       }
 
 
 
-  
+      
   
     return (
-        <Fragment>
-            <section>
+        <Fragment >
+            <section >
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <div className={classes.paper}>
+        <div className={classes.paper} >
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
@@ -141,10 +144,7 @@ const useStyles = makeStyles((theme) => ({
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+            
             <Button
               type="submit"
               fullWidth
@@ -163,7 +163,7 @@ const useStyles = makeStyles((theme) => ({
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="sign-up" variant="body2">
+                <Link href="/sign-up" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

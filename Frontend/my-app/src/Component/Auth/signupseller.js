@@ -1,7 +1,7 @@
 
 import '../../App.css';
 import React, { Fragment, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import {  Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import Avatar from '@material-ui/core/Avatar';
@@ -10,7 +10,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-//import Link from '@material-ui/core/Link';
+import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -151,7 +151,7 @@ const SignUp = () => {
                     required
                     fullWidth
                     id="Name"
-                    label="Name"
+                    label="ShopName"
                     name="Name"
                     value={Name}
                     onChange={e => onChange(e)}
@@ -165,7 +165,7 @@ const SignUp = () => {
                     required
                     fullWidth
                     id="Area"
-                    label="Area"
+                    label="ShopArea"
                     name="Area"
                     value={Area}
                     onChange={e => onChange(e)}
@@ -196,7 +196,7 @@ const SignUp = () => {
                     name="SellerPW"
                     value={SellerPW}
                     onChange={e => onChange(e)}
-                    label="SellerPW"
+                    label="SellerPassword"
                     type="SellerPW"
                     id="SellerPW"
                     autoComplete="current-SellerPW"
@@ -209,21 +209,16 @@ const SignUp = () => {
                     required
                     fullWidth
                     name="RetypeSellerPW"
-                    value={SellerPW}
+                    value={RetypeSellerPW}
                     onChange={e => onChange(e)}
-                    label="RetypeSellerPW"
+                    label="RetypeSellerPassword"
                     type="RetypeSellerPW"
                     id="RetypeSellerPW"
                     //autoComplete="current-CustomerPW"
                   />
                 </Grid>
 
-                <Grid item xs={12}>
-                  <FormControlLabel
-                    control={<Checkbox value="allowExtraEmails" color="primary" />}
-                    label="I want to become a member on Lanka Furniture Makers"
-                  />
-                </Grid>
+                
               </Grid>
               <Button
                 type="submit"
@@ -236,7 +231,7 @@ const SignUp = () => {
         </Button>
               <Grid container justify="flex-end">
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="/customer-sign-in" variant="body2">
                     Already have an account? Sign in
             </Link>
                 </Grid>

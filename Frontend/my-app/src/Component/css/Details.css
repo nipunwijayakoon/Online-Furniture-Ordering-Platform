@@ -28,11 +28,11 @@
     justify-content: space-between;
     margin-bottom: 15px;
 }
-.box .row h2{
+.details .box .row h2{
     text-transform: uppercase;
     letter-spacing: 2px;
 }
-.box .row span{
+.details .box .row span{
     color: crimson;
 }
 .box .colors button{
@@ -43,14 +43,39 @@
     margin-right: 5px;
     cursor: pointer;
 }
-.box p{
+.details .box p{
+    line-height: 1.5;
+    margin: 10px 0;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.details .box h3{
     line-height: 1.5;
     margin: 15px 0;
+    font-family:sans-serif;
 }
-.box .dcart{
+.details button{
     background: rgb(26, 51, 119);
     color: white;
     text-decoration: none;
     padding: 10px 25px;
     display: inline-block;
+}
+.cart-icon{
+    cursor: pointer;
+    position: relative;
+    size: 50px;
+    padding: auto;
+    
+ }
+ .cart-icon span{
+    position: inherit;
+    top:-30px;
+    right: 4px;
+    background: rgb(177, 12, 12);
+    font-size: 15px;
+    color: white;
+    padding: 3px 5px;
+    border-radius: 50%;
+    
+   
 }

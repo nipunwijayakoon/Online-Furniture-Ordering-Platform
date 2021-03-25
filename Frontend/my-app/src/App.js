@@ -15,9 +15,11 @@ import Reset from './Component/Auth/resetpassword';
 import asaseller from './Component/Auth/signupseller';
 import ViewDesign from './Page';
 import App2 from './Component/Hero2/App2';
-import Navbar2 from './Component/Nav2/Navbar2';
+
 import Navbar from './Component/Nav/Navbar';
 import CDetails from './Get2/Get2';
+import Empdetails from './GetEmp/EmployeeDetails';
+import AddEmployee from './GetEmp/AddEmp';
 
 import Shops from './Component/GetShopdata/Get';
 //import Products from './Component/Products';
@@ -48,15 +50,23 @@ import PersonDetails from './Component/Design/PersonDetails';
 import Viewmore from './Component/viewmore/Viewmore';
 import Adminnote from './Component/Admin/note';
 
-import EmployeeList from './Component/Trial2/EmployeeList';
-import RandomNu from './Component/Trial2/RandomNu';
-import ProductList from './Component/Trial2/ProductList';
 import UploadDesignImage from './Component/Design/UploadDesignImageList';
-import { UserForm } from './Component/Trial/UserForm';
+
+
 import Cart from './Component/section/Cart';
+import Blog from './Component/AboutUs/Blog';
 
 import { Provider } from "react-redux";
 import store from "./store";
+import ProductList from './Component/AdminProduct/ProductList';
+
+
+import CarouselContainer from './Component/Help/CarouselContainer';
+import HelpAudio from './Component/Help/HelpAudio';
+import ManageProduct from './Component/AdminProduct/ManageProduct';
+import ManageNewDesign from './Component/AdminProduct/ManageNewDesign';
+import ManageDesignImage from './Component/AdminProduct/ManageDesignImage';
+
 
 const App = () => {
 
@@ -77,6 +87,8 @@ const App = () => {
         <Route exact path='/resetpassword' component={Reset} />
 
         <Route path ='/CDetails' component={CDetails} />
+        <Route path = '/Empdetails' component={Empdetails}/>
+        <Route path = '/AddEmployee' component={AddEmployee}/>
 
         <Route path ='/choosesignup' component={Button5} />
         <Route exact path='/newdesign' component={UploadNewDesign} />
@@ -117,13 +129,23 @@ const App = () => {
           <Route exact path='/cart' component={Cart} />
           <Route exact path='/aftersignin' component={App2} />
 
-          <Route path= '/UserForm' component={UserForm} />
-          <Route path='/employeelist' component={EmployeeList} />
-          <Route path='/randomnum' component={RandomNu} />
+          
+          <Route exact path='/blog' component={Blog} />
+         
+         
+          <Route path='/ManageProduct' component={ManageProduct} />
+          <Route path='/ProductList' component={ProductList}/>
+          
           <Route path='/productlist' component={ProductList} />
           <Route path='/designimagelist' component={UploadDesignImage} />
 
-            
+          <Route path='/productlist' component={ProductList} />
+          <Route path='/designimagelist' component={UploadDesignImage} />
+          <Route path='/CarouselContainer' component={CarouselContainer} />
+          <Route path='/HelpAudio' component={HelpAudio} />
+          <Route path='/manageproduct' component={ManageProduct} /> 
+          <Route path='/managenewdesign' component={ManageNewDesign} /> 
+          <Route path='/managedesignimage' component={ManageDesignImage} /> 
           
           
       </Switch>

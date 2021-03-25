@@ -143,7 +143,7 @@ export default function UploadDesignImage(props) {
         
         
         
-                <div className="container">
+                <div className="container_newdesign">
                   
                             <h1 className="heading">Add Your New Furniture Design Here...</h1>
 
@@ -170,16 +170,16 @@ export default function UploadDesignImage(props) {
 
 
 
-                        <div>
+                     
             
                 <div>
-                    <p>
+                    <p><Typography component="h8" variant="h6" color="textPrimary" gutterBottom>
                     Your New Design Code: <span>{randomNum}</span>
-                    </p>
+                    </Typography></p>
                 </div>
             
 
-            </div>
+            
                         <div className="form-group">
                             <input className="form-control" placeholder="Enter the code here..." name="NewDesignCode"
                                 value={values.NewDesignCode}
@@ -187,9 +187,9 @@ export default function UploadDesignImage(props) {
                         </div>
 
                         <div>
-                        <p><span>
+                        <p><span><Typography component="h6" variant="h8" gutterBottom>
                         *Please make sure to copy this code to enter in the next page...
-                        </span></p>
+                        </Typography></span></p>
                         </div>
 
                         <div className="form-group text-center">

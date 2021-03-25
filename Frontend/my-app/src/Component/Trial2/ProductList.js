@@ -91,7 +91,7 @@ export default function ProductList() {
                     recordForEdit={recordForEdit}
                 />
             </div>
-            <div className="col-md-8">
+            {/* <div className="col-md-8">
                 <table>
                     <tbody>
                         {
@@ -107,7 +107,7 @@ export default function ProductList() {
                         }
                     </tbody>
                 </table>
-            </div>
+            </div> */}
         </div>
     )
 }

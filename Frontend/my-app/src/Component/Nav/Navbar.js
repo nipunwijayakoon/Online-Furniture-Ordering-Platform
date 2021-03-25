@@ -49,7 +49,7 @@ function Navbar() {
             </li>
             <li className='nav-item'>
               <Link
-                to='/designimagelist'
+                to='/CarouselContainer'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
@@ -70,7 +70,7 @@ function Navbar() {
 
             <li className='nav-item'>
               <Link
-                to='/sign-in'
+                to='/customer-sign-in'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >

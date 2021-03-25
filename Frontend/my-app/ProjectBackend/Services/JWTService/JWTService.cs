@@ -30,7 +30,7 @@ namespace ProjectBackend.Services.JWTService
             
             var isCustomer = _db.Customers.FirstOrDefault(m => m.CustomerEmail.ToLower() == user.Email.ToLower());
             var isSeller = _db.Shoplist.FirstOrDefault(m => m.SellerEmail.ToLower() == user.Email.ToLower());
-
+            var isAdmin = _db.Admins.FirstOrDefault(m => m.AdEmail.ToLower() == user.Email.ToLower());
 
 
             var currentUserRole = new object();
@@ -41,6 +41,17 @@ namespace ProjectBackend.Services.JWTService
                 currentUserRole = isSeller.UserRole;
                 currentUserId = isSeller.ShopId;
             }
+
+            else if (isAdmin != null)
+            {
+
+                currentUserRole = isAdmin.UserRole;
+                currentUserId = isAdmin.AdminId;
+
+
+            }
+
+
             else
             {
                 currentUserRole = isCustomer.UserRole;

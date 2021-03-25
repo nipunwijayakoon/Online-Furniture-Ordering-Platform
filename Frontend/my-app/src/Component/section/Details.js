@@ -1,88 +1,108 @@
-import React, { Component } from 'react'
-import {DataContext} from '../Context'
+import React, {useState , useEffect, useRef} from 'react'
 import {Link} from 'react-router-dom'
-import Colors from './Colors'
 import '../css/Details.css'
 import axios from 'axios';
+import { useParams } from 'react-router-dom'
+import CartIcon from '../svg/shopping-cart-solid.svg'
+import '../css/Products.css'
 
 
 
-export class Details extends Component {
-    static contextType = DataContext;
-   
-    constructor(props) {
-        super(props);
-        this.state = { product: [] } 
+function Details(props){
+    
+    const [products, setProducts] = useState([]);
+    const {productID} = useParams()
+    const [cart, setCart] = useState([])
+    const [product, setProductList] = useState([])
+    
+useEffect(() => {
+        axios.get(
+            `https://localhost:5001/api/Product/${productID}`
+          )
+          .then(res => {
+            setProducts(res.data);
+            console.log(res.data);
+          })
+          .catch(error => console.log(error));
+      }, []);
+      
+      
+const addCart = (id) =>{
+    const check = cart.every(item =>{
+            return item.productID !== id
+        })
+        if(check){
+            const data = product.filter(product =>{
+                return product.productID === id
+            })
+            setCart([...cart, ...data])
+            
+        }else{
+            alert("This product has been already added to cart.")
+            
+        }
+    } 
+
+useEffect(() =>{
+    const dataCart =  JSON.parse(localStorage.getItem('dataCart'))
+        if(dataCart) setCart(dataCart)
+     },[])
+ 
+useEffect(() =>{
+         localStorage.setItem('dataCart', JSON.stringify(cart))
+     },[cart])
+ 
+    
+useEffect(() => {
+        refreshProductList();
+    })
+    
+    
+const productAPI = (url = 'https://localhost:5001/api/Product/') => {
+        return {
+            fetchAll: () => axios.get(url),
+         
+        }
     }
 
-    async componentDidMount() {
-        
-        try {
-            var id =this.props.match.params.id;
-            const res = await axios.get(`https://localhost:5001/api/Items/${id}`);
-            console.log("he, he", res.data);
-            this.setState({ products: res.data });
-            //this.state.products.id = res.data;
-            console.log("uu", res.data);
-        } catch (error) {
-            console.log('er er', error)
-        }
-    
-    
-this.getProduct();
-    
-     }
-    
-
-    getProduct = ()=> {
-       
-            if(this.props.match.params.id){
-           const res = this.context.products;
-           
-            const data = res.filter(item =>{
-                return item.itemID === this.props.match.params.id
+function refreshProductList() {
+        productAPI().fetchAll()
+            .then(res => {
+                setProductList(res.data)
             })
-            this.setState({product: data})
-        }
-    };
-
-
-    // componentDidMount(){
-    //     this.getProduct();
-    // }
-
-
+            .catch(err => console.log(err))
+    }
    
-    
-    render() {
-        const {product} = this.state;
-       const {addCart} = this.context;
-        return (
-            <>
-                {
-                   product && product.length!=0 ? product.map(item =>(
-                        <div className="details" key={item.itemID}>
-                           <Link to={`/item/${item.itemID}`}>
-                               <img src={`https://localhost:5001/${item.src}`} alt=""/>
-                           </Link>
+ return (
+           <div >
+                   
+                    
+                   <div className="cart-icon ">   
+                        <Link to='/cart'>  
+                            <img src={CartIcon} alt="" width="40" /> 
+                            <span >{cart.length}</span>   
+                            </Link> 
+                        </div>  
+                 
+           
+                    <div className="details" key={products.productID}>
+                        
+                           
+                        <img src={`https://localhost:5001/Images/${products.imageName} `}width="400" alt=""/> 
+                          
                             <div className="box">
                                 <div className="row">
-                                    <h2> <Link to={`/item/${item.itemID}`}>{item.title}</Link></h2>
-                                    <span>LKR {item.price}</span>
+                                    <h2> {products.productName}</h2>
+                                    <span>LKR {products.price}</span>
                                 </div>
-                                <Colors colors={item.colors}/>
-                                <p>{item.description}</p>
-                                <p>{item.content}</p>
-                                <Link to="/cart" className="dcart" onClick={() => addCart(item.itemID)}>
-                                    Add to cart
-                                </Link>
+                                <p>{products.description}</p>
+                                <h3>{products.content}</h3><br/>
+                                <button  onClick={() => addCart(products.productID)}>ADD CART</button>
                             </div>
-                        </div>
-                    ))
-                :''}
-            </>
+                    </div>
+                     
+            </div>
+                    
         )
-    }
 }
-
 export default Details

@@ -8,10 +8,12 @@ import Grid from '@material-ui/core/Grid';
 import getTotal from '../Context';
 
 const products = [
+  
  
 ];
 const addresses = [];
 const payments = [
+  
   
 ];
 
@@ -29,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Review() {
   const classes = useStyles();
-  
+ 
 
   return (
     <React.Fragment>

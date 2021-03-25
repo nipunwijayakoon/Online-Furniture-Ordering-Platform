@@ -147,6 +147,7 @@ Password ) => async(dispatch)=>{
         TelNumber,
         SellerPW,
         
+        
     )=>{
         const config = {
             headers:{ "Content-Type": "application/json"}

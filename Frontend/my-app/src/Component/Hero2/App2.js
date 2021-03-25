@@ -1,8 +1,8 @@
 import React from 'react'
 import './App2.css';
 import '../../App.css';
-import { Button } from '../Button/Button';
-import { Button2 } from '../Button2/Button2';
+import { Button7 } from '../Button7/Button7';
+import { Button6 } from '../Button6/Button6';
 import { Fab, Grid, makeStyles } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 
@@ -20,35 +20,32 @@ function Herosection() {
       <p>What are you waiting for?</p>
       <div className='hero-btns' >
         
-        <Button2
+
+
+      <Button6
+          className='btns'
+          buttonStyle='btn--outline'
+          buttonSize='btn--large'
+        >
+          MANAGE PRODUCTS
+        </Button6>
+
+        <Button7
           className='btns'
           buttonStyle='btn--primary'
           buttonSize='btn--large'
           onClick={console.log('hey')}
         >
-          VIEW DESIGNS <i className='far fa-play-circle' />
-        </Button2>
+           
+           MANAGE NEW DESIGNS
+           <i className='far fa-play-circle' />
+        </Button7>
 
-        <Button
-          className='btns'
-          buttonStyle='btn--outline'
-          buttonSize='btn--large'
-        >
-          BECOME A SELLER
-        </Button>
+       
         
 
       </div>
-      <Grid container direction="column" justify="center" alignItems="center" style={{height:"100px"}}>
-          <Grid item>
-        <Fab color="primary" aria-label="add"  href='/shops'>
-        <SearchIcon />
-       
-        </Fab>
-       
-        </Grid>
-        <p1>FIND A SHOP</p1>
-        </Grid>
+      
     </div>
     
     
