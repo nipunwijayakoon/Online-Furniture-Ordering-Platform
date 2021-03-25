@@ -352,16 +352,44 @@ namespace ProjectBackend.Migrations
 
             modelBuilder.Entity("ProjectBackend.Models.Shoplist", b =>
                 {
+                    b.Property<int>("ShopId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<string>("Area")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("ShoplistID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Shopname1")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Area");
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Owner")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RetypeSellerPW")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SellerEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SellerFirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SellerLastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SellerPW")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TelNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ShopId");
 
                     b.ToTable("Shoplist");
                 });
