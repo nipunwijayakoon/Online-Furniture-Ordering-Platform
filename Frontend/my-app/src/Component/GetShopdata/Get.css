@@ -22,6 +22,16 @@ p {
   font-size: 25px;
 }
 
+p2 {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  font-size: 22px;
+  color: rgb(136, 32, 32);
+}
+
 h {
   align-items: center;
   justify-content: center;

@@ -1,92 +1,161 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect, Component } from 'react'
+import axios from "axios";
+import '../css/Products.css';
+
+
+import CartIcon from '../svg/shopping-cart-solid.svg'
 import {Link} from 'react-router-dom'
-import {DataContext} from '../Context'
-import '../css/Products.css'
-import axios from 'axios';
-import { IconButton } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
 
 
-export class Products extends Component {
-     addCart = (id) =>{
-        const {products, cart} = this.state;
+
+
+export default function Search(props) {
+    const [product, setProductList] = useState([])
+    const [cart, setCart] = useState([])
+      
+    const [visible, setVisible] = useState(6)
+   const addCart = (id) =>{
         const check = cart.every(item =>{
-            return item.itemID !== id
+            return item.productID !== id
         })
         if(check){
-            const data = products.filter(product =>{
-                return product.itemID === id
+            const data = product.filter(product =>{
+                return product.productID === id
             })
-            this.setState({cart: [...cart,...data]})
-        }else{
-            alert("The product is already in the cart ")
-        }
-    };
-    static contextType = DataContext;
-    
-   
-
-   constructor(props) {
-        super(props);
-        this.state = { products: [] } 
-    }
-    async componentDidMount() {
-        //this.context.addCart();
-        
-        try {
-            const res = await axios.get('https://localhost:5001/api/Items');
-            console.log("he, he", res.data);
-            this.setState({ products: res.data });
-            //this.state.products = res.data;
-            console.log("uu", this.state.products);
-        } catch (error) {
-            console.log('er er', error)
-        }
-    
-    
-
-    
-     }
-
-   
-
-    render() {
-    
-    // const {addCart} =this.context;
-
-    const {products} = this.state;
-    const {addCart} = this;
-
-        return (
+            setCart([...cart, ...data])
             
-            <div id="product">
-                
-               {
-                   
-                   products.map(product =>(
-                       <div className="card" key={product.itemID}>
-                           <Link to={`/product/${product.itemID}`}>
-                               <img src={`https://localhost:5001/${product.src}`} alt=""/>
+        }else{
+            alert("This product has been already added to cart.")
+            
+        }
+    } 
+   
+    
+    useEffect(() =>{
+       const dataCart =  JSON.parse(localStorage.getItem('dataCart'))
+       if(dataCart) setCart(dataCart)
+    },[])
+
+    useEffect(() =>{
+        localStorage.setItem('dataCart', JSON.stringify(cart))
+    },[cart])
+
+
+    useEffect(() => {
+        refreshProductList();
+    })
+    
+    
+
+    const productAPI = (url = 'https://localhost:5001/api/Product/') => {
+        return {
+            fetchAll: () => axios.get(url),
+         
+        }
+    }
+   
+
+
+    function refreshProductList() {
+        productAPI().fetchAll()
+            .then(res => {
+                setProductList(res.data)
+            })
+            .catch(err => console.log(err))
+    }
+
+
+    const imageCard = data => (
+        <div className="card" key={data.productID}>
+          <Link to={`/product/${data.productID}`}>
+                               <img src={data.imageSrc} alt=""/>
                            </Link>
                            <div className="content">
-                               <h3>
-                                   <Link to={`/product/${product.itemID}`}>{product.title}</Link>
+                           <h3>
+                                   {data.productName}
                                </h3>
-                               <span>LKR {product.price}</span>
-                               <p>{product.description}</p>
-                               {/* <button onClick={()=> addCart(product.id)}>Add to cart</button> */}
-                                {/* <IconButton component={Link} to={`/cart`}  className="dcart" onClick={() => addCart{`${product.itemID}`}>
-                                    Add to cart
-                                </IconButton>  */}
-                                <Button onClick={addCart} className={"dcart"} >Add to cart</Button>
-                               
-                           </div>
-                       </div>
-                   ))
-               }
+                               <span>LKR {data.price}</span>
+                                <br/>
+                               <h4>{data.description}</h4>
+                <button  onClick={() => addCart(data.productID)}>ADD CART</button>
+                
             </div>
-        )
-    }
-}
+        </div>
+    )
+    const [searchName, setSearchName] = useState('');
+    const nameFilter = (event) => setSearchName(event.target.value.toLowerCase());
 
-export default Products;
+    const [searchPrice, setSearchPrice] = useState('');
+    const priceFilter = (event) => setSearchPrice(event.target.value);
+
+
+    const showmoreProducts =()=>{
+        setVisible ((prevValue)=>prevValue + 6)}
+
+    
+    return (
+        <div id="product">
+                                 
+                    
+                     
+                    <div className="col-md-2 searchcard">
+                    <input type="search"
+                        className="form-control" placeholder={'Filter by Furniture Type'} onChange={nameFilter}/>
+                    </div>
+                    
+                    <div className="col-md-1 ">   
+                    <div className="col-md-2 searchcard">
+                    <input type="search"
+                        className="form-control" placeholder={'Filter by Maximum Price'} onChange={priceFilter}/>
+                    </div>    
+                    </div> 
+
+                    
+                    <div className="cart-icon ">  
+                    <Link to='/cart'>  
+                    <img src={CartIcon} alt="" width="40" /> 
+                     <span>{cart.length}</span>   
+                     </Link>
+                    </div>
+                   
+                 
+            
+           
+                <div id="product">
+                        {
+                           
+                            
+                            product.filter((productList)=>{
+                                if (searchName ===  "" && searchPrice === "" )
+                                { return productList}
+                             
+                                else if (productList.productName.toLocaleLowerCase().includes(searchName)  && searchPrice === "")
+                                   { return productList}
+                                
+                                else if (searchName === ""  && searchPrice === "")
+                                   { return productList}  
+                                else if (searchName === ""  && productList.price <= (searchPrice))
+                                   { return productList}   
+
+                                else if (productList.productName.toLocaleLowerCase().includes(searchName) && searchPrice === "")
+                                   { return productList}   
+                                else if (productList.productName.toLocaleLowerCase().includes(searchName)  && productList.price <= (searchPrice))
+                                   { return productList} 
+                                else if (searchName === ""  && productList.price <= (searchPrice))
+                                   { return productList}  
+                                // else if (productList.title.toLocaleLowerCase().includes(searchName) && productList.addresse.toLocaleLowerCase().includes(searchAddress) && productList.unitPrice <= (searchPrice))
+                                //    { return productList}           
+
+                             }).slice(0,visible).map((productList) =>
+                                <tc>
+                                    <td >{imageCard(productList)}</td>   
+                                </tc>
+                            )
+                        }
+                   
+                </div>
+            
+            <button className="btnloadmore" onClick={showmoreProducts}><b>Load More. . . </b></button>
+        </div>
+    )
+}

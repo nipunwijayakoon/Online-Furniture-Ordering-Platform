@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 //import './CSS/form.css';
 
 
-const defaultImageSrc = '/images/img-2.jpg'
+const defaultImageSrc = '/images/icon_image1.png'
 
 const initialFieldValues = {
     productID: 0,

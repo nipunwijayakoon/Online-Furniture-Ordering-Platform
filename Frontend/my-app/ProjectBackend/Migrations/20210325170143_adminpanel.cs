@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class itemcontroller : Migration
+    public partial class adminpanel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -123,7 +123,7 @@ namespace ProjectBackend.Migrations
                     Description = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
                     Price = table.Column<string>(nullable: true),
-                    Colour = table.Column<string>(nullable: true),
+                    Colors = table.Column<string>(nullable: true),
                     Count = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -190,9 +190,11 @@ namespace ProjectBackend.Migrations
                     ProductID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductName = table.Column<string>(nullable: true),
-                    Price = table.Column<string>(nullable: true),
-                    ImageName = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                    Description = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
+                    Price = table.Column<int>(nullable: false),
+                    Count = table.Column<string>(nullable: true),
+                    ImageName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -219,13 +221,21 @@ namespace ProjectBackend.Migrations
                 name: "Shoplist",
                 columns: table => new
                 {
-                    Area = table.Column<string>(nullable: false),
-                    ShoplistID = table.Column<int>(nullable: false),
-                    Shopname1 = table.Column<string>(nullable: true)
+                    ShopId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SellerEmail = table.Column<string>(nullable: false),
+                    SellerFirstName = table.Column<string>(nullable: false),
+                    SellerLastName = table.Column<string>(nullable: true),
+                    Area = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Owner = table.Column<string>(nullable: true),
+                    TelNumber = table.Column<string>(nullable: false),
+                    SellerPW = table.Column<string>(nullable: false),
+                    RetypeSellerPW = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Shoplist", x => x.Area);
+                    table.PrimaryKey("PK_Shoplist", x => x.ShopId);
                 });
 
             migrationBuilder.CreateTable(

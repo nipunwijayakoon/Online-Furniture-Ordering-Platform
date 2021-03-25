@@ -35,7 +35,9 @@ namespace ProjectBackend.Controllers
                      ProductID = x.ProductID,
                      ProductName = x.ProductName,
                      Price = x.Price,
+                     Count = x.Count,
                      Description = x.Description,
+                     Content = x.Content,
                      ImageName = x.ImageName,
                      ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName)
                  })

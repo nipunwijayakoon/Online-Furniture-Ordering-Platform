@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("https://localhost:5001/api/Shops")
+      .get("https://localhost:5001/api/Shoplists")
       .then((res) => {
         setShops(res.data);
         setLoading(false);
@@ -35,7 +35,7 @@ function App() {
   useEffect(() => {
     setFilteredShops(
       Shops.filter((Shop) =>
-        Shop.shopName.toLowerCase().includes(search.toLowerCase())
+        Shop.area.toLowerCase().includes(search.toLowerCase())
       )
     );
   }, [search, Shops]);
@@ -51,12 +51,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Shops List</h1>
+      <h1>SHOP LIST</h1>
       
       <form className="data">
       <input
         type="text"
-        placeholder="Search a Furniture Shop..."
+        placeholder="Your area : ( ex : GALLE )"
         onChange={(e) => setSearch(e.target.value)}
       />
       </form>
@@ -78,14 +78,14 @@ function App() {
 
 
 const ShopDetail = (props) => {
-  const { shopName, shopEmail,shopTelNumber} = props;
+  const { area,name, sellerFirstName,sellerLastName, telNumber} = props;
 
   return (
     <>
       
-      <p>----------- {shopName} -----------</p>
-      <p>Email : {shopEmail}</p>
-      <p>Tel :{shopTelNumber}</p>
+      <p>"{name}" - {area}</p>
+      <p2>Owner : {sellerFirstName} {sellerLastName}</p2>  
+      <p2>Tel : {telNumber}</p2>
       <br></br>
       <br></br>
     </>

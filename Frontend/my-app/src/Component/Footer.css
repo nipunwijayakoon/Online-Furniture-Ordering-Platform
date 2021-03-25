@@ -20,8 +20,8 @@
 }
 
 .footer-subscription > p {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .footer-subscription-heading {
@@ -147,29 +147,29 @@
     justify-content: center;
     align-items: center;
   }
-  
+
   .footer-subscription {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-  
+
     margin-bottom: 24px;
     padding: 24px;
     color: #fff;
   }
-  
+
   .footer-subscription > p {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
   }
-  
+
   .footer-subscription-heading {
     margin-bottom: 24px;
     font-size: 24px;
   }
-  
+
   .footer-subscription-text {
     margin-bottom: 24px;
     font-size: 20px;

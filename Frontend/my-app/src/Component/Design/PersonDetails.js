@@ -134,14 +134,14 @@ export class PersonDetails extends Component {
             <Button
               color="secondary"
               variant="contained"
-              style={{marginLeft:60,}}
+              style={{marginLeft:130,}}
               onClick={this.back}
             >Back</Button>
 
             <Button
               color="primary"
               variant="contained"
-              style={{marginLeft:14,}}
+              style={{marginLeft:34,}}
               onClick={this.continue}
             >Continue</Button>
 

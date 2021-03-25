@@ -37,6 +37,8 @@ namespace ProjectBackend
         {
             services.AddControllers();
 
+            
+
             services.AddScoped<IJWTService, JWTService>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -95,6 +97,7 @@ namespace ProjectBackend
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
