@@ -440,10 +440,36 @@ namespace ProjectBackend.Migrations
                     b.Property<string>("Area")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("ShoplistID")
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Owner")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RetypeSellerPW")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SellerEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SellerFirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SellerLastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SellerPW")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ShopId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Shopname1")
+                    b.Property<string>("TelNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Area");

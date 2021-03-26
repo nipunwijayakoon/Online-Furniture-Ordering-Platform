@@ -143,7 +143,7 @@ export default function UploadDesignImage(props) {
         
         
         
-                <div className="container">
+                <div className="container_newdesign">
                   
                             <h1 className="heading">Add Your New Furniture Design Here...</h1>
 

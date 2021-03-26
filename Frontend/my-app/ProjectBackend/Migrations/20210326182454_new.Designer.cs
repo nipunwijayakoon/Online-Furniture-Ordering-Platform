@@ -9,8 +9,8 @@ using ProjectBackEnd.Models;
 namespace ProjectBackend.Migrations
 {
     [DbContext(typeof(FurnituresDBContext))]
-    [Migration("20210326071250_csfg")]
-    partial class csfg
+    [Migration("20210326182454_new")]
+    partial class @new
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -442,10 +442,36 @@ namespace ProjectBackend.Migrations
                     b.Property<string>("Area")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("ShoplistID")
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Owner")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RetypeSellerPW")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SellerEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SellerFirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SellerLastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SellerPW")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ShopId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Shopname1")
+                    b.Property<string>("TelNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Area");

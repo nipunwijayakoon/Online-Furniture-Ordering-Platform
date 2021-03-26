@@ -24,6 +24,6 @@ namespace ProjectBackEnd.Models
         public string Status { get; set; }
              
 
-        public string UserRole = "Employee";
+        
     }
 }

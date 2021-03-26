@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class cs : Migration
+    public partial class @new : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -266,8 +266,15 @@ namespace ProjectBackend.Migrations
                 columns: table => new
                 {
                     Area = table.Column<string>(nullable: false),
-                    ShoplistID = table.Column<int>(nullable: false),
-                    Shopname1 = table.Column<string>(nullable: true)
+                    ShopId = table.Column<int>(nullable: false),
+                    SellerEmail = table.Column<string>(nullable: false),
+                    SellerFirstName = table.Column<string>(nullable: false),
+                    SellerLastName = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Owner = table.Column<string>(nullable: true),
+                    TelNumber = table.Column<string>(nullable: false),
+                    SellerPW = table.Column<string>(nullable: false),
+                    RetypeSellerPW = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

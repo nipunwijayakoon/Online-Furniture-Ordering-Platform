@@ -24,7 +24,6 @@ componentDidMount() {
 }
 
 
-
     getUser= (e) => {
 
         e.preventDefault();
@@ -54,7 +53,6 @@ componentDidMount() {
 
                 /**const repos5 = res.data.customerPW;
                 this.setState({repos5});
-
                 const repos6 = res.data.retypeCustomerPW;
                 this.setState({repos6});*/
 
@@ -72,42 +70,55 @@ render(){
 
     return(
 
-        <div className="Get">
-
-        <header className="Get-header">
-
-            <h1 className="Get-title">Customer Details</h1>
-
-         </header>   
-
-         <ExportCSV csvData={this.state.persons} fileName={this.state.CustomerDetails} />
-         
-             <table id="customers">
-                <tr>
-                    <th>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Tell Number</th>
-                    <th>Home town</th>
-                </tr>
-                {this.state.persons.map(persons =>
-                    <tr>
-                        <td>{persons.customerID}</td>
-                        <td>{persons.customerFirstName}</td>
-                        <td>{persons.customerLastName}</td>
-                        <td>{persons.customerEmail}</td>
-                        <td>{persons.customerTellnumber}</td>
-                        <td>{persons.customerTown}</td>
-                    </tr>
-                    )}
-                
-            </table>
-           
-           
-    
+        <section>
+             <h1>CUSTOMER DETAILS</h1>
             
-        </div>
+            <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Tell Number</th>
+                            <th>Home town</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+
+            <div class="tbl-content">
+                
+                
+                
+                     {this.state.persons.map(persons =>
+                     <table cellpadding="0" cellspacing="0" border="0">
+                     <tbody>
+
+                         <tr>
+                            <td>{persons.customerID}</td>
+                            <td>{persons.customerFirstName}</td>
+                            <td>{persons.customerLastName}</td>
+                            <td>{persons.customerEmail}</td>
+                            <td>{persons.customerTellnumber}</td>
+                            <td>{persons.customerTown}</td>
+                         </tr>
+
+                         </tbody>
+
+                </table>
+
+                        )}
+                     
+
+                
+            </div>
+            <div>
+            <ExportCSV csvData={this.state.persons} fileName={this.state.CustomerDetails} />
+            </div>
+        </section>
         
         
         

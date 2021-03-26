@@ -41,6 +41,7 @@ const featuredPosts = [
     description:'Free delivery over Rs.50,000/=',
     image: 'https://cdn1.vectorstock.com/i/1000x1000/35/30/furniture-delivery-icon-outline-vector-33243530.jpg',
     imageText: 'Delivery',
+    
   },
   {
     title: '100% SECURE SHOPPING',

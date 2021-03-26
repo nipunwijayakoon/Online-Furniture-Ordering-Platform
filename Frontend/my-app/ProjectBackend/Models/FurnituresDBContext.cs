@@ -41,6 +41,7 @@ namespace ProjectBackEnd.Models
         {
             modelBuilder.Entity<Shoplist>().HasKey(s => s.Area);
         }
+        public DbSet<Shoplist> Shoplist { get; set; }
 
     }
 }
