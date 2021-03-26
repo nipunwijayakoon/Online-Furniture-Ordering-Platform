@@ -4,8 +4,7 @@ import Products from './section/Products'
 import Details from './section/Details'
 import {Route} from "react-router-dom"
 import Cart from './section/Cart'
-import Payment from './section/Payment'
-import Confirmation from './Payment/Confirmation'
+
 import {Link} from 'react-router-dom'
 
 
