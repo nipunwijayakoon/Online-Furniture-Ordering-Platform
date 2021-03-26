@@ -41,8 +41,11 @@ function Herosection() {
           <Grid item>
         <Fab color="primary" aria-label="add"  href='/shops'>
         <SearchIcon />
+       
         </Fab>
+       
         </Grid>
+        <p1>FIND A SHOP</p1>
         </Grid>
     </div>
     

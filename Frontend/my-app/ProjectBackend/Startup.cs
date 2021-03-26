@@ -20,6 +20,7 @@ using System.Threading.Tasks;
 using System.IO;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.CodeAnalysis.Options;
+using ProjectBackend.Services;
 
 namespace ProjectBackend
 {
@@ -36,6 +37,10 @@ namespace ProjectBackend
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddTransient<MakePayment>();
+          services.AddTransient<IMailService, MailService>();
+
+            
 
             services.AddScoped<IJWTService, JWTService>();
 
@@ -95,6 +100,7 @@ namespace ProjectBackend
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

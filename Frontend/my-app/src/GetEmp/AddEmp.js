@@ -45,15 +45,15 @@ const useStyles = makeStyles((theme) => ({
 const EMPSignUp = () => {
   const [formData, setFromData] = useState(
     {
-        employeeFirstName: '',
-        employeeLastName: '',
-        employeeTellnumber:'',
-        employeeEmail: '',
-        employeeTown: '',
+        AdminFistName: '',
+        AdminLastName: '',
+        AdminPW:'',
+        RetypeAdminPW: '',
+        AdEmail: '',
     }
   );
 
-  const { employeeFirstName, employeeLastName, employeeEmail, employeeTellnumber, employeeTown} = formData;
+  const { AdminFistName, AdminLastName, AdminPW, RetypeAdminPW, AdEmail} = formData;
 
   const onChange = e => setFromData({ ...formData, [e.target.name]: e.target.value })
 
@@ -61,8 +61,8 @@ const EMPSignUp = () => {
 
     e.preventDefault();
     try {
-      console.log("Fname", employeeFirstName)
-      const res = await empregistor(employeeEmail, employeeFirstName,employeeLastName, employeeTown, employeeTellnumber);
+      console.log("Fname", AdminFistName)
+      const res = await empregistor(AdminFistName, AdminLastName,AdminPW, RetypeAdminPW, AdEmail);
       console.log("suc", res)
     } catch (error) {
       console.log(error)
@@ -88,15 +88,15 @@ const EMPSignUp = () => {
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
-                    autoComplete="employeeFirstName"
-                    name="employeeFirstName"
-                    value={employeeFirstName}
+                    autoComplete="AdminFistName"
+                    name="AdminFistName"
+                    value={AdminFistName}
                     onChange={e => onChange(e)}
 
                     variant="outlined"
                     required
                     fullWidth
-                    id="employeeFirstName"
+                    id="AdminFistName"
                     label="First Name"
                     autoFocus
                   />
@@ -106,12 +106,12 @@ const EMPSignUp = () => {
                     variant="outlined"
                     required
                     fullWidth
-                    id="employeeLastName"
+                    id="AdminLastName"
                     label="Last Name"
-                    name="employeeLastName"
-                    value={employeeLastName}
+                    name="AdminLastName"
+                    value={AdminLastName}
                     onChange={e => onChange(e)}
-                    autoComplete="employeeLastName"
+                    autoComplete="AdminLastName"
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -119,13 +119,13 @@ const EMPSignUp = () => {
                     variant="outlined"
                     required
                     fullWidth
-                    id="employeeEmail"
+                    id="AdEmail"
                     label="Email Address"
-                    name="employeeEmail"
-                    value={employeeEmail}
+                    name="AdEmail"
+                    value={AdEmail}
                     onChange={e => onChange(e)}
 
-                    autoComplete="employeeEmail"
+                    autoComplete="AdEmail"
                   />
                 </Grid>
 
@@ -134,13 +134,13 @@ const EMPSignUp = () => {
                     variant="outlined"
                     required
                     fullWidth
-                    id="employeeTellnumber"
-                    label="employeeTellnumber"
-                    name="employeeTellnumber"
-                    value={employeeTellnumber}
+                    id="AdminPW"
+                    label="AdminPW"
+                    name="AdminPW"
+                    value={AdminPW}
                     onChange={e => onChange(e)}
 
-                    autoComplete="employeeTellnumber"
+                    autoComplete="AdminPW"
                   />
                 </Grid>
                 
@@ -149,13 +149,13 @@ const EMPSignUp = () => {
                     variant="outlined"
                     required
                     fullWidth
-                    name="employeeTown"
-                    value={employeeTown}
+                    name="RetypeAdminPW"
+                    value={RetypeAdminPW}
                     onChange={e => onChange(e)}
-                    label="employeeTown"
-                    type="employeeTown"
-                    id="employeeTown"
-                    autoComplete="employeeTown"
+                    label="RetypeAdminPW"
+                    type="RetypeAdminPW"
+                    id="RetypeAdminPW"
+                    autoComplete="RetypeAdminPW"
                   />
                 </Grid>
 

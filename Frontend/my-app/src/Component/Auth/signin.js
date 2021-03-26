@@ -5,9 +5,9 @@ import '../../App.css';
 
 
 
-
+import {  Redirect } from "react-router-dom";
 import React, { Fragment, useState } from "react";
-import { Redirect } from "react-router-dom";
+
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
+      
     },
     avatar: {
       margin: theme.spacing(1),
@@ -57,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-  const SignIn=() =>{
+  const SignIn=({ login, isAuthenticated, user }) =>{
 
 
     const [formData, setFromData] = useState(
@@ -69,6 +70,9 @@ const useStyles = makeStyles((theme) => ({
       );
 
 
+      const classes = useStyles();
+
+
       const { Email,Password } = formData;
 
       const onChange = e => setFromData({ ...formData, [e.target.name]: e.target.value })
@@ -76,25 +80,35 @@ const useStyles = makeStyles((theme) => ({
       const onSubmit = async e => {
     
         e.preventDefault();
-        try {
-          console.log("Fname", Email)
-          const res = await login(Email,Password);
-          console.log("suc", res)
-        } catch (error) {
-          console.log(error)
-        }
+        
+        login(Email,Password);
     
-      }
+      };
+
+
     
 
-    const classes = useStyles();
+      if (isAuthenticated) {
+        if (user.role === "Customer")
+          return <Redirect to="/" />;
+        else if (user.role == "Employee")
+          return <Redirect to="/aftersignin" />
+        else if (user.role == "Admin")
+          return <Redirect to="/admin" />
+        else
+          console.log(user.role);
+      }
+
+
+
+      
   
     return (
-        <Fragment>
-            <section>
+        <Fragment >
+            <section >
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <div className={classes.paper}>
+        <div className={classes.paper} >
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
@@ -130,10 +144,7 @@ const useStyles = makeStyles((theme) => ({
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+            
             <Button
               type="submit"
               fullWidth
@@ -152,7 +163,7 @@ const useStyles = makeStyles((theme) => ({
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="sign-up" variant="body2">
+                <Link href="/sign-up" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
@@ -170,8 +181,19 @@ const useStyles = makeStyles((theme) => ({
 
 
 
+  SignIn.propTypes = {
+    login: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool.isRequired,
+    user: PropTypes.object.isRequired,
+  };
+  
+  const mapStateToProps = (state) => ({
+    isAuthenticated: state.auth.isAuthenticated,
+    user: state.auth.user,
+  });
 
-export default SignIn
+
+export default connect(mapStateToProps, { login })(SignIn);
 
 
 

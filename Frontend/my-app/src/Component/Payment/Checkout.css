@@ -1,0 +1,43 @@
+.paper{
+    margin: top 8%;
+    display: 'flex';
+    /* flexDirection: 'column'; */
+    align-items: 'center';
+}
+.paper h1{
+    font-family:fantasy;
+    font-size: 40px;
+}
+.form{
+    width: '100%';
+    margin-top: top 3%;
+}
+.aws .paper .form .submit{
+    margin: 9px, 0px, 2px;
+    color: #000;
+
+}
+.pay h3{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+#aws{
+    border: black;
+    background-attachment: fixed;
+    background-color: black;
+}
+.aws .sdf{
+    background-color: rgb(214, 187, 187);
+    border: black;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+
+}
+.des{
+    margin-left: 650px;
+}
+.paybutton .submitpay button{
+    color: #000;
+}
