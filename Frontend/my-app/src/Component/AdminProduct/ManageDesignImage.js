@@ -65,7 +65,7 @@ class ManageProduct extends React.Component{
                   </div>
                 <br/>
                 <Container>
-                <div style={{ backgroundImage: "url('https://images.pexels.com/photos/2988860/pexels-photo-2988860.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')" ,backgroundSize: "cover"}}>
+                <div >
                   <Table border-collapse=" collapse">  
                       
                       <tr className="raw" >  
@@ -89,7 +89,7 @@ class ManageProduct extends React.Component{
                           <td>{product.imageName_}</td>
                           <td>{product.imageSrc_}</td>
 
-      
+                          <td><Button href={`https://localhost:5001/Images/${product.imageName_}`}> Download Order</Button></td>
                           <td><Button style={{ backgroundColor: 'ligt-green',border: '2px solid',borderRadius: '3px'}}
                            onClick={() => this.DeleteProduct(product.emploID)}>Delete Order</Button>  
                           

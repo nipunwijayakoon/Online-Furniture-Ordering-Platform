@@ -67,7 +67,8 @@ import HelpAudio from './Component/Help/HelpAudio';
 import ManageProduct from './Component/AdminProduct/ManageProduct';
 import ManageNewDesign from './Component/AdminProduct/ManageNewDesign';
 import ManageDesignImage from './Component/AdminProduct/ManageDesignImage';
-
+import Checkout from './Component/Payment/Checkout';
+import Receipt from './Component/Payment/Receipt';
 
 const App = () => {
 
@@ -148,6 +149,10 @@ const App = () => {
           <Route path='/manageproduct' component={ManageProduct} /> 
           <Route path='/managenewdesign' component={ManageNewDesign} /> 
           <Route path='/managedesignimage' component={ManageDesignImage} /> 
+
+          <Route path='/payments' component={Checkout}/>
+          <Route path='/receipt' component={Receipt}/>
+          
           
           
       </Switch>

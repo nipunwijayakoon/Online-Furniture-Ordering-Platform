@@ -7,6 +7,8 @@ import CartIcon from '../svg/shopping-cart-solid.svg'
 import axios from 'axios'; 
 //import { Button } from '../Button/Button'
 import Colors from './Colors'
+import GooglePayButton from '@google-pay/button-react';
+
 
 
 export default function Cart() {
@@ -80,6 +82,7 @@ export default function Cart() {
             
            
              <>
+             
                 
                      
                       {
@@ -108,9 +111,11 @@ export default function Cart() {
                     
                   
            <div className="total" >
-               <Link to='./../Checkout'><h6>Payment</h6></Link>              
+               <Link to='./../payments'><h6>Payment</h6></Link>              
                          
                <h6>Total : Rs.{total}</h6>
+
+              
            </div>
                
             </>
