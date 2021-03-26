@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
@@ -237,7 +238,21 @@ export default function TextMobileStepper() {
     </div>
 
 </Container>
+
 <Container>
+<div className="UpNewDesign">
+
+    <Button variant="contained" color="primary">
+
+        <Link underline="none" href= "blog">More About Us</Link>  
+
+    </Button>
+    <Typography component="h6" variant="h6" align="center" color="textPrimary"  paragraph>
+        Click Here to See More Details on Us, Our Products and Our Services...
+    </Typography>
+
+</div>
+
 <h1><p>Instructions in Audio</p></h1>
 <div className='app-container'>
       

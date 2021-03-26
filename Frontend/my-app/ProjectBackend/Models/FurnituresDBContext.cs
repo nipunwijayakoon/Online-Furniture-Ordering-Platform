@@ -33,6 +33,7 @@ namespace ProjectBackEnd.Models
         public DbSet<EMP> EMPModel { get; set; }
         public DbSet<ProductModel> Products { get; set; }
         public DbSet<Testone> Testone { get; set; }
+        public DbSet<PayModel> Pay { get; set; }
         
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

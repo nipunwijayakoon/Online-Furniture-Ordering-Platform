@@ -66,6 +66,9 @@ import ManageNewDesign from './Component/AdminProduct/ManageNewDesign';
 import ManageDesignImage from './Component/AdminProduct/ManageDesignImage';
 
 
+import PaymentForm from './Component/Trial3/PaymentForm';
+
+
 const App = () => {
 
   return (
@@ -138,7 +141,9 @@ const App = () => {
           <Route path='/HelpAudio' component={HelpAudio} />
           <Route path='/manageproduct' component={ManageProduct} /> 
           <Route path='/managenewdesign' component={ManageNewDesign} /> 
-          <Route path='/managedesignimage' component={ManageDesignImage} /> 
+          <Route path='/managedesignimage' component={ManageDesignImage} />
+
+          <Route path='/PaymentForm' component={PaymentForm} />
           
           
       </Switch>

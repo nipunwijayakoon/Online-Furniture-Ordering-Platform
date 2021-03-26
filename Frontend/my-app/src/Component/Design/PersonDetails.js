@@ -59,6 +59,7 @@ export class PersonDetails extends Component {
           defaultValue={values.personName}
           variant="outlined"
           helperText="Add the Contact Name"
+          autoComplete={values.personName}
         />
         
       </div> 

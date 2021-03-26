@@ -61,6 +61,7 @@ render() {
           defaultValue={values.newDesignCode}
           variant="outlined"
           helperText="Please Enter the New Design Code You Received Before"
+          
         />
       </Grid> 
       
@@ -90,6 +91,8 @@ render() {
           defaultValue={values.woodName}
           variant="outlined"
           helperText="Choose the Wood type from the Available Wood List and Type Correctly the Name of the Wood"
+          autoComplete={values.woodName}
+        
         />
       </Grid> 
       
@@ -152,6 +155,7 @@ render() {
           defaultValue={values.woodColour}
           variant="outlined"
           helperText="Choose the Painting Color from the Color-Code and Type Correctly the Name of the Color"
+          autoComplete={values.woodColour}
         />
       </Grid> 
       
