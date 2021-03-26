@@ -62,7 +62,7 @@ DeleteProduct(productID) {
                   <div className='topic'>
                     <h2>PRODUCT DETAILS</h2>
                     <Link to='/ProductList'>
-                       <Button style={{ backgroundColor: 'Green',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> ADD PRODUCT</Button>
+                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> ADD PRODUCT</Button>
                    </Link>
                   </div>
                   <div>
