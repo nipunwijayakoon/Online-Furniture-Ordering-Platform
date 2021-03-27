@@ -1,6 +1,7 @@
 import React from 'react';  
 import { Table,Button } from 'react-bootstrap';
-import Container from '@material-ui/core/Container';  
+import Container from '@material-ui/core/Container'; 
+import Typography from '@material-ui/core/Typography'; 
 import axios from 'axios';  
 import './ManageDesign.css';  
 import { Link } from 'react-router-dom';
@@ -13,10 +14,22 @@ class ManageDesignImage extends React.Component{
         this.state = {  
            error:null,  
            d_images:[],  
-           response: {},  
+           response: {}, 
+           value: '', 
            
         }  
-    }  
+    } 
+    
+    handleChange = this.handleChange.bind(this);
+    handleSubmit = this.handleSubmit.bind(this);
+
+    handleChange(event) {
+      this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+      event.preventDefault();
+    }
 
     componentDidMount(){  
        axios.get(apiUrl ).then(response => response.data).then(  
@@ -59,12 +72,23 @@ class ManageDesignImage extends React.Component{
          <div style={{ backgroundImage: "url('https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')" , backgroundSize: "initial"}}>  
               
               <Container>
-                <div className="col-md-2 design-search">
-                    <input type="search"
-                        className="form-control" placeholder={'Enter the "Design Code" you are looking for...'} /*onChange={nameFilter}*//>
-                </div>
+
+                <Typography variant="h1" color="textPrimary"  paragraph>
+                    ``
+                </Typography>
+
+              </Container>
+              
+              <Container>
+                 <div className="filter_newdesign">
+                <form onSubmit = {this.handleSubmit}>
+                  <label>
+                    Enter Design Code :
+                    <input type="text" value={this.state.value} onChange={this.handleChange} />
+                  </label>
+                  </form>
+                  </div>
                 </Container>
-                
                 
                 <div > 
                   <br/> 
@@ -78,12 +102,16 @@ class ManageDesignImage extends React.Component{
                       
                       <tr className="raw" >  
                         <th>Image</th>
-
+                        <th>              </th>
+                        <th>              </th>
+                        <th>-</th>
                         <th>Download Image</th>
-
+                        
                         <th>Design Code</th> 
+                        <th>              </th>
+
                         <th>Image Name</th> 
-                        <th>Image Src</th> 
+                        <th>         </th>
                           
                          
                         <th>Reject</th>
@@ -91,18 +119,23 @@ class ManageDesignImage extends React.Component{
                       </tr>  
                     
                     <tbody >  
-                      {d_images.map(d_image => (  
+                      {d_images.filter((d_image)=>(d_image.newDesignCode == this.state.value)).map(d_image => (  
                         <tr key={d_image.emploID} style={{   border: '2px solid DimGrey'}}>  
                           <td><img src ={`https://localhost:5001/Images/${d_image.imageName_}`} className="pic-new-card"/></td>
-
+                          
+                          <td>        </td>
+                          <td>        </td>
+                          <td>        </td>
                           <td><Button href={`https://localhost:5001/Images/${d_image.imageName_}`}
                            style={{ backgroundColor: 'ligt-green',border: '2px solid',borderRadius: '3px'}}>Download</Button></td>
                            
-                          <td>{d_image.newDesignCode}</td> 
+                          {/* <td>      </td> */}
+                          <td>{d_image.newDesignCode}</td>
+                          <td>      </td> 
                           <td>{d_image.imageName_}</td>
-                          <td>{d_image.imageSrc_}</td>
+                          <td>      </td>
 
-                          <td><Button href={`https://localhost:5001/Images/${product.imageName_}`}> Download Order</Button></td>
+                          
                           <td><Button style={{ backgroundColor: 'ligt-green',border: '2px solid',borderRadius: '3px'}}
                            onClick={() => this.DeleteProduct(d_image.emploID)}>Delete Order</Button>  
                           
