@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class newdesign1 : Migration
+    public partial class newswed : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

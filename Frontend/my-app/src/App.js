@@ -152,7 +152,7 @@ const App = () => {
           <Route path='/managedesignimage' component={ManageDesignImage} /> 
 
           <Route path='/payments' component={Checkout}/>
-          <Route path='/receipt' component={Receipt}/>
+          <Route path='/Receipt' component={Receipt}/>
           
           
           

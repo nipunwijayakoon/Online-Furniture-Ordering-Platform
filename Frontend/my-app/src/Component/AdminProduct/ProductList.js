@@ -104,8 +104,8 @@ export default function ProductList(props) {
                             //tr > 3 td
                             [...Array(Math.ceil(productList.length / 3))].map((e, i) =>
                                 <tr key={i}>
-                                    <td>{newimageCard(productList[2 * i])}</td>
-                                    <td></td>
+                                    <td>{newimageCard(productList[3 * i])}</td>
+                                   
                                     <td>{productList[3 * i + 1] ? newimageCard(productList[3 * i + 1]) : null}</td>
                                     <td>{productList[3 * i + 2] ? newimageCard(productList[3 * i + 2]) : null}</td>
                                     
