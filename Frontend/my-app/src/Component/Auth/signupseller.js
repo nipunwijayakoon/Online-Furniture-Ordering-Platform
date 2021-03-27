@@ -3,7 +3,7 @@ import '../../App.css';
 import React, { Fragment, useState } from "react";
 import {  Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
-
+import { connect } from "react-redux";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -21,7 +21,7 @@ import { first } from 'lodash';
 
 
 import { selleregistor } from '../../actions/auth';
-
+import { setAlert } from "../../actions/alert";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -42,7 +42,10 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-const SignUp = () => {
+
+
+
+const SignUp = ({setAlert, selleregistor, isAuthenticated}) => {
   const [formData, setFromData] = useState(
     {
         SellerEmail:'',
@@ -65,13 +68,14 @@ const SignUp = () => {
     RetypeSellerPW } = formData;
 
   const onChange = e => setFromData({ ...formData, [e.target.name]: e.target.value })
+  const classes = useStyles();
 
   const onSubmit = async e => {
 
     e.preventDefault();
-    try {
-      console.log("Fname", SellerFirstName)
-      const res = await selleregistor(SellerEmail,
+    if (SellerPW !== RetypeSellerPW)setAlert("Passwords do not match", "danger");
+    else
+      selleregistor(SellerEmail,
         SellerFirstName,
         SellerLastName,
         Area,
@@ -79,14 +83,12 @@ const SignUp = () => {
         TelNumber,
         SellerPW,
         RetypeSellerPW);
-      console.log("suc", res)
-    } catch (error) {
-      console.log(error)
-    }
+      
+    } 
 
-  }
+    if (isAuthenticated) { return <Redirect to="/aftersignin" />; }
 
-  const classes = useStyles();
+  
 
   return (
     <Fragment>
@@ -247,4 +249,15 @@ const SignUp = () => {
   );
 }
 
-export default SignUp
+
+SignUp.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  selleregistor: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { setAlert, selleregistor })(SignUp);

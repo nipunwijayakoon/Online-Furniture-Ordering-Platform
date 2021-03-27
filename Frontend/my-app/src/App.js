@@ -15,7 +15,7 @@ import Reset from './Component/Auth/resetpassword';
 import asaseller from './Component/Auth/signupseller';
 import ViewDesign from './Page';
 import App2 from './Component/Hero2/App2';
-
+import Hero3 from './Component/Hero3/Hero3';
 import Navbar from './Component/Nav/Navbar';
 import CDetails from './Get2/Get2';
 import Empdetails from './GetEmp/EmployeeDetails';
@@ -128,7 +128,7 @@ const App = () => {
           <Route path='/NewDesignDetails' component={NewDesignDetails}/> 
           <Route exact path='/cart' component={Cart} />
           <Route exact path='/aftersignin' component={App2} />
-
+          <Route exact path='/aftersignincustomer' component={Hero3} />
           
           <Route exact path='/blog' component={Blog} />
          

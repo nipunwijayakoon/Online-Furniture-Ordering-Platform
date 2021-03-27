@@ -90,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
 
       if (isAuthenticated) {
         if (user.role === "Customer")
-          return <Redirect to="/" />;
+          return <Redirect to="/aftersignincustomer" />;
         else if (user.role == "Employee")
           return <Redirect to="/aftersignin" />
         else if (user.role == "Admin")
@@ -104,9 +104,10 @@ const useStyles = makeStyles((theme) => ({
       
   
     return (
-        <Fragment >
+      
+        <Fragment  >
             <section >
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" >
         <CssBaseline />
         <div className={classes.paper} >
           <Avatar className={classes.avatar}>
