@@ -1,16 +1,16 @@
 
 import '../../App.css';
 import React, { Fragment, useState } from "react";
-import {  Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
+//import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -20,8 +20,8 @@ import Container from '@material-ui/core/Container';
 import { first } from 'lodash';
 
 
-import { selleregistor } from '../../actions/auth';
-import { setAlert } from "../../actions/alert";
+import { payment } from './PaymentSubmit';
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -42,53 +42,38 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-
-
-
-const SignUp = ({setAlert, selleregistor, isAuthenticated}) => {
+const PaymentForm = () => {
   const [formData, setFromData] = useState(
     {
-        SellerEmail:'',
-        SellerFirstName:'',
-        SellerLastName:'',
-        Name:'',
-        TelNumber:'',
-        SellerPW:'',
-        RetypeSellerPW:'',           
+      CardName: '',
+      CardNo: '',
+      ExpMonth: '',
+      ExpYear: '',
+      Cvv: '',
+      BillDate:'',
+      Email:'',
+      TotalPrice: ''
     }
   );
 
-  const { SellerEmail,
-    SellerFirstName,
-    SellerLastName,
-    Area,
-    Name,
-    TelNumber,
-    SellerPW,
-    RetypeSellerPW } = formData;
+  const { CardName, CardNo, ExpMonth, ExpYear, Cvv, BillDate, Email, TotalPrice } = formData;
 
   const onChange = e => setFromData({ ...formData, [e.target.name]: e.target.value })
-  const classes = useStyles();
 
   const onSubmit = async e => {
 
     e.preventDefault();
-    if (SellerPW !== RetypeSellerPW)setAlert("Passwords do not match", "danger");
-    else
-      selleregistor(SellerEmail,
-        SellerFirstName,
-        SellerLastName,
-        Area,
-        Name,
-        TelNumber,
-        SellerPW,
-        RetypeSellerPW);
-      
-    } 
+    try {
+      console.log("Cname", CardName)
+      const res = await payment(CardName, CardNo, ExpMonth, ExpYear, Cvv, BillDate, Email, TotalPrice);
+      console.log("suc", res)
+    } catch (error) {
+      console.log(error)
+    }
 
-    if (isAuthenticated) { return <Redirect to="/aftersignin" />; }
+  }
 
-  
+  const classes = useStyles();
 
   return (
     <Fragment>
@@ -100,108 +85,80 @@ const SignUp = ({setAlert, selleregistor, isAuthenticated}) => {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign up
+              Payment Form
       </Typography>
             <form className={classes.form} noValidate onSubmit={e => onSubmit(e)}>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12}>
                   <TextField
-                    autoComplete="fname"
-                    name="SellerFirstName"
-                    value={SellerFirstName}
+                    autoComplete="Cname"
+                    name="CardName"
+                    value={CardName}
                     onChange={e => onChange(e)}
 
                     variant="outlined"
                     required
                     fullWidth
-                    id="SellerFirstName"
-                    label="First Name"
+                    id="CardName"
+                    label="Card Name"
                     autoFocus
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="SellerLastName"
-                    label="Last Name"
-                    name="SellerLastName"
-                    value={SellerLastName}
-                    onChange={e => onChange(e)}
-                    autoComplete="SellerLastName"
-                  />
-                </Grid>
                 <Grid item xs={12}>
                   <TextField
                     variant="outlined"
                     required
                     fullWidth
-                    id="SellerEmail"
-                    label="Email Address"
-                    name="SellerEmail"
-                    value={SellerEmail}
+                    id="CardNo"
+                    label="Card Number"
+                    name="CardNo"
+                    value={CardNo}
                     onChange={e => onChange(e)}
-
-                    autoComplete="SellerEmail"
+                    autoComplete="CardNo"
                   />
                 </Grid>
-
-                <Grid item xs={12}>
+                <Grid item xs={12} sm={4}>
                   <TextField
                     variant="outlined"
                     required
                     fullWidth
-                    id="Name"
-                    label="ShopName"
-                    name="Name"
-                    value={Name}
+                    id="ExpMonth"
+                    label="Expiry Month"
+                    name="ExpMonth"
+                    value={ExpMonth}
                     onChange={e => onChange(e)}
-                    autoComplete="Name"
+
+                    autoComplete="ExpMonth"
                   />
                 </Grid>
 
-                <Grid item xs={12}>
+                <Grid item xs={12} sm={4}>
                   <TextField
                     variant="outlined"
                     required
                     fullWidth
-                    id="Area"
-                    label="ShopArea"
-                    name="Area"
-                    value={Area}
-                    onChange={e => onChange(e)}
-                    autoComplete="Area"
-                  />
-                </Grid>
-
-                <Grid item xs={12}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="TelNumber"
-                    label="TelNumber"
-                    name="TelNumber"
-                    value={TelNumber}
+                    id="ExpYear"
+                    label="Expiry Year"
+                    name="ExpYear"
+                    value={ExpYear}
                     onChange={e => onChange(e)}
 
-                    autoComplete="TelNumber"
+                    autoComplete="ExpYear"
                   />
                 </Grid>
                 
-                <Grid item xs={12}>
+                <Grid item xs={12} sm={4}>
                   <TextField
                     variant="outlined"
                     required
                     fullWidth
-                    name="SellerPW"
-                    value={SellerPW}
+                    name="Cvv"
+                    value={Cvv}
                     onChange={e => onChange(e)}
-                    label="SellerPassword"
-                    type="SellerPW"
-                    id="SellerPW"
-                    autoComplete="current-SellerPW"
+                    label="CVV"
+                    type="Cvv"
+                    id="Cvv"
+                    //autoComplete="Cvv"
                   />
                 </Grid>
 
@@ -210,17 +167,46 @@ const SignUp = ({setAlert, selleregistor, isAuthenticated}) => {
                     variant="outlined"
                     required
                     fullWidth
-                    name="RetypeSellerPW"
-                    value={RetypeSellerPW}
+                    name="BillDate"
+                    value={BillDate}
                     onChange={e => onChange(e)}
-                    label="RetypeSellerPassword"
-                    type="RetypeSellerPW"
-                    id="RetypeSellerPW"
-                    //autoComplete="current-CustomerPW"
+                    label="Billing Date"
+                    type="BillDate"
+                    id="BillDate"
+                    //autoComplete="BillDate"
                   />
                 </Grid>
 
-                
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="Email"
+                    label="E-mail"
+                    name="Email"
+                    value={Email}
+                    onChange={e => onChange(e)}
+
+                    autoComplete="Email"
+                  />
+                </Grid>
+
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="TotalPrice"
+                    label="Total Price"
+                    name="TotalPrice"
+                    value={TotalPrice}
+                    onChange={e => onChange(e)}
+
+                    //autoComplete="Total Price"
+                  />
+                  </Grid>
+
               </Grid>
               <Button
                 type="submit"
@@ -229,15 +215,9 @@ const SignUp = ({setAlert, selleregistor, isAuthenticated}) => {
                 color="primary"
                 className={classes.submit}
               >
-                Sign Up
-        </Button>
-              <Grid container justify="flex-end">
-                <Grid item>
-                  <Link href="/customer-sign-in" variant="body2">
-                    Already have an account? Sign in
-            </Link>
-                </Grid>
-              </Grid>
+                Submit
+            </Button>
+
             </form>
           </div>
           <Box mt={5}>
@@ -249,15 +229,4 @@ const SignUp = ({setAlert, selleregistor, isAuthenticated}) => {
   );
 }
 
-
-SignUp.propTypes = {
-  setAlert: PropTypes.func.isRequired,
-  selleregistor: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool
-};
-
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
-});
-
-export default connect(mapStateToProps, { setAlert, selleregistor })(SignUp);
+export default PaymentForm

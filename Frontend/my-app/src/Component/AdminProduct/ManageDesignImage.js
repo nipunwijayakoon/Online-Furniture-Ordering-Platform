@@ -1,28 +1,41 @@
 import React from 'react';  
 import { Table,Button } from 'react-bootstrap';
-import Container from '@material-ui/core/Container';  
+import Container from '@material-ui/core/Container'; 
+import Typography from '@material-ui/core/Typography'; 
 import axios from 'axios';  
 import './ManageDesign.css';  
 import { Link } from 'react-router-dom';
   
 const apiUrl = 'https://localhost:5001/api/Emplo/';  
   
-class ManageProduct extends React.Component{  
+class ManageDesignImage extends React.Component{  
     constructor(props){  
         super(props);  
         this.state = {  
            error:null,  
-           products:[],  
-           response: {},  
+           d_images:[],  
+           response: {}, 
+           value: '', 
            
         }  
-    }  
+    } 
+    
+    handleChange = this.handleChange.bind(this);
+    handleSubmit = this.handleSubmit.bind(this);
+
+    handleChange(event) {
+      this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+      event.preventDefault();
+    }
 
     componentDidMount(){  
        axios.get(apiUrl ).then(response => response.data).then(  
             (result)=>{  
                 this.setState({  
-                    products:result  
+                    d_images:result  
                 });  
             },  
             (error)=>{  
@@ -32,13 +45,13 @@ class ManageProduct extends React.Component{
     }  
   
       
-    DeleteProduct(emploID) {  
-      const { products } = this.state;     
+    DeleteDImage(emploID) {  
+      const { d_images } = this.state;     
      axios.delete(apiUrl   + emploID).then(result=>{  
        alert('Image Details Removed Successfully!!!');   
         this.setState({  
           response:result,  
-          products:products.filter(product=>product.emploID !== emploID)  
+          d_images:d_images.filter(d_image=>d_image.emploID !== emploID)  
         });  
       });  
     }  
@@ -47,7 +60,7 @@ class ManageProduct extends React.Component{
 
       
     render(){         
-        const{error,products}=this.state;  
+        const{error,d_images}=this.state;  
         if(error){  
             return(  
                 <div className="center"><h4>Error : {error.message}!!!</h4></div>  
@@ -56,24 +69,49 @@ class ManageProduct extends React.Component{
         else  
         {  
             return(  
-         <div style={{ backgroundImage: "url('https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')"}}>  
+         <div style={{ backgroundImage: "url('https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')" , backgroundSize: "initial"}}>  
               
+              <Container>
+
+                <Typography variant="h1" color="textPrimary"  paragraph>
+                    ``
+                </Typography>
+
+              </Container>
+              
+              <Container>
+                 <div className="filter_newdesign">
+                <form onSubmit = {this.handleSubmit}>
+                  <label>
+                    Enter Design Code :
+                    <input type="text" value={this.state.value} onChange={this.handleChange} />
+                  </label>
+                  </form>
+                  </div>
+                </Container>
+                
                 <div > 
                   <br/> 
                   <div className='topic'>
                     <h2>NEW DESIGN IMAGE DETAILS</h2>
                   </div>
                 <br/>
-                <Container>
-                <div >
-                  <Table border-collapse=" collapse">  
+               
+                <div style={{ backgroundImage: "url('https://images.pexels.com/photos/2988860/pexels-photo-2988860.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')" ,backgroundSize: "cover"}}>
+                  <Table border-collapse=" collapse" alignItems="center">  
                       
                       <tr className="raw" >  
                         <th>Image</th>
-
+                        <th>              </th>
+                        <th>              </th>
+                        <th>-</th>
+                        <th>Download Image</th>
+                        
                         <th>Design Code</th> 
+                        <th>              </th>
+
                         <th>Image Name</th> 
-                        <th>Image Src</th> 
+                        <th>         </th>
                           
                          
                         <th>Reject</th>
@@ -81,17 +119,25 @@ class ManageProduct extends React.Component{
                       </tr>  
                     
                     <tbody >  
-                      {products.map(product => (  
-                        <tr key={product.emploID} style={{   border: '2px solid DimGrey'}}>  
-                          <td><img src ={`https://localhost:5001/Images/${product.imageName_}`} className="pic-new-card"/></td>
-                           
-                          <td>{product.newDesignCode}</td> 
-                          <td>{product.imageName_}</td>
-                          <td>{product.imageSrc_}</td>
-
+                      {d_images.filter((d_image)=>(d_image.newDesignCode == this.state.value)).map(d_image => (  
+                        <tr key={d_image.emploID} style={{   border: '2px solid DimGrey'}}>  
+                          <td><img src ={`https://localhost:5001/Images/${d_image.imageName_}`} className="pic-new-card"/></td>
                           
+                          <td>        </td>
+                          <td>        </td>
+                          <td>        </td>
+                          <td><Button href={`https://localhost:5001/Images/${d_image.imageName_}`}
+                           style={{ backgroundColor: 'ligt-green',border: '2px solid',borderRadius: '3px'}}>Download</Button></td>
+                           
+                          {/* <td>      </td> */}
+                          <td>{d_image.newDesignCode}</td>
+                          <td>      </td> 
+                          <td>{d_image.imageName_}</td>
+                          <td>      </td>
+
+                         
                           <td><Button style={{ backgroundColor: 'ligt-green',border: '2px solid',borderRadius: '3px'}}
-                           onClick={() => this.DeleteProduct(product.emploID)}>Delete Order</Button>  
+                           onClick={() => this.DeleteProduct(d_image.emploID)}>Delete Order</Button>  
                           
                           </td>  
                         </tr>  
@@ -100,9 +146,11 @@ class ManageProduct extends React.Component{
                       
                   </Table>
                   </div> 
-                  </Container>
-                  </div> 
+                  
+                  </div>
+
                   <br/>
+
                   <Container> 
                   <div>
                   <Link to='/managenewdesign'>
@@ -116,4 +164,4 @@ class ManageProduct extends React.Component{
     }  
 }  
   
-export default ManageProduct;  
+export default ManageDesignImage;  

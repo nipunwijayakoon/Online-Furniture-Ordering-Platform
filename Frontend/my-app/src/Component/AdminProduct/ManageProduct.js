@@ -13,9 +13,10 @@ class ManageProduct extends React.Component{
            error:null,  
            products:[],  
            response: {},  
-           
+          
         }  
     }  
+
 
 componentDidMount(){  
        axios.get(apiUrl ).then(response => response.data).then(  
@@ -57,6 +58,9 @@ DeleteProduct(productID) {
             return(  
          <div style={{ backgroundImage: "url('https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')"}}>  
               
+
+              
+
                 <div > 
                   <br/> 
                   <div className='topic'>

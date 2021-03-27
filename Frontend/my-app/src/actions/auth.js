@@ -17,12 +17,13 @@ import {
   import { setAlert } from "./alert";
 
 // Register user
-export const register = async (CustomerEmail,
+export const register =  (CustomerEmail,
     CustomerFirstName,
     CustomerlastName,
     CustomerTellnumber,
     CustomerPW,
-    ) => {
+    RetypeCustomerPW,
+    ) =>async(dispatch)=> {
     const config = {
         headers: { "Content-Type": "application/json"}
     };
@@ -40,19 +41,24 @@ export const register = async (CustomerEmail,
         CustomerPW,
         RetypeCustomerPW });
     
-        console.log("Cus", body)
+        
 
     try {
-        const res = await axios.post("https://localhost:5001/api/Customers", body, config);
-        console.log(res);
+        const res = await axios.post("https://localhost:5001/api/Userlogin/signup/customer", body, config);
+        console.log("Success");
+    dispatch({
+      type: REGISTER_SUCCESS,
+      payload: res.data,
+    });
 
         
     } catch (error) {
         const errors = error.response.data.errors;
-
-        if (errors)
-            console.log(errors);
-        
+        console.log(errors);
+        dispatch(setAlert("Something is wrong at your end", "danger"));
+        dispatch({
+          type: REGISTER_FAIL,
+        });
     }
 };
 
@@ -141,21 +147,23 @@ Password ) => async(dispatch)=>{
 
     /////Registor SEller
 
-    export const selleregistor = async(SellerEmail,
+    export const selleregistor = (SellerEmail,
         SellerFirstName,
         SellerLastName,
         Area,
         Name,
         TelNumber,
         SellerPW,
+        RetypeSellerPW
         
         
-    )=>{
-        const config = {
+    )=>async(dispatch)=> {
+        const config ={
+         
             headers:{ "Content-Type": "application/json"}
         };
     
-        const RetypeSellerPW = SellerPW;
+       
 
     const body = JSON.stringify({SellerEmail,
         SellerFirstName,
@@ -168,20 +176,35 @@ Password ) => async(dispatch)=>{
     
     });
 
-        console.log("Sell", body)
+        
 
     try{
-        const res = await axios.post("https://localhost:5001/api/Shoplists", body, config);
+        const res = await axios.post("https://localhost:5001/api/Userlogin/signup/seller", body, config);
         console.log(res);
 
-
-    }catch (error){
-        const errors = error.response.data.errors;
-
-        if (errors)
-        console.log(errors);
-
-    }
-
-
+        console.log("Success");
+        dispatch({
+          type: REGISTER_SUCCESS,
+          payload: res.data,
+        });
+    
+            
+        } catch (error) {
+            const errors = error.response.data.errors;
+            console.log(errors);
+            dispatch(setAlert("Something is wrong at your end", "danger"));
+            dispatch({
+              type: REGISTER_FAIL,
+            });
+        }
 };
+
+
+
+
+export const logout = () => (dispatch) => {
+    dispatch({ type: CLEAR_PRODUCTS });
+    dispatch({ type: CLEAR_SELLER });
+    dispatch({ type: CLEAR_SELLERS });
+    dispatch({ type: LOGOUT });
+  };

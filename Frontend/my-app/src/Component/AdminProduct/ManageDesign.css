@@ -1,9 +1,29 @@
+.design-search{
+  display: grid;
+  background-color: rgb(223, 208, 235);
+  text-align: center;
+  box-shadow: 1px 1px 0.5px 0.5px rgba(2, 231, 201, 0.801);;
+  border-radius: 4px;
+  display:ruby;
+  border: 6px solid rgb(18, 4, 218);
+  width: 24%;
+  min-width: 50px;
+  min-height: 30px;
+  }
+
+  .filter_newdesign{
+    height: 30px;
+    width: 330px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
 .pic-new-card
   {
       min-width: 400px;
       min-height: 400px;
       max-height: 500px;
-      max-width: 400px;
+      max-width: 470px;
       display: ruby-base;
       object-fit: cover;    
   }

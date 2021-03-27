@@ -9,8 +9,8 @@ using ProjectBackEnd.Models;
 namespace ProjectBackend.Migrations
 {
     [DbContext(typeof(FurnituresDBContext))]
-    [Migration("20210326182454_new")]
-    partial class @new
+    [Migration("20210327095319_newswed")]
+    partial class newswed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
