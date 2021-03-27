@@ -6,23 +6,26 @@ import './ManageDesign.css';
 import { Link } from 'react-router-dom';
   
 const apiUrl = 'https://localhost:5001/api/NewDesigns/';  
-  
-class ManageProduct extends React.Component{  
+
+
+
+class ManageNewDesign extends React.Component{  
     constructor(props){  
         super(props);  
         this.state = {  
            error:null,  
-           products:[],  
+           designs:[],  
            response: {},  
            
         }  
     }  
+    
 
     componentDidMount(){  
        axios.get(apiUrl ).then(response => response.data).then(  
             (result)=>{  
                 this.setState({  
-                    products:result  
+                    designs:result  
                 });  
             },  
             (error)=>{  
@@ -32,22 +35,24 @@ class ManageProduct extends React.Component{
     }  
   
       
-    DeleteProduct(itemID) {  
-      const { products } = this.state;     
+    DeleteDesign(itemID) {  
+      const { designs } = this.state;     
      axios.delete(apiUrl   + itemID).then(result=>{  
        alert('Order Removed Successfully!!!');   
         this.setState({  
           response:result,  
-          products:products.filter(product=>product.itemID !== itemID)  
+          designs:designs.filter(design=>design.itemID !== itemID)  
         });  
       });  
     }  
    
- 
-
       
-    render(){         
-        const{error,products}=this.state;  
+    render(){  
+      
+    
+
+
+        const{error,designs}=this.state;  
         if(error){  
             return(  
                 <div className="center"><h4>Error : {error.message}!!!</h4></div>  
@@ -58,16 +63,27 @@ class ManageProduct extends React.Component{
             return(  
          <div style={{ backgroundImage: "url('https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')"}}>  
               
+              <Container>
+                <div className="col-md-2 design-search">
+                    <input type="search"
+                        className="form-control" placeholder={'Enter the "Branch" you are looking for...'} /*onChange={nameFilter}*//>
+                </div>
+                </Container>
+
+
+
                 <div > 
                   <br/> 
                   <div className='topic'>
                     <h2>NEW DESIGN UPLOAD DETAILS</h2>
                   </div>
                 <br/>
-                
+
+
                 <Container>
                   <Table border-collapse=" collapse">  
-                   
+
+
                       <tr className="raw" background="/images/img-4.jpg">  
                         {/* <th>Image</th>  */}
 
@@ -93,28 +109,29 @@ class ManageProduct extends React.Component{
                       </tr>  
                     
                     <tbody >  
-                      {products.map(product => (  
-                        <tr key={product.itemID} style={{   border: '2px solid DimGrey'}}>  
+                      {designs.filter((design)=>(design.branchName == design.branchName)).map(design => (  
+                        <tr key={design.itemID} style={{   border: '2px solid DimGrey'}}>  
                           {/* <td><img src ={`https://localhost:5001/${product.src}`} className="piccard"/></td>   */}
                            
-                          <td>{product.branchName}</td> 
-                          <td>{product.newDesignCode}</td>
-                          <td>{product.woodName}</td>
-                          <td>{product.woodColour}</td>
-                          <td>{product.timeDuration}</td>
-                          <td>{product.distance}</td>
-                          <td>{product.personName}</td>
-                          <td>{product.personAddress}</td>
-                          <td>{product.personEmail}</td>
-                          <td>{product.contactDetails}</td>  
+                          <td>{design.branchName}</td> 
+                          <td>{design.newDesignCode}</td>
+                          <td>{design.woodName}</td>
+                          <td>{design.woodColour}</td>
+                          <td>{design.timeDuration}</td>
+                          <td>{design.distance}</td>
+                          <td>{design.personName}</td>
+                          <td>{design.personAddress}</td>
+                          <td>{design.personEmail}</td>
+                          <td>{design.contactDetails}</td>  
                            
                               
                           <td><Button style={{ backgroundColor: 'ligt-green',border: '2px solid',borderRadius: '3px'}}
-                           onClick={() => this.DeleteProduct(product.itemID)}>Reject Order</Button>  
+                           onClick={() => this.DeleteDesign(design.itemID)}>Reject Order</Button>  
                           
                           </td>  
                         </tr>  
-                      ))}  
+                      ))}
+                     
                     </tbody>  
                   </Table> 
                   </Container>
@@ -133,4 +150,4 @@ class ManageProduct extends React.Component{
     }  
 }  
   
-export default ManageProduct;  
+export default ManageNewDesign;  

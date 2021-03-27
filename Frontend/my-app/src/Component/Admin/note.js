@@ -29,6 +29,7 @@ function App(){
     const handleAddNote =(title,details)=>{
         console.log('Title:',title);
         const newNote={id:Math.random(), title:title,details:details};
+        console.log('Detail',details);
         const newNoteData=notes.concat(newNote);
         setNotes(newNoteData);
     }

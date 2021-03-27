@@ -9,11 +9,17 @@ namespace ProjectBackEnd.Models
     public class Order
     {
         [Key]
-        public int OrderID { get; set; }
-        public string Name { get; set; }
-        public string ContactNo { get; set; }
-        public string City { get; set; }
+       
+        public int OrderId { get; set; }
+
+        public string ProductName { get; set; }
+
+        public float Price { get; set; }
+
+        public string Email { get; set; }
+        public string CustomerEmail { get; set; }
+        public string CustomerName { get; set; }
         public string Date { get; set; }
-        
+
     }
 }

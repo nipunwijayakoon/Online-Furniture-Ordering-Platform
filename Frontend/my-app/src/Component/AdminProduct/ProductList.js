@@ -67,9 +67,9 @@ export default function ProductList(props) {
     }
 
     const newimageCard = data => (
-        <div className="newcard" onClick={() => { showRecordDetails(data) }}>
-            <img src={data.imageSrc} className="card-img-top rounded-circle" />
-            <div className="newcard-body">
+        <div className="newcardpro" onClick={() => { showRecordDetails(data) }}>
+            <img src={data.imageSrc}  />
+            <div className="newcardpro-body">
             <div  >
                 <b>{data.productName}</b><br/><br/>
                 <span>{data.description}</span> <br />
@@ -77,7 +77,7 @@ export default function ProductList(props) {
                 <button>ADD CART</button>
                 <div className="delete-button">
                 <button  onClick={e => onDelete(e, parseInt(data.productID))}>
-                    <i className="far fa-trash-alt"></i>
+                    DELETE
                 </button>
                 </div>
             </div>

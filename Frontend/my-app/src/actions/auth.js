@@ -1,4 +1,5 @@
 import axios from 'axios';
+//import { Date } from 'core-js';
 
 
 import {
@@ -29,12 +30,13 @@ export const register =  (CustomerEmail,
 
     
 
-
-     
+    const CustomerTown  = Date().toLocaleLowerCase();
+    const RetypeCustomerPW = CustomerPW;
 
     const body = JSON.stringify({ CustomerEmail,
         CustomerFirstName,
         CustomerlastName,
+        CustomerTown,
         CustomerTellnumber,
         CustomerPW,
         RetypeCustomerPW });
@@ -105,27 +107,27 @@ Password ) => async(dispatch)=>{
 
     /////Registor Employee
 
-    export const empregistor = async(employeeEmail,
-        employeeFirstName,
-        employeeLastName,
-        employeeTown,
-        employeeTellnumber,
+    export const empregistor = async(AdminFistName,
+        AdminLastName,
+        AdminPW,
+        RetypeAdminPW,
+        AdEmail,
     )=>{
         const config = {
             headers:{ "Content-Type": "application/json"}
         };
     
 
-    const body = JSON.stringify({employeeEmail,
-        employeeFirstName,
-        employeeLastName,
-        employeeTown,
-        employeeTellnumber});
+    const body = JSON.stringify({AdminFistName,
+        AdminLastName,
+        AdminPW,
+        RetypeAdminPW,
+        AdEmail});
 
         console.log("Emp", body)
 
     try{
-        const res = await axios.post("https://localhost:5001/api/Employees", body, config);
+        const res = await axios.post("https://localhost:5001/api/Admins", body, config);
         console.log(res);
 
 

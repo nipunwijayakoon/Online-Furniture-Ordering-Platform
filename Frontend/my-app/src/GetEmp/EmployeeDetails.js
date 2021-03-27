@@ -11,7 +11,7 @@ class Get extends Component{
     }
 
     componentDidMount() {
-        axios.get('https://localhost:5001/api/Employees').then(res => {console.log("new",res);
+        axios.get('https://localhost:5001/api/Admins').then(res => {console.log("new",res);
         this.setState({persons:res.data});
     
         })
@@ -19,45 +19,41 @@ class Get extends Component{
 
     render(){
         return(
-            <div className="Get">
+           
 
-        <header className="Get-header">
+            <div class="table-wrapper">
+              
 
-            <h1 className="Get-title">Employee Details</h1>
+                 <h2>ADMIN DETAILS</h2>
+                <table class="fl-table">
+                <thead>
+        <tr>
+            <th>ID No</th>
+            <th>First Name</th>
+            <th>Last name</th>
+            <th>Email</th>
+        </tr>
+        </thead>
 
-         </header>  
-
-         <Link to='/AddEmployee'>
-                <button >
-                    Add new Employee
-                </button>
-            </Link> 
-        
-             <table id="employee">
-                <tr>
-                    <th>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Tell Number</th>
-                    <th>Home town</th>
-                </tr>
-                {this.state.persons.map(persons =>
+        <tbody>
+        {this.state.persons.map(persons =>
                     <tr>
-                        <td>{persons.employeeID}</td>
-                        <td>{persons.employeeFirstName}</td>
-                        <td>{persons.employeeLastName}</td>
-                        <td>{persons.employeeEmail}</td>
-                        <td>{persons.employeeTellnumber}</td>
-                        <td>{persons.employeeTown}</td>
+                        <td>{persons.adminId}</td>
+                        <td>{persons.adminFistName}</td>
+                        <td>{persons.adminLastName}</td>
+                        <td>{persons.adEmail}</td>
                     </tr>
                     )}
-                
-            </table>
+        </tbody>
+                </table>
 
-            
+                <Link to='/AddEmployee'>
+                <button >
+                    Grant Admin powers
+                </button>
+            </Link>
 
-           </div>
+            </div>
 
         );
     }
