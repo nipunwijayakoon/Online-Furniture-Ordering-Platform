@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class logout : Migration
+    public partial class newdesign1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
