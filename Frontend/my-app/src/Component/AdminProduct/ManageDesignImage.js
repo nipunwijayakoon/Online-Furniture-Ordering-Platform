@@ -135,7 +135,7 @@ class ManageDesignImage extends React.Component{
                           <td>{d_image.imageName_}</td>
                           <td>      </td>
 
-                          
+                         
                           <td><Button style={{ backgroundColor: 'ligt-green',border: '2px solid',borderRadius: '3px'}}
                            onClick={() => this.DeleteProduct(d_image.emploID)}>Delete Order</Button>  
                           
