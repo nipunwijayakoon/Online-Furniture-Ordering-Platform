@@ -9,7 +9,7 @@ import SignUp from './Component/Auth/signup';
 import Signin from './Component/Button3/Button3';
 import CustomerSignin from './Component/Auth/signin';
 import Admin from './Component/Button4/Button4';
-import PaymentCheckout from './Component/Payment/Confirmation';
+
 import Button5 from './Component/Button5/Button5';
 import Reset from './Component/Auth/resetpassword';
 import asaseller from './Component/Auth/signupseller';
@@ -85,7 +85,7 @@ const App = () => {
       
         <Route exact path='/signin' component={Signin} />
 
-        <Route exact path='/Checkout' component={PaymentCheckout} />
+        {/* <Route exact path='/Checkout' component={PaymentCheckout} /> */}
         <Route exact path='/resetpassword' component={Reset} />
 
         <Route path ='/CDetails' component={CDetails} />
@@ -151,7 +151,7 @@ const App = () => {
           <Route path='/managedesignimage' component={ManageDesignImage} /> 
 
           <Route path='/payments' component={Checkout}/>
-          <Route path='/receipt' component={Receipt}/>
+          <Route path='/Receipt' component={Receipt}/>
           
           
           

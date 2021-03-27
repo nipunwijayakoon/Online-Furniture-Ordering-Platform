@@ -89,7 +89,7 @@ class ManageProduct extends React.Component{
                           <td>{product.imageName_}</td>
                           <td>{product.imageSrc_}</td>
 
-                          <td><Button href={`https://localhost:5001/Images/${product.imageName_}`}> Download Order</Button></td>
+                          
                           <td><Button style={{ backgroundColor: 'ligt-green',border: '2px solid',borderRadius: '3px'}}
                            onClick={() => this.DeleteProduct(product.emploID)}>Delete Order</Button>  
                           

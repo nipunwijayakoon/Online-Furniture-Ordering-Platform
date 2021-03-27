@@ -19,9 +19,11 @@ class Receipt extends React.Component{
             return(
                 <div >
                     <React.Fragment>
-                    <h1>Thank You For Your Purchase!!!</h1>
+                   
              
             <div>
+                <br/>
+            <h2>Thank You For Your Purchase!!!</h2>
            <hr />
             <h3>Your payment is in progress....</h3><br/>
             <h3>You can finish your payment within 2years. An email will sent to you by the manager.</h3>

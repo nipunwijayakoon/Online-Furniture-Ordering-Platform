@@ -30,7 +30,7 @@ class Checkout extends Component  {
         'email':'',
         'cvv': '',
         'email':'',
-        'totalPrice':'',
+        'totalPrice':''*100,
         },
 
       errors: {}
@@ -92,7 +92,7 @@ handleSubmit = (e) => {
   if (Object.keys(errors).length === 0) {
       console.log(data);
       //Call an api here
-      axios.post('https://localhost:5001/api/BillingInfo/',{email:this.state.data.email,cardName:this.state.data.cardName,cardNo:this.state.data.cardNo,expMonth:parseFloat(this.state.data.expMonth),expYear:parseFloat(this.state.data.expYear),billDate:this.state.data.billDate,cvv:this.state.data.cvv,totalPrice:parseFloat(this.state.data.totalPrice)})
+      axios.post('https://localhost:5001/api/BillingInfo/',{email:this.state.data.email,cardName:this.state.data.cardName,cardNo:this.state.data.cardNo,expMonth:parseFloat(this.state.data.expMonth),expYear:parseFloat(this.state.data.expYear),billDate:this.state.data.billDate,cvv:this.state.data.cvv,totalPrice:parseFloat(this.state.data.totalPrice*100)})
       
       this.props.history.push({pathname:'/Receipt'});
       //Resetting the form
@@ -231,7 +231,7 @@ handleSubmit = (e) => {
                 fullWidth
                 variant="contained"
                color="black"
-                component={Link} to='/receipt'>PAY</Button>   
+                component={Link} to='/Receipt'>PAY</Button>   
                 </div>
             </Grid>       
         </form>

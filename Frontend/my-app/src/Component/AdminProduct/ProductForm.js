@@ -123,7 +123,7 @@ export default function ProductForm(props) {
         
                 <div>
                   
-                            <h1 className="newheading">Add Furniture Product Here...</h1>
+                            <h2 className="newheading">Add Furniture Product Here...</h2>
 
 
             
