@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import axios from 'axios';
 import { Line } from 'react-chartjs-2';
 import { Link } from 'react-router-dom';
-import './Button.css';
+//import './Button.css';
 
 
 export class Linecharts extends Component{
@@ -31,18 +31,7 @@ export class Linecharts extends Component{
                             {
                                 labels: 'Customer registration',
                                 data: customerID,
-                                backgroundColour:[
-                                    "#3cb371",  
-                                    "#0000FF",
-                                    "#9966FF",
-                                    "#4C4CFF",
-                                    "#00FFFF",
-                                    "#f990a7",
-                                    "#aad2ed",
-                                    "#FF00FF",
-                                    "Blue",
-                                    "Red" 
-                                ]
+                                backgroundColour:"rgba(255,153,0,0.6)"
 
                             }
                         ]
@@ -58,7 +47,8 @@ export class Linecharts extends Component{
             <div>
                 <Line
                 data = {this.state.Data}
-                options = {{maintainAspectRatio : false}}
+                width={600} 
+                height={100}
                 />
                 <Link to='/CDetails'>
                     <button >

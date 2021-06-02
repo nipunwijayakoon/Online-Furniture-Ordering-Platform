@@ -98,15 +98,7 @@ const SignUp = ({setAlert, selleregistor, isAuthenticated}) => {
 
 
 
-    if (isAuthenticated) {
-      
-      
-    
-      return <Redirect to="/aftersignin" />;
-     
-
-    
-    }
+  
 
   return (
     <Grid style={{backgroundImage: "url('https://images.pexels.com/photos/389818/pexels-photo-389818.jpeg?cs=srgb&dl=pexels-ken-tomita-389818.jpg&fm=jpg')" ,backgroundSize: "cover"}}>
