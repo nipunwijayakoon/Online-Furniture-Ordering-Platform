@@ -9,11 +9,12 @@ import { BsPeopleCircle } from 'react-icons/bs';
 import { BsFillHouseFill } from 'react-icons/bs';
 import { IconContext } from 'react-icons/lib';
 import { Link } from 'react-router-dom';
-
+import Grid from '@material-ui/core/Grid';
 function Prcing() {
   return (
+    
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
-      <div className='prcing__section'>
+      <div className='prcing__section' style={{backgroundImage: "url('https://images.pexels.com/photos/2089698/pexels-photo-2089698.jpeg?cs=srgb&dl=pexels-saviesa-home-2089698.jpg&fm=jpg')" ,backgroundSize: "cover"}}>
         <div className='prcing__wrapper'>
           
           <div className='prcing__container'>
@@ -23,7 +24,7 @@ function Prcing() {
                   <BsPeopleCircle  />
                 </div>
                 <h3></h3>
-                <h1>BECOME</h1>
+                <h6>BECOME</h6>
                 <br></br>
                 <h4>A</h4>
                 <ul className='prcing__container-features'>
@@ -42,7 +43,7 @@ function Prcing() {
                   <BsFillHouseFill  />
                 </div>
                 <h3></h3>
-                <h1>BECOME</h1>
+                <h6>BECOME</h6>
                 
                 <br></br>
                 <h4>A</h4>
@@ -66,7 +67,9 @@ function Prcing() {
           </div>
         </div>
       </div>
+    
     </IconContext.Provider>
+    
   );
 }
 export default Prcing;

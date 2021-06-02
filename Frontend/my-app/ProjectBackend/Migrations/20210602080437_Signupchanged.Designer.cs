@@ -9,8 +9,8 @@ using ProjectBackEnd.Models;
 namespace ProjectBackend.Migrations
 {
     [DbContext(typeof(FurnituresDBContext))]
-    [Migration("20210327095319_newswed")]
-    partial class newswed
+    [Migration("20210602080437_Signupchanged")]
+    partial class Signupchanged
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -439,8 +439,13 @@ namespace ProjectBackend.Migrations
 
             modelBuilder.Entity("ProjectBackend.Models.Shoplist", b =>
                 {
+                    b.Property<int>("ShopId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<string>("Area")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -467,14 +472,11 @@ namespace ProjectBackend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ShopId")
-                        .HasColumnType("int");
-
                     b.Property<string>("TelNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Area");
+                    b.HasKey("ShopId");
 
                     b.ToTable("Shoplist");
                 });
