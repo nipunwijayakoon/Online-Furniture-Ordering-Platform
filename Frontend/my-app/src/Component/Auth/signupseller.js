@@ -3,7 +3,7 @@ import '../../App.css';
 import React, { Fragment, useState } from "react";
 import {  Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
-
+import { connect } from "react-redux";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -21,14 +21,20 @@ import { first } from 'lodash';
 
 
 import { selleregistor } from '../../actions/auth';
-
+import { setAlert } from "../../actions/alert";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(0),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    marginBottom: theme.spacing(0),
+    padding :20,
+    height:'95vh',
+    width:400,
+    margin:"0px auto",
+    backgroundColor:'white'
   },
   avatar: {
     margin: theme.spacing(1),
@@ -42,7 +48,10 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-const SignUp = () => {
+
+
+
+const SignUp = ({setAlert, selleregistor, isAuthenticated}) => {
   const [formData, setFromData] = useState(
     {
         SellerEmail:'',
@@ -51,7 +60,9 @@ const SignUp = () => {
         Name:'',
         TelNumber:'',
         SellerPW:'',
-        RetypeSellerPW:'',           
+        RetypeSellerPW:'',
+        
+                
     }
   );
 
@@ -65,30 +76,32 @@ const SignUp = () => {
     RetypeSellerPW } = formData;
 
   const onChange = e => setFromData({ ...formData, [e.target.name]: e.target.value })
+  const classes = useStyles();
 
   const onSubmit = async e => {
 
     e.preventDefault();
-    try {
-      console.log("Fname", SellerFirstName)
-      const res = await selleregistor(SellerEmail,
+    if (SellerPW !== RetypeSellerPW )setAlert("Passwords do not match", "danger");
+    else
+      selleregistor(SellerEmail,
         SellerFirstName,
         SellerLastName,
         Area,
         Name,
         TelNumber,
         SellerPW,
-        RetypeSellerPW);
-      console.log("suc", res)
-    } catch (error) {
-      console.log(error)
-    }
+        RetypeSellerPW,
+        );
+      
+    } 
 
-  }
 
-  const classes = useStyles();
+
+
+  
 
   return (
+    <Grid style={{backgroundImage: "url('https://images.pexels.com/photos/389818/pexels-photo-389818.jpeg?cs=srgb&dl=pexels-ken-tomita-389818.jpg&fm=jpg')" ,backgroundSize: "cover"}}>
     <Fragment>
       <section>
         <Container component="main" maxWidth="xs">
@@ -98,7 +111,7 @@ const SignUp = () => {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign up
+              
       </Typography>
             <form className={classes.form} noValidate onSubmit={e => onSubmit(e)}>
               <Grid container spacing={2}>
@@ -145,19 +158,7 @@ const SignUp = () => {
                   />
                 </Grid>
 
-                <Grid item xs={12}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="Name"
-                    label="ShopName"
-                    name="Name"
-                    value={Name}
-                    onChange={e => onChange(e)}
-                    autoComplete="Name"
-                  />
-                </Grid>
+                
 
                 <Grid item xs={12}>
                   <TextField
@@ -165,7 +166,7 @@ const SignUp = () => {
                     required
                     fullWidth
                     id="Area"
-                    label="ShopArea"
+                    label="Branch name"
                     name="Area"
                     value={Area}
                     onChange={e => onChange(e)}
@@ -218,13 +219,16 @@ const SignUp = () => {
                   />
                 </Grid>
 
+
+
+
                 
               </Grid>
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
-                color="primary"
+                color="secondary"
                 className={classes.submit}
               >
                 Sign Up
@@ -244,7 +248,19 @@ const SignUp = () => {
         </Container>
       </section>
     </Fragment>
+    </Grid>
   );
 }
 
-export default SignUp
+
+SignUp.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  selleregistor: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { setAlert, selleregistor })(SignUp);

@@ -7,8 +7,6 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ProjectBackEnd.Models;
 using ProjectBackend.Models;
-using MimeKit;
-using MailKit.Net.Smtp;
 
 namespace ProjectBackend.Controllers
 {
@@ -85,8 +83,6 @@ namespace ProjectBackend.Controllers
         {
             _context.Shoplist.Add(shoplist);
             await _context.SaveChangesAsync();
-
-            var message =new 
 
             return CreatedAtAction("GetShoplist", new { id = shoplist.ShopId }, shoplist);
         }

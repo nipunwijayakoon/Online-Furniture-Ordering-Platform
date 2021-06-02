@@ -56,6 +56,7 @@
   margin-left: -2px;
   
   
+  
 }
 .newformcard:hover{
   box-shadow: none;
@@ -69,6 +70,7 @@
   object-fit: cover;
   align-items: center;
   margin-left: 90px;
+ 
 }
 .newcard h3{
   text-transform: uppercase;
@@ -116,4 +118,7 @@
   z-index: -1;
 
  
+}
+.newformcard .newform-imggroup{
+  background-color: white;
 }

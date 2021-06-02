@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class adminpanel : Migration
+    public partial class newsignup : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,6 +21,26 @@ namespace ProjectBackend.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Admins", x => x.AdminId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BillingInfoTable",
+                columns: table => new
+                {
+                    BillingId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CardName = table.Column<string>(nullable: true),
+                    CardNo = table.Column<string>(nullable: true),
+                    ExpMonth = table.Column<int>(nullable: false),
+                    ExpYear = table.Column<int>(nullable: false),
+                    Cvv = table.Column<string>(nullable: true),
+                    BillDate = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    TotalPrice = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BillingInfoTable", x => x.BillingId);
                 });
 
             migrationBuilder.CreateTable(
@@ -171,16 +191,40 @@ namespace ProjectBackend.Migrations
                 name: "Order",
                 columns: table => new
                 {
-                    OrderID = table.Column<int>(nullable: false)
+                    OrderId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    ContactNo = table.Column<string>(nullable: true),
-                    City = table.Column<string>(nullable: true),
+                    ProductName = table.Column<string>(nullable: true),
+                    Price = table.Column<float>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    CustomerEmail = table.Column<string>(nullable: true),
+                    CustomerName = table.Column<string>(nullable: true),
                     Date = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Order", x => x.OrderID);
+                    table.PrimaryKey("PK_Order", x => x.OrderId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Pay",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Cardnumber = table.Column<string>(nullable: true),
+                    Fullname = table.Column<string>(nullable: true),
+                    Addressline1 = table.Column<string>(nullable: true),
+                    Addressline2 = table.Column<string>(nullable: true),
+                    City = table.Column<string>(nullable: true),
+                    Province = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    Month = table.Column<int>(nullable: false),
+                    Year = table.Column<int>(nullable: false),
+                    Cvc = table.Column<string>(nullable: true),
+                    Amount = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pay", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -258,6 +302,9 @@ namespace ProjectBackend.Migrations
                 name: "Admins");
 
             migrationBuilder.DropTable(
+                name: "BillingInfoTable");
+
+            migrationBuilder.DropTable(
                 name: "Cartitems");
 
             migrationBuilder.DropTable(
@@ -283,6 +330,9 @@ namespace ProjectBackend.Migrations
 
             migrationBuilder.DropTable(
                 name: "Order");
+
+            migrationBuilder.DropTable(
+                name: "Pay");
 
             migrationBuilder.DropTable(
                 name: "Products");

@@ -26,27 +26,10 @@ function Herosection() {
         >
           JOIN NOW
         </Button>
-        <Button2
-          className='btns'
-          buttonStyle='btn--primary'
-          buttonSize='btn--large'
-          onClick={console.log('hey')}
-        >
-          VIEW DESIGNS <i className='far fa-play-circle' />
-        </Button2>
-        
+      
 
       </div>
-      <Grid container direction="column" justify="center" alignItems="center" style={{height:"100px"}}>
-          <Grid item>
-        <Fab color="primary" aria-label="add"  href='/shops'>
-        <SearchIcon />
-       
-        </Fab>
-       
-        </Grid>
-        <p1>FIND A SHOP</p1>
-        </Grid>
+     
     </div>
     
     

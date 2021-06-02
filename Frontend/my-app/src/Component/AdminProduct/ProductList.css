@@ -1,12 +1,12 @@
-.newcard .newcard-body span{
+.newcardpro .newcardpro-body span{
     color: black;
     font-family:sans-serif;
     font-style: italic;
 }
-.newcard .newcard-body h3{
+.newcardpro .newcard-body h3{
     color: red;
 }
-.newcard{
+.newcardpro{
     min-width: 400px;
     min-height: 530px;
     max-width: 400px;
@@ -18,7 +18,7 @@
     margin: 10px;
     transition: 0.5s linear;
 }
-.newcard img{
+.newcardpro img{
     max-width: 350px;
     width: 100%;
     height: 100%;
@@ -27,16 +27,17 @@
     display: block;
     object-fit: cover;
 }
-.newcard .newcard-body .delete-button button{
-    color: rgb(235, 227, 227);
-    background-color: brown;
-    width: 50px;
+.newcardpro .newcardpro-body .delete-button button{
+    color: rgb(34, 31, 31);
+    background-color: rgb(231, 213, 213);
+    width: 80px;
     align-items: center;
     margin-left: 150px;
     
 }
 
-.newcard .newcard-body button{
+
+.newcardpro .newcardpro-body button{
     border: none;
     outline: none;
     background: rgb(41, 24, 24);

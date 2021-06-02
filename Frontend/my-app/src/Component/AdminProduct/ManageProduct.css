@@ -1,10 +1,10 @@
 
   .poto
   {
-      min-width: 63px;
-      min-height: 63px;
-      max-height: 65px;
-      max-width: 65px;
+      min-width:80px;
+      min-height: 80px;
+      max-height: 100px;
+     
       display: ruby-base;
       object-fit: cover;    
   }
@@ -26,14 +26,20 @@
   }
   .raw{
       color: black;
+      margin-left: 10px;
+  }
+  .raw th{
+    margin-left: 10px;
   }
 
   td,tr {
-    padding: 15px;
-    text-align: left;
+    padding: 1px;
+    text-align:center;
+    margin-left: 0px;
+    
   }
   Table{
-    border-collapse: collapse;
+    border-collapse:separate;
     border: 1px solid #ddd;
     padding: 8px;
   }
@@ -44,13 +50,14 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: #4CAF50;
+    background-color: #d6e69d;
     color: white;
   }
   .topic h2{
       font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
       text-align: center;
       color: brown;
+      font-size: 50px;
   }
   .topic button{
     align-items: center;

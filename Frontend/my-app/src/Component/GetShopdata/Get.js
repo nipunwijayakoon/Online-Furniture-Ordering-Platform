@@ -51,7 +51,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>SHOP LIST</h1>
+      <h1>BRANCH LIST</h1>
       
       <form className="data">
       <input
@@ -83,7 +83,8 @@ const ShopDetail = (props) => {
   return (
     <>
       
-      <p>"{name}" - {area}</p>
+      <p> {area}</p>
+
       <p2>Owner : {sellerFirstName} {sellerLastName}</p2>  
       <p2>Tel : {telNumber}</p2>
       <br></br>

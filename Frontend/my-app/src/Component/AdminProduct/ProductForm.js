@@ -123,7 +123,7 @@ export default function ProductForm(props) {
         
                 <div>
                   
-                            <h1 className="newheading">Add Furniture Product Here...</h1>
+                            <h2 className="newheading">Add Furniture Product Here...</h2>
 
 
             
@@ -135,7 +135,7 @@ export default function ProductForm(props) {
                     <img src={values.ImageSrc} className="newcard-img-top" />
                     <div className="newcard-body">
                         
-                        <div className="newform-group">
+                        <div className="newform-imggroup">
                             <input type="file" accept="image/*" className={"form-control-file" + applyErrorClass('ImageSrc')}
                                 onChange={showPreview} id="image-uploader" />
                         </div>

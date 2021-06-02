@@ -9,13 +9,13 @@ import SignUp from './Component/Auth/signup';
 import Signin from './Component/Button3/Button3';
 import CustomerSignin from './Component/Auth/signin';
 import Admin from './Component/Button4/Button4';
-import PaymentCheckout from './Component/Payment/Confirmation';
+
 import Button5 from './Component/Button5/Button5';
 import Reset from './Component/Auth/resetpassword';
 import asaseller from './Component/Auth/signupseller';
 import ViewDesign from './Page';
 import App2 from './Component/Hero2/App2';
-
+import Hero3 from './Component/Hero3/Hero3';
 import Navbar from './Component/Nav/Navbar';
 import CDetails from './Get2/Get2';
 import Empdetails from './GetEmp/EmployeeDetails';
@@ -71,6 +71,8 @@ import HelpAudio from './Component/Help/HelpAudio';
 import ManageProduct from './Component/AdminProduct/ManageProduct';
 import ManageNewDesign from './Component/AdminProduct/ManageNewDesign';
 import ManageDesignImage from './Component/AdminProduct/ManageDesignImage';
+import Checkout from './Component/Payment/Checkout';
+import Receipt from './Component/Payment/Receipt';
 
 
 const App = () => {
@@ -88,7 +90,7 @@ const App = () => {
       
         <Route exact path='/signin' component={Signin} />
 
-        <Route exact path='/Checkout' component={PaymentCheckout} />
+        {/* <Route exact path='/Checkout' component={PaymentCheckout} /> */}
         <Route exact path='/resetpassword' component={Reset} />
 
         <Route path ='/CDetails' component={CDetails} />
@@ -140,7 +142,7 @@ const App = () => {
           <Route path='/NewDesignDetails' component={NewDesignDetails}/> 
           <Route exact path='/cart' component={Cart} />
           <Route exact path='/aftersignin' component={App2} />
-
+          <Route exact path='/aftersignincustomer' component={Hero3} />
           
           <Route exact path='/blog' component={Blog} />
          
@@ -158,6 +160,10 @@ const App = () => {
           <Route path='/manageproduct' component={ManageProduct} /> 
           <Route path='/managenewdesign' component={ManageNewDesign} /> 
           <Route path='/managedesignimage' component={ManageDesignImage} /> 
+
+          <Route path='/payments' component={Checkout}/>
+          <Route path='/Receipt' component={Receipt}/>
+          
           
           
       </Switch>

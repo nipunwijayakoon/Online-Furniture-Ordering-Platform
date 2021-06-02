@@ -3,7 +3,7 @@ import '../../App.css';
 import React, { Fragment, useState } from "react";
 import {  Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
-
+import { connect } from "react-redux";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -21,7 +21,7 @@ import { first } from 'lodash';
 
 
 import { register } from '../../actions/auth';
-
+import { setAlert } from "../../actions/alert";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -29,6 +29,11 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    padding :20,
+    height:'75vh',
+    width:400,
+    margin:"0px auto",
+    backgroundColor:'white'
   },
   avatar: {
     margin: theme.spacing(1),
@@ -42,7 +47,10 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-const SignUp = () => {
+
+
+
+const SignUp = ({setAlert, register, isAuthenticated}) => {
   const [formData, setFromData] = useState(
     {
       CustomerFirstName: '',
@@ -54,6 +62,8 @@ const SignUp = () => {
     }
   );
 
+  const classes = useStyles();
+
   const { CustomerFirstName, CustomerlastName, CustomerEmail, CustomerTellnumber, CustomerPW, RetypeCustomerPW } = formData;
 
   const onChange = e => setFromData({ ...formData, [e.target.name]: e.target.value })
@@ -61,19 +71,21 @@ const SignUp = () => {
   const onSubmit = async e => {
 
     e.preventDefault();
-    try {
-      console.log("Fname", CustomerFirstName)
-      const res = await register(CustomerEmail, CustomerFirstName,CustomerlastName, CustomerTellnumber, CustomerPW,RetypeCustomerPW);
-      console.log("suc", res)
-    } catch (error) {
-      console.log(error)
-    }
 
+    if (CustomerPW !== RetypeCustomerPW)setAlert("Passwords do not match", "danger");
+    else
+    
+    register(CustomerEmail, CustomerFirstName,CustomerlastName, CustomerTellnumber, CustomerPW,RetypeCustomerPW);
+    
   }
 
-  const classes = useStyles();
+
+  if (isAuthenticated) { return <Redirect to="/aftersignincustomer" />; }
+
+  
 
   return (
+    <Grid style={{backgroundImage: "url('https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg?cs=srgb&dl=pexels-pixabay-276583.jpg&fm=jpg')" ,backgroundSize: "cover"}}>
     <Fragment>
       <section>
         <Container component="main" maxWidth="xs">
@@ -83,7 +95,7 @@ const SignUp = () => {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign up
+              
       </Typography>
             <form className={classes.form} noValidate onSubmit={e => onSubmit(e)}>
               <Grid container spacing={2}>
@@ -181,7 +193,7 @@ const SignUp = () => {
                 type="submit"
                 fullWidth
                 variant="contained"
-                color="primary"
+                color="secondary"
                 className={classes.submit}
               >
                 Sign Up
@@ -201,7 +213,20 @@ const SignUp = () => {
         </Container>
       </section>
     </Fragment>
+    </Grid>
   );
 }
 
-export default SignUp
+
+
+SignUp.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { setAlert, register })(SignUp);

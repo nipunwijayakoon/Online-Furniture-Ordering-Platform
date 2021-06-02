@@ -66,7 +66,9 @@ render() {
           defaultValue={values.branchName}
           variant="outlined"
           helperText="Choose the Branch Name from the Available Furniture Shops List and Find the Closest Shop for You and Type Correctly the Name of that"
-        />
+          autoComplete={values.branchName}
+       
+       />
       </Grid> 
       
       </FormControl>
@@ -144,6 +146,7 @@ render() {
           defaultValue={values.distance}
           variant="outlined"
           helperText="Choose the Distance type from the Given List and Type Correctly that Particular Distance"
+          autoComplete={values.distance}
         />
       </Grid> 
       
@@ -200,7 +203,10 @@ render() {
           defaultValue={values.timeDuration}
           variant="outlined"
           helperText="Correctly Type Here the Due Date that You are Expecting to Get this Product. Please Use this Time-Format (ex: 2021/12/12) "
+          autoComplete={values.timeDuration}
+        
         />
+
       </Grid> 
       
       </FormControl>
