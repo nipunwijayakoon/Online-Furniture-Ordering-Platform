@@ -11,6 +11,7 @@ import {Link} from 'react-router-dom'
 
 import '../Component/Section.css'
 import Checkout from './Payment/Checkout'
+import Receipt from './Payment/Receipt'
 
 
 
@@ -26,7 +27,7 @@ class Section extends React.Component{
                     <Route path="/product/:productID" component={Details} exact />
                     <Route path="/cart" component={Cart}  exact/>
                     <Route path="/payments" component={Checkout} exact />
-                   
+                    <Route path='/Receipt' component={Receipt}/>
 
          </section>
          </div>   

@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class upadate : Migration
+    public partial class Signupchanged : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

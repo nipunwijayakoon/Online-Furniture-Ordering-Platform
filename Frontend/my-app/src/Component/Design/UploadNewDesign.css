@@ -17,11 +17,13 @@
   background-color: rgba(255, 255, 255, 0.5);
   
 }
-.heading{
+.headimg{
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  margin-top: 1rem;
+  margin-top: 2rem;
   font-weight: bold;
+  color: rgb(49, 2, 28);
+  font-size: 30px;
 
 }
 .img-holder{

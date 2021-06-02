@@ -1,10 +1,13 @@
 import React from 'react';  
 import { Table,Button } from 'react-bootstrap';  
 import axios from 'axios'; 
-import Container from '@material-ui/core/Container';   
+import Container from '@material-ui/core/Container'; 
+import Typography from '@material-ui/core/Typography';  
 import './ManageDesign.css';  
 import { Link } from 'react-router-dom';
-  
+
+
+
 const apiUrl = 'https://localhost:5001/api/NewDesigns/';  
 
 
@@ -16,10 +19,20 @@ class ManageNewDesign extends React.Component{
            error:null,  
            designs:[],  
            response: {},  
-           
+           value: '',
         }  
     }  
     
+    handleChange = this.handleChange.bind(this);
+    handleSubmit = this.handleSubmit.bind(this);
+
+    handleChange(event) {
+      this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+      event.preventDefault();
+    }
 
     componentDidMount(){  
        axios.get(apiUrl ).then(response => response.data).then(  
@@ -46,7 +59,10 @@ class ManageNewDesign extends React.Component{
       });  
     }  
    
-      
+    
+
+    
+
     render(){  
       
     
@@ -63,13 +79,25 @@ class ManageNewDesign extends React.Component{
             return(  
          <div style={{ backgroundImage: "url('https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')"}}>  
               
-              <Container>
-                <div className="col-md-2 design-search">
-                    <input type="search"
-                        className="form-control" placeholder={'Enter the "Branch" you are looking for...'} /*onChange={nameFilter}*//>
-                </div>
-                </Container>
 
+              <Container>
+
+                <Typography variant="h1" color="textPrimary"  paragraph>
+                    ``
+                </Typography>
+
+              </Container>
+              
+              <Container>
+                 <div className="filter_newdesign">
+                <form onSubmit = {this.handleSubmit}>
+                  <label>
+                    Enter Your Branch :
+                    <input type="text" value={this.state.value} onChange={this.handleChange} />
+                  </label>
+                  </form>
+                  </div>
+                </Container>
 
 
                 <div > 
@@ -80,7 +108,7 @@ class ManageNewDesign extends React.Component{
                 <br/>
 
 
-                <Container>
+                
                   <Table border-collapse=" collapse">  
 
 
@@ -109,7 +137,7 @@ class ManageNewDesign extends React.Component{
                       </tr>  
                     
                     <tbody >  
-                      {designs.filter((design)=>(design.branchName == design.branchName)).map(design => (  
+                      {designs.filter((design)=>(design.branchName == this.state.value)).map(design => (  
                         <tr key={design.itemID} style={{   border: '2px solid DimGrey'}}>  
                           {/* <td><img src ={`https://localhost:5001/${product.src}`} className="piccard"/></td>   */}
                            
@@ -134,7 +162,7 @@ class ManageNewDesign extends React.Component{
                      
                     </tbody>  
                   </Table> 
-                  </Container>
+                 
                   </div> 
                   <br/>  
                   <div>
