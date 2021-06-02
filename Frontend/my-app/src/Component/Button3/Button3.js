@@ -36,30 +36,7 @@ function Prcing() {
                 </Button9>
               </div>
             </div>
-            <div  className='prcing__container-card'>
-              <div className='prcing__container-cardInfo'>
-                <div className='icon'>
-                  <BsFillHouseFill  />
-                </div>
-                <h3></h3>
-                <h1>BECOME</h1>
-                
-                <br></br>
-                <h4>A</h4>
-                <ul className='prcing__container-features'>
-                  <li></li>
-                  <h4>SELLER</h4>
-                  <li></li>
-                </ul>
-
-
-                <Button8 buttonSize='btn--wide' buttonColor='blue'>
-                  SIGN UP
-                </Button8>
-
-                
-              </div>
-            </div>
+            
           
 
 

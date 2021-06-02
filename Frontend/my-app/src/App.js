@@ -20,7 +20,11 @@ import Navbar from './Component/Nav/Navbar';
 import CDetails from './Get2/Get2';
 import Empdetails from './GetEmp/EmployeeDetails';
 import AddEmployee from './GetEmp/AddEmp';
-import Linechart, { Linecharts } from './Get2/Linechart';
+import Linecharts from './Get2/Linechart';
+import BuyerSeller from './BuyerSeller/BuyerSeller';
+import SellerDetails from './GetSeller/GetSeller';
+import SellersellsDetails from './GetSellrtCharts/SellerBarCharts';
+import SellerProductDetails from './SellerProduct/SellerProduct';
 
 import Shops from './Component/GetShopdata/Get';
 //import Products from './Component/Products';
@@ -88,9 +92,15 @@ const App = () => {
         <Route exact path='/resetpassword' component={Reset} />
 
         <Route path ='/CDetails' component={CDetails} />
-        <Route path = '/Empdetails' component={Empdetails}/>
-        <Route path = '/AddEmployee' component={AddEmployee}/>
+        <Route path = '/Admindetails' component={Empdetails}/>
+        <Route path = '/AddAdmin' component={AddEmployee}/>
         <Route path = '/Linecharts' component={Linecharts}/>
+        <Route path = '/BuyerSeller' component={BuyerSeller}/>
+        <Route path = '/SellerDetails' component={SellerDetails}/>
+        <Route path = '/SellersellsDetails' component={SellersellsDetails}/>
+        <Route path = '/SellerProductDetails' componet={SellerProductDetails}/>
+       
+
 
         <Route path ='/choosesignup' component={Button5} />
         <Route exact path='/newdesign' component={UploadNewDesign} />

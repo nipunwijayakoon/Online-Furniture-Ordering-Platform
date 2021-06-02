@@ -163,7 +163,7 @@ const EMPSignUp = () => {
                 <Grid item xs={12}>
                   <FormControlLabel
                     control={<Checkbox value="allowExtraEmails" color="primary" />}
-                    label="**********************************************************"
+                    label="Terms and the regulations are applicable"
                   />
                 </Grid>
               </Grid>

@@ -13,6 +13,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Menu from '@material-ui/core/Menu';
+import axios from "axios"
 
 export class BranchDistanceDuration extends Component {
 
@@ -33,7 +34,12 @@ export class BranchDistanceDuration extends Component {
 handleClick = event => this.setState({ anchorEl: event.currentTarget })
 handleClose = () => this.setState({ anchorEl: null })
 
-  
+componentDidMount() {
+  axios.get(`https://localhost:5001/api/ShopLists`).then(res => { console.log("new",res);
+      this.setState({persons:res.data});
+
+  })
+}
 
 render() {
   const { values, handleChange, handleClick, handleClose } = this.props;
