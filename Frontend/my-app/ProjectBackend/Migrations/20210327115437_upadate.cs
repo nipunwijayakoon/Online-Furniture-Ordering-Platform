@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class logout : Migration
+    public partial class upadate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -265,11 +265,12 @@ namespace ProjectBackend.Migrations
                 name: "Shoplist",
                 columns: table => new
                 {
-                    Area = table.Column<string>(nullable: false),
-                    ShopId = table.Column<int>(nullable: false),
+                    ShopId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     SellerEmail = table.Column<string>(nullable: false),
                     SellerFirstName = table.Column<string>(nullable: false),
                     SellerLastName = table.Column<string>(nullable: true),
+                    Area = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     Owner = table.Column<string>(nullable: true),
                     TelNumber = table.Column<string>(nullable: false),
@@ -278,7 +279,7 @@ namespace ProjectBackend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Shoplist", x => x.Area);
+                    table.PrimaryKey("PK_Shoplist", x => x.ShopId);
                 });
 
             migrationBuilder.CreateTable(
