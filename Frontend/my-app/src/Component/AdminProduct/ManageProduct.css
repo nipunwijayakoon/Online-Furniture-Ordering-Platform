@@ -32,10 +32,10 @@
     margin-left: 10px;
   }
 
-  td,tr {
+  td,tr,th {
     padding: 1px;
     text-align:center;
-    margin-left: 0px;
+    margin-left: 10px;
     
   }
   Table{

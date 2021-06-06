@@ -55,7 +55,7 @@ import UploadDesignImage from './Component/Design/UploadDesignImageList';
 
 
 import Cart from './Component/section/Cart';
-import Blog from './Component/AboutUs/Blog';
+import About_Us from './Component/AboutUs/About Us';
 
 import { Provider } from "react-redux";
 import store from "./store";
@@ -69,7 +69,14 @@ import ManageNewDesign from './Component/AdminProduct/ManageNewDesign';
 import ManageDesignImage from './Component/AdminProduct/ManageDesignImage';
 import Checkout from './Component/Payment/Checkout';
 import Receipt from './Component/Payment/Receipt';
+import CustomerDetails from './Component/AdminProduct/CustomerDetails';
 
+import CustomerOrderDetail from './Component/AdminProduct/CustomerOrderDetail';
+
+import Search from './Component/section/Products';
+import Details from './Component/section/Details';
+
+import Section from './Component/Section';
 
 const App = () => {
 
@@ -134,7 +141,7 @@ const App = () => {
           <Route exact path='/aftersignin' component={App2} />
           <Route exact path='/aftersignincustomer' component={Hero3} />
           
-          <Route exact path='/blog' component={Blog} />
+          <Route exact path='/about_us' component={About_Us} />
          
          
           <Route path='/ManageProduct' component={ManageProduct} />
@@ -151,10 +158,21 @@ const App = () => {
           <Route path='/managenewdesign' component={ManageNewDesign} /> 
           <Route path='/managedesignimage' component={ManageDesignImage} /> 
 
-          <Route path='/payments' component={Checkout}/>
+       
+         
+          <Route path='/CustomerDetails' component={CustomerDetails}/>
+        
+          <Route path='/CustomerOrderDetail' component={CustomerOrderDetail}/>
           <Route path='/Receipt' component={Receipt}/>
-          
-          
+
+         
+                   <Section> 
+                    <Route path="/product" component={Search} exact  />
+                    <Route path="/product/:productID" component={Details} exact />
+                    <Route path="/cart" component={Cart}  exact/> 
+                    <Route path="/payments" component={Checkout}  />
+                    </Section>
+                   
           
       </Switch>
       
@@ -165,44 +183,6 @@ const App = () => {
   );
  
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//import React from 'react';
-//import {BrowserRouter as Router} from 'react-router-dom'
-//import Header from './Component/Header'
-//import Section from './Component/Section'
-//import {DataProvider} from './Component/Context'
-
-
-//class App extends React.Component{
-  //render(){
-  // return(
-    //  <DataProvider>
-    //    <div className="app">
-    //      <Router>
-     //       <Header />
-     //       <Section />
-     //     </Router>
-    //    </div>
-    //  </DataProvider>
-   // );
-  //}
-//}
 
 export default App;
 

@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class newswed : Migration
+    public partial class @new : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -36,7 +36,12 @@ namespace ProjectBackend.Migrations
                     Cvv = table.Column<string>(nullable: true),
                     BillDate = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
-                    TotalPrice = table.Column<int>(nullable: false)
+                    TotalPrice = table.Column<int>(nullable: false),
+                    Tele = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(nullable: true),
+                    City = table.Column<string>(nullable: true),
+                    Designcode = table.Column<string>(nullable: true),
+                    Distance = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -49,14 +54,17 @@ namespace ProjectBackend.Migrations
                 {
                     ProductID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(nullable: true),
-                    Src = table.Column<string>(nullable: true),
+                    Designcode = table.Column<int>(nullable: false),
+                    ProductName = table.Column<string>(nullable: true),
+                    Branch = table.Column<string>(nullable: true),
+                    ImageSrc = table.Column<string>(nullable: true),
+                    ImageName = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
-                    Price = table.Column<string>(nullable: true),
-                    Colour = table.Column<string>(nullable: true),
-                    Count = table.Column<string>(nullable: true),
-                    Total = table.Column<string>(nullable: true)
+                    Price = table.Column<int>(nullable: false),
+                    Count = table.Column<int>(nullable: false),
+                    Total = table.Column<int>(nullable: false),
+                    Details = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -234,15 +242,34 @@ namespace ProjectBackend.Migrations
                     ProductID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductName = table.Column<string>(nullable: true),
+                    Branch = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
                     Price = table.Column<int>(nullable: false),
-                    Count = table.Column<string>(nullable: true),
+                    Count = table.Column<int>(nullable: false),
                     ImageName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.ProductID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Receipts",
+                columns: table => new
+                {
+                    OrderId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductName = table.Column<string>(nullable: true),
+                    Price = table.Column<float>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    CustomerEmail = table.Column<string>(nullable: true),
+                    CustomerName = table.Column<string>(nullable: true),
+                    Date = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Receipts", x => x.OrderId);
                 });
 
             migrationBuilder.CreateTable(
@@ -335,6 +362,9 @@ namespace ProjectBackend.Migrations
 
             migrationBuilder.DropTable(
                 name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "Receipts");
 
             migrationBuilder.DropTable(
                 name: "Shop");

@@ -38,7 +38,7 @@ export class Item extends Component {
                 <nav>
                     <ul className={toggle ? "toggle" : ""}>
                        
-                        <h1 ><li className="catalog" ><Link to="/product">FURNITURE CATALOG</Link></li></h1>
+                        <h1 ><li className="catalog" ><Link to="/product">FURNITURE CATALOGUE</Link></li></h1>
                         
 {/*                         
                         <li className="close" onClick={this.menuToggle}>

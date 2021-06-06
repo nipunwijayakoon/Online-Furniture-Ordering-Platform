@@ -75,14 +75,23 @@ function refreshProductList() {
    
  return (
            <div >
-                   
-                    
-                   <div className="cart-icon ">   
+          
+             <section>  
+            
+           <br/>
+                   <div className="cart-icon " >   
                         <Link to='/cart'>  
-                            <img src={CartIcon} alt="" width="40" /> 
+                            <img src={CartIcon} alt="" width="40"/> 
                             <span >{cart.length}</span>   
                             </Link> 
+        
+                           
                         </div>  
+                        <div className="total">
+            <Link to='./../viewdesign'><h6>CONTINUE SHOPPING</h6></Link>
+            </div>
+                          
+                        
                  
            
                     <div className="details" key={products.productID}>
@@ -93,14 +102,17 @@ function refreshProductList() {
                             <div className="box">
                                 <div className="row">
                                     <h2> {products.productName}</h2>
+                                    
                                     <span>LKR {products.price}</span>
                                 </div>
+                                <h3> BRANCH: {products.branch}</h3>
                                 <p>{products.description}</p>
                                 <h3>{products.content}</h3><br/>
                                 <button  onClick={() => addCart(products.productID)}>ADD CART</button>
                             </div>
                     </div>
-                     
+                    </section> 
+                   
             </div>
                     
         )
