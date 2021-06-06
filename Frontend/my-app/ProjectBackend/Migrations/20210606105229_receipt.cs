@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class @new : Migration
+    public partial class receipt : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -63,8 +63,7 @@ namespace ProjectBackend.Migrations
                     Content = table.Column<string>(nullable: true),
                     Price = table.Column<int>(nullable: false),
                     Count = table.Column<int>(nullable: false),
-                    Total = table.Column<int>(nullable: false),
-                    Details = table.Column<string>(nullable: true)
+                    Total = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

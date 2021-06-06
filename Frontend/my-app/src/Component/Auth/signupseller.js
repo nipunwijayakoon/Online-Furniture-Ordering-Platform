@@ -25,10 +25,16 @@ import { setAlert } from "../../actions/alert";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(0),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    marginBottom: theme.spacing(0),
+    padding :20,
+    height:'95vh',
+    width:400,
+    margin:"0px auto",
+    backgroundColor:'white'
   },
   avatar: {
     margin: theme.spacing(1),
@@ -54,7 +60,9 @@ const SignUp = ({setAlert, selleregistor, isAuthenticated}) => {
         Name:'',
         TelNumber:'',
         SellerPW:'',
-        RetypeSellerPW:'',           
+        RetypeSellerPW:'',
+        
+                
     }
   );
 
@@ -73,7 +81,7 @@ const SignUp = ({setAlert, selleregistor, isAuthenticated}) => {
   const onSubmit = async e => {
 
     e.preventDefault();
-    if (SellerPW !== RetypeSellerPW)setAlert("Passwords do not match", "danger");
+    if (SellerPW !== RetypeSellerPW )setAlert("Passwords do not match", "danger");
     else
       selleregistor(SellerEmail,
         SellerFirstName,
@@ -82,15 +90,18 @@ const SignUp = ({setAlert, selleregistor, isAuthenticated}) => {
         Name,
         TelNumber,
         SellerPW,
-        RetypeSellerPW);
+        RetypeSellerPW,
+        );
       
     } 
 
-    if (isAuthenticated) { return <Redirect to="/aftersignin" />; }
+
+
 
   
 
   return (
+    <Grid style={{backgroundImage: "url('https://images.pexels.com/photos/389818/pexels-photo-389818.jpeg?cs=srgb&dl=pexels-ken-tomita-389818.jpg&fm=jpg')" ,backgroundSize: "cover"}}>
     <Fragment>
       <section>
         <Container component="main" maxWidth="xs">
@@ -100,7 +111,7 @@ const SignUp = ({setAlert, selleregistor, isAuthenticated}) => {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign up
+              
       </Typography>
             <form className={classes.form} noValidate onSubmit={e => onSubmit(e)}>
               <Grid container spacing={2}>
@@ -147,19 +158,7 @@ const SignUp = ({setAlert, selleregistor, isAuthenticated}) => {
                   />
                 </Grid>
 
-                <Grid item xs={12}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="Name"
-                    label="ShopName"
-                    name="Name"
-                    value={Name}
-                    onChange={e => onChange(e)}
-                    autoComplete="Name"
-                  />
-                </Grid>
+                
 
                 <Grid item xs={12}>
                   <TextField
@@ -167,7 +166,7 @@ const SignUp = ({setAlert, selleregistor, isAuthenticated}) => {
                     required
                     fullWidth
                     id="Area"
-                    label="ShopArea"
+                    label="Branch name"
                     name="Area"
                     value={Area}
                     onChange={e => onChange(e)}
@@ -220,13 +219,16 @@ const SignUp = ({setAlert, selleregistor, isAuthenticated}) => {
                   />
                 </Grid>
 
+
+
+
                 
               </Grid>
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
-                color="primary"
+                color="secondary"
                 className={classes.submit}
               >
                 Sign Up
@@ -246,6 +248,7 @@ const SignUp = ({setAlert, selleregistor, isAuthenticated}) => {
         </Container>
       </section>
     </Fragment>
+    </Grid>
   );
 }
 

@@ -16,7 +16,7 @@ export default function Button5() {
 
 <Link to='/asaseller'>
      <button >
-     AS A SELLER
+     AS A SELL
      </button>
  </Link>
             

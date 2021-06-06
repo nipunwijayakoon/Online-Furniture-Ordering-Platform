@@ -74,6 +74,7 @@ render(){
              <h1>CUSTOMER DETAILS</h1>
             
             <div class="tbl-header">
+            <h1>CUSTOMER DETAILS</h1>
                 <table cellpadding="0" cellspacing="0" border="0">
                     <thead>
                         <tr>
@@ -82,7 +83,7 @@ render(){
                             <th>Last Name</th>
                             <th>Email</th>
                             <th>Tell Number</th>
-                            <th>Home town</th>
+                            <th>Date & Time</th>
                         </tr>
                     </thead>
                 </table>

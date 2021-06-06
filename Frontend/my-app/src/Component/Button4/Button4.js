@@ -53,7 +53,7 @@ function Pricing() {
                 <h1>FIND</h1>
                 
                 <br></br>
-                <h4>CUSTOMER </h4>
+                <h4>CUSTOMER  </h4>
                 <ul className='pricing__container-features'>
                   <li></li>
                   <h4>DETAILS</h4>

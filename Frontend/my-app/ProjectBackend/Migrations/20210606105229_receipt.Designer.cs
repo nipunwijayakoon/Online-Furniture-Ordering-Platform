@@ -9,8 +9,8 @@ using ProjectBackEnd.Models;
 namespace ProjectBackend.Migrations
 {
     [DbContext(typeof(FurnituresDBContext))]
-    [Migration("20210605051138_new")]
-    partial class @new
+    [Migration("20210606105229_receipt")]
+    partial class receipt
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -326,9 +326,6 @@ namespace ProjectBackend.Migrations
 
                     b.Property<int>("Designcode")
                         .HasColumnType("int");
-
-                    b.Property<string>("Details")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(max)");
