@@ -150,8 +150,8 @@ export default function Cart(props) {
            <Typography component="h2" variant ="h15">3. Delivery charge will be added to your order according to the distance between the branch and your designation.</Typography>
             <hr/><br/>
             <div className="total">
-            <Link to='./../viewdesign'><h6>CONTINUE SHOPPING</h6></Link>
-            <p><Typography component="h8" variant="h6" color="textPrimary" gutterBottom>
+            <Link to='./../viewdesign'><h15>CONTINUE SHOPPING</h15></Link>
+            <p><Typography component="h1" variant="h5" color="textPrimary" margin="50px" gutterBottom >
         Your Order Number:#{randomNum}
         </Typography></p> 
             </div>
@@ -204,9 +204,9 @@ export default function Cart(props) {
                   
                  
            <div className="total" >
-               <Link to='./../payments'><h6>CHECKOUT</h6></Link>              
+               <Link to='./../payments'><h11>CHECKOUT</h11></Link>              
               
-               <h6>Total : Rs.{total}</h6>
+              <h30>Total : Rs.{total}</h30>
 
               
            </div>
