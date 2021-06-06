@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
+    padding: theme.spacing(8, 0, 3),
   },
   heroButtons: {
     marginTop: theme.spacing(4),
@@ -103,7 +103,7 @@ export default function Album() {
             </Typography>
             <div className="container3">
             <Typography variant="h6" align="center" color="error"  paragraph>
-              In Furniture Catalog you can see the furniture products which are currently available in our store. You can order your products by adding relavent products to the cart. If anything relevant, you can contact our member...
+              In Furniture Catalogue you can see the furniture products which are currently available in our store. You can order your products by adding relavent products to the cart. If anything relevant, you can contact our member...
             </Typography>
             <Typography variant="h6" align="center" color="secondary" paragraph>
               Tel: 081-2235643 Mobile: (+94) 71 3452908 / 76 9145689
@@ -122,6 +122,19 @@ export default function Album() {
                 </Grid>
                 
               </Grid>
+
+              <Grid container spacing={1} justify="center">
+                <Grid item >
+
+                <div className="UpDesignStatus">
+                
+                    <Link href= "newdesignstatus">Order Status</Link>    
+                 
+                </div>
+                </Grid>
+                
+              </Grid>
+
             </div>
           
             

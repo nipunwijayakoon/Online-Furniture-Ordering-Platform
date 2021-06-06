@@ -35,7 +35,9 @@ namespace ProjectBackEnd.Models
         public DbSet<Testone> Testone { get; set; }
         public DbSet<PaymentModel> Pay { get; set; }
         public DbSet<BillingInfo> BillingInfoTable { get; set; }
-
+        public DbSet<BillingNewDesign> BillingNewDesignTable { get; set; }
+        public DbSet<DeletedDesigns> DeletedNewDesigns { get; set; }
+        public DbSet<ConfirmedDesigns> ConfirmedNewDesigns { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

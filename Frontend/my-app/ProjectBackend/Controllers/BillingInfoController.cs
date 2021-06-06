@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MimeKit;
 using Microsoft.Extensions.Configuration;
 
 using ProjectBackend.Services;
@@ -18,9 +20,9 @@ namespace ProjectBackend.Controllers
     {
         private readonly FurnituresDBContext _context;
 
-       
-       private readonly IConfiguration _config;
-    //    private readonly IMailService _mailService;
+
+        private readonly IConfiguration _config;
+        //    private readonly IMailService _mailService;
         private readonly MakePayment _makePayment;
         private IConfiguration config;
 
@@ -28,7 +30,7 @@ namespace ProjectBackend.Controllers
         {
             _context = context;
             _config = config;
-       //     _mailService = mailService;
+            //     _mailService = mailService;
             _makePayment = makePayment;
         }
 
@@ -57,7 +59,7 @@ namespace ProjectBackend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBillingInfo(int id,BillingInfo billingInfo)
+        public async Task<IActionResult> PutBillingInfo(int id, BillingInfo billingInfo)
         {
             if (id != billingInfo.BillingId)
             {
@@ -91,10 +93,36 @@ namespace ProjectBackend.Controllers
         [HttpPost]
         public async Task<ActionResult<BillingInfo>> PostBillingInfo(BillingInfo billingInfo)
         {
+
+            var billingInfoWithSameEmail = _context.BillingInfoTable.FirstOrDefault(m => m.Email.ToLower() == billingInfo.Email.ToLower());
+
             _context.BillingInfoTable.Add(billingInfo);
             await _context.SaveChangesAsync();
-            await _makePayment.PayAsync(billingInfo.CardNo, billingInfo.ExpMonth, billingInfo.ExpYear, billingInfo.Cvv, billingInfo.TotalPrice);
-        //    await _mailService.SendEmailAsync(billingInfo.Email, "Payment Confirmation for Bill No:" + billingInfo.BillingId, "<p><strong>Thank you for using Govimithuro!</strong></p> <p>This email is to confirm your recent transaction.</p><p> Card Holder's Name:" + billingInfo.CardName + "<p>Card No :" + billingInfo.CardNo + "<p>Date :" + DateTime.Now);
+            await _makePayment.PayAsync(billingInfo.CardNo, billingInfo.ExpMonth, billingInfo.ExpYear, billingInfo.Cvv, billingInfo.TotalPrice, billingInfo.Address1, billingInfo.Address2, billingInfo.City, billingInfo.Designcode, billingInfo.Newdesigncode, billingInfo.PayInfo, billingInfo.Email);
+            //    await _mailService.SendEmailAsync(billingInfo.Email, "Payment Confirmation for Bill No:" + billingInfo.BillingId, "<p><strong>Thank you for using Govimithuro!</strong></p> <p>This email is to confirm your recent transaction.</p><p> Card Holder's Name:" + billingInfo.CardName + "<p>Card No :" + billingInfo.CardNo + "<p>Date :" + DateTime.Now);
+
+
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("LANKA FURNITURE MAKERS", "lankafurniture123@gmail.com"));
+            message.To.Add(new MailboxAddress(billingInfo.CardName, billingInfo.Email));
+            message.Subject = "New Design Uploading Successful";
+            message.Body = new TextPart("plain")
+            {
+                Text = ("Thank you for using LANKA FURNITURE MAKERS to purchase a New Furniture Design order. Your order is successfully completed and received to the sellers.")
+            };
+
+            using (var client = new SmtpClient())
+            {
+                client.Connect("smtp.gmail.com", 587, false);
+                client.Authenticate("lankafurniture123@gmail.com", "Lanka@123");
+
+                client.Send(message);
+
+                client.Disconnect(true);
+            }
+
+
+
 
             return CreatedAtAction("GetBillingInfo", new { id = billingInfo.BillingId }, billingInfo);
         }

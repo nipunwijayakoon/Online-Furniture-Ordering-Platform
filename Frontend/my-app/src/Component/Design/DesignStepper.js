@@ -5,13 +5,10 @@ import UploadDesignImageList from './UploadDesignImageList';
 import UploadDesignImage from './UploadDesignImage';
 import UploadNewDesign from './UploadNewDesign';
 import WoodNameColor from './WoodNameColor';
-import BranchDistanceDuration from './BranchDistanceDuration';
+import BranchLocationDuration from './BranchLocationDuration';
 import DesignConfirm from './DesignConfirm';
 import PersonDetails from './PersonDetails';
 import DoneMessage from './DoneMessage';
-
-
-
 
 
 const useStyles = makeStyles((theme) => ({
@@ -64,7 +61,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-//const steps = ['New Design', 'Wood Name', 'Wood Color', 'Branch Name', 'Time Duration', 'Contact Details'];
 
 export class DesignStepper extends Component {
   state = {
@@ -73,7 +69,7 @@ export class DesignStepper extends Component {
     woodName: '',
     woodColour: '',
     branchName: '',
-    distance: '',
+    location: '',
     timeDuration: '',
     personName: '',
     personAddress: '',
@@ -104,8 +100,8 @@ export class DesignStepper extends Component {
 
   render() {
     const { step } = this.state;
-    const { newDesignCode, woodName, woodColour, branchName, distance, timeDuration, personName, personAddress, contactDetails, personEmail } = this.state;
-    const values = { newDesignCode, woodName, woodColour, branchName, distance, timeDuration, personName, personAddress, contactDetails, personEmail };
+    const { newDesignCode, woodName, woodColour, branchName, location, timeDuration, personName, personAddress, contactDetails, personEmail } = this.state;
+    const values = { newDesignCode, woodName, woodColour, branchName, location, timeDuration, personName, personAddress, contactDetails, personEmail };
 
     switch (step) {
       case 1:
@@ -128,7 +124,7 @@ export class DesignStepper extends Component {
         );
         case 3:
           return (
-            <BranchDistanceDuration
+            <BranchLocationDuration
               nextStep={this.nextStep}
               prevStep={this.prevStep}
               handleChange={this.handleChange}
@@ -153,7 +149,11 @@ export class DesignStepper extends Component {
             />
           );
           case 6:
-          return <DoneMessage />;
+          return <DoneMessage 
+              nextStep={this.nextStep}
+              prevStep={this.prevStep}
+              values={values}
+            />;
       default:
         (console.log('This is a multi-step form built with React.'))
     }
@@ -162,115 +162,3 @@ export class DesignStepper extends Component {
 
 export default DesignStepper;
 
-
-
-{/*
-
-function getStepContent(step) {
-  document.body.style.color = "beige";
-  switch (step) {
-    case 0:
-      return (<UploadNewDesign />);
-    case 1:
-        return (<WoodName />);
-    case 2:
-      return (<WoodColor />);
-    case 3:
-      return (<SelectingBranch />);
-    case 4:
-      return (<Duration />);
-    case 5:
-        return (<PersonDetails />);
-    default:
-      (console.log('This is a multi-step form built with React.'));
-  }
-}
-
-export class DesignStepper extends Component {
-  continue = e => {
-    e.preventDefault();
-    this.props.nextStep();
-  };
-
-  back = e => {
-    e.preventDefault();
-    this.props.prevStep();
-  };
-
-  render() {
-    const { values, handleChange } = this.props;
-
-  return (
-    <
-    React.Fragment>
-      <Typography variant="h1" color="textPrimary"  paragraph>
-     
-      </Typography>
-      <CssBaseline />
-      <div className="page" >
-      
-      <main className={classes.layout}>
-        
-        <Paper className={classes.paper}style={{ backgroundColor: "beige"}} >
-          <Typography component="h1" variant="h4" align="center">
-            Make Your Spaces Extra Comfortable with Your Own Design... Own Fashion... Own Style... 
-          </Typography>
-          <Typography variant="h1" color="textPrimary"  paragraph>
-     
-          </Typography>
-
-          <Stepper activeStep={activeStep} className={classes.stepper} style={{ backgroundColor: "ivory" }}>
-            {steps.map((label) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-              </Step>
-            ))}
-          </Stepper>
-
-          <Typography variant="h1" color="textPrimary"  paragraph>
-              
-          </Typography>
-
-          <React.Fragment>
-            {activeStep === steps.length ? (
-              <React.Fragment>
-                <Typography variant="h5" gutterBottom>
-                  Thank you for your order.
-                </Typography>
-                <Typography variant="subtitle1">
-                  Your order is successfully sent to the shop owner of the particular shop. Shop owner will be contacted you for the better awareness.
-                </Typography>
-              </React.Fragment>
-            ) : (
-              <React.Fragment>
-                {getStepContent(activeStep)}
-                <div className={classes.buttons}>
-                  {activeStep !== 0 && (
-                    <Button onClick={handleBack} className={classes.button}>
-                      Back
-                    </Button>
-                  )}
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleNext}
-                    className={classes.button}
-                  >
-                    {activeStep === steps.length - 1 ? 'Send this Order to the Manufacturer' : 'Next'}
-                  </Button>
-                </div>
-              </React.Fragment>
-            )}
-          </React.Fragment>
-        </Paper>
-        
-      </main>
-      
-      </div>
-    </React.Fragment>
-  );
-}
-}
-
-export default DesignStepper;
-*/}

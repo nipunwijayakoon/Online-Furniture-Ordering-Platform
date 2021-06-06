@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
 
 import './UploadNewDesign.css';
 
@@ -40,12 +38,10 @@ export default function UploadDesignImage(props) {
 
 
 
-
     useEffect(() => {
         if (recordForEdit != null)
             setValues(recordForEdit);
     }, [recordForEdit])
-
 
 
 
@@ -87,11 +83,6 @@ export default function UploadDesignImage(props) {
         return Object.values(temp).every(x => x == true)
     }
 
-    {/*const resetForm = () => {
-        setValues(initialFieldValues)
-        document.getElementById('image-uploader').value = null;
-        setErrors({})
-    }*/}
 
     const handleFormSubmit = e => {
         e.preventDefault()
@@ -132,10 +123,7 @@ export default function UploadDesignImage(props) {
         
                     <img src="/images/ExampleDesign.jpg"  width="320" height="320" alt=""/>
 
-                    
-                    
-            
-
+                 
         
                 </Container>
                 </div>
@@ -161,15 +149,7 @@ export default function UploadDesignImage(props) {
                             <input type="file" accept="image/*" className={"form-control-file" + applyErrorClass('ImageSrc01')}
                                 onChange={showPreview} id="image-uploader" />
                         </div>
-                        
-                        {/*<div className="form-group">
-                            <input className={"form-control" + applyErrorClass('EmploName')} placeholder="Emplo Name" name="EmploName"
-                                value={values.EmploName}
-                                onChange={handleInputChange} />
-                        </div>*/}
-
-
-
+                      
                      
             
                 <div>

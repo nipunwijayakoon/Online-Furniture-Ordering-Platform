@@ -16,7 +16,7 @@ namespace ProjectBackend.Services
             _configuration = configuration;
         }
 
-        public async Task PayAsync(string cardNo, int month, int year, string cvv, int totalPrice)
+        public async Task PayAsync(string cardNo, int month, int year, string cvv, int totalPrice, string address1, string address2, string city, string designcode, string newdesigncode, string payInfo, string email)
         {
             try
             {
@@ -29,6 +29,12 @@ namespace ProjectBackend.Services
                         ExpMonth = month,
                         ExpYear = year,
                         Cvc = cvv,
+                        AddressLine1 = address1,
+                        AddressLine2 = address2,
+                        AddressCity = city,
+                        Name = designcode,
+                        AddressCountry = newdesigncode,
+                        AddressState = payInfo
                     }
                 };
 
@@ -40,7 +46,7 @@ namespace ProjectBackend.Services
                     Amount = totalPrice,
                     Currency = "lkr",
                     Description = "test",
-                   
+                    ReceiptEmail = email,
                     Source = stripetoken.Id
                 };
 

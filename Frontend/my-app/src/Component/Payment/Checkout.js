@@ -11,6 +11,7 @@ import { Fragment } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Box from '@material-ui/core/Box';
 
+
 class Checkout extends Component  {
   
 
@@ -21,7 +22,8 @@ class Checkout extends Component  {
   }
 
   getInitialState = () => ({
-        data:{      
+        data:{  
+             
         'cardName': '',
         'cardNo': '',
         'expMonth': '',
@@ -30,7 +32,11 @@ class Checkout extends Component  {
         'email':'',
         'cvv': '',
         'email':'',
-        'totalPrice':'',
+        'totalPrice':JSON.parse(localStorage.getItem('total')),
+        'address1':'',
+        'address2':'',
+        'city':'',
+        'designcode':'',
         },
 
       errors: {}
@@ -52,13 +58,17 @@ class Checkout extends Component  {
 validate = () => {
   const { data } = this.state;
   let errors = {};
-
+  
   if (data.cardName === '') errors.cardName = 'Card holder can not be blank.';
   if (data.cardNo === '') errors.cardNo = 'Card no can not be blank.';
   if (data.expMonth === '') errors.expMonth = 'Expire month can not be blank.';
   if (data.expYear === '') errors.expYear = 'Expire year can not be blank.';
   if (data.billDate === '') errors.billDate = 'Bill date can not be blank.';
   if (data.cvv === '') errors.cvv = 'CVV can not be blank.';
+  if (data.address1 === '') errors.address1 = 'AddressLine1 can not be blank.';
+  if (data.address2 === '') errors.address2 = 'AddressLine2 can not be blank.';
+  if (data.city === '') errors.city = 'City can not be blank.';
+  if (data.designcode === '') errors.designcode = 'City can not be blank.';
   
   return errors;
 }
@@ -68,11 +78,9 @@ useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    width:'100%'
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
+ 
   form: {
     width: '100%',
     marginTop: theme.spacing(3),
@@ -92,7 +100,7 @@ handleSubmit = (e) => {
   if (Object.keys(errors).length === 0) {
       console.log(data);
       //Call an api here
-      axios.post('https://localhost:5001/api/BillingInfo/',{email:this.state.data.email,cardName:this.state.data.cardName,cardNo:this.state.data.cardNo,expMonth:parseFloat(this.state.data.expMonth),expYear:parseFloat(this.state.data.expYear),billDate:this.state.data.billDate,cvv:this.state.data.cvv,totalPrice:parseFloat(this.state.data.totalPrice)})
+      axios.post('https://localhost:5001/api/BillingInfo/',{email:this.state.data.email,cardName:this.state.data.cardName,cardNo:this.state.data.cardNo,expMonth:parseFloat(this.state.data.expMonth),expYear:parseFloat(this.state.data.expYear),billDate:this.state.data.billDate,cvv:this.state.data.cvv,totalPrice:parseFloat(this.state.data.totalPrice*100),address1:this.state.data.address1, address2:this.state.data.address2, city:this.state.data.city, designcode:this.state.data.designcode})
       
       this.props.history.push({pathname:'/Receipt'});
       //Resetting the form
@@ -109,17 +117,27 @@ handleSubmit = (e) => {
           <div className="aws" >
             <Fragment>
               <section className="sdf">
-             <Container component="main" maxWidth="xs">
+             <Container component="main" maxWidth="sm">
              <CssBaseline />
              <div className="paper">
+               
              <Typography component="h1" variant="h5">
               Payment Form
       </Typography>
-              
+      <br/>
+      <Typography component="h4" variant="h10">This is your payment information. You have to pay an advance for the furniture you want to buy. It should not be less than Rs.5,000/- Otherwise this order will have to be rejected.
+      We kindly request you to fill in all the details below correctly. </Typography><br/>
+
+      <Typography component="h2" variant="h9"> Also we charge a delivery cost according to the distance between your destination and the branch.Therefore make sure to choose the items from the close branch from your destination.</Typography>
+       <Typography component="h4">Delivery charge will be Rs.500/- per 1km.</Typography>
+
+       <Typography component="h2" variant ="h15">Your Order Number is {JSON.parse(localStorage.getItem('designcode'))}</Typography>
+       <br/>       
             <form className="form"  onSubmit={this.handleSubmit}>
             <Grid container spacing={2}>
             <Grid item xs={12}>
           <div className="pay"  ><h3>Billing Information</h3></div>
+         
                 <Label for="email">Email Address</Label><br/>
                 <TextField
                 variant="outlined"
@@ -127,9 +145,23 @@ handleSubmit = (e) => {
                 fullWidth
                  value={data.email} invalid={errors.email? true : false} 
                  name="email" 
-                 onChange={this.handleChange} />
+                 onChange={this.handleChange} /><br/>
               {/* //  <FormFeedback>{errors.email}</FormFeedback> */}
-           
+
+
+     <Label for="designcode">Design Code</Label>
+              <div className="label">
+                <p>Re-Enter the Order number of your purchase</p><br/>
+                </div>
+                <TextField
+                variant="outlined"
+                required
+                fullWidth
+                 value={data.designcode} invalid={errors.designcode? true : false} 
+                 name="designcode" 
+                 onChange={this.handleChange} />
+
+
             </Grid>
             <Grid item xs={12}>
             
@@ -140,7 +172,41 @@ handleSubmit = (e) => {
                  fullWidth value={data.billDate} invalid={errors.billDate? true : false} name="billDate" onChange={this.handleChange} />
                 <FormFeedback>{errors.billDate}</FormFeedback>
             
-  </Grid>
+  </Grid><br/>
+  <div className="pay"><h3>Address Information</h3></div>
+  <Grid item xs={12}>
+            
+            <Label for="address1">AddressLine1</Label>
+            <TextField
+             variant="outlined"
+             required
+             fullWidth value={data.address1} invalid={errors.address1? true : false} name="address1" onChange={this.handleChange} />
+            <FormFeedback>{errors.address1}</FormFeedback>
+        
+</Grid>
+
+<Grid item xs={12}>
+            
+            <Label for="address2">AddressLine2</Label>
+            <TextField
+             variant="outlined"
+             required
+             fullWidth value={data.address2} invalid={errors.address2? true : false} name="address2" onChange={this.handleChange} />
+            <FormFeedback>{errors.address2}</FormFeedback>
+        
+</Grid>
+
+<Grid item xs={12}>
+            
+            <Label for="city">City</Label>
+            <TextField
+             variant="outlined"
+             required
+             fullWidth value={data.city} invalid={errors.city? true : false} name="city" onChange={this.handleChange} />
+            <FormFeedback>{errors.city}</FormFeedback>
+        
+</Grid>
+<br/>
             <div className="pay"><h3>Add Credit/Debit Card Information</h3></div>
             
             <Grid item xs={12} >
@@ -214,8 +280,10 @@ handleSubmit = (e) => {
             <Grid item xs={12}>  
   
             
-                <Label for="totalPrice">Amount you pay</Label>
-               
+                <Label for="totalPrice">Amount you pay (Rs.)</Label><br/>
+                <div className="label">
+                <p>Corretly fill the advance amount you pay for this order. (Amount should not be less than Rs.5,000/-)</p>
+                </div>
                 <TextField 
                  variant="outlined"
                  required
@@ -231,7 +299,7 @@ handleSubmit = (e) => {
                 fullWidth
                 variant="contained"
                color="black"
-                component={Link} to='/receipt'>PAY</Button>   
+                component={Link} to='/Receipt'>PAY</Button>   
                 </div>
             </Grid>       
         </form>

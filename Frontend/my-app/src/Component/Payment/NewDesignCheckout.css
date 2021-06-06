@@ -1,0 +1,79 @@
+.newdesign_payment_paper{
+    margin: top 8%;
+    display: 'flex';
+    align-items: 'center';
+    width: '100%';
+}
+.newdesign_payment_paper h1{
+    font-family:fantasy;
+    font-size: 30px;
+    color: darkblue;
+}
+.newdesign_payment_form{
+    width: '80%';
+    margin-top: top 3%;
+    
+}
+.payment_aws_newdesign .newdesign_paper .newdesign_payment_form .newdesign_payment_submit{
+    margin: 9px, 0px, 2px;
+    color: #000;
+    
+
+}
+.newdesign_payment_paper .newdesign_payment_caption h3{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: rgb(145, 57, 22);
+}
+.payment_aws_newdesign{
+    border: black;
+    background-attachment: fixed;
+    background-color: rgb(255, 242, 242);
+}
+.payment_aws_newdesign .payment_sdf_newdesign{
+    /* background-color: rgb(214, 187, 187);  */
+    border: black;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    background-image: url('https://images.pexels.com/photos/6527063/pexels-photo-6527063.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-size: "cover";
+    
+}
+.newdesign_payment_des{
+    margin-left: 650px;
+}
+.newdesign_payment_button .newdesign_payment_submit button{
+    color: #000;
+    text-align: center;
+}
+.newdesign_payment_label{
+    font-size: small;
+    text-align: left;
+    color: rgb(230, 40, 65);
+}
+
+.newdesign_payment_paper h4{
+    color: rgb(8, 122, 14);
+}
+.newdesign_payment_paper h3{
+
+    color: rgb(230, 40, 65);
+}
+.container_newdesign_payment{
+    height: 1235px;
+    width: 700px;
+    border-radius: 10px;
+    background-color: rgba(230, 207, 197, 0.5);
+    
+  }
+  .container_newdesign_receipt{
+    height: 120px;
+    width: 700px;
+    border-radius: 10px;
+    background-color: rgba(230, 207, 197, 0.4);
+    margin-left: 400px;
+    margin-right: 50px;
+    align-content: center;
+  }

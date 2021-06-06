@@ -1,43 +1,62 @@
+
 .paper{
     margin: top 8%;
     display: 'flex';
     /* flexDirection: 'column'; */
     align-items: 'center';
+    width: '100%';
 }
 .paper h1{
     font-family:fantasy;
     font-size: 40px;
+    color: darkblue;
 }
 .form{
-    width: '100%';
+    width: '80%';
     margin-top: top 3%;
+    
 }
 .aws .paper .form .submit{
     margin: 9px, 0px, 2px;
     color: #000;
+    
 
 }
-.pay h3{
+.paper .pay h3{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 20px;
 }
-#aws{
+.aws{
     border: black;
     background-attachment: fixed;
-    background-color: black;
+    background-color: rgb(255, 242, 242);
 }
 .aws .sdf{
-    background-color: rgb(214, 187, 187);
+    /* background-color: rgb(214, 187, 187);  */
     border: black;
     margin-top: 50px;
     margin-left: 50px;
     margin-right: 50px;
     margin-bottom: 50px;
-
+    background-image: url('https://images.pexels.com/photos/6527063/pexels-photo-6527063.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-size: "cover";
+    
 }
 .des{
     margin-left: 650px;
 }
 .paybutton .submitpay button{
     color: #000;
+}
+.label p{
+    font-size: small;
+    text-align: left;
+    color: rgb(145, 57, 22);
+}
+
+.paper h4{
+    color: rgb(8, 122, 14);
+}
+.paper h3{
+    color: brown;
 }
