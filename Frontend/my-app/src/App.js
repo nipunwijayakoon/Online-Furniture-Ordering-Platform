@@ -48,7 +48,8 @@ import NewDesignDetails from './Component/AdminUpload/NewDesignDetail';
 import WoodColor from './Component/Design/WoodColor';
 import DesignStepper from './Component/Design/DesignStepper';
 import WoodNameColor from './Component/Design/WoodNameColor';
-import BranchDistanceDuration from './Component/Design/BranchDistanceDuration';
+import BranchLocationDuration from './Component/Design/BranchLocationDuration';
+import DesignConfirm from './Component/Design/DesignConfirm';
 import Duration from './Component/Design/Duration';
 import PersonDetails from './Component/Design/PersonDetails';
 
@@ -71,8 +72,16 @@ import HelpAudio from './Component/Help/HelpAudio';
 import ManageProduct from './Component/AdminProduct/ManageProduct';
 import ManageNewDesign from './Component/AdminProduct/ManageNewDesign';
 import ManageDesignImage from './Component/AdminProduct/ManageDesignImage';
+import ManageDesignPayment from './Component/AdminProduct/ManageNewDesignPayments';
+
+import DeleteNotice from './Component/AdminUpload/DeletedNotice';
+import NewDesignStatus from './Component/Design/StatusDesign';
+import ConfirmNotice from './Component/AdminUpload/ConfirmedNotice';
+
 import Checkout from './Component/Payment/Checkout';
+import NewDesignCheckout from './Component/Payment/NewDesignCheckout';
 import Receipt from './Component/Payment/Receipt';
+import NewDesignReceipt from './Component/Payment/NewDesignReceipt';
 import CustomerDetails from './Component/AdminProduct/CustomerDetails';
 
 import CustomerOrderDetail from './Component/AdminProduct/CustomerOrderDetail';
@@ -119,9 +128,10 @@ const App = () => {
         <Route path ='/woodcolor' component={WoodColor} />
         <Route path ='/designstepper' component={DesignStepper} />
         <Route path ='/woodnamecolor' component={WoodNameColor} />
-        <Route path ='/branchdistanceduration' component={BranchDistanceDuration} />
+        <Route path ='/branchlocationduration' component={BranchLocationDuration} />
         <Route path ='/duration' component={Duration} />
         <Route path ='/persondetails' component={PersonDetails} />
+        <Route path ='/designconfirm' component={DesignConfirm} />
         <Route path ='/asaseller' component={asaseller} />
       
 
@@ -166,10 +176,17 @@ const App = () => {
           <Route path='/HelpAudio' component={HelpAudio} />
           <Route path='/manageproduct' component={ManageProduct} /> 
           <Route path='/managenewdesign' component={ManageNewDesign} /> 
-          <Route path='/managedesignimage' component={ManageDesignImage} /> 
+          <Route path='/managedesignimage' component={ManageDesignImage} />
+          <Route path='/managedesignpayment' component={ManageDesignPayment} />
 
-       
-         
+          <Route path='/deletenotice' component={DeleteNotice} />
+          <Route path='/newdesignstatus' component={NewDesignStatus} />
+          <Route path='/confirmnotice' component={ConfirmNotice} />
+
+          
+          <Route path='/newdesignpayments' component={NewDesignCheckout}/>
+          <Route path='/newdesignreceipt' component={NewDesignReceipt}/>
+
           <Route path='/CustomerDetails' component={CustomerDetails}/>
         
           <Route path='/CustomerOrderDetail' component={CustomerOrderDetail}/>

@@ -6,6 +6,7 @@ using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MimeKit;
 using Microsoft.Extensions.Configuration;
 using MimeKit;
 using ProjectBackend.Services;
@@ -56,7 +57,7 @@ namespace ProjectBackend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBillingInfo(int id,BillingInfo billingInfo)
+        public async Task<IActionResult> PutBillingInfo(int id, BillingInfo billingInfo)
         {
             if (id != billingInfo.BillingId)
             {
@@ -93,7 +94,7 @@ namespace ProjectBackend.Controllers
             var billingInfoWithSameEmail = _context.BillingInfoTable.FirstOrDefault(m => m.Email.ToLower() == billingInfo.Email.ToLower());
             _context.BillingInfoTable.Add(billingInfo);
             await _context.SaveChangesAsync();
-            await _makePayment.PayAsync(billingInfo.CardNo, billingInfo.ExpMonth, billingInfo.ExpYear, billingInfo.Cvv, billingInfo.TotalPrice, billingInfo.Tele, billingInfo.Address, billingInfo.City, billingInfo.Designcode, billingInfo.Email, billingInfo.Distance);
+            await _makePayment.PayAsync(billingInfo.CardNo, billingInfo.ExpMonth, billingInfo.ExpYear, billingInfo.Cvv, billingInfo.TotalPrice, billingInfo.Tele, billingInfo.Address, billingInfo.City, billingInfo.Designcode, billingInfo.Newdesigncode, billingInfo.PayInfo, billingInfo.Email, billingInfo.Distance);
             
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("LANKA FURNITURE MAKERS", "lankafurniture123@gmail.com"));

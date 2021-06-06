@@ -63,5 +63,46 @@
       font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
       text-align: center;
       color: rgb(12, 180, 172);
+      font-size: 30px;
 
+  }
+  .order_status{
+    height: 110px;
+    width: 100%;
+    border-radius: 10px;
+    align-content: center;
+    background-color: rgba(207, 136, 136, 0.5);
+    text-align: center;
+    color: rgb(206, 216, 215);
+    font-size: 17px;
+    
+  }
+  .del_design{
+    background-image: url('https://images.pexels.com/photos/347139/pexels-photo-347139.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-position: inherit;
+  }
+  .red_td{
+    text-align: center;
+    color: rgb(241, 7, 7);
+    font-size: 13px;
+  }
+  .redxx_td{
+    text-align: center;
+    color: rgb(241, 7, 7);
+    font-size: 16px;
+  }
+  .green_td{
+    text-align: center;
+    color: rgb(0, 94, 5);
+    font-size: 16px;
+  }
+  .blue_td{
+    text-align: center;
+    color: rgb(33, 0, 94);
+    font-size: 16px;
+  }
+  .white_th{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
   }

@@ -58,7 +58,7 @@ export class PersonDetails extends Component {
           onChange={handleChange('personName')}
           defaultValue={values.personName}
           variant="outlined"
-          helperText="Add the Contact Name"
+          helperText="Enter the Contact Name"
           autoComplete={values.personName}
         />
         
@@ -79,7 +79,7 @@ export class PersonDetails extends Component {
           onChange={handleChange('personAddress')}
           defaultValue={values.personAddress}
           variant="outlined"
-          helperText="Add the Postal Address"
+          helperText="Enter the Postal Address, Your Furniture needs to get Transported"
         />
         
       </div> 

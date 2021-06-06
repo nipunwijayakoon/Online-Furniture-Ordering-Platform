@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
+    padding: theme.spacing(8, 0, 3),
   },
   heroButtons: {
     marginTop: theme.spacing(4),
@@ -122,6 +122,19 @@ export default function Album() {
                 </Grid>
                 
               </Grid>
+
+              <Grid container spacing={1} justify="center">
+                <Grid item >
+
+                <div className="UpDesignStatus">
+                
+                    <Link href= "newdesignstatus">Order Status</Link>    
+                 
+                </div>
+                </Grid>
+                
+              </Grid>
+
             </div>
           
             

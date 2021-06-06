@@ -16,7 +16,8 @@ namespace ProjectBackend.Services
             _configuration = configuration;
         }
 
-        public async Task PayAsync(string cardNo, int month, int year, string cvv, int totalPrice, string address, string tele, string city, string designcode, string email, string distance)
+        
+        public async Task PayAsync(string cardNo, int month, int year, string cvv, int totalPrice, string address, string tele, string city, string designcode, string newdesigncode, string payInfo, string email, string distance)
         {
             try
             {
@@ -29,10 +30,12 @@ namespace ProjectBackend.Services
                         ExpMonth = month,
                         ExpYear = year,
                         Cvc = cvv,
-                        AddressLine1 = tele,
-                        AddressLine2 = address,
                         AddressCity = city,
                         Name = designcode,
+                        AddressCountry = newdesigncode,
+                        AddressState = payInfo,
+                        AddressLine1 = tele,
+                        AddressLine2 = address,
                         AddressZip = distance,
                         
                     }

@@ -7,19 +7,8 @@ import FormLabel from '@material-ui/core/FormLabel';
 import { withStyles } from '@material-ui/core/styles';
 import { amber, pink, red, brown, grey } from '@material-ui/core/colors';
 
-
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-
-
-
-
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
-//import Typography from '@material-ui/core/Typography';
-//import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
 
 
 const MahoganiRadio = withStyles({

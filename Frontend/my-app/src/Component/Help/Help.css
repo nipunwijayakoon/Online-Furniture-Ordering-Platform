@@ -1,0 +1,14 @@
+.container_help_audio{
+    height: 480px;
+    width: 820px;
+    border-radius: 10px;
+    background-color: rgba(211, 255, 249, 0.5);
+    padding-top: 0px;
+
+}
+
+.help_audio{
+    
+    padding-right: 5px;
+    padding-top: 110px;
+}

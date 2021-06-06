@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import song from './Track1.mp3'
+import song from './Guidelines_for_Customers.mp3'
 import Slider from '../Help/slider/Slider'
 import ControlPanel from '../Help/controls/ControlPanel'
 

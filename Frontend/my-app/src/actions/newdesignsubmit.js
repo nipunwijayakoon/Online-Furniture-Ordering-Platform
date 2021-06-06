@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Register user
-export const ordersubmit = async (woodName, woodColour, branchName, distance, personName, personAddress, personEmail, timeDuration, contactDetails, newDesignCode
+export const ordersubmit = async (woodName, woodColour, branchName, location, personName, personAddress, personEmail, timeDuration, contactDetails, newDesignCode
     ) => {
     const config = {
         headers: { "Content-Type": "application/json"}
@@ -12,7 +12,7 @@ export const ordersubmit = async (woodName, woodColour, branchName, distance, pe
 
     //const RetypeCustomerPW = CustomerPW;
 
-    const body = JSON.stringify({ woodName, woodColour, branchName, distance, personName, personAddress, personEmail, timeDuration, contactDetails, newDesignCode
+    const body = JSON.stringify({ woodName, woodColour, branchName, location, personName, personAddress, personEmail, timeDuration, contactDetails, newDesignCode
        // RetypeCustomerPW 
     });
     

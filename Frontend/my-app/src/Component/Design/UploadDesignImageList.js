@@ -85,22 +85,7 @@ export default function UploadDesignImageList(props) {
                     nextStep={nextStep}
                 />
             </div>
-            {/*<div className="col-md-8">
-                <table>
-                    <tbody>
-                        {
-                            //tr > 3 td
-                            [...Array(Math.ceil(uploadDesignImage.length / 3))].map((e, i) =>
-                                <tr key={i}>
-                                    <td>{imageCard(uploadDesignImageList[3 * i])}</td>
-                                    <td>{uploadDesignImageList[3 * i + 1] ? imageCard(uploadDesignImageList[3 * i + 1]) : null}</td>
-                                    <td>{uploadDesignImageList[3 * i + 2] ? imageCard(uploadDesignImageList[3 * i + 2]) : null}</td>
-                                </tr>
-                            )
-                        }
-                    </tbody>
-                </table>
-                    </div>*/}
+           
         </div>
     )
 }
