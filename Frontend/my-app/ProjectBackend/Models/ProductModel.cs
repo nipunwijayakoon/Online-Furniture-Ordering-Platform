@@ -15,6 +15,7 @@ namespace ProjectBackend.Models
 
 
         public string ProductName { get; set; }
+        public string Branch { get; set; }
 
         [NotMapped]
         public string ImageSrc { get; set; }
@@ -23,14 +24,14 @@ namespace ProjectBackend.Models
 
 
         public int Price { get; set; }
-        public string Count { get; set; }
+        public int Count { get; set; }
 
 
         public string ImageName { get; set; }
 
 
 
-        
+
 
 
         [NotMapped]

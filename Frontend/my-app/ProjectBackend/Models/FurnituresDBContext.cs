@@ -38,6 +38,7 @@ namespace ProjectBackEnd.Models
         public DbSet<BillingNewDesign> BillingNewDesignTable { get; set; }
         public DbSet<DeletedDesigns> DeletedNewDesigns { get; set; }
         public DbSet<ConfirmedDesigns> ConfirmedNewDesigns { get; set; }
+        public DbSet<Receipt> Receipts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

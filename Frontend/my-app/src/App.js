@@ -20,7 +20,11 @@ import Navbar from './Component/Nav/Navbar';
 import CDetails from './Get2/Get2';
 import Empdetails from './GetEmp/EmployeeDetails';
 import AddEmployee from './GetEmp/AddEmp';
-import Linechart, { Linecharts } from './Get2/Linechart';
+import Linecharts from './Get2/Linechart';
+import BuyerSeller from './BuyerSeller/BuyerSeller';
+import SellerDetails from './GetSeller/GetSeller';
+import SellersellsDetails from './GetSellrtCharts/SellerBarCharts';
+import SellerProductDetails from './SellerProduct/SellerProduct';
 
 import Shops from './Component/GetShopdata/Get';
 //import Products from './Component/Products';
@@ -56,7 +60,7 @@ import UploadDesignImage from './Component/Design/UploadDesignImageList';
 
 
 import Cart from './Component/section/Cart';
-import Blog from './Component/AboutUs/Blog';
+import About_Us from './Component/AboutUs/About Us';
 
 import { Provider } from "react-redux";
 import store from "./store";
@@ -78,7 +82,14 @@ import Checkout from './Component/Payment/Checkout';
 import NewDesignCheckout from './Component/Payment/NewDesignCheckout';
 import Receipt from './Component/Payment/Receipt';
 import NewDesignReceipt from './Component/Payment/NewDesignReceipt';
+import CustomerDetails from './Component/AdminProduct/CustomerDetails';
 
+import CustomerOrderDetail from './Component/AdminProduct/CustomerOrderDetail';
+
+import Search from './Component/section/Products';
+import Details from './Component/section/Details';
+
+import Section from './Component/Section';
 
 const App = () => {
 
@@ -99,9 +110,15 @@ const App = () => {
         <Route exact path='/resetpassword' component={Reset} />
 
         <Route path ='/CDetails' component={CDetails} />
-        <Route path = '/Empdetails' component={Empdetails}/>
-        <Route path = '/AddEmployee' component={AddEmployee}/>
+        <Route path = '/Admindetails' component={Empdetails}/>
+        <Route path = '/AddAdmin' component={AddEmployee}/>
         <Route path = '/Linecharts' component={Linecharts}/>
+        <Route path = '/BuyerSeller' component={BuyerSeller}/>
+        <Route path = '/SellerDetails' component={SellerDetails}/>
+        <Route path = '/SellersellsDetails' component={SellersellsDetails}/>
+        <Route path = '/SellerProductDetails' componet={SellerProductDetails}/>
+       
+
 
         <Route path ='/choosesignup' component={Button5} />
         <Route exact path='/newdesign' component={UploadNewDesign} />
@@ -144,7 +161,7 @@ const App = () => {
           <Route exact path='/aftersignin' component={App2} />
           <Route exact path='/aftersignincustomer' component={Hero3} />
           
-          <Route exact path='/blog' component={Blog} />
+          <Route exact path='/about_us' component={About_Us} />
          
          
           <Route path='/ManageProduct' component={ManageProduct} />
@@ -166,12 +183,23 @@ const App = () => {
           <Route path='/newdesignstatus' component={NewDesignStatus} />
           <Route path='/confirmnotice' component={ConfirmNotice} />
 
-          <Route path='/payments' component={Checkout}/>
+          
           <Route path='/newdesignpayments' component={NewDesignCheckout}/>
-          <Route path='/receipt' component={Receipt}/>
           <Route path='/newdesignreceipt' component={NewDesignReceipt}/>
 
-          
+          <Route path='/CustomerDetails' component={CustomerDetails}/>
+        
+          <Route path='/CustomerOrderDetail' component={CustomerOrderDetail}/>
+          <Route path='/Receipt' component={Receipt}/>
+
+         
+                   <Section> 
+                    <Route path="/product" component={Search} exact  />
+                    <Route path="/product/:productID" component={Details} exact />
+                    <Route path="/cart" component={Cart}  exact/> 
+                    <Route path="/payments" component={Checkout}  />
+                    </Section>
+                   
           
       </Switch>
       
@@ -182,8 +210,6 @@ const App = () => {
   );
  
 }
-
-
 
 export default App;
 

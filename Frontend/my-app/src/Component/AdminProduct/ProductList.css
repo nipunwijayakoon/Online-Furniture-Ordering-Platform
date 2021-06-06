@@ -17,6 +17,8 @@
     box-shadow: 2px 8px 40px rgb(206, 156, 156);
     margin: 10px;
     transition: 0.5s linear;
+    position: relative;
+    
 }
 .newcardpro img{
     max-width: 350px;
@@ -50,4 +52,7 @@
     letter-spacing: 2px;
     margin: 15px 0;
     border-radius: 5px;
+}
+.col-md-8{
+    margin-top: 200px;
 }

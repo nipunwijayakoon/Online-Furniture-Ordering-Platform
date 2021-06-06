@@ -23,24 +23,23 @@
 
 }
 .paper .pay h3{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Arial;
     font-size: 20px;
 }
 .aws{
-    border: black;
-    background-attachment: fixed;
+  
     background-color: rgb(255, 242, 242);
 }
-.aws .sdf{
-    /* background-color: rgb(214, 187, 187);  */
+.sdf{
+    /* background-color: rgb(214, 187, 187); */
     border: black;
     margin-top: 50px;
     margin-left: 50px;
     margin-right: 50px;
     margin-bottom: 50px;
-    background-image: url('https://images.pexels.com/photos/6527063/pexels-photo-6527063.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-    background-size: "cover";
-    
+    background-image: url('https://static-cse.canva.com/blob/140234/Rainbow-Gradient-Pink-and-Purple-Zoom-Virtual-Background.png');
+    border: black;
+    background-attachment: fixed;
 }
 .des{
     margin-left: 650px;
@@ -59,4 +58,20 @@
 }
 .paper h3{
     color: brown;
+}
+
+.rep{
+ margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-image: url('https://media.istockphoto.com/photos/rendering-the-interior-furniture-white-background-and-living-space-picture-id861305390?k=6&m=861305390&s=170667a&w=0&h=L7YwDRAOYzmI9R2bAdJt-lvNV4aCZZ3geVOzBwuvL1k=');
+}
+.label p{
+    text-size-adjust: 10px;
+}
+.distance p{
+    text-align: left;
+    font-size: medium;
+    text-align: left;
+    color: rgb(145, 57, 22);
 }

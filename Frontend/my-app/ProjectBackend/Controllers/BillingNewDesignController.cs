@@ -94,35 +94,11 @@ namespace ProjectBackend.Controllers
         public async Task<ActionResult<BillingNewDesign>> PostBillingNewDesign(BillingNewDesign billingNewDesign)
         {
 
-         //   var billingInfoWithSameEmail = _context.BillingInfoTable.FirstOrDefault(m => m.Email.ToLower() == billingInfo.Email.ToLower());
 
             _context.BillingNewDesignTable.Add(billingNewDesign);
             await _context.SaveChangesAsync();
-            await _makePayment.PayAsync(billingNewDesign.CardNo, billingNewDesign.ExpMonth, billingNewDesign.ExpYear, billingNewDesign.Cvv, billingNewDesign.TotalPrice, billingNewDesign.Address1, billingNewDesign.Address2, billingNewDesign.City, billingNewDesign.Designcode, billingNewDesign.Newdesigncode, billingNewDesign.PayInfo, billingNewDesign.Email);
-            //    await _mailService.SendEmailAsync(billingInfo.Email, "Payment Confirmation for Bill No:" + billingInfo.BillingId, "<p><strong>Thank you for using Govimithuro!</strong></p> <p>This email is to confirm your recent transaction.</p><p> Card Holder's Name:" + billingInfo.CardName + "<p>Card No :" + billingInfo.CardNo + "<p>Date :" + DateTime.Now);
-
-
-            //   var message = new MimeMessage();
-            //   message.From.Add(new MailboxAddress("LANKA FURNITURE MAKERS", "lankafurniture123@gmail.com"));
-            //   message.To.Add(new MailboxAddress(billingInfo.CardName, billingInfo.Email));
-            //   message.Subject = "New Design Uploading Successful";
-            //   message.Body = new TextPart("plain")
-            //   {
-            //       Text = ("Thank you for using LANKA FURNITURE MAKERS to purchase a New Furniture Design order. Your order is successfully completed and received to the sellers.")
-            //   };
-
-            //   using (var client = new SmtpClient())
-            //   {
-            //       client.Connect("smtp.gmail.com", 587, false);
-            //       client.Authenticate("lankafurniture123@gmail.com", "Lanka@123");
-            //
-            //       client.Send(message);
-
-            //       client.Disconnect(true);
-            //   }
-
-
-
+            await _makePayment.PayAsync(billingNewDesign.CardNo, billingNewDesign.ExpMonth, billingNewDesign.ExpYear, billingNewDesign.Cvv, billingNewDesign.TotalPrice, billingNewDesign.Tele, billingNewDesign.Address, billingNewDesign.City, billingNewDesign.Designcode, billingNewDesign.Newdesigncode, billingNewDesign.PayInfo, billingNewDesign.Email, billingNewDesign.Distance);
+           
 
             return CreatedAtAction("GetBillingNewDesign", new { id = billingNewDesign.BillingNewId }, billingNewDesign);
         }

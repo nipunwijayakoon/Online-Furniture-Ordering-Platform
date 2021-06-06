@@ -20,12 +20,13 @@ namespace ProjectBackEnd.Models
         public string Email { get; set; }
         public int TotalPrice { get; set; }
 
-        public string Address1 { get; set; }
-        public string Address2 { get; set; }
+        public string Tele { get; set; }
+        public string Address { get; set; }
         public string City { get; set; }
         public string Designcode { get; set; }
+        public string Distance { get; set; }
+
         public string Newdesigncode { get; set; }
         public string PayInfo { get; set; }
-
     }
 }

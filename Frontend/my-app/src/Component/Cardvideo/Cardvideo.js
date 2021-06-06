@@ -2,6 +2,8 @@ import React from 'react'
 import VideoPlayer from "react-video-js-player";
 import Container from '@material-ui/core/Container';
 import ReactPlayer from "react-player";
+import Typography from '@material-ui/core/Typography';
+
 function Cardvideo() {
    
     return (
@@ -16,6 +18,11 @@ function Cardvideo() {
             width="650"
             height="450"
             />
+
+<Typography align="center">
+                    If you've lost your password or wish to reset it,
+                    enter your email below to get started.
+                </Typography>
 
         </Container>
 

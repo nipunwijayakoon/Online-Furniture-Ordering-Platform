@@ -80,7 +80,7 @@ Password ) => async(dispatch)=>{
 
     try {
         const res = await axios.post("https://localhost:5001/api/Userlogin/login", body, config);
-        console.log(res);
+        
 
         dispatch(setAlert("Login Successfull", "success"));
         dispatch({
@@ -88,7 +88,8 @@ Password ) => async(dispatch)=>{
             payload:res.data,
         })
 
-        
+      
+
     } catch (error) {
         
         dispatch(setAlert("Invalid email or password", "danger"));
@@ -154,7 +155,8 @@ Password ) => async(dispatch)=>{
         Name,
         TelNumber,
         SellerPW,
-        RetypeSellerPW
+        RetypeSellerPW,
+        
         
         
     )=>async(dispatch)=> {
@@ -172,7 +174,8 @@ Password ) => async(dispatch)=>{
         Name,
         TelNumber,
         SellerPW,
-        RetypeSellerPW
+        RetypeSellerPW,
+        
     
     });
 
@@ -208,3 +211,6 @@ export const logout = () => (dispatch) => {
     dispatch({ type: CLEAR_SELLERS });
     dispatch({ type: LOGOUT });
   };
+
+
+

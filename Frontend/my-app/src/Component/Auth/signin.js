@@ -28,6 +28,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { red } from '@material-ui/core/colors';
 
 
 
@@ -35,10 +36,18 @@ import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-      marginTop: theme.spacing(8),
+      marginTop: theme.spacing(15),
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
+      marginBottom:theme.spacing(30),
+      padding :20,
+      height:'50vh',
+      width:400,
+      margin:"0px auto",
+      backgroundColor:'white'
+     
+  
       
     },
     avatar: {
@@ -104,7 +113,7 @@ const useStyles = makeStyles((theme) => ({
       
   
     return (
-      
+      <Grid style={{backgroundImage: "url('https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg?cs=srgb&dl=pexels-pixabay-276583.jpg&fm=jpg')" ,backgroundSize: "cover"}}>
         <Fragment  >
             <section >
       <Container component="main" maxWidth="xs" >
@@ -114,7 +123,7 @@ const useStyles = makeStyles((theme) => ({
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+           
           </Typography>
           <form className={classes.form} noValidate onSubmit={e => onSubmit(e)}>
             <TextField
@@ -150,7 +159,7 @@ const useStyles = makeStyles((theme) => ({
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
+              color="secondary"
               className={classes.submit}
               
 
@@ -177,6 +186,8 @@ const useStyles = makeStyles((theme) => ({
       </Container>
       </section>
       </Fragment>
+
+</Grid>
     );
   }
 
