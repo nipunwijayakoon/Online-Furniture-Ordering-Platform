@@ -1,3 +1,4 @@
+
 .paper{
     margin: top 8%;
     display: 'flex';
@@ -11,12 +12,14 @@
     color: darkblue;
 }
 .form{
-    width: '100%';
+    width: '80%';
     margin-top: top 3%;
+    
 }
 .aws .paper .form .submit{
     margin: 9px, 0px, 2px;
     color: #000;
+    
 
 }
 .paper .pay h3{

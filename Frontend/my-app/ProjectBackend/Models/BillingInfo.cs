@@ -25,5 +25,8 @@ namespace ProjectBackEnd.Models
         public string City { get; set; }
         public string Designcode { get; set; }
         public string Distance { get; set; }
+
+        public string Newdesigncode { get; set; }
+        public string PayInfo { get; set; }
     }
 }
