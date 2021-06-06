@@ -35,6 +35,12 @@ namespace ProjectBackEnd.Models
         public DbSet<Testone> Testone { get; set; }
         public DbSet<PaymentModel> Pay { get; set; }
         public DbSet<BillingInfo> BillingInfoTable { get; set; }
+        public DbSet<Receipt> Receipts { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Shoplist>().HasKey(s => s.Area);
+        }
         public DbSet<Shoplist> Shoplist { get; set; }
 
     }

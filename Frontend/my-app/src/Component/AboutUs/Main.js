@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Markdown from './Markdown';
 
+
 const useStyles = makeStyles((theme) => ({
   markdown: {
     ...theme.typography.body2,
@@ -18,7 +19,7 @@ export default function Main(props) {
   const { posts, title } = props;
 
   return (
-    <Grid item xs={12} md={8}>
+    <Grid>
       <Typography variant="h6" gutterBottom>
         {title}
       </Typography>
@@ -28,6 +29,7 @@ export default function Main(props) {
           {post} */}
         {/* </Markdown>
       )}  */}
+     
     </Grid>
   );
 }

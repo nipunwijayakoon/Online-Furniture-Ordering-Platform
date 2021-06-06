@@ -1,0 +1,50 @@
+.main{
+    text-align: center;
+    position: fixed;
+    margin-top: 40px;
+}
+
+.main h1{
+    text-align: center;
+    margin-bottom: 30px;
+    color: rgb(32, 138, 170);
+    font-style: italic;
+    font-family: fantasy;
+
+}
+.color1{
+    color: #f7941d
+}
+.main h4{
+    margin-bottom: 40px;
+    text-align: center;
+    font-family: 'Meie Script', cursive;
+    font-size: 25px;
+    color: red;
+}
+.mail li a{
+    text-align: center;
+}
+
+.scroll-to-top{
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background: #333030;
+    color: white;
+    z-index: 1;
+}
+.scroll-to-top .icon{
+    margin-top: scrollTop 0.5s alternate ease infinite;
+}
+@keyframes scrollTop{
+    from{
+        transform: translateY(2px);
+    }
+    to{
+        transform: translateY(-1px);
+    }
+}

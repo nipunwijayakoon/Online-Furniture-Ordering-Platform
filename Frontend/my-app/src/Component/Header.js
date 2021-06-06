@@ -103,7 +103,7 @@ export default function Album() {
             </Typography>
             <div className="container3">
             <Typography variant="h6" align="center" color="error"  paragraph>
-              In Furniture Catalog you can see the furniture products which are currently available in our store. You can order your products by adding relavent products to the cart. If anything relevant, you can contact our member...
+              In Furniture Catalogue you can see the furniture products which are currently available in our store. You can order your products by adding relavent products to the cart. If anything relevant, you can contact our member...
             </Typography>
             <Typography variant="h6" align="center" color="secondary" paragraph>
               Tel: 081-2235643 Mobile: (+94) 71 3452908 / 76 9145689

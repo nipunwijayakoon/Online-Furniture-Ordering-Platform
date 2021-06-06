@@ -4,26 +4,29 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
-import './Blog.css';
+import './AboutUs.css';
+import './Footer.css';
+
+
 function Copyright() {
   return (
-    <div>
-    <Typography variant="body2" color="black" align="center">
+    <div className="footer">
+    <Typography variant="h8" allign="center" component="h3">
       {/* {'Copyright © '} */}
-      {'Contact Us'}
-      <div className="mail">
-      <li><i class="fas fa-phone"></i> <a href="">94 777 297597 </a></li>
+      {/* {'Contact Us'} */}
+      <br/>
+      <div className="mail" align="center">
+      <li><i class="fas fa-phone"></i> <a> Call Now: 94 777 297597 </a></li>
       <li><i class="far fa-envelope"></i> <a href="mailto:furnitureslanka@gmail.com">furnitureslanka@gmail.com</a></li>
       </div>
-      <Link color="inherit" href="https://material-ui.com/">
+     <Typography> <Link color="inherit" href="http://localhost:3000/">
         LANKA FURNITURE MAKERS
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
+      </Link></Typography>
     </Typography>
    
-    <Typography>
-
+    
+   <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+      All Rights Reserved
     </Typography>
     </div>
   );
@@ -42,17 +45,15 @@ export default function Footer(props) {
   const { description, title } = props;
 
   return (
-    <footer className={classes.footer}>
-      <Container maxWidth="lg">
-        <Typography variant="h6" align="center" gutterBottom>
-          {title}
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="black" component="p">
-          {description}
-        </Typography>
-        <Copyright />
-      </Container>
-    </footer>
+   
+    <footer className={classes.footer} style={{ backgroundImage: "url('https://images.pexels.com/photos/963486/pexels-photo-963486.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')",backgroundSize: "cover"}}>
+  
+    <Typography variant="h6" align="center" color="inherit" gutterBottom >
+   CONTACT US
+    </Typography>
+    
+    <Copyright />
+  </footer>
   );
 }
 

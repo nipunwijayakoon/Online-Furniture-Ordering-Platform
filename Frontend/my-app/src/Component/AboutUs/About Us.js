@@ -15,9 +15,10 @@ import Footer from './Footer';
 // import post1 from './blog-post.1.md';
 // import post2 from './blog-post.2.md';
 // import post3 from './blog-post.3.md';
-import './Blog.css';
+import './AboutUs.css';
 import EmailIcon from '@material-ui/icons/Email';
 import { getDynamicStyles } from 'jss';
+
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -38,7 +39,7 @@ const mainFeaturedPost = {
 const featuredPosts = [
   {
     title: 'ISLAND WIDE DELIVERY',
-    description:'Free delivery over Rs.50,000/=',
+    description:'Least delivery charge',
     image: 'https://cdn1.vectorstock.com/i/1000x1000/35/30/furniture-delivery-icon-outline-vector-33243530.jpg',
     imageText: 'Delivery',
     
@@ -64,42 +65,32 @@ const featuredPosts = [
   },
 ];
 
-//const posts = [post1, post2, post3];
-
-
- 
-
-export default function Blog() {
+export default function About_Us() {
   const classes = useStyles();
 
   return (
     <React.Fragment>
       <CssBaseline />
+      
       <Container maxWidth="lg">
-        {/* <Header title="Blog" sections={sections} /> */}
+     
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
+       
           <Grid container spacing={4}>
             {featuredPosts.map((post) => (
               <FeaturedPost key={post.title} post={post} />
             ))}
           </Grid>
           <Grid container spacing={5} className={classes.mainGrid}>
-            {/* <Main title="From the firehose" posts={posts} /> */}
-            {/* <Sidebar
-              title={sidebar.title}
-              description={sidebar.description}
-              archives={sidebar.archives}
-              social={sidebar.social}
-
-            /> */}
+          
             <div className="main">
            <h1 >Welcome!!!</h1> 
            <br/>
            <h2>LANKA FURNITURE MAKERS</h2>
            <h4>Heritage of the Island</h4>
 
-<p>Established in 2012, is a professional manufacturer of any type of wooden furniture and provide related Service with a certified warranty for Domestic and Foreign customers.Product range, quality level of our goods and our expertise in providing customized solutions represent our main strength in the furniture industry.</p>
+<p>Established in 2020, is a professional manufacturer of any type of wooden furniture and provide related Service with a certified warranty for Domestic customers.Product range, quality level of our goods and our expertise in providing customized solutions represent our main strength in the furniture industry.</p>
 
 <p><strong>"Our vision is to be the leading customized furniture manufacturer in the island"</strong></p>
 
@@ -175,41 +166,21 @@ we are standing today in the industry.</p>
                     <p>"Lanka Furniture Makers" has its own transport service within the country and during the transport, we ensure almost all products are safe and sketch free when handing over to the customer. At the delivery process we do have a packing system and a set of people to handle the products at the site. </p>
                     <p>"Lanka Furniture Makers" has its own transport service within the country and during the transport, we ensure almost all products are safe and sketch free when handing over to the customer. At the delivery process we do have a packing system and a set of people to handle the products at the site.</p>
                     <p>We will arrange the delivery within three working days once the full payment is settled or the cheque after realized.</p>
+                <br/>
                 </div>
             </div>
-         
-       
-       
- 
-  
-     
-    
-
-  
-
-   {/* </div> */}
+          
    </Grid>
+  
+         
         </main>
+        <Footer >
+     
+     </Footer>
       </Container>
       <br/>
-      {/* <div class="container">
-   <div class="row">
-     <div class="mail">
-     <h3>Contact Us</h3>
-     <ul id="address">
-      {/* <li>335/3A, Moratuwa Road, Deniya,<br> Piliyandala></li> */}
-      {/* <li><i class="fas fa-phone"></i> <a href="">94 777 297597 </a></li>
-      <li><i class="far fa-envelope"></i> <a href="mailto:furnitureslanka@gmail.com">furnitureslanka@gmail.com</a></li>
-       */}
-      
-    {/* </ul>
-    </div></div></div> */} 
-      <Footer >
-      <div class="bottombar">
- 
-  </div>
-  </Footer>
-      
+      <br/>
+     
     </React.Fragment>
   );
 }
