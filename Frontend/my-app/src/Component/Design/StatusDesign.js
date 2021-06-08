@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom';
 
 
 
-const apiUrl1 = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/DeletedDesigns/';  
-const apiUrl2 = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/ConfirmedDesigns/';  
+const apiUrl1 = 'https://lankafurnituremakersapi.azurewebsites.net/api/DeletedDesigns/';  
+const apiUrl2 = 'https://lankafurnituremakersapi.azurewebsites.net/api/ConfirmedDesigns/';  
 
 
 

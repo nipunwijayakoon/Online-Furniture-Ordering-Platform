@@ -6,7 +6,7 @@ import axios from 'axios';
 import './ManageDesign.css';  
 import { Link } from 'react-router-dom';
   
-const apiUrl = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/Emplo/';  
+const apiUrl = 'https://lankafurnituremakersapi.azurewebsites.net/api/Emplo/';  
   
 class ManageDesignImage extends React.Component{  
     constructor(props){  

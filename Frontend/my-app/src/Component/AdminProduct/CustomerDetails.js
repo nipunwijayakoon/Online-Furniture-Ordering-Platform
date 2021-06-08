@@ -4,7 +4,7 @@ import axios from 'axios';
 import {Link} from 'react-router-dom'
 import Container from '@material-ui/core/Container';
   
-const apiUrl = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/BillingInfo/';  
+const apiUrl = 'https://lankafurnituremakersapi.azurewebsites.net/api/BillingInfo/';  
   
 class CustomerDetails extends React.Component{  
     constructor(props){  

@@ -19,7 +19,7 @@ export const ordersubmit = async (woodName, woodColour, branchName, location, pe
         console.log("Cuss", body)
 
     try {
-        const res = await axios.post("https://projectbackendlankafurnituremakers.azurewebsites.net/api/NewDesigns", body, config);
+        const res = await axios.post("https://lankafurnituremakersapi.azurewebsites.net/api/NewDesigns", body, config);
         console.log(res);
 
         

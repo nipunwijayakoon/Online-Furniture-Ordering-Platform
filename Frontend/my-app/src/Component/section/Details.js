@@ -17,7 +17,7 @@ function Details(props){
     
 useEffect(() => {
         axios.get(
-            `https://projectbackendlankafurnituremakers.azurewebsites.net/api/Product/${productID}`
+            `https://lankafurnituremakersapi.azurewebsites.net/api/Product/${productID}`
           )
           .then(res => {
             setProducts(res.data);
@@ -58,7 +58,7 @@ useEffect(() => {
     })
     
     
-const productAPI = (url = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/Product/') => {
+const productAPI = (url = 'https://lankafurnituremakersapi.azurewebsites.net/api/Product/') => {
         return {
             fetchAll: () => axios.get(url),
          

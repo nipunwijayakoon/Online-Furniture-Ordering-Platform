@@ -5,7 +5,7 @@ import './ManageProduct.css';
 import { Link } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
   
-const apiUrl = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/Product/';  
+const apiUrl = 'https://lankafurnituremakersapi.azurewebsites.net/api/Product/';  
   
 class ManageProduct extends React.Component{  
     constructor(props){  
