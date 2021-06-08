@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import axios from 'axios';
 import { Pie } from 'react-chartjs-2';
 import { Link } from 'react-router-dom';
+//import './BuyerSeller.css';
 
 
 export class Piechart  extends Component{
@@ -67,6 +68,8 @@ export class Piechart  extends Component{
                 
 
             </div>
+
+            
         )
     }
 }

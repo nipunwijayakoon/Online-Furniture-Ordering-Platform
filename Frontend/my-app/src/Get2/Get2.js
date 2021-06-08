@@ -71,7 +71,7 @@ render(){
     return(
 
         <section>
-             <h1>CUSTOMER DETAILS</h1>
+            
             
             <div class="tbl-header">
             <h1>CUSTOMER DETAILS</h1>
