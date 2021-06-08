@@ -7,13 +7,13 @@
     
 }
 
-.cart-icon{
+.cart-icon2{
     cursor: pointer;
     position: relative;
     size: 40px;
 
 }
-.cart-icon span{
+.cart-icon2 span{
     position:inherit;
     top:-12px;
     right: -7px;
@@ -101,14 +101,21 @@
         font-family: sans-serif;
     }
 
-.product .cart-icon{
+    .card .content h5{
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color:rgb(44, 16, 95);
+        font-weight: bold;
+        font-style: inherit;
+    }
+
+.product .cart-icon2{
         cursor: pointer;
         position: relative;
         size: 50px;
         padding: auto;
         
      }
-.product .cart-icon span{
+.product .cart-icon2 span{
         position: inherit;
         top:-30px;
         right: 4px;

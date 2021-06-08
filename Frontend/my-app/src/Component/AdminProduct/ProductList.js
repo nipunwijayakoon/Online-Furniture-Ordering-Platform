@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import Product from './ProductForm';
 import './ProductList.css'
-
+import {Link} from 'react-router-dom'
+import { Table, Button} from 'react-bootstrap';  
 
 export default function ProductList(props) {
     const [productList, setProductList] = useState([])
@@ -67,15 +68,18 @@ export default function ProductList(props) {
     }
 
     const newimageCard = data => (
+       
         <div className="newcardpro" onClick={() => { showRecordDetails(data) }}>
+            
             <img src={data.imageSrc}  />
             <div className="newcardpro-body">
             <div  >
                 <b>{data.productName}</b><br/><br/>
+                {/* <b>{data.branch}</b><br/><br/> */}
                 <span>{data.description}</span> <br />
                 <h3>LKR{data.price}</h3> <br />
                 <button>ADD CART</button>
-                <div className="delete-button">
+                <div className="delete-button" >
                 <button  onClick={e => onDelete(e, parseInt(data.productID))}>
                     DELETE
                 </button>
@@ -88,7 +92,18 @@ export default function ProductList(props) {
 
     return (
         <div className="row">
-            
+               
+                    <Link to='/ManageProduct'><Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}>PRODUCT DETAILS</Button></Link>
+                    <span>---------------------</span>
+                   <Link to='/CustomerDetails'>
+                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> CUSTOMER ORDER DETAILS</Button>
+                   </Link>
+                   <span>---------------------</span>
+            <Link to='/customerorderdetail'>
+                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> ORDERED PRODUCT DETAILS</Button>
+                   </Link>
+
+              
             <div className="col-md-4">
                 <Product
                     addOrEdit={addOrEdit}

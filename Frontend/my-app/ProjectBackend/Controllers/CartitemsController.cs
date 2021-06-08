@@ -15,6 +15,7 @@ namespace ProjectBackend.Controllers
     public class CartitemsController : ControllerBase
     {
         private readonly FurnituresDBContext _context;
+        internal static string ProductName;
 
         public CartitemsController(FurnituresDBContext context)
         {

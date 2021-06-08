@@ -34,6 +34,7 @@ namespace ProjectBackend.Controllers
                  {
                      ProductID = x.ProductID,
                      ProductName = x.ProductName,
+                     Branch = x.Branch,
                      Price = x.Price,
                      Count = x.Count,
                      Description = x.Description,

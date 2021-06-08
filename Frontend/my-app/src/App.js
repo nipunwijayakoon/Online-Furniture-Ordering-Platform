@@ -20,7 +20,11 @@ import Navbar from './Component/Nav/Navbar';
 import CDetails from './Get2/Get2';
 import Empdetails from './GetEmp/EmployeeDetails';
 import AddEmployee from './GetEmp/AddEmp';
-import Linechart, { Linecharts } from './Get2/Linechart';
+import Linecharts from './Get2/Linechart';
+import BuyerSeller from './BuyerSeller/BuyerSeller';
+import SellerDetails from './GetSeller/GetSeller';
+import SellersellsDetails from './GetSellrtCharts/SellerBarCharts';
+import SellerProductDetails from './SellerProduct/SellerProduct';
 
 import Shops from './Component/GetShopdata/Get';
 //import Products from './Component/Products';
@@ -45,7 +49,8 @@ import NewDesignDetails from './Component/AdminUpload/NewDesignDetail';
 import WoodColor from './Component/Design/WoodColor';
 import DesignStepper from './Component/Design/DesignStepper';
 import WoodNameColor from './Component/Design/WoodNameColor';
-import BranchDistanceDuration from './Component/Design/BranchDistanceDuration';
+import BranchLocationDuration from './Component/Design/BranchLocationDuration';
+import DesignConfirm from './Component/Design/DesignConfirm';
 import Duration from './Component/Design/Duration';
 import PersonDetails from './Component/Design/PersonDetails';
 
@@ -56,7 +61,7 @@ import UploadDesignImage from './Component/Design/UploadDesignImageList';
 
 
 import Cart from './Component/section/Cart';
-import Blog from './Component/AboutUs/Blog';
+import About_Us from './Component/AboutUs/About Us';
 
 import { Provider } from "react-redux";
 import store from "./store";
@@ -68,9 +73,24 @@ import HelpAudio from './Component/Help/HelpAudio';
 import ManageProduct from './Component/AdminProduct/ManageProduct';
 import ManageNewDesign from './Component/AdminProduct/ManageNewDesign';
 import ManageDesignImage from './Component/AdminProduct/ManageDesignImage';
-import Checkout from './Component/Payment/Checkout';
-import Receipt from './Component/Payment/Receipt';
+import ManageDesignPayment from './Component/AdminProduct/ManageNewDesignPayments';
 
+import DeleteNotice from './Component/AdminUpload/DeletedNotice';
+import NewDesignStatus from './Component/Design/StatusDesign';
+import ConfirmNotice from './Component/AdminUpload/ConfirmedNotice';
+
+import Checkout from './Component/Payment/Checkout';
+import NewDesignCheckout from './Component/Payment/NewDesignCheckout';
+import Receipt from './Component/Payment/Receipt';
+import NewDesignReceipt from './Component/Payment/NewDesignReceipt';
+import CustomerDetails from './Component/AdminProduct/CustomerDetails';
+
+import CustomerOrderDetail from './Component/AdminProduct/CustomerOrderDetail';
+
+import Search from './Component/section/Products';
+import Details from './Component/section/Details';
+
+import Section from './Component/Section';
 
 const App = () => {
 
@@ -91,9 +111,15 @@ const App = () => {
         <Route exact path='/resetpassword' component={Reset} />
 
         <Route path ='/CDetails' component={CDetails} />
-        <Route path = '/Empdetails' component={Empdetails}/>
-        <Route path = '/AddEmployee' component={AddEmployee}/>
+        <Route path = '/Admindetails' component={Empdetails}/>
+        <Route path = '/AddAdmin' component={AddEmployee}/>
         <Route path = '/Linecharts' component={Linecharts}/>
+        <Route path = '/BuyerSeller' component={BuyerSeller}/>
+        <Route path = '/SellerDetails' component={SellerDetails}/>
+        <Route path = '/SellersellsDetails' component={SellersellsDetails}/>
+        <Route path = '/SellerProductDetails' componet={SellerProductDetails}/>
+       
+
 
         <Route path ='/choosesignup' component={Button5} />
         <Route exact path='/newdesign' component={UploadNewDesign} />
@@ -103,9 +129,10 @@ const App = () => {
         <Route path ='/woodcolor' component={WoodColor} />
         <Route path ='/designstepper' component={DesignStepper} />
         <Route path ='/woodnamecolor' component={WoodNameColor} />
-        <Route path ='/branchdistanceduration' component={BranchDistanceDuration} />
+        <Route path ='/branchlocationduration' component={BranchLocationDuration} />
         <Route path ='/duration' component={Duration} />
         <Route path ='/persondetails' component={PersonDetails} />
+        <Route path ='/designconfirm' component={DesignConfirm} />
         <Route path ='/asaseller' component={asaseller} />
       
 
@@ -135,7 +162,7 @@ const App = () => {
           <Route exact path='/aftersignin' component={App2} />
           <Route exact path='/aftersignincustomer' component={Hero3} />
           
-          <Route exact path='/blog' component={Blog} />
+          <Route exact path='/about_us' component={About_Us} />
          
          
           <Route path='/ManageProduct' component={ManageProduct} />
@@ -150,12 +177,30 @@ const App = () => {
           <Route path='/HelpAudio' component={HelpAudio} />
           <Route path='/manageproduct' component={ManageProduct} /> 
           <Route path='/managenewdesign' component={ManageNewDesign} /> 
-          <Route path='/managedesignimage' component={ManageDesignImage} /> 
+          <Route path='/managedesignimage' component={ManageDesignImage} />
+          <Route path='/managedesignpayment' component={ManageDesignPayment} />
 
-          <Route path='/payments' component={Checkout}/>
+          <Route path='/deletenotice' component={DeleteNotice} />
+          <Route path='/newdesignstatus' component={NewDesignStatus} />
+          <Route path='/confirmnotice' component={ConfirmNotice} />
+
+          
+          <Route path='/newdesignpayments' component={NewDesignCheckout}/>
+          <Route path='/newdesignreceipt' component={NewDesignReceipt}/>
+
+          <Route path='/CustomerDetails' component={CustomerDetails}/>
+        
+          <Route path='/CustomerOrderDetail' component={CustomerOrderDetail}/>
           <Route path='/Receipt' component={Receipt}/>
-          
-          
+
+         
+                   <Section> 
+                    <Route path="/product" component={Search} exact  />
+                    <Route path="/product/:productID" component={Details} exact />
+                    <Route path="/cart" component={Cart}  exact/> 
+                    <Route path="/payments" component={Checkout}  />
+                    </Section>
+                   
           
       </Switch>
       
@@ -166,44 +211,6 @@ const App = () => {
   );
  
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//import React from 'react';
-//import {BrowserRouter as Router} from 'react-router-dom'
-//import Header from './Component/Header'
-//import Section from './Component/Section'
-//import {DataProvider} from './Component/Context'
-
-
-//class App extends React.Component{
-  //render(){
-  // return(
-    //  <DataProvider>
-    //    <div className="app">
-    //      <Router>
-     //       <Header />
-     //       <Section />
-     //     </Router>
-    //    </div>
-    //  </DataProvider>
-   // );
-  //}
-//}
 
 export default App;
 

@@ -8,6 +8,7 @@
   display: flex;
   align-items:center;
   justify-content: center;
+  position: relative;
 
 }
 
@@ -43,9 +44,9 @@
 
 .newformcard{
   min-width: 550px;
-  min-height: 450px;
+  min-height: 500px;
   max-width: 600px;
-  max-height: 600px;
+  max-height: 1500px;
   border: 1.5px solid rgb(236, 213, 213);
   overflow: hidden;
   padding: 10px;
@@ -54,6 +55,7 @@
   transition: 0.5s linear;
   align-items: center;
   margin-left: -2px;
+  position: relative;
   
   
   

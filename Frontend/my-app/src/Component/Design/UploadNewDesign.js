@@ -6,7 +6,6 @@ import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
-import Link from '@material-ui/core/Link';
 
 
 import './UploadNewDesign.css';

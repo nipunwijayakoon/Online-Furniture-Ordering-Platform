@@ -32,8 +32,8 @@
     
 }
 .total{
-    width: 80%;
-    height: 50px;
+    width: 100%;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -51,11 +51,16 @@
     border-radius: 2px;
     
 }
-.total h3{
-    margin-right: 50px;
-    color: rgb(128, 8, 42);
-    font-size: 20px;
-    flex-wrap: wrap-reverse;
+.total p{
+    text-align: center;
+    font-size: large;
+    margin-right: 100px;
+}
+.total h30{
+    margin-right: 100px;
+    color: rgb(77, 5, 25);
+    font-size: 30px;
+    /* flex-wrap: wrap-reverse; */
 }
 .box .row h2{
     font-style: italic;
@@ -74,3 +79,16 @@
 .details_cart img{
     border: springgreen;  
 }
+
+.details_cart .onechoose{
+    width: 40px;
+    height: 30px;
+    border: 2px transparent rgb(26, 25, 25);
+    outline: none;
+    background: solid ;
+    cursor: pointer;
+    background-color: rgba(94, 26, 26, 0.651);
+}
+/* .totalnew h6{
+    text-align: right;
+} */

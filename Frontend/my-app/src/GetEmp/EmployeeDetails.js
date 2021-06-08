@@ -47,7 +47,7 @@ class Get extends Component{
         </tbody>
                 </table>
 
-                <Link to='/AddEmployee'>
+                <Link to='/AddAdmin'>
                 <button >
                     Grant Admin powers
                 </button>

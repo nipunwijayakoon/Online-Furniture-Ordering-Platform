@@ -96,24 +96,33 @@ class ManageDesignImage extends React.Component{
                     <h2>NEW DESIGN IMAGE DETAILS</h2>
                   </div>
                 <br/>
+
+
+                
+                <div className='order_status'>
+                    <h3>If You are Rejecting an Order Please Put a Deleted Notice on Relevant Design Code</h3>
+                    <Link to='/deletenotice'>DELETE NOTICE</Link>
+
+                    <h3>If You are Confirming an Order Please Put a Confirmation Notice with Payment Details on Relevant Design Code</h3>
+                    <Link to='/confirmnotice'>CONFIRMATION NOTICE</Link>
+                  </div>
+                <br/>
+
+
                
                 <div style={{ backgroundImage: "url('https://images.pexels.com/photos/2988860/pexels-photo-2988860.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')" ,backgroundSize: "cover"}}>
                   <Table border-collapse=" collapse" alignItems="center">  
                       
                       <tr className="raw" >  
                         <th>Image</th>
-                        <th>              </th>
-                        <th>              </th>
-                        <th>-</th>
+                        <th> </th>
+                        <th> </th>
+                        <th> </th>
                         <th>Download Image</th>
-                        
                         <th>Design Code</th> 
-                        <th>              </th>
-
+                        <th>  </th>
                         <th>Image Name</th> 
-                        <th>         </th>
-                          
-                         
+                        <th>  </th> 
                         <th>Reject</th>
                         
                       </tr>  
@@ -123,23 +132,30 @@ class ManageDesignImage extends React.Component{
                         <tr key={d_image.emploID} style={{   border: '2px solid DimGrey'}}>  
                           <td><img src ={`https://localhost:5001/Images/${d_image.imageName_}`} className="pic-new-card"/></td>
                           
-                          <td>        </td>
-                          <td>        </td>
-                          <td>        </td>
-                          <td><Button href={`https://localhost:5001/Images/${d_image.imageName_}`}
-                           style={{ backgroundColor: 'ligt-green',border: '2px solid',borderRadius: '3px'}}>Download</Button></td>
+                          <td> </td>
+                          <td> </td>
+                          <td> </td>
+                          <td className='green_td'><Button href={`https://localhost:5001/Images/${d_image.imageName_}`}
+                           style={{ backgroundColor: 'ligt-green',border: '2px solid',borderRadius: '3px'}}> Download </Button>
+                          <br />
+                          <br />
+
+                           Click here and download Design Image from the browser
+                           </td>
                            
-                          {/* <td>      </td> */}
+                          
                           <td>{d_image.newDesignCode}</td>
-                          <td>      </td> 
+                          <td>  </td> 
                           <td>{d_image.imageName_}</td>
-                          <td>      </td>
+                          <td> </td>
 
                          
-                          <td><Button style={{ backgroundColor: 'ligt-green',border: '2px solid',borderRadius: '3px'}}
-                           onClick={() => this.DeleteProduct(d_image.emploID)}>Delete Order</Button>  
-                          
-                          </td>  
+                          <td className='redxx_td'><Button style={{ backgroundColor: 'ligt-green',border: '2px solid',borderRadius: '3px'}}
+                           onClick={() => this.DeleteDImage(d_image.emploID)}>Delete Order</Button> 
+                           <br />
+                           If you reject-- Put a Delete_Notice, before Deleting
+                          </td>
+
                         </tr>  
                       ))}  
                     </tbody>
@@ -151,10 +167,20 @@ class ManageDesignImage extends React.Component{
 
                   <br/>
 
+
+                  <div>
+                 <Typography component="h8" variant="h1" color="textPrimary" gutterBottom>
+                        `
+                </Typography> 
+                </div>
+
                   <Container> 
                   <div>
                   <Link to='/managenewdesign'>
-                       <Button style={{ Size: '20px', backgroundColor: 'navajowhite',border: '5px solid',borderRadius: '3px', alignItems:'center'}}> Back to Design Details</Button>
+                       <Button style={{ Size: '20px', minWidth: '200px', backgroundColor: 'navajowhite',border: '5px solid',borderRadius: '3px', alignItems:'center'}}> Back to Design Details</Button>
+                   </Link>
+                   <Link to='/managedesignpayment'>
+                       <Button style={{Size: '20px', minWidth: '200px', backgroundColor: 'navajowhite',border: '5px solid',borderRadius: '3px', alignItems:'center'}}> Go To Payments</Button>
                    </Link>
                    </div>
                    </Container> 

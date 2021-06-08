@@ -38,7 +38,7 @@ namespace ProjectBackend
         {
             services.AddControllers();
             services.AddTransient<MakePayment>();
-          services.AddTransient<IMailService, MailService>();
+         // services.AddTransient<IMailService, MailService>();
 
             
 
