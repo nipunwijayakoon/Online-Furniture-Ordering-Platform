@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MimeKit;
 using ProjectBackEnd.Models;
 using ProjectBackend.Models;
+
 
 namespace ProjectBackend.Controllers
 {
@@ -80,8 +83,40 @@ namespace ProjectBackend.Controllers
         [HttpPost]
         public async Task<ActionResult<NewDesign>> PostNewDesign(NewDesign newDesign)
         {
-            _context.NewDesign_1.Add(newDesign);
-            await _context.SaveChangesAsync();
+            var newDesignWithSameEmail = _context.NewDesign_1.FirstOrDefault(m => m.PersonEmail.ToLower() == newDesign.PersonEmail.ToLower());
+
+            
+                _context.NewDesign_1.Add(newDesign);
+                await _context.SaveChangesAsync();
+
+
+                /*await _mailService.SendEmailAsync(customer.CustomerEmail, "Confirm your email", $"<h1>Thank You for registering in Lanka Furnitures</h1>" +
+                   $"<p>Please confirm your email by <a>Clicking here</a></p>");*/
+                var message = new MimeMessage();
+                message.From.Add(new MailboxAddress("LANKA FURNITURE MAKERS", "lankafurniture123@gmail.com"));
+                message.To.Add(new MailboxAddress(newDesign.PersonName, newDesign.PersonEmail));
+                message.Subject = "New Design Uploading Successful";
+                message.Body = new TextPart("plain")
+                {
+                    Text = ("Thank you for using LANKA FURNITURE MAKERS to purchase a New Furniture Design order. Your order is successfully completed and received to the sellers."+
+                            "                                              " +
+                            " Your New Design Code : "+newDesign.NewDesignCode)
+                };
+            
+                using (var client = new SmtpClient())
+                {
+                    client.Connect("smtp.gmail.com", 587, false);
+                    client.Authenticate("lankafurniture123@gmail.com", "Lanka@123");
+
+                    client.Send(message);
+
+                    client.Disconnect(true);
+                }
+
+            
+
+           
+          
 
             return CreatedAtAction("GetNewDesign", new { id = newDesign.ItemID }, newDesign);
         }

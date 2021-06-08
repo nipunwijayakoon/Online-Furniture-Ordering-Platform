@@ -8,7 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using ProjectBackEnd.Models;
 using ProjectBackend.Models;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Azure.Storage;
+using Microsoft.Extensions.Logging;
 using System.IO;
+using Microsoft.Azure.Storage.Blob;
 
 namespace ProjectBackend.Controllers
 {
@@ -16,6 +19,8 @@ namespace ProjectBackend.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
+        CloudStorageAccount cloudStorageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=blobuploadimages;AccountKey=0opLduCxsW6eRnuIc6OsoYK7d1uvV5WBiNZaEATx9cuMSU+cOkQGuzpqsTdCOarmriYNNhBfHU3PM/GLIT19zQ==;EndpointSuffix=core.windows.net");
+        
         private readonly FurnituresDBContext _context;
         private readonly IWebHostEnvironment _hostEnvironment;
 
@@ -34,12 +39,13 @@ namespace ProjectBackend.Controllers
                  {
                      ProductID = x.ProductID,
                      ProductName = x.ProductName,
+                     Branch = x.Branch,
                      Price = x.Price,
                      Count = x.Count,
                      Description = x.Description,
                      Content = x.Content,
                      ImageName = x.ImageName,
-                     ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName)
+                     ImageSrc = String.Format("https://blobuploadimages.blob.core.windows.net/testcontainer/{0}", x.ImageName)
                  })
                 .ToListAsync();
         }
@@ -68,7 +74,11 @@ namespace ProjectBackend.Controllers
             {
                 return BadRequest();
             }
-
+            if (productModel.ImageFile != null)
+            {
+                DeleteImage(productModel.ImageName);
+                productModel.ImageName = await SaveImage(productModel.ImageFile);
+            }
             _context.Entry(productModel).State = EntityState.Modified;
 
             try
@@ -127,16 +137,38 @@ namespace ProjectBackend.Controllers
         [NonAction]
         public async Task<string> SaveImage(IFormFile imageFile)
         {
-            string imageName = new String(Path.GetFileNameWithoutExtension(imageFile.FileName).Take(10).ToArray()).Replace(' ', '-');
-            imageName = imageName + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(imageFile.FileName);
-            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "Images", imageName);
-            using (var fileStream = new FileStream(imagePath, FileMode.Create))
+            string imageName = new String(Path.GetFileNameWithoutExtension(imageFile.FileName).ToArray());
+            imageName = imageName + Path.GetExtension(imageFile.FileName);
+            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, imageName);
+           
             {
-                await imageFile.CopyToAsync(fileStream);
+                await UploadToAzureAsync(imageFile);
             }
             return imageName;
         }
+        private async Task UploadToAzureAsync(IFormFile imageFile)
+        {
+            var cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
 
+            var cloudBlobContainer = cloudBlobClient.GetContainerReference("testcontainer");
 
+            if (await cloudBlobContainer.CreateIfNotExistsAsync())
+            {
+                await cloudBlobContainer.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Container });
+            }
+
+            var cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(imageFile.FileName);
+            cloudBlockBlob.Properties.ContentType = imageFile.ContentType;
+
+            await cloudBlockBlob.UploadFromStreamAsync(imageFile.OpenReadStream());
+        }
+
+        [NonAction]
+        public void DeleteImage(string imageName)
+        {
+            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "Images", imageName);
+            if (System.IO.File.Exists(imagePath))
+                System.IO.File.Delete(imagePath);
+        }
     }
 }

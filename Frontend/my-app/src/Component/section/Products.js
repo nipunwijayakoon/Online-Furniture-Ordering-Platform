@@ -1,12 +1,8 @@
 import React, { useState, useEffect, Component } from 'react'
 import axios from "axios";
 import '../css/Products.css';
-
-
 import CartIcon from '../svg/shopping-cart-solid.svg'
 import {Link} from 'react-router-dom'
-
-
 
 
 export default function Search(props) {
@@ -14,7 +10,8 @@ export default function Search(props) {
     const [cart, setCart] = useState([])
       
     const [visible, setVisible] = useState(6)
-   const addCart = (id) =>{
+    const addCart = (id) =>{
+      
         const check = cart.every(item =>{
             return item.productID !== id
         })
@@ -29,8 +26,7 @@ export default function Search(props) {
             
         }
     } 
-   
-    
+
     useEffect(() =>{
        const dataCart =  JSON.parse(localStorage.getItem('dataCart'))
        if(dataCart) setCart(dataCart)
@@ -47,7 +43,7 @@ export default function Search(props) {
     
     
 
-    const productAPI = (url = 'https://localhost:5001/api/Product/') => {
+    const productAPI = (url = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/Product/') => {
         return {
             fetchAll: () => axios.get(url),
          
@@ -68,12 +64,17 @@ export default function Search(props) {
     const imageCard = data => (
         <div className="card" key={data.productID}>
           <Link to={`/product/${data.productID}`}>
-                               <img src={data.imageSrc} alt=""/>
+                               <img src={`https://blobuploadimages.blob.core.windows.net/testcontainer/${data.imageName}`} alt=""/>
+                            
                            </Link>
                            <div className="content">
                            <h3>
                                    {data.productName}
                                </h3>
+                               
+                               <h5>
+                                  BRANCH: {data.branch}
+                               </h5>
                                <span>LKR {data.price}</span>
                                 <br/>
                                <h4>{data.description}</h4>
@@ -88,6 +89,9 @@ export default function Search(props) {
     const [searchPrice, setSearchPrice] = useState('');
     const priceFilter = (event) => setSearchPrice(event.target.value);
 
+    const [searchBranch, setSearchBranch] = useState('');
+    const branchFilter = (event) => setSearchBranch(event.target.value.toLowerCase());
+
 
     const showmoreProducts =()=>{
         setVisible ((prevValue)=>prevValue + 6)}
@@ -95,10 +99,9 @@ export default function Search(props) {
     
     return (
         <div id="product">
-                                 
                     
-                     
                     <div className="col-md-2 searchcard">
+                        
                     <input type="search"
                         className="form-control" placeholder={'Filter by Furniture Type'} onChange={nameFilter}/>
                     </div>
@@ -110,8 +113,14 @@ export default function Search(props) {
                     </div>    
                     </div> 
 
+                    <div className="col-md-2 searchcard">
+                    <input type="search"
+                        className="form-control" placeholder={'Filter by Branch'} onChange={branchFilter}/>
+                    </div>    
                     
-                    <div className="cart-icon ">  
+
+                    
+                    <div className="cart-icon2 ">  
                     <Link to='/cart'>  
                     <img src={CartIcon} alt="" width="40" /> 
                      <span>{cart.length}</span>   
@@ -126,26 +135,24 @@ export default function Search(props) {
                            
                             
                             product.filter((productList)=>{
-                                if (searchName ===  "" && searchPrice === "" )
+                                if (searchName ===  "" && searchPrice === "" && searchBranch ==="" )
                                 { return productList}
                              
-                                else if (productList.productName.toLocaleLowerCase().includes(searchName)  && searchPrice === "")
+                                else if (productList.productName.toLocaleLowerCase().includes(searchName)  && searchPrice === "" && searchBranch ==="")
                                    { return productList}
                                 
-                                else if (searchName === ""  && searchPrice === "")
+                                else if (searchName === ""  && searchPrice === "" && productList.branch.toLocaleLowerCase().includes(searchBranch))
                                    { return productList}  
-                                else if (searchName === ""  && productList.price <= (searchPrice))
+                                else if (searchName === "" &&  productList.price <= (searchPrice) && searchBranch ==="" )
                                    { return productList}   
 
-                                else if (productList.productName.toLocaleLowerCase().includes(searchName) && searchPrice === "")
+                                else if (productList.productName.toLocaleLowerCase().includes(searchName) && searchPrice === "" && productList.branch.toLocaleLowerCase().includes(searchBranch))
                                    { return productList}   
-                                else if (productList.productName.toLocaleLowerCase().includes(searchName)  && productList.price <= (searchPrice))
+                                else if (productList.productName.toLocaleLowerCase().includes(searchName)  && productList.branch.toLocaleLowerCase().includes(searchBranch) && productList.price <= (searchPrice))
                                    { return productList} 
-                                else if (searchName === ""  && productList.price <= (searchPrice))
+                                else if (searchName === ""   && productList.price <= (searchPrice) && productList.branch.toLocaleLowerCase().includes(searchBranch))
                                    { return productList}  
-                                // else if (productList.title.toLocaleLowerCase().includes(searchName) && productList.addresse.toLocaleLowerCase().includes(searchAddress) && productList.unitPrice <= (searchPrice))
-                                //    { return productList}           
-
+                               
                              }).slice(0,visible).map((productList) =>
                                 <tc>
                                     <td >{imageCard(productList)}</td>   
@@ -157,5 +164,6 @@ export default function Search(props) {
             
             <button className="btnloadmore" onClick={showmoreProducts}><b>Load More. . . </b></button>
         </div>
+        
     )
 }

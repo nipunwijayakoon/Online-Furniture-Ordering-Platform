@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
 
 import './UploadNewDesign.css';
 
@@ -40,12 +38,10 @@ export default function UploadDesignImage(props) {
 
 
 
-
     useEffect(() => {
         if (recordForEdit != null)
             setValues(recordForEdit);
     }, [recordForEdit])
-
 
 
 
@@ -87,11 +83,6 @@ export default function UploadDesignImage(props) {
         return Object.values(temp).every(x => x == true)
     }
 
-    {/*const resetForm = () => {
-        setValues(initialFieldValues)
-        document.getElementById('image-uploader').value = null;
-        setErrors({})
-    }*/}
 
     const handleFormSubmit = e => {
         e.preventDefault()
@@ -132,10 +123,7 @@ export default function UploadDesignImage(props) {
         
                     <img src="/images/ExampleDesign.jpg"  width="320" height="320" alt=""/>
 
-                    
-                    
-            
-
+                 
         
                 </Container>
                 </div>
@@ -148,10 +136,6 @@ export default function UploadDesignImage(props) {
                             <h1 className="headimg">Add Your New Furniture Design Here...</h1>
 
 
-            
-
-
-
             <form autoComplete="off" noValidate onSubmit={handleFormSubmit}>
                 <div className="imgcard">
                     <img src={values.ImageSrc_} className="card-img-top" />
@@ -161,15 +145,7 @@ export default function UploadDesignImage(props) {
                             <input type="file" accept="image/*" className={"form-control-file" + applyErrorClass('ImageSrc01')}
                                 onChange={showPreview} id="image-uploader" />
                         </div>
-                        
-                        {/*<div className="form-group">
-                            <input className={"form-control" + applyErrorClass('EmploName')} placeholder="Emplo Name" name="EmploName"
-                                value={values.EmploName}
-                                onChange={handleInputChange} />
-                        </div>*/}
-
-
-
+                      
                      
             
                 <div>
@@ -186,10 +162,10 @@ export default function UploadDesignImage(props) {
                                 onChange={handleInputChange} />
                         </div>
 
-                        <div>
-                        <p><span><Typography component="h6" variant="h8" gutterBottom>
+                        <div className="copy_code_text">
+                        <p><Typography component="h9" variant="h10" gutterBottom>
                         *Please make sure to copy this code to enter in the next page...
-                        </Typography></span></p>
+                        </Typography></p>
                         </div>
 
                         <div className="form-group text-center">

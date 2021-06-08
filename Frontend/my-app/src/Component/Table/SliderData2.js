@@ -1,22 +1,22 @@
 export const SliderData = [
     {
       image:
-        'https://images.unsplash.com/photo-1546768292-fb12f6c92568?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+        'http://static1.squarespace.com/static/55119bb3e4b0ff5f4d08ac93/t/5ace17918a922dd9b71afb87/1523455901768/workshop.jpg?format=1500w'
     },
     {
       image:
-        'https://images.unsplash.com/photo-1501446529957-6226bd447c46?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1489&q=80'
+        'https://cdn.stayhappening.com/events8/banners/50f0a3de5cabbe05b792147e26d4d800af9cdb1c1df9cdc399438a34edca3575-rimg-w526-h346-gmir.jpg?v=1616273083'
     },
     {
       image:
-        'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80'
+        'https://destinationksa.com/wp-content/uploads/2015/04/if1-710x433.jpg'
     },
     {
       image:
-        'https://images.unsplash.com/photo-1475189778702-5ec9941484ae?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1351&q=80'
+        'https://cdn.domestika.org/c_fill,dpr_auto,f_auto,h_674,pg_1,t_base_params,w_1200/v1600178387/course-covers/000/001/303/1303-original.jpg?1600178387'
     },
     {
       image:
-        'https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80'
+        'https://mk0lemonbinmkvu31y0b.kinstacdn.com/wp-content/uploads/2020/06/furniture-truck-june112020.jpg'
     }
   ];

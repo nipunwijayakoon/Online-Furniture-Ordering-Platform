@@ -17,6 +17,8 @@
     box-shadow: 2px 8px 40px rgb(206, 156, 156);
     margin: 10px;
     transition: 0.5s linear;
+    position: relative;
+    
 }
 .newcardpro img{
     max-width: 350px;
@@ -50,4 +52,26 @@
     letter-spacing: 2px;
     margin: 15px 0;
     border-radius: 5px;
+}
+.col-md-8{
+    margin-top: 0px;
+}
+.newpage{
+    margin-top: 0px;
+   
+    height: 130vh;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    position: relative;
+    background-image: url('https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  
+  }
+
+ .newpage .raw{
+    color: black;
+    margin-left: 10px;
+}
+.newformcard{
+    background-color: rgba(255, 255, 255, 0.5);
 }

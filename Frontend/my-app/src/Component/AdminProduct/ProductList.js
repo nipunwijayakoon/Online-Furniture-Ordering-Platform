@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import Product from './ProductForm';
 import './ProductList.css'
-
+import {Link} from 'react-router-dom'
+import { Table, Button} from 'react-bootstrap';  
 
 export default function ProductList(props) {
     const [productList, setProductList] = useState([])
@@ -16,7 +17,7 @@ export default function ProductList(props) {
         refreshProductList();
     }, [])
 
-    const productAPI = (url = 'https://localhost:5001/api/Product/') => {
+    const productAPI = (url = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/Product/') => {
         return {
             fetchAll: () => axios.get(url),
             create: newRecord => axios.post(url, newRecord),
@@ -67,15 +68,18 @@ export default function ProductList(props) {
     }
 
     const newimageCard = data => (
+       
         <div className="newcardpro" onClick={() => { showRecordDetails(data) }}>
-            <img src={data.imageSrc}  />
+            
+            <img src={`https://blobuploadimages.blob.core.windows.net/testcontainer/${data.imageName} `}  />
             <div className="newcardpro-body">
             <div  >
                 <b>{data.productName}</b><br/><br/>
+                {/* <b>{data.branch}</b><br/><br/> */}
                 <span>{data.description}</span> <br />
                 <h3>LKR{data.price}</h3> <br />
                 <button>ADD CART</button>
-                <div className="delete-button">
+                <div className="delete-button" >
                 <button  onClick={e => onDelete(e, parseInt(data.productID))}>
                     DELETE
                 </button>
@@ -87,8 +91,10 @@ export default function ProductList(props) {
 
 
     return (
-        <div className="row">
-            
+       <div className="newpage">
+        <div >
+               
+                   
             <div className="col-md-4">
                 <Product
                     addOrEdit={addOrEdit}
@@ -96,7 +102,7 @@ export default function ProductList(props) {
                     
                 />
             </div>
-            <br/>
+            {/* <br/> */}
             <div className="col-md-8">
                 <table>
                     <tbody>
@@ -114,6 +120,7 @@ export default function ProductList(props) {
                     </tbody>
                 </table>
                     </div>
+        </div>
         </div>
     )
 }

@@ -7,9 +7,7 @@ import './ManageDesign.css';
 import { Link } from 'react-router-dom';
 
 
-
-const apiUrl = 'https://localhost:5001/api/NewDesigns/';  
-
+const apiUrl = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/NewDesigns/';  
 
 
 class ManageNewDesign extends React.Component{  
@@ -109,6 +107,18 @@ class ManageNewDesign extends React.Component{
 
 
                 
+                  <div className='order_status'>
+                    <h3>If You are Rejecting an Order Please Put a Deleted Notice on Relevant Design Code</h3>
+                    <Link to='/deletenotice'>DELETE NOTICE</Link>
+
+                    <h3>If You are Confirming an Order Please Put a Confirmation Notice with Payment Details on Relevant Design Code</h3>
+                    <Link to='/confirmnotice'>CONFIRMATION NOTICE</Link>
+                  </div>
+                <br/>
+
+                
+
+                
                   <Table border-collapse=" collapse">  
 
 
@@ -121,17 +131,15 @@ class ManageNewDesign extends React.Component{
                         <th>Wood Type</th> 
                         <th>Color</th>   
                         
-                        <th>Duration</th>
-                        <th>Distance to Home</th>
-
+                        <th>Time Duration</th>
+                        <th>Location Coordinates</th>
+                        <th></th>
                         <th>Person Name</th> 
                         <th>Address</th>
-                        <th>Email</th>
-                        <th>Telephone</th> 
-                        
-                          
-                          
-                         
+                        <th></th>
+                        <th>Telephone</th>
+                        <th>Email</th> 
+                        <th></th>
                         <th>Reject</th>
                         
                       </tr>  
@@ -146,17 +154,20 @@ class ManageNewDesign extends React.Component{
                           <td>{design.woodName}</td>
                           <td>{design.woodColour}</td>
                           <td>{design.timeDuration}</td>
-                          <td>{design.distance}</td>
+                          <td>{design.location}</td>
+                          <td></td>
                           <td>{design.personName}</td>
-                          <td>{design.personAddress}</td>
+                          <td>{design.personAddress}</td> 
+                          <td></td>
+                          <td>{design.contactDetails}</td> 
                           <td>{design.personEmail}</td>
-                          <td>{design.contactDetails}</td>  
-                           
-                              
-                          <td><Button style={{ backgroundColor: 'ligt-green',border: '2px solid',borderRadius: '3px'}}
-                           onClick={() => this.DeleteDesign(design.itemID)}>Reject Order</Button>  
+
+                          <td> </td>    
+                          <td className='red_td'><Button style={{ backgroundColor: 'ligt-green',border: '2px solid',borderRadius: '3px'}}
+                           onClick={() => this.DeleteDesign(design.itemID)}>Delete Order</Button> 
+                           If you reject-- Put a Delete_Notice, before Deleting
+                          </td> 
                           
-                          </td>  
                         </tr>  
                       ))}
                      
@@ -164,11 +175,21 @@ class ManageNewDesign extends React.Component{
                   </Table> 
                  
                   </div> 
-                  <br/>  
+                  <br/>
+
+                  <div>
+                 <Typography component="h8" variant="h1" color="textPrimary" gutterBottom>
+                        `
+                </Typography> 
+                </div>  
+
                   <div>
                   <Container>
                   <Link to='/managedesignimage'>
-                       <Button style={{Size: '20px', backgroundColor: 'navajowhite',border: '5px solid',borderRadius: '3px', alignItems:'center'}}> Go To Customer Images</Button>
+                       <Button style={{Size: '20px', minWidth: '200px', backgroundColor: 'navajowhite',border: '5px solid',borderRadius: '3px', alignItems:'center'}}> Go To Customer Images</Button>
+                   </Link>
+                   <Link to='/managedesignpayment'>
+                       <Button style={{Size: '20px', minWidth: '200px', backgroundColor: 'navajowhite',border: '5px solid',borderRadius: '3px', alignItems:'center'}}> Go To Payments</Button>
                    </Link>
                    </Container>
                    </div>

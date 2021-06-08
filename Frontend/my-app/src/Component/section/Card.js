@@ -17,6 +17,9 @@ const Card = (props) => {
                             <div className="txt-area1">
                             <p className="card-title">{props.product.productName}</p>
                             </div>
+                            {/* <div className="txt-area1">
+                            <p className="card-title">{props.product.branch}</p>
+                            </div> */}
                         </div>
                         <p className="price">Rs: {props.product.price}.00</p>
                         <div>

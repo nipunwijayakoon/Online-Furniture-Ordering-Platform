@@ -56,6 +56,9 @@ namespace ProjectBackend.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("BillDate")
                         .HasColumnType("nvarchar(max)");
 
@@ -65,7 +68,16 @@ namespace ProjectBackend.Migrations
                     b.Property<string>("CardNo")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Cvv")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Designcode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Distance")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -77,12 +89,78 @@ namespace ProjectBackend.Migrations
                     b.Property<int>("ExpYear")
                         .HasColumnType("int");
 
+                    b.Property<string>("Newdesigncode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PayInfo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tele")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("TotalPrice")
                         .HasColumnType("int");
 
                     b.HasKey("BillingId");
 
                     b.ToTable("BillingInfoTable");
+                });
+
+            modelBuilder.Entity("ProjectBackEnd.Models.BillingNewDesign", b =>
+                {
+                    b.Property<int>("BillingNewId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BillDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CardName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CardNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cvv")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Designcode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Distance")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ExpMonth")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ExpYear")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Newdesigncode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PayInfo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tele")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TotalPrice")
+                        .HasColumnType("int");
+
+                    b.HasKey("BillingNewId");
+
+                    b.ToTable("BillingNewDesignTable");
                 });
 
             modelBuilder.Entity("ProjectBackEnd.Models.Customer", b =>
@@ -295,33 +373,97 @@ namespace ProjectBackend.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Colour")
+                    b.Property<string>("Branch")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Count")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Price")
+                    b.Property<int>("Designcode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Src")
+                    b.Property<string>("ImageSrc")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Title")
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Total")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Total")
+                        .HasColumnType("int");
 
                     b.HasKey("ProductID");
 
                     b.ToTable("Cartitems");
+                });
+
+            modelBuilder.Entity("ProjectBackend.Models.ConfirmedDesigns", b =>
+                {
+                    b.Property<int>("ConfirmedID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Charge_for_km")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Estimated_Amount")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Input_Design_Code")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("No_of_kms")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Percentage_of_advance")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Seller_Contact")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Statusof_Order")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("ConfirmedID");
+
+                    b.ToTable("ConfirmedNewDesigns");
+                });
+
+            modelBuilder.Entity("ProjectBackend.Models.DeletedDesigns", b =>
+                {
+                    b.Property<int>("DeletedID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Deleted_Reason")
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("Input_Design_Code")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Statusof_Design")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("DeletedID");
+
+                    b.ToTable("DeletedNewDesigns");
                 });
 
             modelBuilder.Entity("ProjectBackend.Models.EMP", b =>
@@ -376,7 +518,7 @@ namespace ProjectBackend.Migrations
                     b.Property<string>("ContactDetails")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Distance")
+                    b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NewDesignCode")
@@ -412,11 +554,14 @@ namespace ProjectBackend.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Branch")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Count")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -435,15 +580,40 @@ namespace ProjectBackend.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("ProjectBackend.Models.Shoplist", b =>
+            modelBuilder.Entity("ProjectBackend.Models.Receipt", b =>
                 {
-                    b.Property<int>("ShopId")
+                    b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Area")
+                    b.Property<string>("CustomerEmail")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Date")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
+                    b.Property<string>("ProductName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("OrderId");
+
+                    b.ToTable("Receipts");
+                });
+
+            modelBuilder.Entity("ProjectBackend.Models.Shoplist", b =>
+                {
+                    b.Property<string>("Area")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -470,11 +640,14 @@ namespace ProjectBackend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ShopId")
+                        .HasColumnType("int");
+
                     b.Property<string>("TelNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ShopId");
+                    b.HasKey("Area");
 
                     b.ToTable("Shoplist");
                 });

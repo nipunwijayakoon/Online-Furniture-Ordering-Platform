@@ -16,7 +16,7 @@ namespace ProjectBackend.Models
         public string WoodColour { get; set; }
         public string BranchName { get; set; }
 
-        public string Distance { get; set; }
+        public string Location { get; set; }
 
         public string PersonName { get; set; }
         public string PersonAddress { get; set; }

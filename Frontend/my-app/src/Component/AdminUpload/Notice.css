@@ -1,0 +1,77 @@
+.newdesign_paper{
+    margin: top 8%;
+    display: 'flex';
+    align-items: 'center';
+    width: '100%';
+}
+.newdesign_paper h1{
+    font-family:fantasy;
+    font-size: 30px;
+    color: rgb(230, 40, 65);
+}
+.newdesign_form{
+    width: '80%';
+    margin-top: top 3%;
+    
+}
+.notice_aws_newdesign .newdesign_paper .newdesign_form .newdesign_submit{
+    margin: 9px, 0px, 2px;
+    color: #000;
+    
+
+}
+.newdesign_paper .post h3{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: rgb(145, 57, 22);
+}
+.notice_aws_newdesign{
+    border: black;
+    background-attachment: fixed;
+    background-color: rgb(255, 242, 242);
+}
+.notice_aws_newdesign .notice_sdf_newdesign{
+    /* background-color: rgb(214, 187, 187);  */
+    border: black;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    background-image: url('https://images.pexels.com/photos/347139/pexels-photo-347139.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-size: "cover";
+    
+}
+.newdesign_des{
+    margin-left: 650px;
+}
+.postbutton .submitnotice button{
+    color: #000;
+    text-align: center;
+}
+.newdesign_label{
+    font-size: small;
+    text-align: center;
+    color: rgb(230, 40, 65);
+}
+
+.newdesign_paper h4{
+    color: rgb(8, 122, 14);
+}
+.newdesign_paper h3{
+
+    color: darkblue;
+}
+.container_newdesign_confirmnotice{
+    height: 840px;
+    width: 700px;
+    border-radius: 10px;
+    background-color: rgba(230, 207, 197, 0.5);
+    
+}
+.container_newdesign_deletenotice{
+    height: 490px;
+    width: 700px;
+    border-radius: 10px;
+    background-color: rgba(230, 207, 197, 0.5);
+    
+}

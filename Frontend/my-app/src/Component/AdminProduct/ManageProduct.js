@@ -4,12 +4,13 @@ import axios from 'axios';
 import './ManageProduct.css';  
 import { Link } from 'react-router-dom';
   
-const apiUrl = 'https://localhost:5001/api/Product/';  
+const apiUrl = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/Product/';  
   
 class ManageProduct extends React.Component{  
     constructor(props){  
         super(props);  
         this.state = {  
+          Cart:JSON.parse(localStorage.getItem('dataCart')),
            error:null,  
            products:[],  
            response: {},  
@@ -68,6 +69,16 @@ DeleteProduct(productID) {
                     <Link to='/ProductList'>
                        <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> ADD PRODUCT</Button>
                    </Link>
+<span>---------------------</span>
+                   <Link to='/CustomerDetails'>
+                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> CUSTOMER ORDER DETAILS</Button>
+                   </Link>
+                   <span>---------------------</span>
+                   <Link to='/customerorderdetail'>
+                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> ORDERED PRODUCT DETAILS</Button>
+
+                   </Link>
+         
                   </div>
                   <div>
                   
@@ -79,7 +90,8 @@ DeleteProduct(productID) {
                       
                         <th>Image</th> 
                         
-                        <th>Product Name</th> 
+                        <th>Product Name</th>
+                        <th>Branch</th> 
                         <th>Description</th>
                         
                         <th>Content</th>
@@ -94,9 +106,10 @@ DeleteProduct(productID) {
                       {products.map(product => (  
                         <tr key={product.productID} style={{   border: '2px solid DimGrey'}}>  
                         
-                          <td><img src ={product.imageSrc} className="poto"/></td>  
+                          <td><img src ={`https://blobuploadimages.blob.core.windows.net/testcontainer/${product.imageName}`} className="poto"/></td>  
                           
                           <td>{product.productName}</td>
+                          <td>{product.branch}</td>
                           <td>{product.description}</td> 
                         
                          <td>                           {product.content}</td>
