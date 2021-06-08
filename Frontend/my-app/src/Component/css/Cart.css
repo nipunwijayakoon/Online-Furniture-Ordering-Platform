@@ -1,4 +1,9 @@
- section .cart{
+section{
+    color: rgb(10, 69, 136);
+    background-color: rgb(223, 221, 219);
+}
+
+section .cart{
     position: relative;
     border: 4px solid rgb(110, 7, 42);
     background-image: url(https://ak.picdn.net/shutterstock/videos/1009184375/thumb/12.jpg);
@@ -33,11 +38,11 @@
 }
 .total{
     width: 100%;
-    height: 30px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 40px;
+    font-size: 20px;
     color: rgb(43, 7, 7);
 }
 .total a{
@@ -62,6 +67,7 @@
     font-size: 30px;
     /* flex-wrap: wrap-reverse; */
 }
+
 .box .row h2{
     font-style: italic;
     color: rgb(83, 8, 58);
@@ -92,3 +98,7 @@
 /* .totalnew h6{
     text-align: right;
 } */
+
+.instruct_cart{
+    background-image: url('https://images.pexels.com/photos/6707631/pexels-photo-6707631.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+}

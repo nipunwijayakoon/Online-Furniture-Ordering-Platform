@@ -14,7 +14,7 @@ export default function UploadDesignImageList(props) {
         refreshUploadDesignImageList();
     }, [])
 
-    const uploadDesignImageAPI = (url = 'https://localhost:5001/api/Emplo') => {
+    const uploadDesignImageAPI = (url = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/Emplo') => {
         return {
             fetchAll: () => axios.get(url),
             create: newRecord => axios.post(url, newRecord),

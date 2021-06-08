@@ -167,7 +167,7 @@ export default function UploadDesignImage(props) {
                         </div>
 
                         <div>
-                        <p><span><Typography component="h6" variant="h8" gutterBottom>
+                        <p><span><Typography component="h50" variant="h60" gutterBottom>
                         *Please make sure to copy this code to enter in the next page...
                         </Typography></span></p>
                         </div>
