@@ -112,7 +112,7 @@ handleSubmit = (e) => {
 
   if (Object.keys(errors).length === 0) {
       console.log(data);
-      axios.post('https://projectbackendlankafurnituremakers.azurewebsites.net/api/BillingInfo/',{email:this.state.data.email,cardName:this.state.data.cardName,cardNo:this.state.data.cardNo,expMonth:parseFloat(this.state.data.expMonth),expYear:parseFloat(this.state.data.expYear),billDate:this.state.data.billDate,cvv:this.state.data.cvv,totalPrice:parseFloat(this.state.data.totalPrice*100),tele:this.state.data.tele, address:this.state.data.address, city:this.state.data.city, designcode:this.state.data.designcode, distance:this.state.data.distance})
+      axios.post('https://lankafurnituremakersapi.azurewebsites.net/api/BillingInfo/',{email:this.state.data.email,cardName:this.state.data.cardName,cardNo:this.state.data.cardNo,expMonth:parseFloat(this.state.data.expMonth),expYear:parseFloat(this.state.data.expYear),billDate:this.state.data.billDate,cvv:this.state.data.cvv,totalPrice:parseFloat(this.state.data.totalPrice*100),tele:this.state.data.tele, address:this.state.data.address, city:this.state.data.city, designcode:this.state.data.designcode, distance:this.state.data.distance})
       
       this.props.history.push({pathname:'/Receipt'});
     

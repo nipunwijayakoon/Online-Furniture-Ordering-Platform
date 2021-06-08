@@ -17,7 +17,7 @@ export default function ProductList(props) {
         refreshProductList();
     }, [])
 
-    const productAPI = (url = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/Product/') => {
+    const productAPI = (url = 'https://lankafurnituremakersapi.azurewebsites.net/api/Product/') => {
         return {
             fetchAll: () => axios.get(url),
             create: newRecord => axios.post(url, newRecord),

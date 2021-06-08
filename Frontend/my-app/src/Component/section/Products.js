@@ -43,7 +43,7 @@ export default function Search(props) {
     
     
 
-    const productAPI = (url = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/Product/') => {
+    const productAPI = (url = 'https://lankafurnituremakersapi.azurewebsites.net/api/Product') => {
         return {
             fetchAll: () => axios.get(url),
          

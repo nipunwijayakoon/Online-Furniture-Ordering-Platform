@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "ProjectBackEndContextConnection"
+    },
     "mssql1": {
       "type": "mssql",
       "connectionId": "FurnituresDBContext"
