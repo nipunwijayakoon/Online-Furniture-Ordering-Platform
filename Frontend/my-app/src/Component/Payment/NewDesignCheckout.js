@@ -96,7 +96,7 @@ handleSubmit = (e) => {
   if (Object.keys(errors).length === 0) {
       console.log(data);
       //Call an api here
-      axios.post('https://projectbackendlankafurnituremakers.azurewebsites.net/BillingNewDesign/',{newdesigncode:this.state.data.newdesigncode, billDate:this.state.data.billDate, payInfo:this.state.data.payInfo, cardName:this.state.data.cardName, cardNo:this.state.data.cardNo, expMonth:parseFloat(this.state.data.expMonth), expYear:parseFloat(this.state.data.expYear), cvv:this.state.data.cvv, totalPrice:parseFloat(this.state.data.totalPrice)})
+      axios.post('https://projectbackendlankafurnituremakers.azurewebsites.net/api/BillingNewDesign/',{newdesigncode:this.state.data.newdesigncode, billDate:this.state.data.billDate, payInfo:this.state.data.payInfo, cardName:this.state.data.cardName, cardNo:this.state.data.cardNo, expMonth:parseFloat(this.state.data.expMonth), expYear:parseFloat(this.state.data.expYear), cvv:this.state.data.cvv, totalPrice:parseFloat(this.state.data.totalPrice)})
       
       this.props.history.push({pathname:'/newdesignreceipt'});
       //Resetting the form

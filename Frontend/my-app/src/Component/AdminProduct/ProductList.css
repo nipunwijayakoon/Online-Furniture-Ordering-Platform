@@ -56,17 +56,6 @@
 .col-md-8{
     margin-top: 0px;
 }
-.newpage{
-    margin-top: 0px;
-   
-    height: 130vh;
-    display: flex;
-    align-items:center;
-    justify-content: center;
-    position: relative;
-    background-image: url('https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-  
-  }
 
  .newpage .raw{
     color: black;

@@ -1,6 +1,6 @@
-section{
+.section_new section{
     color: rgb(10, 69, 136);
-    background-color: rgb(223, 221, 219);
+    background-color: rgb(211, 209, 208);
 }
 
 section .cart{
@@ -63,7 +63,8 @@ section .cart{
 }
 .total h30{
     margin-right: 100px;
-    color: rgb(77, 5, 25);
+    color: rgb(44, 2, 14);
+    background-color: rgb(239, 243, 177);
     font-size: 30px;
     /* flex-wrap: wrap-reverse; */
 }

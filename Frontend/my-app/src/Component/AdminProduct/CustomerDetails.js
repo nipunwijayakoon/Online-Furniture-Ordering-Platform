@@ -2,7 +2,7 @@ import React from 'react';
 import { Table, Button} from 'react-bootstrap';  
 import axios from 'axios';  
 import {Link} from 'react-router-dom'
-
+import Container from '@material-ui/core/Container';
   
 const apiUrl = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/BillingInfo/';  
   
@@ -61,13 +61,7 @@ DeleteOrder(billingId) {
               <div style={{ backgroundImage: "url('https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')"}}>   
                   <div className='topic'>
                     <h2>ORDER DETAILS</h2>
-                    <Link to='/customerorderdetail'><Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}>VIEW ORDERED PRODUCTS</Button></Link>
-                    <span>---------------------</span>
-                    <Link to='/ManageProduct'><Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}>PRODUCT DETAILS</Button></Link>
-                    <span>---------------------</span>
-                    <Link to='/ProductList'>
-                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> ADD PRODUCT</Button>
-                   </Link>
+                   
           </div>
                        <div style={{ backgroundColor: 'LightGrey', margin: '5px 5px'}} >  
                        
@@ -86,7 +80,7 @@ DeleteOrder(billingId) {
                                <th>Distance from branch to destination (km)</th>
                                <th>Delivery charge (Rs.)</th>
                                <th>Amount (Rs.)</th>
-                                
+                                <th>Reject Order</th>
                                  
                               
                                
@@ -107,14 +101,27 @@ DeleteOrder(billingId) {
                                  <td>{product.distance}</td>
                                  <td>{product.distance *100}</td>
                                  <td>{product.totalPrice/100 + product.distance*100}</td>
-                                 
+                                 <td><Button style={{ backgroundColor: 'ligt-green',border: '2px solid',borderRadius: '3px'}}
+                           onClick={() => this.DeleteOrder(product.billingId)}>Reject</Button></td>  
+                            
                                      
                                  
                                </tr>  
                              ))}  
                            </tbody>  
                          </Table> 
-                         </div>   
+                       
+                         </div>
+                         <Container>
+                  <Link to='/customerorderdetail'>
+                       <Button style={{Size: '20px', minWidth: '200px', backgroundColor: 'navajowhite',border: '5px solid',borderRadius: '3px', alignItems:'center'}}> Show Ordered Products</Button>
+                   </Link>
+                   <Link to='/ManageProduct'>
+                       <Button style={{Size: '20px', minWidth: '200px', backgroundColor: 'navajowhite',border: '5px solid',borderRadius: '3px', alignItems:'center'}}> Go to Product Details Page</Button>
+                   </Link>
+                  
+                   </Container> 
+                   <br/>  
                        </div>  
                      )  
                }  
