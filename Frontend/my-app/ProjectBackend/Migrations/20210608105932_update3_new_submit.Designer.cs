@@ -9,8 +9,8 @@ using ProjectBackEnd.Models;
 namespace ProjectBackend.Migrations
 {
     [DbContext(typeof(FurnituresDBContext))]
-    [Migration("20210607163451_poyo3")]
-    partial class poyo3
+    [Migration("20210608105932_update3_new_submit")]
+    partial class update3_new_submit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -28,6 +28,7 @@ namespace ProjectBackEnd.Models
 
         public DbSet<ProjectBackEnd.Models.Login> Login { get; set; }
         public DbSet<ProjectBackend.Models.NewDesign> NewDesign_1 { get; set; }
+
         //public DbSet<WeatherForecast> WeatherForecasts { get; set; }
         public DbSet<EmploModel> Emplos { get; set; } 
         public DbSet<EMP> EMPModel { get; set; }

@@ -24,7 +24,7 @@ const tutorialSteps = [
         imgPath: '/images/signup.jpg',
         content1: 'Register on us, if you are new to our page and if you still do not have an account.',
         content2: 'Click "Sign Up" and create an account to register on us to feel our features.',
-        content3: 'If you are a new customer choose "BECOME A BUYER" section & if you are a new seller choose "BECOME A SELLER" section.',
+        content3: 'If you are a new customer choose "BECOME A BUYER" section. ',
         
         
     },
@@ -85,14 +85,14 @@ const tutorialSteps = [
     content2: 'Watch your shopping cart by clicking the CartIcon on designs page.',
     content3: 'Increase and decrease the amounts of selected products in the cart by clicking "+" & "-" buttons.',
     content4: 'Remove the unwanted products from your cart by clicking "X" button.',
-    content5: 'Select the color of selected items from the given colors to the product."',
+    content5: 'When you are ready to do payments, confirm the items to buy by clicking "Confirm to Buy" button on each item."',
   },
   {
     label: 'PAYMENT',
     imgPath: '/images/payment.jpg',
-    content1: 'When doing Payment, you have to buy all items in your cart.',
-    content2: 'Remove unwanted products and keep the products in cart which only you are now going to pay.',
-    content3: 'Click "Payment" button in the Shopping Cart.',
+    content1: 'When doing Payment, you have to buy all items which are confirmed to buy in your cart.',
+    content2: 'Remove unwanted products and keep the products in cart which only you are confirmed to buy.',
+    content3: 'Click "Checkout" button in the Shopping Cart.',
     content4: 'Fill your addresses and do card payments and complete the payment process to get the products to your home.',
     
   },
@@ -212,7 +212,7 @@ export default function TextMobileStepper() {
 
     <Button variant="contained" color="primary">
 
-        <Link underline="none" href= "blog">More About Us</Link>  
+        <Link underline="none" href= "about_us">More About Us</Link>  
 
     </Button>
   </div>
@@ -298,10 +298,10 @@ export default function TextMobileStepper() {
         [00m 00s - 00m 26s] - Sign Up & Sign In Instructions 
     </Typography>
     <Typography component="h6" variant="h6" align="left" color="textPrimary"  paragraph>
-        [00m 26s - 01m 23s] - Selecting Furniture Items & Add them to Cart Instructions 
+        [00m 26s - 01m 22s] - Selecting Furniture Items & Add them to Cart Instructions 
     </Typography>
     <Typography component="h6" variant="h6" align="left" color="textPrimary"  paragraph>
-        [01m 23s - 02m 07s] - Operate Items in the Cart & Lead to Payment Instructions 
+        [01m 22s - 02m 07s] - Operate Items in the Cart & Lead to Payment Instructions 
     </Typography>
     <Typography component="h6" variant="h6" align="left" color="textPrimary"  paragraph>
         [02m 07s - 02m 42s] - Do Payments & Complete the Order Instructions 

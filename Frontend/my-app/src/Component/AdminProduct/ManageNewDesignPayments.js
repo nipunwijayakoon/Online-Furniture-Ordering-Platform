@@ -136,7 +136,7 @@ class ManageDesignPayment extends React.Component{
                           <td>      </td> 
                           <td>{d_payment.payInfo}</td>
                           <td>      </td>
-                          <td>{d_payment.totalPrice}</td>
+                          <td>{d_payment.totalPrice /100}</td>
                           <td>      </td>
 
                         </tr>  

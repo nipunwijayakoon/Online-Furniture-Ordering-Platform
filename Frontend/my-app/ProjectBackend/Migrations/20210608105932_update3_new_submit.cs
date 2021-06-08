@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class poyo : Migration
+    public partial class update3_new_submit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
