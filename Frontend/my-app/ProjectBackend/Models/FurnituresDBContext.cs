@@ -40,10 +40,10 @@ namespace ProjectBackEnd.Models
         public DbSet<ConfirmedDesigns> ConfirmedNewDesigns { get; set; }
         public DbSet<Receipt> Receipts { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+/*protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Shoplist>().HasKey(s => s.Area);
-        }
+        }*/
         public DbSet<Shoplist> Shoplist { get; set; }
 
     }

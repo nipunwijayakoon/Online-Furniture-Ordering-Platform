@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 
 export default function Cart(props) {
 
-    const cartAPI=(url="https://projectbackendlankafurnituremakers.azurewebsites.net/api/Cartitems")=>{
+    const cartAPI=(url="https://lankafurnituremakersapi.azurewebsites.net/api/Cartitems")=>{
         return{
             fetchAll:()=> axios.get(url),
             create:(newRecord)=>axios.post(url,newRecord),
@@ -48,7 +48,7 @@ export default function Cart(props) {
        
       
         if(window.confirm("Do you want to remove this product?")){
-            axios.delete(`https://projectbackendlankafurnituremakers.azurewebsites.net/api/Cartitems/${id}`)
+            axios.delete(`https://lankafurnituremakersapi.azurewebsites.net/api/Cartitems/${id}`)
             cart.forEach((item, index) => {
                 if(item.productID === id){
                     cart.splice(index, 1)
@@ -120,14 +120,14 @@ export default function Cart(props) {
 
 
    const Addproduct=(product)=>{  
-        axios.post('https://projectbackendlankafurnituremakers.azurewebsites.net/api/Cartitems',{productName:product.productName,imageName:product.imageName,designcode:randomNum,branch:product.branch,imageSrc:`https://localhost:5001/Images/${product.imageName} `,description:product.description,content:product.content, price:product.price,count:product.count, total:(product.price * product.count)})  
+        axios.post('https://lankafurnituremakersapi.azurewebsites.net/api/Cartitems',{productName:product.productName,imageName:product.imageName,designcode:randomNum,branch:product.branch,imageSrc:`https://localhost:5001/Images/${product.imageName} `,description:product.description,content:product.content, price:product.price,count:product.count, total:(product.price * product.count)})  
       .then(json => {  
         alert("Product is selected successfully");  
       })  
       } 
 
       const Deleteproduct=(productID)=>{  
-        axios.delete(`https://projectbackendlankafurnituremakers.azurewebsites.net/api/Cartitems/${productID}`)
+        axios.delete(`https://lankafurnituremakersapi.azurewebsites.net/api/Cartitems/${productID}`)
       .then(json => {  
         alert("Product is deleted successfully");  
       })  
@@ -196,7 +196,7 @@ export default function Cart(props) {
                             designCode:randomNum,
                           branch:product.branch,description:product.description,
                           content:product.content,price:product.price,
-                          imageSrc:`https://localhost:5001/Images/${product.imageName} `,
+                          imageSrc:`https://blobuploadimages.blob.core.windows.net/testcontainer/${product.imageName} `,
                           count:product.count,total:(product.price * product.count)})}>CONFIRM TO BUY</button>
 
                             

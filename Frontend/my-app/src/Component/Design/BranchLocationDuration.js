@@ -29,12 +29,7 @@ export class BranchDistanceDuration extends Component {
 handleClick = event => this.setState({ anchorEl: event.currentTarget })
 handleClose = () => this.setState({ anchorEl: null })
 
-componentDidMount() {
-  axios.get(`https://projectbackendlankafurnituremakers.azurewebsites.net/ShopLists`).then(res => { console.log("new",res);
-      this.setState({persons:res.data});
 
-  })
-}
 
 render() {
   const { values, handleChange, handleClick, handleClose } = this.props;

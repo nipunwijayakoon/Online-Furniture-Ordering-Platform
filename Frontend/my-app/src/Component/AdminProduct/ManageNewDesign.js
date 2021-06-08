@@ -7,7 +7,7 @@ import './ManageDesign.css';
 import { Link } from 'react-router-dom';
 
 
-const apiUrl = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/NewDesigns/';  
+const apiUrl = 'https://lankafurnituremakersapi.azurewebsites.net/api/NewDesigns/';  
 
 
 class ManageNewDesign extends React.Component{  

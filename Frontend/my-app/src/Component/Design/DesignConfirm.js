@@ -33,12 +33,13 @@ export class DesignConfirm extends Component {
        } = this.props;
    
     console.log('sfsfsfs')
+    this.props.nextStep();
     e.preventDefault();
     try {
       console.log("Wname", woodName)
       const res = await ordersubmit( woodName, woodColour, branchName, location, personName, personAddress, personEmail, timeDuration, contactDetails, newDesignCode );
       console.log("succ", res)
-      this.props.nextStep();
+     // this.props.nextStep();
     } catch (error) {
       console.log(error)
     }
