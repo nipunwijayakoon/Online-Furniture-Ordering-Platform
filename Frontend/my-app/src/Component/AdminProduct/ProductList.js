@@ -17,7 +17,7 @@ export default function ProductList(props) {
         refreshProductList();
     }, [])
 
-    const productAPI = (url = 'https://localhost:5001/api/Product/') => {
+    const productAPI = (url = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/Product/') => {
         return {
             fetchAll: () => axios.get(url),
             create: newRecord => axios.post(url, newRecord),
@@ -71,7 +71,7 @@ export default function ProductList(props) {
        
         <div className="newcardpro" onClick={() => { showRecordDetails(data) }}>
             
-            <img src={data.imageSrc}  />
+            <img src={`https://blobuploadimages.blob.core.windows.net/testcontainer/${data.imageName} `}  />
             <div className="newcardpro-body">
             <div  >
                 <b>{data.productName}</b><br/><br/>
@@ -91,19 +91,10 @@ export default function ProductList(props) {
 
 
     return (
-        <div className="row">
+       <div className="newpage">
+        <div >
                
-                    <Link to='/ManageProduct'><Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}>PRODUCT DETAILS</Button></Link>
-                    <span>---------------------</span>
-                   <Link to='/CustomerDetails'>
-                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> CUSTOMER ORDER DETAILS</Button>
-                   </Link>
-                   <span>---------------------</span>
-            <Link to='/customerorderdetail'>
-                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> ORDERED PRODUCT DETAILS</Button>
-                   </Link>
-
-              
+                   
             <div className="col-md-4">
                 <Product
                     addOrEdit={addOrEdit}
@@ -111,7 +102,7 @@ export default function ProductList(props) {
                     
                 />
             </div>
-            <br/>
+            {/* <br/> */}
             <div className="col-md-8">
                 <table>
                     <tbody>
@@ -129,6 +120,7 @@ export default function ProductList(props) {
                     </tbody>
                 </table>
                     </div>
+        </div>
         </div>
     )
 }

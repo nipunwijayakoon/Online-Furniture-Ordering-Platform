@@ -12,6 +12,7 @@ import html2canvas from 'html2canvas';
 import axios from 'axios';
 import logo from '../../images/company_logo.png'; 
 
+
 var total =0;
 var price;
 
@@ -183,7 +184,8 @@ class Receipt extends React.Component{
                     </Button> 
                          
                </div>
-                  
+                 <br/>
+                 <br/> 
         </div> 
         
                  

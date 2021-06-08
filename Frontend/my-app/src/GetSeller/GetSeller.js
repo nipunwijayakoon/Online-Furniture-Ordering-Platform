@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../Get2/Get2.css';
+import './GetSeller.css';
 import axios from 'axios';
 import { ExportCSV } from '../Get2/ExportCSV';
 import {Link} from 'react-router-dom'
@@ -78,17 +79,16 @@ class Get extends Component {
     
                             )}                    
                 </div>
-                <div>
-                <ExportCSV csvData={this.state.persons} fileName={this.state.CustomerDetails} />
+                <div >
+                    <button class = "button">
+                        <ExportCSV  csvData={this.state.persons} fileName={this.state.CustomerDetails}>Download</ExportCSV>
+                    </button>
+                    <button class = "button">
+                        <Link to='/asaseller'> ADD SELLER </Link>
+                    </button>
                 </div>
 
-               <div>
-               <Link to='/asaseller'>
-                <button >
-                    Add seller
-                </button>
-            </Link>
-               </div>
+              
 
                 
             </section>
