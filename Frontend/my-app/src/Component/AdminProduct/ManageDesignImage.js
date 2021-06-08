@@ -135,7 +135,7 @@ class ManageDesignImage extends React.Component{
                           <td> </td>
                           <td> </td>
                           <td> </td>
-                          <td className='green_td'><Button href={`https://blobuploadimages.blob.core.windows.net/testcontainer//${d_image.imageName_}`}
+                          <td className='green_td'><Button href={`https://blobuploadimages.blob.core.windows.net/testcontainer/${d_image.imageName_}`}
                            style={{ backgroundColor: 'ligt-green',border: '2px solid',borderRadius: '3px'}}> Download </Button>
                           <br />
                           <br />

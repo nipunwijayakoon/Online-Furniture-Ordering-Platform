@@ -79,16 +79,7 @@ DeleteOrder(productID) {
                   </form>
 
                   </div><br/>
-                  <Link to='/ProductList'>
-                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> ADD PRODUCT</Button>
-                   </Link>
-                    <span>---------------------</span>
-                   <Link to='/CustomerDetails'>
-                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> CUSTOMER ORDER DETAILS</Button>
-                   </Link>
-                   <span>---------------------</span>
-                    <Link to='/ManageProduct'><Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> PRODUCT DETAILS</Button></Link>
-                  
+                 
                 </Container>
                   </div>
                        <div style={{ backgroundColor: 'LightGrey', margin: '5px 5px'}} >  
@@ -126,14 +117,20 @@ DeleteOrder(productID) {
                                  <td>{cart.branch}</td>
                                  <td>{cart.price}</td>
                                  <td>{cart.total}</td>
-                                 
-                                     
-                                 
+                                
                                </tr>  
                              ))}  
                            </tbody>  
                          </Table> 
                          </div>   
+                         <Container>
+                  <Link to='/CustomerDetails'>
+                       <Button style={{Size: '20px', minWidth: '200px', backgroundColor: 'navajowhite',border: '5px solid',borderRadius: '3px', alignItems:'center'}}> Go to Customer Order Details</Button>
+                   </Link>
+                 
+                  
+                   </Container>  
+                   <br/>
                        </div>  
                      )  
                }  

@@ -3,6 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 import { Table,Button } from 'react-bootstrap';
 import './ProductForm.css';
+import Container from '@material-ui/core/Container';
 
 const defaultImageSrc_ = '/images/image_default_icon.jpg'
 
@@ -103,19 +104,9 @@ export default function ProductForm(props) {
         <div className="newpage" style={{ backgroundSize: "cover"}}>
 		
                 <div>
-                <Link to='/ManageProduct'>
-                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> PRODUCT DETAILS</Button>
-                   </Link>
-<span>---------------------</span>
-                   <Link to='/CustomerDetails'>
-                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> CUSTOMER ORDER DETAILS</Button>
-                   </Link>
-                   <span>---------------------</span>
-                   <Link to='/customerorderdetail'>
-                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> ORDERED PRODUCT DETAILS</Button>
-
-                   </Link>
-                  
+                    <br/>
+                    <br/>
+               
                             <h2 className="newheading">Add Furniture Product Here...</h2>
 
             <form autoComplete="off" noValidate onSubmit={handleFormSubmit}>
@@ -157,26 +148,22 @@ export default function ProductForm(props) {
                                 value={values.Price}
                                 onChange={handleInputChange} />
                         </div>
-                        <Typography>Do not change any of the following automatically created things before adding the products</Typography>
-                        <div className="newform-group">
-                            <input className="form-control" placeholder="ImageSrc" name="ImageSrc"
-                                value={values.ImageSrc}
-                                onChange={handleInputChange} />
-                        </div>
-                        
-                        <div className="newform-group">
-                            <input className="form-control" placeholder="Count" name="Count"
-                                value={values.Count}
-                                onChange={handleInputChange} />
-                        </div>
-    
+                       
                         <div className="">
                             <button type="newsubmit" className="newbtn btn-light">UPLOAD NEW PRODUCT</button>
                         </div>
+
+                     
                     </div>
                 </div>
             </form>
-        
+            <br/>
+            <Container>
+                  <Link to='/ManageProduct'>
+                       <Button style={{Size: '20px', minWidth: '200px', backgroundColor: 'navajowhite',border: '5px solid',borderRadius: '3px', alignItems:'center', marginLeft:'60px'}}> Go To Product Details</Button>
+                   </Link>
+                  
+                   </Container>
         </div>
 
         </div>

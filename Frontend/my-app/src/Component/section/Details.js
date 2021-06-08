@@ -74,7 +74,7 @@ function refreshProductList() {
     }
    
  return (
-           <div >
+           <div className="section_new2">
           
              <section>  
             
@@ -88,7 +88,7 @@ function refreshProductList() {
                            
                         </div>  
                         <div className="total">
-            <Link to='./../viewdesign'><h6>CONTINUE SHOPPING</h6></Link>
+            <Link to='./../viewdesign'><h11>CONTINUE SHOPPING</h11></Link>
             </div>
                           
                         

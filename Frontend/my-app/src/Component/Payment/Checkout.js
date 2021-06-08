@@ -9,6 +9,9 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Fragment } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+import logo from '../../images/company_logo.png';
 
 var total =0;
 var price;
@@ -116,7 +119,62 @@ handleSubmit = (e) => {
       this.setState(this.getInitialState());
   } else {
       this.setState({ errors });
-  }
+  }  
+  
+  var doc = new jsPDF('landscape','px','a4','false');
+  doc.addImage(logo,'PNG',160,60,320,280)
+  doc.setFont('Arial','bold')
+  doc.text(238,30,'LANKA FURNITURE MAKERS')
+  doc.text(270,370,'CONTACT US')
+
+  doc.setFont('Arial','normal')
+  doc.text(180,390,'Tel: 081-2235643 Mobile: (+94) 71 3452908 / 76 9145689')
+  doc.text(230,407,'lankafurniture123@gmail.com')
+  
+
+  doc.addPage()
+  doc.setFont('Arial','bold')
+  doc.text(232,30,'Payment Details')
+
+  doc.setFont('Arial','bold')
+  doc.text(150,80,'Your Email')
+  doc.text(150,100,'Card Name')
+  doc.text(150,120,'Card Number')
+  doc.text(150,140,'Address')
+  doc.text(150,160,'City')
+  doc.text(150,180,'Distance (km)')
+  doc.text(150,200,'Total price (Rs.)')
+  doc.text(150,220,'Telephone Number')
+  doc.text(150,240,'Date')
+  //doc.text(150,260,'Customer Telephone')
+
+  doc.text(300,80,':')
+  doc.text(300,100,':')
+  doc.text(300,120,':')
+  doc.text(300,140,':')
+  doc.text(300,160,':')
+  doc.text(300,180,':')
+  doc.text(300,200,':')
+  doc.text(300,220,':')
+  doc.text(300,240,':')
+  //doc.text(300,260,':')
+ 
+  doc.setFont('Helvertica','normal')
+
+  doc.text(350,80, this.state.data.email.toString())
+  doc.text(350,100, this.state.data.cardName.toString())
+  doc.text(350,120, this.state.data.cardNo.toString())
+ doc.text(350,140, this.state.data.address.toString())
+ doc.text(350,160, this.state.data.city.toString())
+ doc.text(350,180, this.state.data.distance.toString())
+ doc.text(350,200, (this.state.data.totalPrice + this.state.data.distance * 100).toString())
+ doc.text(350,220, this.state.data.tele.toString())
+ doc.text(350,240, this.state.data.billDate.toString())
+  //doc.text(350,260, contactDetails.toString())
+
+
+  doc.save('Payment Details.pdf')
+
 
      }
 
@@ -128,6 +186,8 @@ handleSubmit = (e) => {
      
   
         return(
+          <div className="section_new">
+          <section>
           <div className="sdf" >
             
             {/* <Fragment> */}
@@ -245,10 +305,11 @@ handleSubmit = (e) => {
 <br/>
 <Typography component="h2" variant ="h15">   So, You will be charged accordinglly.</Typography>
 <Grid item xs={12}>
-            
+
+               
             <Label for="distance">Distance (km) </Label>
             <div className="label">
-                <p>    Insert the approximate distance between the branch and your destination</p>
+                <p>   Make sure to enter the distance in km and do not type "km" at the end. Insert the approximate distance between the branch and your destination</p>
                 </div>
             <TextField
              variant="outlined"
@@ -432,7 +493,8 @@ handleSubmit = (e) => {
         
         {/* </Fragment> */}
         </div>
-       
+        </section>
+        </div>
         )
        
         }

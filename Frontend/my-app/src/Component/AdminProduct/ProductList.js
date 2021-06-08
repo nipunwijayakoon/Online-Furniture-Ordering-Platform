@@ -91,7 +91,7 @@ export default function ProductList(props) {
 
 
     return (
-       <div className="newpage">
+     
         <div >
                
                    
@@ -119,8 +119,9 @@ export default function ProductList(props) {
                         }
                     </tbody>
                 </table>
+                <br/>
                     </div>
         </div>
-        </div>
+      
     )
 }

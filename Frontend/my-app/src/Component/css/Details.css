@@ -6,7 +6,7 @@
    /* background-color: rgb(245, 215, 215);*/
     box-shadow: 2px 8px 40px rgb(14, 25, 36);
     border: 4px solid rgb(13, 138, 131);
-    background-image: url("https://wallpaperaccess.com/full/666628.png");
+    background-image: url("https://images.pexels.com/photos/628241/pexels-photo-628241.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 }
 .details img{
     max-width: 500px;
@@ -80,5 +80,8 @@
     align-items: center;
     
    
+}
+.section_new2 section{
+    background-image: url('https://images.pexels.com/photos/630754/autumn-orange-nature-red-630754.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
 }
 

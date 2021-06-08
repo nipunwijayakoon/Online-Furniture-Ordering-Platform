@@ -48,14 +48,19 @@ class Receipt extends React.Component{
             var doc = new jsPDF('landscape','px','a4','false')
             doc.addImage(logo,'PNG',160,60,320,280)
 
-        doc.setFont('Arial','bold',30)
+        doc.setFont('Arial','bold')
         
-        doc.text(240,30,'LANKA FURNITURE MAKERS')
+        doc.text(238,30,'LANKA FURNITURE MAKERS')
         doc.text(270,370,'CONTACT US')
+
+        doc.setFont('Arial','normal')
         doc.text(180,390,'Tel: 081-2235643 Mobile: (+94) 71 3452908 / 76 9145689')
         doc.text(230,407,'lankafurniture123@gmail.com')
     
         doc.addPage()
+        doc.setFont('Arial','bold')
+        doc.text(240,30,'Order Summary')
+
         var imgdata = canvas.toDataURL('image/png')
       
         var pageWidth = doc.internal.pageSize.getWidth();
@@ -186,6 +191,7 @@ class Receipt extends React.Component{
                </div>
                  <br/>
                  <br/> 
+                
         </div> 
         
                  

@@ -137,7 +137,7 @@ export default function Cart(props) {
 
     return (
       
-       
+       <div className="section_new">
            <section>  
                       
 
@@ -219,7 +219,7 @@ export default function Cart(props) {
             </div>
             
             </section> 
-     
+            </div>
         
     )
 }
