@@ -29,7 +29,10 @@ export class BranchDistanceDuration extends Component {
 handleClick = event => this.setState({ anchorEl: event.currentTarget })
 handleClose = () => this.setState({ anchorEl: null })
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 
 render() {
   const { values, handleChange, handleClick, handleClose } = this.props;
@@ -85,7 +88,7 @@ render() {
                     anchorEl={anchorEl}
                     keepMounted
                     open={Boolean(anchorEl)}
-                    onClose={this.handleClick}
+                    onClose={this.handleClose}
                 >
                     <MenuItem onClick={this.handleClose}>Ampara</MenuItem>
                     <MenuItem onClick={this.handleClose}>Anuradhapura</MenuItem>
