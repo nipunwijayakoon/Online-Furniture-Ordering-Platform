@@ -91,7 +91,7 @@ handleSubmit = (e) => {
   if (Object.keys(errors).length === 0) {
       console.log(data);
       //Call an api here
-      axios.post('https://localhost:5001/api/ConfirmedDesigns/',{input_Design_Code:this.state.data.input_Design_Code, statusof_Order:this.state.data.statusof_Order, estimated_Amount:parseFloat(this.state.data.estimated_Amount), no_of_kms:parseFloat(this.state.data.no_of_kms), charge_for_km:parseFloat(this.state.data.charge_for_km), percentage_of_advance:parseFloat(this.state.data.percentage_of_advance), seller_Contact:this.state.data.seller_Contact })
+      axios.post('https://projectbackendlankafurnituremakers.azurewebsites.net/api/ConfirmedDesigns/',{input_Design_Code:this.state.data.input_Design_Code, statusof_Order:this.state.data.statusof_Order, estimated_Amount:parseFloat(this.state.data.estimated_Amount), no_of_kms:parseFloat(this.state.data.no_of_kms), charge_for_km:parseFloat(this.state.data.charge_for_km), percentage_of_advance:parseFloat(this.state.data.percentage_of_advance), seller_Contact:this.state.data.seller_Contact })
       
       this.props.history.push({pathname:'/confirmnotice'});
       //Resetting the form

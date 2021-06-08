@@ -84,7 +84,7 @@ handleSubmit = (e) => {
   if (Object.keys(errors).length === 0) {
       console.log(data);
       //Call an api here
-      axios.post('https://localhost:5001/api/DeletedDesigns/',{input_Design_Code:this.state.data.input_Design_Code, statusof_Design:this.state.data.statusof_Design, deleted_Reason:this.state.data.deleted_Reason })
+      axios.post('https://projectbackendlankafurnituremakers.azurewebsites.net/api/DeletedDesigns/',{input_Design_Code:this.state.data.input_Design_Code, statusof_Design:this.state.data.statusof_Design, deleted_Reason:this.state.data.deleted_Reason })
       
       this.props.history.push({pathname:'/deletenotice'});
       //Resetting the form

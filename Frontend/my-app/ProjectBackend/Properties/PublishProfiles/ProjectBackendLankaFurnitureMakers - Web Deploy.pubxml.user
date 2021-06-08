@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlIG7Nw0C4U6XS2nnGEM1vAAAAAACAAAAAAAQZgAAAAEAACAAAADMjKLnHXvV9tc0kKGa2qaDbkGqOMZVNN4kW3QkDlQpmgAAAAAOgAAAAAIAACAAAAAhQPEg0PpHs5rby2AOULlG5E8gGGzCeDquatpE5QdGXYAAAAAVcDJhoBm6Cp8uzKTh7CjqAl5NlymJSocrHoN2U0RyOCNZVSR5GSXupG+T+UhTQ+VyLSJSqdXe7B8yWwaZ9O0Mzw9RIxF3IBOS/G3TCAg9wB3Sy8X3ATg2f6RSPfbCUw6a+Zehk0O+0RfK7L/ViA39ZeNHjYzjFDdusSDv8u8BsEAAAAAuKeWv7qQ1YHaSA85qVYKSTBa2zFjV2lk3JTtJxwETjXUoyQEhKY0YAnz/E5ZJOXr0EzbpQYjr7D85zRHe5fO/</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="ProjectBackEnd.Models.FurnituresDBContext">
+      <Value>Data Source=tcp:projectbackendlankafurnituremakersdbserver.database.windows.net,1433%3bInitial Catalog=ProjectBackend_db%3bUser Id=Lanka_Furniture_Makers%40projectbackendlankafurnituremakersdbserver%3bPassword=Asha0708th</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

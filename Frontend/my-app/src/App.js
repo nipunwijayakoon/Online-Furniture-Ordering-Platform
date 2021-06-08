@@ -34,6 +34,7 @@ import Cardmini1 from './Component/Cardmini/Cardmini1';
 import Cardmini2 from './Component/Cardmini/Cardmini2';
 import Cardmini3 from './Component/Cardmini/Cardmini3';
 import Cardmini4 from './Component/Cardmini/Cardmini4';
+import Alert from "./Component/Alert/alert";
 
 //import Products from './Component/Products';
 //import Signin from './Component/Signin';
@@ -99,7 +100,7 @@ const App = () => {
     <Router>
          
          <Navbar/>
-        
+        <Alert/>
         <Fragment>
         <Switch>
         {/*<Route exact path='/signup' component={SignUp} />*/}

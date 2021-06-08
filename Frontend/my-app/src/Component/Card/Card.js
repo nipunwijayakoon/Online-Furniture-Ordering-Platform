@@ -17,22 +17,20 @@ function Cards() {
               <CardItem
                 src='images/img-1.jpg'
 
-                text='- MAIN STEPS FOR MAKING ORDERS'
+                text='GALLARY OF LANKA FURNITURE MAKERS'
                 label='Veiw More'
                 path='/card1'
               />
               <CardItem
-                src='images/img-2.jpg'
-                text='- ABOUT UPLOAD NEW DESIGN FEATURE'
+                src='images/img-13.png'
+                text='ACTIVITIES AND ACCHIEVEMENTS'
                 label='Veiw More'
                 path='/card2'
               />
             </ul>
             <ul className='cards__items'>
 
-               <Cardvideo></Cardvideo>
-               <Cardvideo></Cardvideo>
-               <Cardvideo></Cardvideo>
+              
             </ul>
           </div>
         </div>

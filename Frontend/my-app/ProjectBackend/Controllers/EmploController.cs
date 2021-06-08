@@ -8,7 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using ProjectBackEnd.Models;
 using ProjectBackend.Models;
 using System.IO;
+using Microsoft.Azure.Storage;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Azure.Storage.Blob;
 
 namespace ProjectBackend.Controllers
 {
@@ -16,6 +18,8 @@ namespace ProjectBackend.Controllers
     [ApiController]
     public class EmploController : ControllerBase
     {
+        CloudStorageAccount cloudStorageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=blobuploadimages;AccountKey=0opLduCxsW6eRnuIc6OsoYK7d1uvV5WBiNZaEATx9cuMSU+cOkQGuzpqsTdCOarmriYNNhBfHU3PM/GLIT19zQ==;EndpointSuffix=core.windows.net");
+
         private readonly FurnituresDBContext _context;
         private readonly IWebHostEnvironment _hostEnvironment;
 
@@ -36,7 +40,7 @@ namespace ProjectBackend.Controllers
                     //EmploName = x.EmploName,
                     NewDesignCode = x.NewDesignCode,
                     ImageName_ = x.ImageName_,
-                    ImageSrc_ = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName_)
+                    ImageSrc_ = String.Format("https://blobuploadimages.blob.core.windows.net/testcontainer/{0}", x.ImageName_)
                 })
                 .ToListAsync();
         }
@@ -130,14 +134,30 @@ namespace ProjectBackend.Controllers
         [NonAction]
         public async Task<string> SaveImage(IFormFile imageFile01)
         {
-            string imageName01 = new String(Path.GetFileNameWithoutExtension(imageFile01.FileName).Take(10).ToArray()).Replace(' ', '-');
-            imageName01 = imageName01 + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(imageFile01.FileName);
-            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "Images", imageName01);
-            using (var fileStream = new FileStream(imagePath, FileMode.Create))
+            string imageName01 = new String(Path.GetFileNameWithoutExtension(imageFile01.FileName).ToArray());
+            imageName01 = imageName01 + Path.GetExtension(imageFile01.FileName);
+            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, imageName01);
+            
             {
-                await imageFile01.CopyToAsync(fileStream);
+                await UploadToAzureAsync(imageFile01);
             }
             return imageName01;
+        }
+        private async Task UploadToAzureAsync(IFormFile imageFile01)
+        {
+            var cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
+
+            var cloudBlobContainer = cloudBlobClient.GetContainerReference("testcontainer");
+
+            if (await cloudBlobContainer.CreateIfNotExistsAsync())
+            {
+                await cloudBlobContainer.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Container });
+            }
+
+            var cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(imageFile01.FileName);
+            cloudBlockBlob.Properties.ContentType = imageFile01.ContentType;
+
+            await cloudBlockBlob.UploadFromStreamAsync(imageFile01.OpenReadStream());
         }
 
         [NonAction]

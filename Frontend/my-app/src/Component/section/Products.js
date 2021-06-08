@@ -43,7 +43,7 @@ export default function Search(props) {
     
     
 
-    const productAPI = (url = 'https://localhost:5001/api/Product/') => {
+    const productAPI = (url = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/Product/') => {
         return {
             fetchAll: () => axios.get(url),
          
@@ -64,7 +64,8 @@ export default function Search(props) {
     const imageCard = data => (
         <div className="card" key={data.productID}>
           <Link to={`/product/${data.productID}`}>
-                               <img src={data.imageSrc} alt=""/>
+                               <img src={`https://blobuploadimages.blob.core.windows.net/testcontainer/${data.imageName}`} alt=""/>
+                            
                            </Link>
                            <div className="content">
                            <h3>
@@ -98,10 +99,9 @@ export default function Search(props) {
     
     return (
         <div id="product">
-                                 
                     
-                     
                     <div className="col-md-2 searchcard">
+                        
                     <input type="search"
                         className="form-control" placeholder={'Filter by Furniture Type'} onChange={nameFilter}/>
                     </div>
@@ -164,5 +164,6 @@ export default function Search(props) {
             
             <button className="btnloadmore" onClick={showmoreProducts}><b>Load More. . . </b></button>
         </div>
+        
     )
 }

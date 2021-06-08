@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Typography from '@material-ui/core/Typography';
-
-
+import { Link } from 'react-router-dom';
+import { Table,Button } from 'react-bootstrap';
 import './ProductForm.css';
 
 const defaultImageSrc_ = '/images/image_default_icon.jpg'
@@ -103,6 +103,18 @@ export default function ProductForm(props) {
         <div className="newpage" style={{ backgroundSize: "cover"}}>
 		
                 <div>
+                <Link to='/ManageProduct'>
+                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> PRODUCT DETAILS</Button>
+                   </Link>
+<span>---------------------</span>
+                   <Link to='/CustomerDetails'>
+                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> CUSTOMER ORDER DETAILS</Button>
+                   </Link>
+                   <span>---------------------</span>
+                   <Link to='/customerorderdetail'>
+                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> ORDERED PRODUCT DETAILS</Button>
+
+                   </Link>
                   
                             <h2 className="newheading">Add Furniture Product Here...</h2>
 

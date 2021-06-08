@@ -2,7 +2,7 @@
 
 namespace ProjectBackend.Migrations
 {
-    public partial class updatedwithnewdesignbillingcontroller : Migration
+    public partial class poyo : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -4,7 +4,7 @@ import axios from 'axios';
 import './ManageProduct.css';  
 import { Link } from 'react-router-dom';
   
-const apiUrl = 'https://localhost:5001/api/Product/';  
+const apiUrl = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/Product/';  
   
 class ManageProduct extends React.Component{  
     constructor(props){  
@@ -106,7 +106,7 @@ DeleteProduct(productID) {
                       {products.map(product => (  
                         <tr key={product.productID} style={{   border: '2px solid DimGrey'}}>  
                         
-                          <td><img src ={product.imageSrc} className="poto"/></td>  
+                          <td><img src ={`https://blobuploadimages.blob.core.windows.net/testcontainer/${product.imageName}`} className="poto"/></td>  
                           
                           <td>{product.productName}</td>
                           <td>{product.branch}</td>

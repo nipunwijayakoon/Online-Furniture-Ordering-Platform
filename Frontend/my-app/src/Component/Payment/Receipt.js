@@ -12,6 +12,7 @@ import html2canvas from 'html2canvas';
 import axios from 'axios';
 import logo from '../../images/company_logo.png'; 
 
+
 var total =0;
 var price;
 
@@ -169,11 +170,11 @@ class Receipt extends React.Component{
                     </div>
                 
                    <div className="twbutton">
-                   {/* <Typography component="h3" variant ="h15" align="center">01. First generate your Product Details Document.</Typography><br/>
+                   <Typography component="h3" variant ="h15" align="center">01. First generate your Product Details Document.</Typography><br/>
                    <Typography align="center">
                <Button variant="contained" color="primary" marginX="100px" onClick={this.refreshPage} >GENERATE YOUR PDF</Button><br/>
-               </Typography> */}
-               <Typography component="h3" variant ="h15" align="center">Download your Product Details Document.</Typography><br/>
+               </Typography>
+               <Typography component="h3" variant ="h15" align="center">02. Download your Product Details Document.</Typography><br/>
                <Typography align="center">
                <Button variant="contained" color="secondary" onClick={this.generatePDF} >DOWNLOAD YOUR DOCUMENT</Button>
                </Typography>
@@ -183,7 +184,8 @@ class Receipt extends React.Component{
                     </Button> 
                          
                </div>
-                  
+                 <br/>
+                 <br/> 
         </div> 
         
                  

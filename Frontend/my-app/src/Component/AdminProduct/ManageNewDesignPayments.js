@@ -6,8 +6,8 @@ import axios from 'axios';
 import './ManageDesign.css';  
 import { Link } from 'react-router-dom';
   
-const apiUrl1 = 'https://localhost:5001/api/BillingNewDesign/';
-const apiUrl2 = 'https://localhost:5001/api/ConfirmedDesigns/';  
+const apiUrl1 = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/BillingNewDesign/';
+const apiUrl2 = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/ConfirmedDesigns/';  
   
 class ManageDesignPayment extends React.Component{  
     constructor(props){  

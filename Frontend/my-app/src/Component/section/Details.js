@@ -17,7 +17,7 @@ function Details(props){
     
 useEffect(() => {
         axios.get(
-            `https://localhost:5001/api/Product/${productID}`
+            `https://projectbackendlankafurnituremakers.azurewebsites.net/api/Product/${productID}`
           )
           .then(res => {
             setProducts(res.data);
@@ -58,7 +58,7 @@ useEffect(() => {
     })
     
     
-const productAPI = (url = 'https://localhost:5001/api/Product/') => {
+const productAPI = (url = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/Product/') => {
         return {
             fetchAll: () => axios.get(url),
          
@@ -97,7 +97,7 @@ function refreshProductList() {
                     <div className="details" key={products.productID}>
                         
                            
-                        <img src={`https://localhost:5001/Images/${products.imageName} `}width="400" alt=""/> 
+                        <img src={`https://blobuploadimages.blob.core.windows.net/testcontainer/${products.imageName}`} width="400" alt=""/> 
                           
                             <div className="box">
                                 <div className="row">

@@ -4,7 +4,7 @@ import axios from 'axios';
 import Container from '@material-ui/core/Container'; 
 import {Link} from 'react-router-dom'
   
-const apiUrl = 'https://localhost:5001/api/Cartitems/'; 
+const apiUrl = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/Cartitems/'; 
 
 
  
@@ -117,7 +117,7 @@ DeleteOrder(productID) {
                              
                              
                                 <td>{cart.designcode}</td>
-                                <td><img src ={cart.imageSrc} className="poto"/></td>  
+                                <td><img src ={`https://blobuploadimages.blob.core.windows.net/testcontainer/${cart.imageName} `} className="poto"/></td>  
                                  <td><span>{cart.productName}</span></td>  
                                  <td>{cart.description}</td> 
                                
