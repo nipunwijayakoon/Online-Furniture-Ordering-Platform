@@ -29,6 +29,11 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    padding :20,
+    height:'75vh',
+    width:400,
+    margin:"0px auto",
+    backgroundColor:'white'
   },
   avatar: {
     margin: theme.spacing(1),
@@ -73,6 +78,8 @@ const EMPSignUp = () => {
   const classes = useStyles();
 
   return (
+    <Grid style={{backgroundImage: "url('https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg?cs=srgb&dl=pexels-pixabay-276583.jpg&fm=jpg')" ,backgroundSize: "cover"}}>
+    
     <Fragment>
       <section>
         <Container component="main" maxWidth="xs">
@@ -82,7 +89,7 @@ const EMPSignUp = () => {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Employee Registration
+              Register new Admin
       </Typography>
             <form className={classes.form} noValidate onSubmit={e => onSubmit(e)}>
               <Grid container spacing={2}>
@@ -171,14 +178,14 @@ const EMPSignUp = () => {
                 type="submit"
                 fullWidth
                 variant="contained"
-                color="primary"
+                color="secondary"
                 className={classes.submit}
               >
                 Registor
         </Button>
               <Grid container justify="flex-end">
                 <Grid item>
-                  <Link to='/Empdetails' variant="body2">
+                  <Link to='/Admindetails' variant="body2">
                     Back to details
             </Link>
                 </Grid>
@@ -191,6 +198,7 @@ const EMPSignUp = () => {
         </Container>
       </section>
     </Fragment>
+    </Grid>
   );
 }
 

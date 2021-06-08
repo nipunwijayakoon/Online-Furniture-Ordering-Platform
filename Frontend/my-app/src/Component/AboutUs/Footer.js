@@ -17,7 +17,7 @@ function Copyright() {
       <br/>
       <div className="mail" align="center">
       <li><i class="fas fa-phone"></i> <a> Call Now: 94 777 297597 </a></li>
-      <li><i class="far fa-envelope"></i> <a href="mailto:furnitureslanka@gmail.com" color="black">furnitureslanka@gmail.com</a></li>
+      <li><i class="far fa-envelope"></i> <a underline="none" href="mailto:furnitureslanka@gmail.com" color="black">furnitureslanka@gmail.com</a></li>
       </div>
      <Typography> <Link color="inherit" href="http://localhost:3000/">
         LANKA FURNITURE MAKERS

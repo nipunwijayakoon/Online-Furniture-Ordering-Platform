@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MimeKit;
 using Microsoft.Extensions.Configuration;
-using MimeKit;
 using ProjectBackend.Services;
 using ProjectBackEnd.Models;
 

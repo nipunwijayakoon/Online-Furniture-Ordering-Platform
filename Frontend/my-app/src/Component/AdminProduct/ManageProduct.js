@@ -3,6 +3,7 @@ import { Table,Button } from 'react-bootstrap';
 import axios from 'axios';  
 import './ManageProduct.css';  
 import { Link } from 'react-router-dom';
+import Container from '@material-ui/core/Container';
   
 const apiUrl = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/Product/';  
   
@@ -66,18 +67,7 @@ DeleteProduct(productID) {
                   <br/> 
                   <div className='topic'>
                     <h2>PRODUCT DETAILS</h2>
-                    <Link to='/ProductList'>
-                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> ADD PRODUCT</Button>
-                   </Link>
-<span>---------------------</span>
-                   <Link to='/CustomerDetails'>
-                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> CUSTOMER ORDER DETAILS</Button>
-                   </Link>
-                   <span>---------------------</span>
-                   <Link to='/customerorderdetail'>
-                       <Button style={{ backgroundColor: 'Khaki',border: '2px solid',borderRadius: '3px', marginLeft:'4px'}}> ORDERED PRODUCT DETAILS</Button>
-
-                   </Link>
+                  
          
                   </div>
                   <div>
@@ -122,7 +112,17 @@ DeleteProduct(productID) {
                       ))}  
                     </tbody>  
                   </Table> 
+                  
                   </div> 
+                  <Container>
+                  <Link to='/ProductList'>
+                       <Button style={{Size: '20px', minWidth: '200px', backgroundColor: 'navajowhite',border: '5px solid',borderRadius: '3px', alignItems:'center'}}> Go To Add Products</Button>
+                   </Link>
+                  <Link to='/CustomerDetails'>
+                       <Button style={{Size: '20px', minWidth: '200px', backgroundColor: 'navajowhite',border: '5px solid',borderRadius: '3px', alignItems:'center'}}> Go To Customer Order Details</Button>
+                   </Link>
+                  
+                   </Container>
                   <br/>  
                  </div>  
               )  
