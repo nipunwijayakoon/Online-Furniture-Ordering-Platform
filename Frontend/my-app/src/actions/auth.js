@@ -86,9 +86,9 @@ Password ) => async(dispatch)=>{
         dispatch({
             type: LOGIN_SUCCESS,
             payload:res.data,
-        })
+        });
 
-      
+        dispatch(loadUser());
 
     } catch (error) {
         
@@ -212,7 +212,7 @@ export const loadUser = () => async (dispatch) => {
       if (user.role === "Admin") {
         try {
           const res = await axios.get(
-            `https://localhost:5001/api/admins/${user.id}`
+            `https://localhost:5001/api/Admins/${user.id}`
           );
           dispatch({
             type: USER_LOADED,

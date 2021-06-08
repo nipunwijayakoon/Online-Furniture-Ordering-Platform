@@ -41,6 +41,12 @@ namespace ProjectBackend.Controllers
             return admin;
         }
 
+
+       
+       
+
+
+
         // PUT: api/Admins/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
