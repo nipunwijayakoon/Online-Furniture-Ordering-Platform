@@ -17,7 +17,7 @@ function Copyright() {
       <br/>
       <div className="mail" align="center">
       <li><i class="fas fa-phone"></i> <a> Call Now: 94 777 297597 </a></li>
-      <li><i class="far fa-envelope"></i> <a href="mailto:furnitureslanka@gmail.com">furnitureslanka@gmail.com</a></li>
+      <li><i class="far fa-envelope"></i> <a href="mailto:furnitureslanka@gmail.com" color="black">furnitureslanka@gmail.com</a></li>
       </div>
      <Typography> <Link color="inherit" href="http://localhost:3000/">
         LANKA FURNITURE MAKERS
@@ -46,7 +46,7 @@ export default function Footer(props) {
 
   return (
    
-    <footer className={classes.footer} style={{ backgroundImage: "url('https://images.pexels.com/photos/963486/pexels-photo-963486.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')",backgroundSize: "cover"}}>
+    <footer className={classes.footer} style={{ backgroundImage: "url('https://wallpapercave.com/wp/wp3404655.jpg')",backgroundSize: "cover"}}>
   
     <Typography variant="h6" align="center" color="inherit" gutterBottom >
    CONTACT US

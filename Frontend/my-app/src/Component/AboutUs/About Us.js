@@ -80,6 +80,7 @@ export default function About_Us() {
           <Grid container spacing={4}>
             {featuredPosts.map((post) => (
               <FeaturedPost key={post.title} post={post} />
+              
             ))}
           </Grid>
           <Grid container spacing={5} className={classes.mainGrid}>
@@ -166,6 +167,15 @@ we are standing today in the industry.</p>
                     <p>"Lanka Furniture Makers" has its own transport service within the country and during the transport, we ensure almost all products are safe and sketch free when handing over to the customer. At the delivery process we do have a packing system and a set of people to handle the products at the site. </p>
                     <p>"Lanka Furniture Makers" has its own transport service within the country and during the transport, we ensure almost all products are safe and sketch free when handing over to the customer. At the delivery process we do have a packing system and a set of people to handle the products at the site.</p>
                     <p>We will arrange the delivery within three working days once the full payment is settled or the cheque after realized.</p>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
                 <br/>
                 </div>
             </div>

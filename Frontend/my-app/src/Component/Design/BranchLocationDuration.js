@@ -30,7 +30,7 @@ handleClick = event => this.setState({ anchorEl: event.currentTarget })
 handleClose = () => this.setState({ anchorEl: null })
 
 componentDidMount() {
-  axios.get(`https://localhost:5001/api/ShopLists`).then(res => { console.log("new",res);
+  axios.get(`https://projectbackendlankafurnituremakers.azurewebsites.net/ShopLists`).then(res => { console.log("new",res);
       this.setState({persons:res.data});
 
   })

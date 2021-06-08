@@ -6,7 +6,7 @@ import axios from 'axios';
 import './ManageDesign.css';  
 import { Link } from 'react-router-dom';
   
-const apiUrl = 'https://localhost:5001/api/Emplo/';  
+const apiUrl = 'https://projectbackendlankafurnituremakers.azurewebsites.net/api/Emplo/';  
   
 class ManageDesignImage extends React.Component{  
     constructor(props){  
@@ -130,12 +130,12 @@ class ManageDesignImage extends React.Component{
                     <tbody >  
                       {d_images.filter((d_image)=>(d_image.newDesignCode == this.state.value)).map(d_image => (  
                         <tr key={d_image.emploID} style={{   border: '2px solid DimGrey'}}>  
-                          <td><img src ={`https://localhost:5001/Images/${d_image.imageName_}`} className="pic-new-card"/></td>
+                          <td><img src ={`https://blobuploadimages.blob.core.windows.net/testcontainer/${d_image.imageName_}`} className="pic-new-card"/></td>
                           
                           <td> </td>
                           <td> </td>
                           <td> </td>
-                          <td className='green_td'><Button href={`https://localhost:5001/Images/${d_image.imageName_}`}
+                          <td className='green_td'><Button href={`https://blobuploadimages.blob.core.windows.net/testcontainer//${d_image.imageName_}`}
                            style={{ backgroundColor: 'ligt-green',border: '2px solid',borderRadius: '3px'}}> Download </Button>
                           <br />
                           <br />

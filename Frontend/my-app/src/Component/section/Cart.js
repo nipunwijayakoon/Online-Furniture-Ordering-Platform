@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 
 export default function Cart(props) {
 
-    const cartAPI=(url="https://localhost:5001/api/Cartitems")=>{
+    const cartAPI=(url="https://projectbackendlankafurnituremakers.azurewebsites.net/api/Cartitems")=>{
         return{
             fetchAll:()=> axios.get(url),
             create:(newRecord)=>axios.post(url,newRecord),
@@ -48,7 +48,7 @@ export default function Cart(props) {
        
       
         if(window.confirm("Do you want to remove this product?")){
-            axios.delete(`https://localhost:5001/api/Cartitems/${id}`)
+            axios.delete(`https://projectbackendlankafurnituremakers.azurewebsites.net/api/Cartitems/${id}`)
             cart.forEach((item, index) => {
                 if(item.productID === id){
                     cart.splice(index, 1)
@@ -120,14 +120,14 @@ export default function Cart(props) {
 
 
    const Addproduct=(product)=>{  
-        axios.post('https://localhost:5001/api/Cartitems',{productName:product.productName,imageName:product.imageName,designcode:randomNum,branch:product.branch,imageSrc:`https://localhost:5001/Images/${product.imageName} `,description:product.description,content:product.content, price:product.price,count:product.count, total:(product.price * product.count)})  
+        axios.post('https://projectbackendlankafurnituremakers.azurewebsites.net/api/Cartitems',{productName:product.productName,imageName:product.imageName,designcode:randomNum,branch:product.branch,imageSrc:`https://localhost:5001/Images/${product.imageName} `,description:product.description,content:product.content, price:product.price,count:product.count, total:(product.price * product.count)})  
       .then(json => {  
         alert("Product is selected successfully");  
       })  
       } 
 
       const Deleteproduct=(productID)=>{  
-        axios.delete(`https://localhost:5001/api/Cartitems/${productID}`)
+        axios.delete(`https://projectbackendlankafurnituremakers.azurewebsites.net/api/Cartitems/${productID}`)
       .then(json => {  
         alert("Product is deleted successfully");  
       })  
@@ -142,6 +142,7 @@ export default function Cart(props) {
                       
 
         <div >
+            <div className="instruct_cart" >
             <Typography component="h4" variant="h5">INSTRUCTIONS TO BUY PRODUCTS :</Typography><hr/>
             <Typography component="h2" variant ="h15"> 1. If there are excess products in the cart that you are not wish to buy, Make sure to remove them before the payment.</Typography>
              <Typography component="h2" variant ="h15">2. Before proceed to checkout process click <strong>"CONFORM TO BUY"</strong>  button.</Typography>
@@ -149,11 +150,13 @@ export default function Cart(props) {
           
            <Typography component="h2" variant ="h15">3. Delivery charge will be added to your order according to the distance between the branch and your designation.</Typography>
             <hr/><br/>
+            
             <div className="total">
             <Link to='./../viewdesign'><h15>CONTINUE SHOPPING</h15></Link>
             <p><Typography component="h1" variant="h5" color="textPrimary" margin="50px" gutterBottom >
         Your Order Number:#{randomNum}
         </Typography></p> 
+        
             </div>
                       
                       {cart.map(product => (  
@@ -163,7 +166,7 @@ export default function Cart(props) {
     </div>  
    
                        
-                          <img src ={`https://localhost:5001/Images/${product.imageName} `}width="400" alt=""/>   
+                          <img src ={`https://blobuploadimages.blob.core.windows.net/testcontainer/${product.imageName} `}width="400" alt=""/>   
                           <div className="box">
                           <div className="row">
                                         <h2>{product.productName}</h2>  
@@ -207,12 +210,14 @@ export default function Cart(props) {
                <Link to='./../payments'><h11>CHECKOUT</h11></Link>              
               
               <h30>Total : Rs.{total}</h30>
-
+              
               
            </div>
-                
+                <br/>
+                <br/>
             </div>
-           
+            </div>
+            
             </section> 
      
         

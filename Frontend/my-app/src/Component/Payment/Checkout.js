@@ -109,7 +109,7 @@ handleSubmit = (e) => {
 
   if (Object.keys(errors).length === 0) {
       console.log(data);
-      axios.post('https://localhost:5001/api/BillingInfo/',{email:this.state.data.email,cardName:this.state.data.cardName,cardNo:this.state.data.cardNo,expMonth:parseFloat(this.state.data.expMonth),expYear:parseFloat(this.state.data.expYear),billDate:this.state.data.billDate,cvv:this.state.data.cvv,totalPrice:parseFloat(this.state.data.totalPrice*100),tele:this.state.data.tele, address:this.state.data.address, city:this.state.data.city, designcode:this.state.data.designcode, distance:this.state.data.distance})
+      axios.post('https://projectbackendlankafurnituremakers.azurewebsites.net/api/BillingInfo/',{email:this.state.data.email,cardName:this.state.data.cardName,cardNo:this.state.data.cardNo,expMonth:parseFloat(this.state.data.expMonth),expYear:parseFloat(this.state.data.expYear),billDate:this.state.data.billDate,cvv:this.state.data.cvv,totalPrice:parseFloat(this.state.data.totalPrice*100),tele:this.state.data.tele, address:this.state.data.address, city:this.state.data.city, designcode:this.state.data.designcode, distance:this.state.data.distance})
       
       this.props.history.push({pathname:'/Receipt'});
     
@@ -129,10 +129,10 @@ handleSubmit = (e) => {
   
         return(
           <div className="sdf" >
-              <div >
-            <Fragment>
+            
+            {/* <Fragment> */}
           
-             <Container component="main" maxWidth="sm">
+             <Container component="main" maxWidth="sm" fullWidth="md">
              <CssBaseline />
              <div className="paper">
                
@@ -140,13 +140,13 @@ handleSubmit = (e) => {
               Payment Form
       </Typography>
       <br/>
-      <Typography component="h4" variant="h10">This is your payment information. <br/>You can pay an advance amount or the full payment for the furniture you want to buy. Advance amount should not be less than Rs.5,000/- <br/>
-     <br/> We kindly request you to fill in all the details below correctly. </Typography><br/>
+      <Typography component="h4" variant="h10">   This is your payment information. <br/>You can pay an advance amount or the full payment for the furniture you want to buy. Advance amount should not be less than Rs.5,000/- <br/>
+     <br/>    We kindly request you to fill in all the details below correctly. </Typography><br/>
 
-      <Typography component="h2" variant="h9"> Also we charge a delivery cost according to the distance between your destination and the branch.Therefore make sure to choose the items from the close branch from your destination.</Typography>
-       <Typography component="h4">Delivery charge will be Rs.100/- per 1km.</Typography>
+      <Typography component="h2" variant="h9">    Also we charge a delivery cost according to the distance between your destination and the branch.Therefore make sure to choose the items from the close branch from your destination.</Typography>
+       <Typography component="h4">    Delivery charge will be Rs.100/- per 1km.</Typography>
 
-       <Typography component="h2" variant ="h15">Your Order Number is {JSON.parse(localStorage.getItem('designcode'))}</Typography>
+       <Typography component="h2" variant ="h15">   Your Order Number is {JSON.parse(localStorage.getItem('designcode'))}</Typography>
        <br/>     
 
 
@@ -201,7 +201,7 @@ handleSubmit = (e) => {
                 <FormFeedback>{errors.billDate}</FormFeedback>
             
   </Grid><br/>
-  <div className="pay"><h3>Personal Information</h3></div>
+  <div className="pay" ><h3>Personal Information</h3></div>
   <Grid item xs={12}>
             
             <Label for="address2">Telephone Number</Label>
@@ -237,18 +237,18 @@ handleSubmit = (e) => {
 </Grid>
 
 <br/>
-<Typography component="h4" variant="h10">Please correctly fill the approximate distance between your destination and the choosen branch. Click the following button to measure the distance.</Typography>
-<td onClick={()=> window.open("https://www.mapdevelopers.com/distance_finder.php", "_blank")}><Button>MEASURE DISTANCE</Button></td><br/>
+<Typography component="h4" variant="h10">    Please correctly fill the approximate distance between your destination and the choosen branch. Click the following button to measure the distance.</Typography>
+<td onClick={()=> window.open("https://www.mapdevelopers.com/distance_finder.php", "_blank")}><Button>   MEASURE DISTANCE</Button></td><br/>
 {/* <Typography component="h4" variant="h10">If you purchase your furniture from different branches, do not fill this distance part. The man who delivers your order will give you a receipt of delivery charges when it delivers. Also you can contact us for any issues.</Typography> */}
 <br/>
-<Typography component="h3" variant ="h15">Anyway, our delivery person will inform you the correct distance between the branch and your destination.</Typography>
+<Typography component="h3" variant ="h15">   Anyway, our delivery person will inform you the correct distance between the branch and your destination.</Typography>
 <br/>
-<Typography component="h2" variant ="h15">So, You will be charged accordinglly.</Typography>
+<Typography component="h2" variant ="h15">   So, You will be charged accordinglly.</Typography>
 <Grid item xs={12}>
             
             <Label for="distance">Distance (km) </Label>
             <div className="label">
-                <p>Insert the approximate distance between the branch and your destination</p>
+                <p>    Insert the approximate distance between the branch and your destination</p>
                 </div>
             <TextField
              variant="outlined"
@@ -259,7 +259,7 @@ handleSubmit = (e) => {
         
 </Grid>
 <br/>
-            <div className="pay"><h3>Add Credit/Debit Card Information</h3></div>
+            <div className="pay" ><h3>Add Credit/Debit Card Information</h3></div>
             
             <Grid item xs={12} >
             
@@ -329,7 +329,7 @@ handleSubmit = (e) => {
            
             </Grid>
 
-            <div className="pay"><h3>Payment</h3></div>
+            <div className="pay" ><h3>Payment</h3></div>
             <br/>
             <div>
                                 <table>
@@ -407,30 +407,32 @@ handleSubmit = (e) => {
                    
   </Grid>
   <br/>
-  <div className="paybutton">
+ 
     <br/>
-    
+    <Typography allign="center" >
             <Button className="submitpay"
              type="submit"
                 fullWidth
                 variant="contained"
-               color="black"
-
+                color="primary"
+                                    
                 component={Link} to='/Receipt'>PAY</Button> 
                
+               </Typography>  
                  
-                </div>
+                
             </Grid>       
         </form>
-            
+        <br/>
+            <br/>
   </div>
  
         </Container>
         
         
-        </Fragment>
+        {/* </Fragment> */}
         </div>
-        </div>
+       
         )
        
         }
