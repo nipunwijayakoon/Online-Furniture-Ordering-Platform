@@ -4,6 +4,8 @@ import { Button10 } from '../Button10/Button10';
 import { Button11 } from '../Button11/Button11';
 import { Button12 } from '../Button12/Button12';
 import { Button13 } from '../Button13/Button13';
+//import {BuyerSeller} from './BuyerSeller/BuyerSeller';
+
 import Grid from '@material-ui/core/Grid';
 import './Button4.css';
 import { BsFillEnvelopeFill} from 'react-icons/bs';
@@ -23,10 +25,9 @@ function Pricing() {
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
       <div className='pricing__section'>
         <div className='pricing__wrapper'>
-          
           <div className='pricing__container'>
 
-
+            
             <div className='pricing__container-card'>
               <div className='pricing__container-cardInfo'>
                 <div className='icon'>

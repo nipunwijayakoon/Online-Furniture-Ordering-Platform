@@ -23,7 +23,7 @@
   margin-top: 2rem;
   font-weight: bold;
   color: rgb(49, 2, 28);
-  font-size: 30px;
+  font-size: 25px;
 
 }
 .img-holder{
@@ -216,4 +216,9 @@ th {
   letter-spacing: 2px;
   padding: 10px 50px;
   border-radius: 3px;
+}
+.copy_code_text p{
+  font-size: medium;
+  text-align: center;
+  color: rgb(2, 59, 26);
 }

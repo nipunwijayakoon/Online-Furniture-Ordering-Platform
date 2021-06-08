@@ -90,7 +90,7 @@ render() {
                     anchorEl={anchorEl}
                     keepMounted
                     open={Boolean(anchorEl)}
-                    onClose={this.handleClose}
+                    onClose={this.handleClick}
                 >
                     <MenuItem onClick={this.handleClose}>Ampara</MenuItem>
                     <MenuItem onClick={this.handleClose}>Anuradhapura</MenuItem>

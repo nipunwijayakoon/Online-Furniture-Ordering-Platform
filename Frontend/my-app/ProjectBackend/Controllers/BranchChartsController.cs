@@ -30,13 +30,17 @@ namespace ProjectBackend.Controllers
             1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
         };
 
+        private static readonly string[] custombranch = new[]
+        {
+            "",""
+        };
         
-
-
+        
        [HttpGet]
         public IEnumerable<BranchCharts> Get()
         {
-            
+
+          
             int i = 0;
             int j = 0;
             return Enumerable.Range(1, Branchers.Length).Select(index => new BranchCharts
