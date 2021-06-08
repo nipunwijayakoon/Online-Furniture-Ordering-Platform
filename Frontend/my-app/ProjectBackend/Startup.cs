@@ -88,11 +88,11 @@ namespace ProjectBackend
             .AllowAnyHeader());
 
 
-            app.UseStaticFiles(new StaticFileOptions
+         /*   app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "Images")),
                 RequestPath = "/Images"
-            });
+            });  */
 
             app.UseHttpsRedirection();
 

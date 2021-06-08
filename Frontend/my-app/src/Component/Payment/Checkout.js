@@ -121,61 +121,61 @@ handleSubmit = (e) => {
       this.setState({ errors });
   }
 
-  var doc = new jsPDF('landscape','px','a4','false');
-    doc.addImage(logo,'PNG',160,60,320,280)
-    doc.setFont('Arial','bold',30)
+  // var doc = new jsPDF('landscape','px','a4','false');
+  //   doc.addImage(logo,'PNG',160,60,320,280)
+  //   doc.setFont('Arial','bold',30)
     
-    doc.text(240,30,'LANKA FURNITURE MAKERS')
-    doc.text(270,370,'CONTACT US')
-    doc.text(180,390,'Tel: 081-2235643 Mobile: (+94) 71 3452908 / 76 9145689')
-    doc.text(230,407,'lankafurniture123@gmail.com')
+  //   doc.text(240,30,'LANKA FURNITURE MAKERS')
+  //   doc.text(270,370,'CONTACT US')
+  //   doc.text(180,390,'Tel: 081-2235643 Mobile: (+94) 71 3452908 / 76 9145689')
+  //   doc.text(230,407,'lankafurniture123@gmail.com')
 
-    doc.addPage()
-    doc.setFont('Arial','Bold','Underline',14)
-    doc.text(180,30,'Payment Details')
+  //   doc.addPage()
+  //   doc.setFont('Arial','Bold','Underline',14)
+  //   doc.text(180,30,'Payment Details')
 
-    doc.setFont('Arial','bold')
-    doc.text(100,80,'Customer Name')
-    doc.text(100,100,'Card Number')
-    doc.text(100,120,'Order Number')
-    doc.text(100,140,'Bill date')
-    doc.text(100,160,'Address')
-    doc.text(100,180,'City')
-    doc.text(100,200,'Telephone Number')
-    doc.text(100,220,'Distance between branch ')
-    doc.text(100,240, 'and the destination')
-    doc.text(100,260,'Total price ( including') 
-      doc.text(100,280,'delivery charge )')
+  //   doc.setFont('Arial','bold')
+  //   doc.text(100,80,'Customer Name')
+  //   doc.text(100,100,'Card Number')
+  //   doc.text(100,120,'Order Number')
+  //   doc.text(100,140,'Bill date')
+  //   doc.text(100,160,'Address')
+  //   doc.text(100,180,'City')
+  //   doc.text(100,200,'Telephone Number')
+  //   doc.text(100,220,'Distance between branch ')
+  //   doc.text(100,240, 'and the destination')
+  //   doc.text(100,260,'Total price ( including') 
+  //     doc.text(100,280,'delivery charge )')
   
-    doc.text(100,320,'You can finish your full-payment within 2 years and an email will sent to you by the manager.')
+  //   doc.text(100,320,'You can finish your full-payment within 2 years and an email will sent to you by the manager.')
  
 
-    doc.text(250,80,':')
-    doc.text(250,100,':')
-    doc.text(250,120,':')
-    doc.text(250,140,':')
+  //   doc.text(250,80,':')
+  //   doc.text(250,100,':')
+  //   doc.text(250,120,':')
+  //   doc.text(250,140,':')
 
-    doc.text(250,180,':')
-    doc.text(250,200,':')
-    doc.text(250,220,':                       km')
-    doc.text(250,260,':          Rs.')
+  //   doc.text(250,180,':')
+  //   doc.text(250,200,':')
+  //   doc.text(250,220,':                       km')
+  //   doc.text(250,260,':          Rs.')
   
    
-    doc.setFont('Helvertica','normal')
+  //   doc.setFont('Helvertica','normal')
 
-    doc.text(300,80, this.state.data.cardName.toString())
-    doc.text(300,100, this.state.data.cardNo.toString())
-    doc.text(300,120, this.state.data.designcode.toString())
-    doc.text(300,140, this.state.data.billDate.toString())
-   doc.text( 300,160, this.state.data.address.toString())
-   doc.text( 300,180, this.state.data.city.toString())
-   doc.text( 300,200, this.state.data.tele.toString())
-    doc.text(300,220, this.state.data.distance.toString())
-     doc.text(300,260, (this.state.data.totalPrice +this.state.data.distance * 100) .toString() )
+  //   doc.text(300,80, this.state.data.cardName.toString())
+  //   doc.text(300,100, this.state.data.cardNo.toString())
+  //   doc.text(300,120, this.state.data.designcode.toString())
+  //   doc.text(300,140, this.state.data.billDate.toString())
+  //  doc.text( 300,160, this.state.data.address.toString())
+  //  doc.text( 300,180, this.state.data.city.toString())
+  //  doc.text( 300,200, this.state.data.tele.toString())
+  //   doc.text(300,220, this.state.data.distance.toString())
+  //    doc.text(300,260, (this.state.data.totalPrice +this.state.data.distance * 100) .toString() )
     
     
-     doc.save('Payment Details.pdf')
-     window.location.reload();
+  //    doc.save('Payment Details.pdf')
+  //  window.location.reload();
      }
 
 

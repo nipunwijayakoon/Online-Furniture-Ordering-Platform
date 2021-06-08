@@ -136,10 +136,6 @@ export default function UploadDesignImage(props) {
                             <h1 className="headimg">Add Your New Furniture Design Here...</h1>
 
 
-            
-
-
-
             <form autoComplete="off" noValidate onSubmit={handleFormSubmit}>
                 <div className="imgcard">
                     <img src={values.ImageSrc_} className="card-img-top" />
@@ -166,10 +162,10 @@ export default function UploadDesignImage(props) {
                                 onChange={handleInputChange} />
                         </div>
 
-                        <div>
-                        <p><span><Typography component="h6" variant="h8" gutterBottom>
+                        <div className="copy_code_text">
+                        <p><Typography component="h9" variant="h10" gutterBottom>
                         *Please make sure to copy this code to enter in the next page...
-                        </Typography></span></p>
+                        </Typography></p>
                         </div>
 
                         <div className="form-group text-center">

@@ -153,6 +153,11 @@ handleSubmit = (e) => {
             
                 <Label for="billDate">Billing Date</Label>
                 <TextField
+                id="date"
+                type="date"
+                InputLabelProps={{
+                  shrink:true,
+                }}
                  variant="outlined"
                  required
                  fullWidth value={data.billDate} invalid={errors.billDate? true : false} name="billDate" onChange={this.handleChange} />
