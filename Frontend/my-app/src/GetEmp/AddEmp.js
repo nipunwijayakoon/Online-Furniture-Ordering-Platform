@@ -82,7 +82,7 @@ const EMPSignUp = () => {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Employee Registration
+              Register new Admin
       </Typography>
             <form className={classes.form} noValidate onSubmit={e => onSubmit(e)}>
               <Grid container spacing={2}>
@@ -178,7 +178,7 @@ const EMPSignUp = () => {
         </Button>
               <Grid container justify="flex-end">
                 <Grid item>
-                  <Link to='/Empdetails' variant="body2">
+                  <Link to='/Admindetails' variant="body2">
                     Back to details
             </Link>
                 </Grid>

@@ -126,3 +126,36 @@ h2{
       text-align: center;
   }
 }
+
+
+.btn2 {
+  background-color: rgb(14, 90, 177);
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+.btn2:hover {
+  background-color: RoyalBlue;
+}
+
+.button {
+  background-color: rgb(194, 145, 10);
+  border: none;
+  color: rgb(187, 50, 50);
+  padding: 100px 1px;
+  text-align: center;
+  text-decoration-color: rgb(7, 7, 7);
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.button:hover {
+  background-color: #eb930f;
+}
