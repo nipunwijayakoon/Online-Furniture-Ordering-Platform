@@ -205,6 +205,70 @@ Password ) => async(dispatch)=>{
 
 
 
+
+export const loadUser = () => async (dispatch) => {
+    if (localStorage.token) { 
+      const user = JSON.parse(atob(localStorage.token.split(".")[1])); 
+      if (user.role === "Admin") {
+        try {
+          const res = await axios.get(
+            `https://localhost:5001/api/admins/${user.id}`
+          );
+          dispatch({
+            type: USER_LOADED,
+            payload: res.data,
+          });
+        } catch (error) {
+          console.error(error);
+          dispatch({ type: AUTH_ERROR });
+        }
+      }
+
+
+
+
+      else if (user.role === "Seller") {
+        try {
+          const res = await axios.get(
+            `https://localhost:5001/api/Seller/${user.id}`
+          );
+          dispatch({
+            type: USER_LOADED,
+            payload: res.data,
+          });
+        } catch (error) {
+          console.error(error);
+          dispatch({ type: AUTH_ERROR });
+        }
+      }
+    }
+
+
+
+
+    else {
+      dispatch({ type: AUTH_ERROR })
+    }
+
+
+  };
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export const logout = () => (dispatch) => {
     dispatch({ type: CLEAR_PRODUCTS });
     dispatch({ type: CLEAR_SELLER });

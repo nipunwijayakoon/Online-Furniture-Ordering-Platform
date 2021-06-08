@@ -1,0 +1,7 @@
+.alert {
+  padding: 0.8rem;
+  margin: 1rem 0;
+  opacity: 0.9;
+  background: rgb(206, 26, 65);
+  color: rgb(255, 255, 255);
+}
