@@ -44,7 +44,7 @@ export const register =  (CustomerEmail,
         
 
     try {
-        const res = await axios.post("https://localhost:5001/api/Userlogin/signup/customer", body, config);
+        const res = await axios.post("https://projectbackendlankafurnituremakers.azurewebsites.net/api/Userlogin/signup/customer", body, config);
         console.log("Success");
     dispatch({
       type: REGISTER_SUCCESS,
@@ -79,16 +79,16 @@ Password ) => async(dispatch)=>{
      });
 
     try {
-        const res = await axios.post("https://localhost:5001/api/Userlogin/login", body, config);
+        const res = await axios.post("https://projectbackendlankafurnituremakers.azurewebsites.net/api/Userlogin/login", body, config);
         
 
         dispatch(setAlert("Login Successfull", "success"));
         dispatch({
             type: LOGIN_SUCCESS,
             payload:res.data,
-        });
+        })
 
-        dispatch(loadUser());
+      
 
     } catch (error) {
         
@@ -128,7 +128,7 @@ Password ) => async(dispatch)=>{
         console.log("Emp", body)
 
     try{
-        const res = await axios.post("https://localhost:5001/api/Admins", body, config);
+        const res = await axios.post("https://projectbackendlankafurnituremakers.azurewebsites.net/api/Admins", body, config);
         console.log(res);
 
 
@@ -182,7 +182,7 @@ Password ) => async(dispatch)=>{
         
 
     try{
-        const res = await axios.post("https://localhost:5001/api/Userlogin/signup/seller", body, config);
+        const res = await axios.post("https://projectbackendlankafurnituremakers.azurewebsites.net/api/Userlogin/signup/seller", body, config);
         console.log(res);
 
         console.log("Success");
@@ -212,7 +212,7 @@ export const loadUser = () => async (dispatch) => {
       if (user.role === "Admin") {
         try {
           const res = await axios.get(
-            `https://localhost:5001/api/Admins/${user.id}`
+            `https://projectbackendlankafurnituremakers.azurewebsites.net/api/admins/${user.id}`
           );
           dispatch({
             type: USER_LOADED,
@@ -230,7 +230,7 @@ export const loadUser = () => async (dispatch) => {
       else if (user.role === "Seller") {
         try {
           const res = await axios.get(
-            `https://localhost:5001/api/Seller/${user.id}`
+            `https://projectbackendlankafurnituremakers.azurewebsites.net/api/Seller/${user.id}`
           );
           dispatch({
             type: USER_LOADED,
