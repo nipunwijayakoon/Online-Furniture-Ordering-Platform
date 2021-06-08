@@ -71,7 +71,7 @@ namespace ProjectBackend.Controllers
                 using (var client = new SmtpClient())
                 {
                     client.Connect("smtp.gmail.com", 587, false);
-                    client.Authenticate("lankafurniture123@gmail.com", "Lanka@123");
+                    client.Authenticate("lankafurniture123@gmail.com", "Furniture#@97");
 
                     client.Send(message);
 
@@ -141,7 +141,7 @@ namespace ProjectBackend.Controllers
                 using (var client = new SmtpClient())
                 {
                     client.Connect("smtp.gmail.com", 587, false);
-                    client.Authenticate("lankafurniture123@gmail.com", "Lanka@123");
+                    client.Authenticate("lankafurniture123@gmail.com", "Furniture#@97");
 
                     client.Send(message);
 

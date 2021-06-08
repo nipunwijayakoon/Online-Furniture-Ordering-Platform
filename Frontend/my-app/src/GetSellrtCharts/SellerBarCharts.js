@@ -11,7 +11,7 @@ export class Barchart  extends Component{
     }
 
     componentDidMount(){
-        axios.get('https://localhost:5001/api/BranchCharts')
+        axios.get('https://projectbackendlankafurnituremakers.azurewebsites.net/api/BranchCharts')
             .then(res =>{
                 console.log(res);
                 const ipl = res.data;

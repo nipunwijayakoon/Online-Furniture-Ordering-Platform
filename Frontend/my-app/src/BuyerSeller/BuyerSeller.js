@@ -12,7 +12,7 @@ export class Piechart  extends Component{
     }
 
     componentDidMount(){
-        axios.get('https://localhost:5001/api/Chart')
+        axios.get('https://projectbackendlankafurnituremakers.azurewebsites.net/api/Chart')
             .then(res =>{
                 console.log(res);
                 const ipl = res.data;

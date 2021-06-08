@@ -12,7 +12,7 @@ export class Linecharts extends Component{
     }
 
     componentDidMount(){
-        axios.get('https://localhost:5001/api/Customers')
+        axios.get('https://projectbackendlankafurnituremakers.azurewebsites.net/api/Customers')
             .then(res =>{
                 console.log(res);
                 const ipl = res.data;
