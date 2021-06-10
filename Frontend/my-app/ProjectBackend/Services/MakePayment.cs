@@ -15,8 +15,8 @@ namespace ProjectBackend.Services
         {
             _configuration = configuration;
         }
+        public static bool paymentStatus = false;
 
-        
         public async Task PayAsync(string cardNo, int month, int year, string cvv, int totalPrice, string address, string tele, string city, string designcode, string newdesigncode, string payInfo, string email, string distance)
         {
             try
@@ -56,7 +56,10 @@ namespace ProjectBackend.Services
                 var service = new ChargeService();
                 Charge charge = await service.CreateAsync(options);
 
-
+                if (charge.Paid)
+                {
+                    paymentStatus = true;
+                }
 
             }
             catch (Exception)

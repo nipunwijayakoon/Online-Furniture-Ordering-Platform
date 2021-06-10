@@ -11,7 +11,7 @@ class Get extends Component{
     }
 
     componentDidMount() {
-        axios.get('https://localhost:5001/api/Admins').then(res => {console.log("new",res);
+        axios.get('https://lankafurnituremakersapi.azurewebsites.net/api/Admins').then(res => {console.log("new",res);
         this.setState({persons:res.data});
     
         })

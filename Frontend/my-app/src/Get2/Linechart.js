@@ -12,7 +12,7 @@ export class Linecharts extends Component{
     }
 
     componentDidMount(){
-        axios.get('https://localhost:5001/api/Customers')
+        axios.get('https://lankafurnituremakersapi.azurewebsites.net/api/Customers')
             .then(res =>{
                 console.log(res);
                 const ipl = res.data;
@@ -31,7 +31,10 @@ export class Linecharts extends Component{
                             {
                                 labels: 'Customer registration',
                                 data: customerID,
-                                backgroundColour:"rgba(255,153,0,0.6)"
+                                backgroundColour:[
+                                    "#FF0000"
+                                    
+                            ]
 
                             }
                         ]
@@ -48,13 +51,16 @@ export class Linecharts extends Component{
                 <Line
                 data = {this.state.Data}
                 width={600} 
-                height={100}
+                height={250}
                 />
-                <Link to='/CDetails'>
-                    <button >
-                        Customer Details
-                    </button>
-                </Link>
+               
+                <br/>
+                <br/>
+                <br/>
+                <div className="total">
+                <Link to='/CDetails'><h15> Customer Details</h15></Link>
+                </div>
+
             </div>
         )
     }

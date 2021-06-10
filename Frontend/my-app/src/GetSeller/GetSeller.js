@@ -18,7 +18,7 @@ class Get extends Component {
     
     
     componentDidMount() {
-        axios.get(`https://localhost:5001/api/ShopLists`).then(res => { console.log("new",res);
+        axios.get(`https://lankafurnituremakersapi.azurewebsites.net/api/Shops`).then(res => { console.log("new",res);
             this.setState({persons:res.data});
     
         })
@@ -42,12 +42,10 @@ class Get extends Component {
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
+                                <th>Seller name</th>
                                 <th>Email</th>
-                                <th>Tell Number</th>
-                                <th>Shop Name</th>
-                                <th>Shop Location</th>
+                                <th>Area</th>
+                                
                             </tr>
                         </thead>
                     </table>
@@ -63,14 +61,10 @@ class Get extends Component {
                          <tbody>
     
                              <tr>
-                                <td>{persons.shopId}</td>
-                                <td>{persons.sellerFirstName}</td>
-                                <td>{persons.sellerLastName}</td>
-                                <td>{persons.sellerEmail}</td>
-                                <td>{persons.telNumber}</td>
-                                <td>{persons.name}</td>
-                                <td>{persons.area}</td>
-                               
+                                <td>{persons.shopID}</td>
+                                <td>{persons.shopName}</td>
+                                <td>{persons.shopEmail}</td>
+                                <td>{persons.shopOwnerName}</td>
                              </tr>
     
                              </tbody>
@@ -81,7 +75,7 @@ class Get extends Component {
                 </div>
                 <div >
                     <button class = "button">
-                        <ExportCSV  csvData={this.state.persons} fileName={this.state.CustomerDetails}>Download</ExportCSV>
+                        <ExportCSV  csvData={this.state.persons} fileName={this.state.SellerDetails}>Download</ExportCSV>
                     </button>
                     <button class = "button">
                         <Link to='/asaseller'> ADD SELLER </Link>

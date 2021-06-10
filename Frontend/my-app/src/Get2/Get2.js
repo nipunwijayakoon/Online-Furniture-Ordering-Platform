@@ -17,7 +17,7 @@ state ={
 
 
 componentDidMount() {
-    axios.get(`https://localhost:5001/api/Customers`).then(res => { console.log("new",res);
+    axios.get(`https://lankafurnituremakersapi.azurewebsites.net/api/Customers`).then(res => { console.log("new",res);
         this.setState({persons:res.data});
 
     })
@@ -31,7 +31,7 @@ componentDidMount() {
        
         if(word){
 
-            axios.get(`https://localhost:5001/api/Customers/${word}`)
+            axios.get(`https://lankafurnituremakersapi.azurewebsites.net/api/Customers/${word}`)
             .then((res) => {console.log(res);
     
                 const repos = res.data.customerEmail;

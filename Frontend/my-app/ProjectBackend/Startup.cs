@@ -38,7 +38,7 @@ namespace ProjectBackend
         {
             services.AddControllers();
             services.AddTransient<MakePayment>();
-         // services.AddTransient<IMailService, MailService>();
+          services.AddTransient<IMailService, MailService>();
 
             
 
@@ -83,7 +83,7 @@ namespace ProjectBackend
             }
 
             app.UseCors(Options =>
-            Options.WithOrigins("http://localhost:3000")
+            Options.AllowAnyOrigin()
             .AllowAnyMethod()
             .AllowAnyHeader());
 
