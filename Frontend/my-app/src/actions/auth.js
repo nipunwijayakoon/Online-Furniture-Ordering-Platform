@@ -44,7 +44,7 @@ export const register =  (CustomerEmail,
         
 
     try {
-        const res = await axios.post("https://projectbackendlankafurnituremakers.azurewebsites.net/api/Userlogin/signup/customer", body, config);
+        const res = await axios.post("https://lankafurnituremakersapi.azurewebsites.net/api/Userlogin/signup/customer", body, config);
         console.log("Success");
     dispatch({
       type: REGISTER_SUCCESS,
@@ -79,7 +79,7 @@ Password ) => async(dispatch)=>{
      });
 
     try {
-        const res = await axios.post("https://projectbackendlankafurnituremakers.azurewebsites.net/api/Userlogin/login", body, config);
+        const res = await axios.post("https://lankafurnituremakersapi.azurewebsites.net/api/Userlogin/login", body, config);
         
 
         dispatch(setAlert("Login Successfull", "success"));
@@ -128,7 +128,7 @@ Password ) => async(dispatch)=>{
         console.log("Emp", body)
 
     try{
-        const res = await axios.post("https://projectbackendlankafurnituremakers.azurewebsites.net/api/Admins", body, config);
+        const res = await axios.post("https://lankafurnituremakersapi.azurewebsites.net/api/Admins", body, config);
         console.log(res);
 
 
@@ -148,110 +148,43 @@ Password ) => async(dispatch)=>{
 
     /////Registor SEller
 
-    export const selleregistor = (SellerEmail,
-        SellerFirstName,
-        SellerLastName,
-        Area,
-        Name,
-        TelNumber,
-        SellerPW,
-        RetypeSellerPW,
-        
-        
-        
-    )=>async(dispatch)=> {
-        const config ={
-         
+    export const selleregistor = async(ShopName,
+        ShopEmail,
+        ShopOwnerName,
+        ShopTelNumber,
+    )=>{
+        const config = {
             headers:{ "Content-Type": "application/json"}
         };
     
-       
 
-    const body = JSON.stringify({SellerEmail,
-        SellerFirstName,
-        SellerLastName,
-        Area,
-        Name,
-        TelNumber,
-        SellerPW,
-        RetypeSellerPW,
-        
-    
-    });
+    const body = JSON.stringify({ShopName,
+        ShopEmail,
+        ShopOwnerName,
+        ShopTelNumber});
 
-        
+        console.log("Emp", body)
 
     try{
-        const res = await axios.post("https://projectbackendlankafurnituremakers.azurewebsites.net/api/Userlogin/signup/seller", body, config);
+        const res = await axios.post("https://lankafurnituremakersapi.azurewebsites.net/api/Shops", body, config);
         console.log(res);
 
-        console.log("Success");
-        dispatch({
-          type: REGISTER_SUCCESS,
-          payload: res.data,
-        });
-    
-            
-        } catch (error) {
-            const errors = error.response.data.errors;
-            console.log(errors);
-            dispatch(setAlert("Something is wrong at your end", "danger"));
-            dispatch({
-              type: REGISTER_FAIL,
-            });
-        }
+
+    }catch (error){
+        const errors = error.response.data.errors;
+
+        if (errors)
+        console.log(errors);
+
+    }
+
+
 };
 
 
 
 
 
-export const loadUser = () => async (dispatch) => {
-    if (localStorage.token) { 
-      const user = JSON.parse(atob(localStorage.token.split(".")[1])); 
-      if (user.role === "Admin") {
-        try {
-          const res = await axios.get(
-            `https://projectbackendlankafurnituremakers.azurewebsites.net/api/admins/${user.id}`
-          );
-          dispatch({
-            type: USER_LOADED,
-            payload: res.data,
-          });
-        } catch (error) {
-          console.error(error);
-          dispatch({ type: AUTH_ERROR });
-        }
-      }
-
-
-
-
-      else if (user.role === "Seller") {
-        try {
-          const res = await axios.get(
-            `https://projectbackendlankafurnituremakers.azurewebsites.net/api/Seller/${user.id}`
-          );
-          dispatch({
-            type: USER_LOADED,
-            payload: res.data,
-          });
-        } catch (error) {
-          console.error(error);
-          dispatch({ type: AUTH_ERROR });
-        }
-      }
-    }
-
-
-
-
-    else {
-      dispatch({ type: AUTH_ERROR })
-    }
-
-
-  };
   
 
 

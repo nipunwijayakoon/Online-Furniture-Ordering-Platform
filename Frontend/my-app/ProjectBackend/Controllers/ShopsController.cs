@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectBackEnd.Models;
 using ProjectBackend.Models;
+using ProjectBackend.Services;
 
 namespace ProjectBackend.Controllers
 {
@@ -15,10 +16,11 @@ namespace ProjectBackend.Controllers
     public class ShopsController : ControllerBase
     {
         private readonly FurnituresDBContext _context;
-
-        public ShopsController(FurnituresDBContext context)
+        private IMailService _mailService;
+        public ShopsController(FurnituresDBContext context, IMailService mailService)
         {
             _context = context;
+            _mailService = mailService;
         }
 
         // GET: api/Shops
@@ -100,10 +102,21 @@ namespace ProjectBackend.Controllers
         [HttpPost]
         public async Task<ActionResult<Shops>> PostShops(Shops shops)
         {
-            _context.Shop.Add(shops);
-            await _context.SaveChangesAsync();
+          
 
-            return CreatedAtAction("GetShops", new { id = shops.ShopID }, shops);
+                _context.Shop.Add(shops);
+                await _context.SaveChangesAsync();
+                await _mailService.SendEmailAsync
+                    (
+                    shops.ShopEmail,
+                    "Registration Successful", "<h1>Hey!, You are succesfully registered as seller in Lanka Furniture Makers!!!! </h1>" +
+                    "<p>Your Login Email : " + shops.ShopEmail +
+                    "<p>Your Password :" + shops.ShopTelNumber +
+                     "<p>Date :" + DateTime.Now
+
+                    );
+                return CreatedAtAction("GetShops", new { id = shops.ShopID }, shops);
+           
         }
 
         // DELETE: api/Shops/5

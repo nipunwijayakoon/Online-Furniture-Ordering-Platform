@@ -14,5 +14,8 @@ namespace ProjectBackend.Models
         public string ShopEmail { get; set; }
         public string ShopOwnerName { get; set; }
         public string ShopTelNumber { get; set; }
+
+        public string UserRole = "Employee";
+        internal int SellerId;
     }
 }

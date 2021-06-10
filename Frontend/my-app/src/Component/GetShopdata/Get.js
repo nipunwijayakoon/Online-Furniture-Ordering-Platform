@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("https://localhost:5001/api/Shoplists")
+      .get("https://lankafurnituremakersapi.azurewebsites.net/api/Shops")
       .then((res) => {
         setShops(res.data);
         setLoading(false);
@@ -35,7 +35,7 @@ function App() {
   useEffect(() => {
     setFilteredShops(
       Shops.filter((Shop) =>
-        Shop.area.toLowerCase().includes(search.toLowerCase())
+        Shop.shopOwnerName.toLowerCase().includes(search.toLowerCase())
       )
     );
   }, [search, Shops]);
@@ -78,15 +78,14 @@ function App() {
 
 
 const ShopDetail = (props) => {
-  const { area,name, sellerFirstName,sellerLastName, telNumber} = props;
+  const { shopOwnerName, shopName, shopEmail} = props;
 
   return (
     <>
       
-      <p> {area}</p>
-
-      <p2>Owner : {sellerFirstName} {sellerLastName}</p2>  
-      <p2>Tel : {telNumber}</p2>
+      <p> {shopOwnerName}</p>
+      <p2>Owner : {shopName} </p2>  
+      <p2>Contact : {shopEmail}</p2>
       <br></br>
       <br></br>
     </>

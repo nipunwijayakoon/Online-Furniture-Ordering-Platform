@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MailKit.Net.Smtp;
+//using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MimeKit;
+//using MimeKit;
 using Microsoft.Extensions.Configuration;
 
 using ProjectBackend.Services;

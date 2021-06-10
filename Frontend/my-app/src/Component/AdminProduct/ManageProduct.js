@@ -70,6 +70,15 @@ DeleteProduct(productID) {
                   
          
                   </div>
+                  <Container>
+                  <Link to='/ProductList'>
+                       <Button style={{Size: '20px', minWidth: '200px', backgroundColor: 'navajowhite',border: '5px solid',borderRadius: '3px', alignItems:'center'}}> Go To Add Products</Button>
+                   </Link>
+                  <Link to='/CustomerDetails'>
+                       <Button style={{Size: '20px', minWidth: '200px', backgroundColor: 'navajowhite',border: '5px solid',borderRadius: '3px', alignItems:'center'}}> Go To Customer Order Details</Button>
+                   </Link>
+                  
+                   </Container>
                   <div>
                   
                    </div>
@@ -114,15 +123,7 @@ DeleteProduct(productID) {
                   </Table> 
                   
                   </div> 
-                  <Container>
-                  <Link to='/ProductList'>
-                       <Button style={{Size: '20px', minWidth: '200px', backgroundColor: 'navajowhite',border: '5px solid',borderRadius: '3px', alignItems:'center'}}> Go To Add Products</Button>
-                   </Link>
-                  <Link to='/CustomerDetails'>
-                       <Button style={{Size: '20px', minWidth: '200px', backgroundColor: 'navajowhite',border: '5px solid',borderRadius: '3px', alignItems:'center'}}> Go To Customer Order Details</Button>
-                   </Link>
-                  
-                   </Container>
+                 
                   <br/>  
                  </div>  
               )  

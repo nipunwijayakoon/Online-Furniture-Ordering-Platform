@@ -1,0 +1,59 @@
+# Query: localhost:5001
+# ContextLines: 1
+
+11 results - 11 files
+
+Project-Backend\Project-Backend\Properties\launchSettings.json:
+  23        "launchUrl": "weatherforecast",
+  24:       "applicationUrl": "https://localhost:5001;http://localhost:5000",
+  25        "environmentVariables": {
+
+ProjectBackend\Properties\launchSettings.json:
+  23        "launchUrl": "weatherforecast",
+  24:       "applicationUrl": "https://localhost:5001;http://localhost:5000;https://lankafurnituremakersapi.azurewebsites.net",
+  25        "environmentVariables": {
+
+src\BuyerSeller\BuyerSeller.js:
+  14      componentDidMount(){
+  15:         axios.get('https://lankafurnituremakersapi.azurewebsites.net/api/Chart')
+  16              .then(res =>{
+
+src\Component\AdminProduct\ManageNewDesign.js:
+  149                          <tr key={design.itemID} style={{   border: '2px solid DimGrey'}}>  
+  150:                           {/* <td><img src ={`https://localhost:5001/${product.src}`} className="piccard"/></td>   */}
+  151                             
+
+src\Component\GetShopdata\Get.js:
+  22      axios
+  23:       .get("https://lankafurnituremakersapi.azurewebsites.net/api/Shoplists")
+  24        .then((res) => {
+
+src\Component\section\Cart.js:
+  122     const Addproduct=(product)=>{  
+  123:         axios.post('https://lankafurnituremakersapi.azurewebsites.net/api/Cartitems',{productName:product.productName,imageName:product.imageName,designcode:randomNum,branch:product.branch,imageSrc:`https://localhost:5001/Images/${product.imageName} `,description:product.description,content:product.content, price:product.price,count:product.count, total:(product.price * product.count)})  
+  124        .then(json => {  
+
+src\Component\Services\FetchData.js:
+  17  componentDidMount(){
+  18:   axios.get("https://lankafurnituremakersapi.azurewebsites.net/api/Customers")
+  19    
+
+src\Component\Trial2\EmployeeList.js:
+  12  
+  13:     const employeeAPI = (url = 'https://lankafurnituremakersapi.azurewebsites.net/api/Emplo') => {
+  14          return {
+
+src\Component\Trial2\ProductList.js:
+  13  
+  14:     const productAPI = (url = 'https://lankafurnituremakersapi.azurewebsites.net/api/Product/') => {
+  15          return {
+
+src\Get2\Linechart.js:
+  14      componentDidMount(){
+  15:         axios.get('https://lankafurnituremakersapi.azurewebsites.net/api/Customers')
+  16              .then(res =>{
+
+src\SellerProduct\SellerProduct.js:
+  11      componentDidMount(){
+  12:         axios.get('https://lankafurnituremakersapi.azurewebsites.net/api/DesignChart')
+  13          .then(res =>{

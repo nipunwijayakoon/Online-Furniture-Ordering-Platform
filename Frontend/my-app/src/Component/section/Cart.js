@@ -120,7 +120,7 @@ export default function Cart(props) {
 
 
    const Addproduct=(product)=>{  
-        axios.post('https://lankafurnituremakersapi.azurewebsites.net/api/Cartitems',{productName:product.productName,imageName:product.imageName,designcode:randomNum,branch:product.branch,imageSrc:`https://localhost:5001/Images/${product.imageName} `,description:product.description,content:product.content, price:product.price,count:product.count, total:(product.price * product.count)})  
+        axios.post('https://lankafurnituremakersapi.azurewebsites.net/api/Cartitems',{productName:product.productName,imageName:product.imageName,designcode:randomNum,branch:product.branch,imageSrc:`https://blobuploadimages.blob.core.windows.net/testcontainer/${product.imageName} `,description:product.description,content:product.content, price:product.price,count:product.count, total:(product.price * product.count)})  
       .then(json => {  
         alert("Product is selected successfully");  
       })  

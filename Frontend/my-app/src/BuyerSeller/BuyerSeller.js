@@ -12,7 +12,7 @@ export class Piechart  extends Component{
     }
 
     componentDidMount(){
-        axios.get('https://localhost:5001/api/Chart')
+        axios.get('https://lankafurnituremakersapi.azurewebsites.net/api/Chart')
             .then(res =>{
                 console.log(res);
                 const ipl = res.data;
@@ -32,10 +32,10 @@ export class Piechart  extends Component{
                                 labels: 'Seller',
                                 data: amount1,
                                 backgroundColor: [
-                                    "#3cb371",
-                                    "#0000FF",
-                                    "#9966FF",
-                                    "#4C4CFF"
+                                    "#FF0000",
+                                    "#00FF00",
+                                    " #0000FF",
+                                    "#C12283"
 
                             ]
 
@@ -50,14 +50,11 @@ export class Piechart  extends Component{
 
     render(){
         return(
-            <div >
-                <Link to='/Admindetails'>
-                    <button >
-                        Admin Details
-                    </button>
-                </Link>
-
-
+            <div  >
+               <br/>
+                <div className="total">
+                <Link to='/Admindetails'><h15> Admin Details</h15></Link>
+                </div>
 
                 <Pie  
                 data = {this.state.Data}

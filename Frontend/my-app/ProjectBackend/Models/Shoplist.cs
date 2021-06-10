@@ -43,8 +43,7 @@ namespace ProjectBackend.Models
         [DataType(DataType.Password)]
         public string RetypeSellerPW { get; set; }
 
-        public string UserRole = "Employee";
-        internal int SellerId;
+        
     
 
 }

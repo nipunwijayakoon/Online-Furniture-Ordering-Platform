@@ -8,8 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MailKit.Net.Smtp;
-using MimeKit;
+//using MailKit.Net.Smtp;
+//using MimeKit;
 
 namespace ProjectBackend.Controllers
 {
@@ -60,26 +60,7 @@ namespace ProjectBackend.Controllers
                     _data.Customers.Add(newcustomer);
                     _data.SaveChanges();
 
-                var message = new MimeMessage();
-                message.From.Add(new MailboxAddress("LANKA FURNITURE MAKERS", "lankafurniture123@gmail.com"));
-                message.To.Add(new MailboxAddress(newcustomer.CustomerFirstName, newcustomer.CustomerEmail));
-                message.Subject = "Registration Success";
-                message.Body = new TextPart("plain")
-                {
-                    Text = "Thank you for register in our company"
-                };
-                using (var client = new SmtpClient())
-                {
-                    client.Connect("smtp.gmail.com", 587, false);
-                    client.Authenticate("lankafurniture123@gmail.com", "Lanka@123");
-
-                    client.Send(message);
-
-                    client.Disconnect(true);
-                }
-
-
-
+            
                 Login user = new Login();
                     user.Email = newcustomer.CustomerEmail;
                     user.Password = newcustomer.CustomerPW;
@@ -97,7 +78,7 @@ namespace ProjectBackend.Controllers
 
                 }
 
-
+        
                 else
                 {
 
@@ -105,7 +86,7 @@ namespace ProjectBackend.Controllers
                 }
 
 
-
+        
 
         }
 
@@ -128,26 +109,8 @@ namespace ProjectBackend.Controllers
                 _data.Shoplist.Add(newseller);
                 _data.SaveChanges();
 
-                var message = new MimeMessage();
-                message.From.Add(new MailboxAddress("LANKA FURNITURE MAKERS", "lankafurniture123@gmail.com"));
-                message.To.Add(new MailboxAddress(newseller.SellerFirstName, newseller.SellerEmail));
-                message.Subject = "Registration Success";
-                message.Body = new TextPart("plain")
-                {
-                    Text = ("Thank you for register in our company as a seller, we hope you will try your best to give better service to the customers" +
-                                "                                                   "  +
-                            "Your account password is:  " +newseller.SellerPW)
-                };
-                using (var client = new SmtpClient())
-                {
-                    client.Connect("smtp.gmail.com", 587, false);
-                    client.Authenticate("lankafurniture123@gmail.com", "Lanka@123");
-
-                    client.Send(message);
-
-                    client.Disconnect(true);
-                }
-
+             
+           
                 Login user = new Login();
                 user.Email = newseller.SellerEmail;
                 user.Password = newseller.SellerPW;
@@ -196,8 +159,8 @@ namespace ProjectBackend.Controllers
                 var CheckCustomerPW = _data.Customers.FirstOrDefault(m=> m.CustomerPW.ToLower() == login.Password);
 
 
-                var CheckSellerEmail = _data.Shoplist.FirstOrDefault(m => m.SellerEmail.ToLower() == login.Email);
-                var CheckSellerPW = _data.Shoplist.FirstOrDefault(m => m.SellerPW.ToLower() == login.Password);
+                var CheckSellerEmail = _data.Shop.FirstOrDefault(m => m.ShopEmail.ToLower() == login.Email);
+                var CheckSellerPW = _data.Shop.FirstOrDefault(m => m.ShopTelNumber.ToLower() == login.Password);
 
 
                 var CheckAdminEmail = _data.Admins.FirstOrDefault(m => m.AdEmail.ToLower() == login.Email);

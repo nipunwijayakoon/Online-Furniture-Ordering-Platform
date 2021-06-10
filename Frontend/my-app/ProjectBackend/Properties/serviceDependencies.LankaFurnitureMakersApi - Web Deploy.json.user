@@ -2,7 +2,7 @@
   "dependencies": {
     "mssql2": {
       "restored": true,
-      "restoreTime": "2021-06-08T15:47:54.9879284Z"
+      "restoreTime": "2021-06-09T03:30:44.1041819Z"
     },
     "mssql1": {
       "restored": true,
@@ -10,10 +10,20 @@
     }
   },
   "parameters": {
+    "LankaFurnitureMakersApi.resourceName": {
+      "Name": "LankaFurnitureMakersApi.resourceName",
+      "Type": null,
+      "Value": "LankaFurnitureMakersApi"
+    },
     "mssql2.subscriptionId": {
       "Name": "mssql2.subscriptionId",
       "Type": "subscription",
       "Value": "106de4c5-5902-437f-8345-7497fe33514a"
+    },
+    "LankaFurnitureMakersApi.resourceGroupLocation": {
+      "Name": "LankaFurnitureMakersApi.resourceGroupLocation",
+      "Type": null,
+      "Value": "southindia"
     },
     "mssql2.resourceGroupName": {
       "Name": "mssql2.resourceGroupName",
@@ -25,10 +35,25 @@
       "Type": "subscription",
       "Value": "106de4c5-5902-437f-8345-7497fe33514a"
     },
+    "LankaFurnitureMakersApi.resourceGroupName": {
+      "Name": "LankaFurnitureMakersApi.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "rgApi"
+    },
     "mssql1.resourceGroupName": {
       "Name": "mssql1.resourceGroupName",
       "Type": "resourceGroup",
       "Value": "BlobUpload-rg"
+    },
+    "LankaFurnitureMakersApi.subscriptionId": {
+      "Name": "LankaFurnitureMakersApi.subscriptionId",
+      "Type": "subscription",
+      "Value": "106de4c5-5902-437f-8345-7497fe33514a"
+    },
+    "subscriptionId": {
+      "Name": "subscriptionId",
+      "Type": "subscription",
+      "Value": "106de4c5-5902-437f-8345-7497fe33514a"
     }
   }
 }

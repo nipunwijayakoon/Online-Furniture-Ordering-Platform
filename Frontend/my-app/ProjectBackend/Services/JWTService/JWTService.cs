@@ -29,7 +29,7 @@ namespace ProjectBackend.Services.JWTService
             // Find User role
             
             var isCustomer = _db.Customers.FirstOrDefault(m => m.CustomerEmail.ToLower() == user.Email.ToLower());
-            var isSeller = _db.Shoplist.FirstOrDefault(m => m.SellerEmail.ToLower() == user.Email.ToLower());
+            var isSeller = _db.Shop.FirstOrDefault(m => m.ShopEmail.ToLower() == user.Email.ToLower());
             var isAdmin = _db.Admins.FirstOrDefault(m => m.AdEmail.ToLower() == user.Email.ToLower());
 
 
@@ -39,7 +39,7 @@ namespace ProjectBackend.Services.JWTService
             if (isSeller != null)
             {
                 currentUserRole = isSeller.UserRole;
-                currentUserId = isSeller.ShopId;
+                currentUserId = isSeller.ShopID;
             }
 
             else if (isAdmin != null)

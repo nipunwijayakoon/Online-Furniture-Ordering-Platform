@@ -35,7 +35,7 @@ namespace ProjectBackend.Controllers
 
             Getamount[0] = _context.Customers.Count();
             Getamount[1] = _context.NewDesign_1.Count();
-            Getamount[2] = _context.Shoplist.Count();
+            Getamount[2] = _context.Shop.Count();
             Getamount[3] = _context.Products.Count();
 
 

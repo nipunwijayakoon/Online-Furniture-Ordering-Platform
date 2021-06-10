@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MailKit.Net.Smtp;
+//using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MimeKit;
+//using MimeKit;
 using ProjectBackEnd.Models;
 using ProjectBackend.Models;
-
+using ProjectBackend.Services;
 
 namespace ProjectBackend.Controllers
 {
@@ -18,10 +18,12 @@ namespace ProjectBackend.Controllers
     public class NewDesignsController : ControllerBase
     {
         private readonly FurnituresDBContext _context;
+        private IMailService _mailService;
 
-        public NewDesignsController(FurnituresDBContext context)
+        public NewDesignsController(FurnituresDBContext context, IMailService mailService)
         {
             _context = context;
+            _mailService = mailService;
         }
 
         // GET: api/NewDesigns
@@ -83,40 +85,28 @@ namespace ProjectBackend.Controllers
         [HttpPost]
         public async Task<ActionResult<NewDesign>> PostNewDesign(NewDesign newDesign)
         {
-            var newDesignWithSameEmail = _context.NewDesign_1.FirstOrDefault(m => m.PersonEmail.ToLower() == newDesign.PersonEmail.ToLower());
-
+         
             
                 _context.NewDesign_1.Add(newDesign);
                 await _context.SaveChangesAsync();
+            await _mailService.SendEmailAsync
+            (
 
 
-                /*await _mailService.SendEmailAsync(customer.CustomerEmail, "Confirm your email", $"<h1>Thank You for registering in Lanka Furnitures</h1>" +
-                   $"<p>Please confirm your email by <a>Clicking here</a></p>");*/
-                var message = new MimeMessage();
-                message.From.Add(new MailboxAddress("LANKA FURNITURE MAKERS", "lankafurniture123@gmail.com"));
-                message.To.Add(new MailboxAddress(newDesign.PersonName, newDesign.PersonEmail));
-                message.Subject = "New Design Uploading Successful";
-                message.Body = new TextPart("plain")
-                {
-                    Text = ("Thank you for using LANKA FURNITURE MAKERS to purchase a New Furniture Design order. Your order is successfully completed and received to the sellers."+
-                            "                                              " +
-                            " Your New Design Code : "+newDesign.NewDesignCode)
-                };
-            
-                using (var client = new SmtpClient())
-                {
-                    client.Connect("smtp.gmail.com", 587, false);
-                    client.Authenticate("lankafurniture123@gmail.com", "Lanka@123");
+            newDesign.PersonEmail,
+                "Order Confirmation for New Design Code : " + newDesign.NewDesignCode,
+                "<p><strong>Thank you for using LANKA FURNITURE MAKERS!!!!!!!</strong></p>" +
+                " <p>Your order is successfully submitted and received to the sellers in your chosen branch. This email is to confirm your recent transaction. </p>" +
+                "<p> Your New Design Code : " + newDesign.NewDesignCode +
+                "<p> Submitted for Branch : " + newDesign.BranchName +
+                "<p>Date :" + DateTime.Now
 
-                    client.Send(message);
 
-                    client.Disconnect(true);
-                }
 
-            
 
-           
-          
+
+        );
+
 
             return CreatedAtAction("GetNewDesign", new { id = newDesign.ItemID }, newDesign);
         }
